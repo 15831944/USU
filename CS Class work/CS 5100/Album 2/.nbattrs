@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<attributes version="1.0">
+   <fileobject name="Album.java">
+      <attr name="class_dependency_java.awt.event.KeyListener" stringvalue="Album.MyKeyListener"/>
+      <attr name="class_dependency_javax.swing.JFrame" stringvalue="Album.AlbumFiles;Album.Progress"/>
+      <attr name="class_dependency_java.awt.event.MouseAdapter" stringvalue="Album.MyMouseListener"/>
+      <attr name="class_dependency_javax.swing.event.PopupMenuListener" stringvalue="Album.PopupMenuMonitor"/>
+      <attr name="class_dependency_javax.swing.JDialog" stringvalue="Album.AboutDialog;Album.GameOverDialog"/>
+      <attr name="class_dependency_java.awt.event.ActionListener" stringvalue="Album.MenuItemListener;Album.LoadListener;Album.RadioMenuItemListener;Album.buttonListener;Album.PopupMenuItemListener"/>
+      <attr name="class_dependency_javax.swing.JMenuItem" stringvalue="Album.MyMenuItem"/>
+      <attr name="class_dependency_javax.swing.JRadioButtonMenuItem" stringvalue="Album.MyRadioButtonItem"/>
+      <attr name="class_dependency_javax.swing.JPanel" stringvalue="Album"/>
+      <attr name="class_dependency_java.awt.image.ImageObserver" stringvalue="Album.IObserver"/>
+   </fileobject>
+</attributes>

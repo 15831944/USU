@@ -1,0 +1,71 @@
+// activeD3D.odl : type library source for ActiveX Control project.
+
+// This file will be processed by the Make Type Library (mktyplib) tool to
+// produce the type library (activeD3D.tlb) that will become a resource in
+// activeD3D.ocx.
+
+#include <olectl.h>
+#include <idispids.h>
+
+[ uuid(8A82C331-DBEA-11D0-8F12-444553540000), version(1.0),
+  helpfile("activeD3D.hlp"),
+  helpstring("activeD3D ActiveX Control module"),
+  control ]
+library ACTIVED3DLib
+{
+	importlib(STDOLE_TLB);
+	importlib(STDTYPE_TLB);
+
+	//  Primary dispatch interface for CActiveD3DCtrl
+
+	[ uuid(8A82C332-DBEA-11D0-8F12-444553540000),
+	  helpstring("Dispatch interface for ActiveD3D Control"), hidden ]
+	dispinterface _DActiveD3D
+	{
+		properties:
+			// NOTE - ClassWizard will maintain property information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_PROP(CActiveD3DCtrl)
+			[id(DISPID_READYSTATE), readonly] long ReadyState;
+			//}}AFX_ODL_PROP
+
+		methods:
+			// NOTE - ClassWizard will maintain method information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_METHOD(CActiveD3DCtrl)
+			//}}AFX_ODL_METHOD
+
+			[id(DISPID_ABOUTBOX)] void AboutBox();
+	};
+
+	//  Event dispatch interface for CActiveD3DCtrl
+
+	[ uuid(8A82C333-DBEA-11D0-8F12-444553540000),
+	  helpstring("Event interface for ActiveD3D Control") ]
+	dispinterface _DActiveD3DEvents
+	{
+		properties:
+			//  Event interface has no properties
+
+		methods:
+			// NOTE - ClassWizard will maintain event information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_EVENT(CActiveD3DCtrl)
+			[id(DISPID_READYSTATECHANGE)] void ReadyStateChange();
+			//}}AFX_ODL_EVENT
+	};
+
+	//  Class information for CActiveD3DCtrl
+
+	[ uuid(8A82C334-DBEA-11D0-8F12-444553540000),
+	  helpstring("ActiveD3D Control"), control ]
+	coclass ActiveD3D
+	{
+		[default] dispinterface _DActiveD3D;
+		[default, source] dispinterface _DActiveD3DEvents;
+	};
+
+
+	//{{AFX_APPEND_ODL}}
+	//}}AFX_APPEND_ODL}}
+};

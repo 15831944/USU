@@ -1,0 +1,58 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>CS 5100 Lecture 4 - Greg Jones</TITLE>
+</HEAD>
+<BODY>
+<DIR>
+
+<B><I><FONT SIZE=5><P>GUI Design Principles&#9;&#9;&#9;&#9;&#9;Lecture 5100.04</P></DIR>
+
+<OL TYPE="A">
+
+</I></FONT><LI>Steps</LI>
+<OL>
+
+<LI>Define the problem the customer wants solved.</LI>
+<LI>Conduct user profile analysis so as to model the user portion of the system.</LI>
+<LI>Conduct task analysis to determine atomic actions and scenarios for accomplishing tasks.</LI>
+<LI>Define the computer objects and functions that correspond to the task domain.</LI>
+<LI>Design the appearance and behavior of the user interface.  Create a prototype.</LI>
+<LI>Evaluate the design by using the prototype.</LI>
+<LI>Modify the analysis and/or design, create a new prototype, and repeat until satisfied.  There may be hundreds of prototypes before we are satisfied.</LI>
+<LI>Typically, there are two approaches to appearance design.</LI>
+<OL TYPE="a">
+
+<LI>The first is bottom-up, in which we first choose the individual features that we want to appear.  We then try to integrate these into a coherent interface.  This tends to be susceptible to "featuritis", in which the user becomes overwhelmed by an incoherent mass if individual actions.</LI>
+<LI>The second is top-down, in which we choose a unifying metaphor, then add such features as fit into the metaphor.  The problem here is that the metaphor must be very carefully chosen, or we will either lose features or fracture the metaphor trying to fit them in.</LI></OL>
+</OL>
+
+<LI>Evaluation must be based on actual experience of typical users in typical circumstances performing typical tasks.</LI>
+<OL>
+
+<LI>"think aloud" evaluation involves asking the user to vocalize all thoughts while using the software.  This gives hints on difficult, confusing and misleading aspects of the interface.</LI>
+<LI>User instrumentation involves using video cameras, eye tracking devices, etc. To determine exactly what actions are performed by the user.  This can be used in conjunction with software instrumentation, in which all input and output events are recorded.  Instrumentation tries to record sequences of atomic actions, the amount of time needed to accomplish each action, the frequency with which one action follows another, the number of errors, and what seemed to cause them, where the user looks on the screen, whether mouse or key interaction is used, etc.</LI>
+<LI>Ethnographic studies observe users in action without interfering.</LI>
+<LI>This information can be used in many ways.  Some of them are:</LI>
+<OL TYPE="a">
+
+<LI>Which windows or buttons should be put next to each other to minimize mouse action, since these are usually used one after the other (principle of locality);</LI>
+<LI>Which actions should be put at the top of the menu hierarchy because they are frequently used, which are unusual and should be put at the bottom;</LI>
+<LI>Which features generate an unusual number of errors ; this is sometimes because the feature doesn't represent the user's concept of what's going one (semantic distance);</LI>
+<LI>Which features require too much effort;</LI>
+<LI>Which atomic actions are never used.</LI></OL>
+</OL>
+
+<LI>Specific elements to consider in any interface:</LI>
+<OL>
+
+<LI>Macro facilities to turn common scenarios into a single atomic action;</LI>
+<LI>Redo/undo facility;</LI>
+<LI>Cut/copy/paste facility with a system-wide clipboard;</LI>
+<LI>On-line documents, help, wizards, and coaching;</LI>
+<LI>Default behavior and appearance to satisfy either the naive users or the largest group of users;</LI>
+<LI>Customization for those who are not satisfied with defaults.</LI></OL>
+</OL>
+</B></BODY>
+</HTML>

@@ -1,0 +1,252 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\client.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\client.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_CLIENT_DIALOG DIALOGEX 0, 0, 131, 132
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "Client"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "Exit",IDOK,29,84,74,14
+    PUSHBUTTON      "List events",IDC_LIST_EVENTS,29,38,74,14
+    PUSHBUTTON      "Add a new event",IDC_ADD_EVENT,29,62,74,14
+    LTEXT           "Distributed Calendaring System",IDC_STATIC,17,14,98,8
+END
+
+IDD_CONFIG_DLG DIALOG DISCARDABLE  0, 0, 324, 60
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,119,34,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,177,34,50,14
+    LTEXT           "Configuration File:",IDC_STATIC,7,15,59,10
+    EDITTEXT        IDC_EDIT_FILENAME,75,14,242,12,ES_AUTOHSCROLL
+END
+
+IDD_ADD_EVENT_DLG DIALOG DISCARDABLE  0, 0, 326, 215
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Add Event"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "Submit",IDOK,118,194,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,183,194,50,14
+    EDITTEXT        IDC_ID,51,14,40,14,ES_AUTOHSCROLL
+    LTEXT           "Id:",IDC_STATIC,7,15,9,8
+    EDITTEXT        IDC_NAME,51,33,227,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_DESC,52,55,226,34,ES_MULTILINE | ES_AUTOVSCROLL
+    LTEXT           "Name:",IDC_STATIC,7,33,22,8
+    LTEXT           "Description:",IDC_STATIC,7,55,38,8
+    EDITTEXT        IDC_NOTE,52,92,226,34,ES_MULTILINE | ES_AUTOVSCROLL
+    LTEXT           "Notes:",IDC_STATIC,7,92,22,8
+    EDITTEXT        IDC_DATE,51,131,100,14,ES_AUTOHSCROLL
+    LTEXT           "Date/Time:",IDC_STATIC,7,130,37,8
+    EDITTEXT        IDC_DURATION,233,131,40,14,ES_AUTOHSCROLL
+    LTEXT           "Duration:",IDC_STATIC,193,132,30,8
+    EDITTEXT        IDC_LOCATION,52,155,225,14,ES_AUTOHSCROLL
+    LTEXT           "Location:",IDC_STATIC,7,156,30,8
+END
+
+IDD_EVENT_LIST DIALOG DISCARDABLE  0, 0, 369, 217
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Event List"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "Exit",IDOK,153,196,50,14
+    EDITTEXT        IDC_START,64,7,73,15,ES_AUTOHSCROLL
+    LTEXT           "Start Date/Time:",IDC_STATIC,7,7,54,8
+    EDITTEXT        IDC_END,205,7,73,15,ES_AUTOHSCROLL
+    LTEXT           "End Date/Time:",IDC_STATIC,147,7,52,8
+    PUSHBUTTON      "Find Events",IDC_QUERY,291,7,71,15
+    EDITTEXT        IDC_LIST,7,46,355,140,ES_AUTOHSCROLL
+    LTEXT           "Events:",IDC_STATIC,7,34,25,8
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904B0"
+        BEGIN
+            VALUE "CompanyName", "\0"
+            VALUE "FileDescription", "client MFC Application\0"
+            VALUE "FileVersion", "1, 0, 0, 1\0"
+            VALUE "InternalName", "client\0"
+            VALUE "LegalCopyright", "Copyright (C) 2001\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "client.EXE\0"
+            VALUE "ProductName", "client Application\0"
+            VALUE "ProductVersion", "1, 0, 0, 1\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_CLIENT_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 124
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 125
+    END
+
+    IDD_ADD_EVENT_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 319
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 208
+    END
+
+    IDD_EVENT_LIST, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 362
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 210
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDP_SOCKETS_INIT_FAILED "Windows sockets initialization failed."
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#endif //_WIN32
+#include "res\client.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

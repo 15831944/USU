@@ -1,0 +1,5 @@
+4
+	"Opponent"100
+	"Player 2	"77
+	"Player 1  "66
+	"Opponent"55

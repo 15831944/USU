@@ -1,0 +1,31 @@
+
+class Object {
+	//pos
+	int x;
+	int y;
+	int z;
+	int rpos;	
+	//velocity
+	velocity v;
+	//rotational velocity
+	rvelocity v;
+	int *xpoints;
+	int *ypoints;
+	int *zpoints;
+	colorref *colors;
+	//functions
+	void updatePos();
+}
+
+int xView;
+int yView;
+int zView;
+int xDir;
+int yDir;
+int zDir;
+//implement sin and cos as degree functions,
+// using a table lookup.  return a numerator and denominator... so as to avoid double arithmetic
+
+void renderObjectInColor();
+void renderObjectBlack();
+	

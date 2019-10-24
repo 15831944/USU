@@ -1,0 +1,9 @@
+So we can have history files in two languages,
+when we're ready to add strings, let's add these strings and then change anywhere in the program
+that calls WriteHistory() to call the version of WriteHistory which passes integers in...
+IDS_PROJECT_SETTINGS	Project Settings		lakdsjfasfd (Russian)
+IDS_SETUP				Setup
+IDS_CHECKOUT			Check Out
+IDS_WETUP				Wet Up
+IDS_GRAPH_SETTINGS		Graph Settings
+IDS_SETTINGS_CHANGED	settings changed

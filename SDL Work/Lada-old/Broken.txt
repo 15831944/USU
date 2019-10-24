@@ -1,0 +1,14 @@
+Things Broken:
+
+Put pictures in Setup and maybe in Checkout
+Remover 50k from Create File every
+Run a loop to try 5 times to get a good value from CR10X
+Upload Program still has problems
+Remove the CR10 Diagnostic Info Button
+Fix the text in the first message box when making a new project
+Reach a consensus on how we are doing the System Diagnostics dialog 1 off or not
+Why does the graph sometimes go off the bottom of it's box?
+Make sure Flag 3 is set when final storage is going
+Are we using FS or FSL files? TELL GAIL PLEASE!!!!
+When you go to upload a program and cancel the program crashes
+

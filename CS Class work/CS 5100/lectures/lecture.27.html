@@ -1,0 +1,132 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>CS 5100 Lecture 27 - Greg Jones</TITLE>
+<META NAME="Template" CONTENT="C:\Program Files\Microsoft Office\Templates\Lecture Notes.dot">
+</HEAD>
+<BODY>
+
+<B><I><FONT SIZE=4><P>Exception, Errors, Applets, Audio Toolkits, Peers, Data Transfer, Printing Lecture 5100.27</P>
+<OL TYPE="A">
+
+</I></FONT><LI>AWTExceptions are a good generic exception to throw in specialized cases, since they don’t require another file in which you define something else which extends the Exception class.</LI>
+<OL>
+
+<LI>The general format of exception handling is:</LI>
+
+<P>try { questionable code which might &quot;throw new AWTExecption(String)&quot; }</P>
+<P>catch (AWTException thrownException) { code using thrownException.getMessage() }</P>
+<P>finally { code which will always be executed, regardless of how we exited the try block }</P>
+
+<LI>Specifically, the constructor is of the form AWTExecption(String).</LI></OL>
+
+<LI>IllegalComponentStateExceptions are thrown when the component is not ready to service some call.  The constructor takes a string message as an argument.  This is a run-time exception, so doesn’t need to be caught.</LI>
+<LI>AWTError is a significant error.  The application will die if it isn’t caught, although there isn’t often a lot that can be done.  The constructor takes a message.</LI>
+<LI>The Applet class is not really a part of AWT, but uses a lot of the same facilities.</LI>
+<OL>
+
+<LI>An applet is a small, downloadable, secure application.   The purpose is for a server to avoid running processes for clients using its own resources, and for clients to avoid network loads involved in remote services.  Applets run in html pages under browsers or an applet viewer.</LI>
+<LI>The lifetime of an applet is:</LI>
+<OL TYPE="a">
+
+<LI>init, similar to another class’s constructor and main;</LI>
+<LI>cycles of start and stop, when the applet is visible or not;</LI>
+<LI>dispose, which may never happen, but allows the applet to free any resources not given up by the garbage collector.</LI></OL>
+
+<LI>The constructor has no parameters.</LI>
+<LI>The setStub(AppletStub) method is called by the viewer, which is a stub, to register itself as the applet’s controller and context.</LI>
+<LI>getAppletContext returns the context of the stub, which will allow some degree of communication with the world of the browser.</LI>
+<LI>getCodeBase and getDocumentBase return the URLs of the applet class file and the html page within which it is being viewed.  These can be used to obtain other applets, pages, audio clips, etc.</LI>
+<LI>The getParameter(String paramname) method allows the applet to obtain data from the html page.</LI>
+<OL TYPE="a">
+
+<LI>The &lt;PARAM  NAME = namestring    VALUE = valuestring&gt; tag can be used by the page author to customize the applet without access to the code.  This is similar to a properties file.</LI>
+<LI>If multiple parameters are needed, we can either have multiple tags, or create a value string with multiple values in it.  In that case, it is useful to apply the StringTokenizer class.</LI></OL>
+
+<LI>getAppletInfo is called by the browser and produces a string of information about the applet.</LI>
+<LI>getParameterInfo is called by the browser and produces an array of string triples giving name, type, and description information about the parameters needed by the applet.</LI>
+<LI>showStatus requests display of a message in the browser status window.</LI>
+<LI>isActive tells whether the applet has been started.</LI>
+<LI>getLocale returns internationalization information.</LI>
+<LI>resize attempts to change the space the browser provides for the applet.  Netscape won’t allow resizing, and won’t run an applet that uses resize or setBounds or setSize.</LI>
+<LI>getImage works like that of the Toolkit class.  It can either work with the URL of a file, or a URL representing a file or directory and a filename in that directory or sibling of that file.</LI>
+<LI>getAudioClip is similar to the image call.</LI>
+<LI>play takes a URL and possible filename as arguments, and plays the file, but doesn’t load the clip.  This is inefficient when you want multiple renditions of the clip.  Use getAudioClip instead in this case.</LI></OL>
+
+<LI>The AudioClip class has methods for play, loop, and stop.  Clips should always be stopped before an applet stops.</LI>
+<LI>The AppletContext class provides information for the applet.</LI>
+<OL>
+
+<LI>getApplet and getApplets can find one or all applets associated with the page and/or browser.</LI>
+<LI>showDocument displays a new page, either in the place of the applet, or in other locations as indicated.</LI></OL>
+
+<LI>The AppletStub interface largely provides routines which mirror those of the Applet class.</LI>
+<LI>Audio classes for application:</LI>
+<OL>
+
+<LI>AudioData is essentially a clip.</LI>
+<LI>AudioStream is a file of data to load into a clip.</LI>
+<LI>AudioStreamSequence is a sequence of clips.</LI></OL>
+
+<LI>AudioPlayer will &quot;display&quot; a clip.  Its methods are start and stop.  Look in sun.audio for it.</LI>
+<LI>Peers exist to provide concrete, platform-specific implementations of basic components.  The interface for each component is found in java.awt.peer.  Of course, there are no Java implementations of peers.</LI>
+<OL>
+
+<LI>An additional peer interface, not related to any component, is LightweightPeer.  The book's treatment of it is obviously confused, the Symantec help package says nothing about it, and I don't understand it.</LI>
+<LI>Peers are not created when the object is, but rather when addNotify is called for the object.  The peer can be destroyed while the object still exists, by removeNotify.  Of course, at that point, the component would not appear on the screen.</LI></OL>
+
+<LI>The Toolkit abstract class is implemented by platform-specific code.</LI>
+<OL>
+
+<LI>The constructor can't be called; we get a toolkit by the static function Toolkit.getDefaultToolkit or by component.getToolkit.</LI>
+<LI>The toolkit delivered by these calls depends on the awt.toolkit property.</LI>
+<LI>We have seen a number of toolkit calls in other chapters:</LI>
+<OL TYPE="a">
+
+<LI>Image - get, prepare, check, create</LI>
+<LI>get - ColorModel, FontMetrics, FontList, MenuShortCutKeyMask, SystemEventQueue, Property</LI>
+<LI>Utilities - getScreenResolution, getScreenSize, getPageSize, getPageResolution</LI></OL>
+
+<LI>Some new methods</LI>
+<OL TYPE="a">
+
+<LI>GetPrintJob will be described later</LI>
+<LI>GetSystemClipboard will be described later</LI>
+<LI>beep rings the terminal bell</LI>
+<LI>sync flushes the display</LI></OL>
+</OL>
+
+<LI>The Clipboard class is defined in java.awt.datatransfer.  It permits the transfer of data between applications, including pairs of Java and non-Java applications.  These are cut, copy, and paste operations.  getSystemClipboard returns the system clipboard for use.</LI>
+<OL>
+
+<LI>So far as Java is concerned, a clipboard at the moment can contain only a string, and only one string at a time.  The contents of a clipboard have an owner, who is notified when the contents are overwritten.</LI>
+<LI>The strings in the clipboard can be represented in different ways.  For instance, the two supported "flavors" are String and StringBuffer.  These flavors are two of the standard MIME content types.</LI>
+<LI>Basically, objects implementing the Transferable interface can be manipulated with the Clipboard methods setContents and getContents.  These objects can then be translated into String or StringBuffer by getTransferableData.</LI>
+<LI>While there is a single system clipboard, private clipboards can also be created.</LI></OL>
+
+<LI>The PrintJob class provides a "session" with the system printer.  getPrintJob returns a new print job.</LI>
+<OL>
+
+<LI>The arguments to getPrintJob are the governing frame, a print job name, and properties.  The properties can be set at "get" time, or can be returned by the toolkit.  They don't work in Windows, but in Motif you can specify things like the destination printer, how many copies to make, and the size and orientation of the paper.</LI>
+<LI>Methods</LI>
+<OL TYPE="a">
+
+<LI>The related Toolkit methods of getPageSize and getPageResolution help layout the printed page.</LI>
+<LI>getGraphics returns an object for drawing to the page.</LI>
+<LI>lastPageFirst indicates whether the pages are printed in reverse order.</LI></OL>
+
+<LI>The printing process:</LI>
+<OL TYPE="a">
+
+<LI>getPrintJob</LI>
+<LI>Get the printJob graphics.  For some printers, it may be necessary to call Graphics.setColor(Color.black) in order to get a visible print.</LI>
+<LI>Either draw with the graphics, or call the component methods print, printAll, and the container method printComponents.  These latter dump screen shots.</LI>
+<LI>Graphics.dispose, which prints a page.</LI>
+<LI>If necessary, repeat steps b, c, and d for additional pages</LI>
+<LI>PrintJob.end</LI></OL>
+</OL>
+</OL>
+
+</B></BODY>
+</HTML>

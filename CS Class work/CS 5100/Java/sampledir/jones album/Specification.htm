@@ -1,0 +1,235 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./Specification_files/filelist.xml">
+<title>Assignment 3 is due on Feb</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Greg Jones</o:Author>
+  <o:LastAuthor>Greg Jones</o:LastAuthor>
+  <o:Revision>2</o:Revision>
+  <o:TotalTime>33</o:TotalTime>
+  <o:Created>2002-01-30T23:26:00Z</o:Created>
+  <o:LastSaved>2002-01-30T23:26:00Z</o:LastSaved>
+  <o:Pages>2</o:Pages>
+  <o:Words>452</o:Words>
+  <o:Characters>2579</o:Characters>
+  <o:Company>Utah State University</o:Company>
+  <o:Lines>21</o:Lines>
+  <o:Paragraphs>5</o:Paragraphs>
+  <o:CharactersWithSpaces>3167</o:CharactersWithSpaces>
+  <o:Version>9.3821</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:DisplayHorizontalDrawingGridEvery>0</w:DisplayHorizontalDrawingGridEvery>
+  <w:DisplayVerticalDrawingGridEvery>0</w:DisplayVerticalDrawingGridEvery>
+  <w:UseMarginsForDrawingGridOrigin/>
+  <w:Compatibility>
+   <w:FootnoteLayoutLikeWW8/>
+   <w:ShapeLayoutLikeWW8/>
+   <w:AlignTablesRowByRow/>
+   <w:ForgetLastTabAlignment/>
+   <w:LayoutRawTableWidth/>
+   <w:LayoutTableRowsApart/>
+  </w:Compatibility>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:"MS Mincho";
+	panose-1:0 0 0 0 0 0 0 0 0 0;
+	mso-font-alt:"\FF2D\FF33 \660E\671D";
+	mso-font-charset:128;
+	mso-generic-font-family:roman;
+	mso-font-format:other;
+	mso-font-pitch:fixed;
+	mso-font-signature:1 134676480 16 0 131072 0;}
+@font-face
+	{font-family:"\@MS Mincho";
+	panose-1:0 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:128;
+	mso-generic-font-family:roman;
+	mso-font-format:other;
+	mso-font-pitch:fixed;
+	mso-font-signature:1 134676480 16 0 131072 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoPlainText, li.MsoPlainText, div.MsoPlainText
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 66.0pt 1.0in 66.0pt;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+</head>
+
+<body lang=EN-US style='tab-interval:.5in'>
+
+<div class=Section1>
+
+<p class=MsoPlainText><span style='mso-fareast-font-family:"MS Mincho"'>CS 5100
+– Spring, 2002 - Assignment 3<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='mso-fareast-font-family:"MS Mincho"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='mso-fareast-font-family:"MS Mincho"'>Write a
+Java program which will display a main window containing a menu bar.<span
+style="mso-spacerun: yes">  </span>The menu bar should provide two drop down
+menus, File on the left and Help on the right.<span style="mso-spacerun: yes"> 
+</span>The File drop down menu provides two selections: Open (with a Control-O
+shortcut) and Exit.<span style="mso-spacerun: yes">  </span>The Help drop down
+menu provides two selections: About.. and Album Files...<span
+style="mso-spacerun: yes">  </span>Otherwise, the frame encloses a framed blank
+500x500 pixel space, with additional space below it to accommodate two buttons
+and a label.<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='mso-fareast-font-family:"MS Mincho"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='mso-fareast-font-family:"MS Mincho"'>The
+Open selection presents a file selection dialog which allows the user to open
+an album file.<span style="mso-spacerun: yes">  </span>Only *.alb files should
+be displayed in the dialog.<span style="mso-spacerun: yes">  </span>At that
+point, a label within the frame shows the name of the album file opened, and a
+button entitled Start appears.<span style="mso-spacerun: yes">  </span>When the
+user pushes the Start button, its title changes to Next Photo, another button
+entitled Previous Photo appears, and the first GIF or JPG file listed in the
+album file appears in the space.<span style="mso-spacerun: yes">  </span>A
+caption describing the photo also appears below the space.<span
+style="mso-spacerun: yes">  </span>Photos of different dimensions than 500x500
+should be scaled to these dimensions.<span style="mso-spacerun: yes"> 
+</span>From then on, the user can manipulate to Next and Previous buttons to
+sequence through the GIF or JPG files listed in the album file.<span
+style="mso-spacerun: yes">  </span>When the last photo is being displayed, the
+Next Photo button is inactivated.<span style="mso-spacerun: yes">  </span>When
+the fist photo is being displayed, the Previous Photo button is
+inactivated.<span style="mso-spacerun: yes">  </span>The buttons should also
+respond to the cursor control keys left and right arrows.<span
+style="mso-spacerun: yes">  </span>The user can open another album file and see
+its contents after having opened a previous album file.<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='mso-fareast-font-family:"MS Mincho"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='mso-fareast-font-family:"MS Mincho"'>The
+Exit selection causes the program to terminate.<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='mso-fareast-font-family:"MS Mincho"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='mso-fareast-font-family:"MS Mincho"'>The
+About selection causes a dialog to appear which identifies the author and any
+other important identifying information about the application.<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='mso-fareast-font-family:"MS Mincho"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='mso-fareast-font-family:"MS Mincho"'>The
+Album Files selection causes a dialog to appear which identifies the file
+extension (.alb) of album files and the format of album files read by the
+application.<span style="mso-spacerun: yes">  </span>That format is:<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='mso-fareast-font-family:"MS Mincho"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='mso-fareast-font-family:"MS Mincho"'>Number
+of photos listed in album file<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='mso-fareast-font-family:"MS Mincho"'>First
+PJG or GIF file containing a photo (absolute path or path relative to the<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='mso-fareast-font-family:"MS Mincho"'><span
+style="mso-spacerun: yes">  </span>directory in which the album file is
+located)<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='mso-fareast-font-family:"MS Mincho"'>Caption
+for first photo.<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='mso-fareast-font-family:"MS Mincho"'>&lt;Additional
+pairs of file names and captions&gt;<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='mso-fareast-font-family:"MS Mincho"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='mso-fareast-font-family:"MS Mincho"'>Point
+Distribution<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='mso-fareast-font-family:"MS Mincho"'>Frame
+appears around photo display space (4 points)<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='mso-fareast-font-family:"MS Mincho"'>File
+Open dialog displayed (4 points)<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='mso-fareast-font-family:"MS Mincho"'>Current
+working directory shown as the initial directory (4 points)<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='mso-fareast-font-family:"MS Mincho"'>File
+Open dialog filters to *.alb (4 points)<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='mso-fareast-font-family:"MS Mincho"'>File
+Open dialog causes album files to be opened (4 points)<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='mso-fareast-font-family:"MS Mincho"'>Album
+file name appears upon open (4 points)<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='mso-fareast-font-family:"MS Mincho"'>Start
+button appears upon open (4 points)<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='mso-fareast-font-family:"MS Mincho"'>Next
+and Previous buttons appear (4 points)<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='mso-fareast-font-family:"MS Mincho"'>Next
+and Previous buttons function as specified (4 points)<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='mso-fareast-font-family:"MS Mincho"'>Buttons
+respond to cursor control keys (14 points)<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='mso-fareast-font-family:"MS Mincho"'>Next
+and Previous buttons are disabled as specified (4 points)<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='mso-fareast-font-family:"MS Mincho"'>JPG
+photos are displayed (6 points)<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='mso-fareast-font-family:"MS Mincho"'>GIF photos
+are displayed (6 points)<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='mso-fareast-font-family:"MS Mincho"'>Photos
+are scaled (14 points)<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='mso-fareast-font-family:"MS Mincho"'>Photo
+captions displayed (6 points)<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='mso-fareast-font-family:"MS Mincho"'>Subsequent
+album files can be opened and displayed (6 points)<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='mso-fareast-font-family:"MS Mincho"'>About
+dialog appears as required (4 points)<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='mso-fareast-font-family:"MS Mincho"'>Album
+Files dialog appears as required (4 points)<o:p></o:p></span></p>
+
+</div>
+
+</body>
+
+</html>

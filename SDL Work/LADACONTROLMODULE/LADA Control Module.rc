@@ -1,0 +1,1119 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\LADA Control Module.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#include ""afxprint.rc""       // printing/print preview resources\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_GRAPHBUTTONFORM_TMPL ICON    DISCARDABLE     "sdi.ico"
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\LADA Control Module.ico"
+IDR_LADATYPE            ICON    DISCARDABLE     "res\\LADA Control ModuleDoc.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDR_MAINFRAME           BITMAP  MOVEABLE PURE   "res\\Toolbar.bmp"
+IDB_NCONNECTED          BITMAP  DISCARDABLE     "res\\disconnect.bmp"
+IDB_CONNECTED           BITMAP  DISCARDABLE     "res\\connect.bmp"
+IDB_CR10FIVA            BITMAP  DISCARDABLE     "res\\bitmap1.bmp"
+IDB_COLDTOOLBAR         BITMAP  DISCARDABLE     "res\\COLDTOOL.BMP"
+IDB_HOTTOOLBAR          BITMAP  DISCARDABLE     "res\\HOTTOOLB.BMP"
+IDB_JUNK                BITMAP  DISCARDABLE     "res\\bitmap4.bmp"
+IDB_PROGRAMBMP          BITMAP  DISCARDABLE     "res\\MIR-NASA (light).bmp"
+IDB_CHECKBOXES          BITMAP  DISCARDABLE     "res\\bitmap5.bmp"
+IDB_BITMAP1             BITMAP  DISCARDABLE     "res\\bmp00001.bmp"
+IDB_BITMAP2             BITMAP  DISCARDABLE     "res\\bmp00002.bmp"
+IDB_BITMAP3             BITMAP  DISCARDABLE     "res\\bitmap6.bmp"
+IDB_BITMAP4             BITMAP  DISCARDABLE     "res\\bitmap7.bmp"
+FLOPPYU                 BITMAP  DISCARDABLE     "res\\bmp00003.bmp"
+FLOPPYD                 BITMAP  DISCARDABLE     "res\\floppyd.bmp"
+FLOPPYF                 BITMAP  DISCARDABLE     "res\\bmp00005.bmp"
+PCMCIAU                 BITMAP  DISCARDABLE     "res\\bmp00006.bmp"
+PCMCIAD                 BITMAP  DISCARDABLE     "res\\bmp00007.bmp"
+PCMCIAF                 BITMAP  DISCARDABLE     "res\\bmp00008.bmp"
+FLOPPYX                 BITMAP  DISCARDABLE     "res\\bmp00004.bmp"
+PCMCIAX                 BITMAP  DISCARDABLE     "res\\bmp00009.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Toolbar
+//
+
+IDR_MAINFRAME TOOLBAR DISCARDABLE  16, 15
+BEGIN
+    BUTTON      ID_FILE_NEW
+    BUTTON      ID_FILE_OPEN
+    BUTTON      ID_FILE_SAVE
+    SEPARATOR
+    BUTTON      ID_EDIT_CUT
+    BUTTON      ID_EDIT_COPY
+    BUTTON      ID_EDIT_PASTE
+    SEPARATOR
+    BUTTON      ID_FILE_PRINT
+    SEPARATOR
+    BUTTON      ID_APP_ABOUT
+    BUTTON      ID_CONTEXT_HELP
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MAINFRAME MENU PRELOAD DISCARDABLE 
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&New\tCtrl+N",                ID_FILE_NEW
+        MENUITEM "&Open...\tCtrl+O",            ID_FILE_OPEN
+        MENUITEM "&Save\tCtrl+S",               ID_FILE_SAVE
+        MENUITEM "Save &As...",                 ID_FILE_SAVE_AS
+        MENUITEM SEPARATOR
+        MENUITEM "&Print...\tCtrl+P",           ID_FILE_PRINT
+        MENUITEM "Print Pre&view",              ID_FILE_PRINT_PREVIEW
+        MENUITEM "P&rint Setup...",             ID_FILE_PRINT_SETUP
+        MENUITEM SEPARATOR
+        MENUITEM "Sen&d...",                    ID_FILE_SEND_MAIL
+        MENUITEM SEPARATOR
+        MENUITEM "Recent File",                 ID_FILE_MRU_FILE1, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit",                       ID_APP_EXIT
+    END
+    POPUP "&Edit"
+    BEGIN
+        MENUITEM "&Undo\tCtrl+Z",               ID_EDIT_UNDO
+        MENUITEM SEPARATOR
+        MENUITEM "Cu&t\tCtrl+X",                ID_EDIT_CUT
+        MENUITEM "&Copy\tCtrl+C",               ID_EDIT_COPY
+        MENUITEM "&Paste\tCtrl+V",              ID_EDIT_PASTE
+    END
+    POPUP "&View"
+    BEGIN
+        MENUITEM "&Toolbar",                    ID_VIEW_TOOLBAR
+        MENUITEM "&Status Bar",                 ID_VIEW_STATUS_BAR
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&Help Topics",                ID_HELP_FINDER
+        MENUITEM SEPARATOR
+        MENUITEM "&About LADA Control Module...", ID_APP_ABOUT
+    END
+END
+
+IDR_GRAPHBUTTONFORM_TMPL MENU PRELOAD DISCARDABLE 
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&New\tCtrl+N",                ID_FILE_NEW
+        MENUITEM "&Open...\tCtrl+O",            ID_FILE_OPEN
+        MENUITEM "&Save\tCtrl+S",               ID_FILE_SAVE
+        MENUITEM "Save &As...",                 ID_FILE_SAVE_AS
+        MENUITEM SEPARATOR
+        MENUITEM "&Print...\tCtrl+P",           ID_FILE_PRINT
+        MENUITEM "Print Pre&view",              ID_FILE_PRINT_PREVIEW
+        MENUITEM "P&rint Setup...",             ID_FILE_PRINT_SETUP
+        MENUITEM SEPARATOR
+        MENUITEM "Recent File",                 ID_FILE_MRU_FILE1, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit",                       ID_APP_EXIT
+    END
+    POPUP "&Edit"
+    BEGIN
+        MENUITEM "&Undo\tCtrl+Z",               ID_EDIT_UNDO
+        MENUITEM SEPARATOR
+        MENUITEM "Cu&t\tCtrl+X",                ID_EDIT_CUT
+        MENUITEM "&Copy\tCtrl+C",               ID_EDIT_COPY
+        MENUITEM "&Paste\tCtrl+V",              ID_EDIT_PASTE
+    END
+    POPUP "&View"
+    BEGIN
+        MENUITEM "&Toolbar",                    ID_VIEW_TOOLBAR
+        MENUITEM "&Status Bar",                 ID_VIEW_STATUS_BAR
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&About sd12...",              ID_APP_ABOUT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_MAINFRAME ACCELERATORS PRELOAD MOVEABLE PURE 
+BEGIN
+    "N",            ID_FILE_NEW,            VIRTKEY, CONTROL
+    "O",            ID_FILE_OPEN,           VIRTKEY, CONTROL
+    "S",            ID_FILE_SAVE,           VIRTKEY, CONTROL
+    "P",            ID_FILE_PRINT,          VIRTKEY, CONTROL
+    "Z",            ID_EDIT_UNDO,           VIRTKEY, CONTROL
+    "X",            ID_EDIT_CUT,            VIRTKEY, CONTROL
+    "C",            ID_EDIT_COPY,           VIRTKEY, CONTROL
+    "V",            ID_EDIT_PASTE,          VIRTKEY, CONTROL
+    VK_BACK,        ID_EDIT_UNDO,           VIRTKEY, ALT
+    VK_DELETE,      ID_EDIT_CUT,            VIRTKEY, SHIFT
+    VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL
+    VK_INSERT,      ID_EDIT_PASTE,          VIRTKEY, SHIFT
+    VK_F6,          ID_NEXT_PANE,           VIRTKEY 
+    VK_F6,          ID_PREV_PANE,           VIRTKEY, SHIFT
+    VK_F1,          ID_CONTEXT_HELP,        VIRTKEY, SHIFT
+    VK_F1,          ID_HELP,                VIRTKEY 
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_LADASETUP_DIALOG DIALOGEX 0, 0, 519, 298
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "LADASetup"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Next->",ID_NEXT,379,277,50,14
+    PUSHBUTTON      "<-Back",ID_BACK,317,277,50,14
+    PUSHBUTTON      "&Help",ID_HELP,255,277,50,14
+    LTEXT           "Step 1",IDC_STEP,19,17,30,13
+    CONTROL         "Check1",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,260,20,248,10
+    CONTROL         "Check2",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,260,49,248,10
+    CONTROL         "Check3",IDC_CHECK3,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,260,76,248,10
+    CONTROL         "Check4",IDC_CHECK4,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,260,105,248,10
+    CONTROL         "Check5",IDC_CHECK5,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,260,132,248,10
+    CONTROL         "",IDC_PICTURE,"Static",SS_BITMAP | SS_CENTERIMAGE | 
+                    SS_REALSIZEIMAGE,53,37,155,112,WS_EX_DLGMODALFRAME | 
+                    WS_EX_CLIENTEDGE
+    CONTROL         "Check6",IDC_CHECK6,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,260,161,248,10
+    CONTROL         "Check7",IDC_CHECK7,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,260,188,248,10
+    CONTROL         "Check8",IDC_CHECK8,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,260,217,248,10
+    CONTROL         "Check9",IDC_CHECK9,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,260,244,248,10
+    LTEXT           "Title",IDC_TITLE,63,17,187,12
+    GROUPBOX        "Instructions",IDC_TEXT,24,166,213,102
+END
+
+IDD_LADADIAG_DIALOG DIALOGEX 0, 0, 441, 329
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "LADADIAG"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Finish",IDOK,384,22,50,14
+    CONTROL         "List1",IDC_DIAGNOSTICLIST,"SysListView32",LVS_REPORT | 
+                    WS_BORDER | WS_TABSTOP,17,7,331,287
+    PUSHBUTTON      "Start",IDC_START,384,7,50,14
+END
+
+IDD_ABOUTBOX DIALOG DISCARDABLE  0, 0, 269, 81
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About LADA Control Module"
+FONT 8, "MS Sans Serif"
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    LTEXT           "LADA Control Module Version 1.0",IDC_ABOUT_TEXT_1,40,10,
+                    119,8,SS_NOPREFIX
+    LTEXT           "Copyright (C) 2000",IDC_ABOUT_TEXT_2,40,27,119,8
+    DEFPUSHBUTTON   "OK",IDOK,212,7,50,14,WS_GROUP
+    LTEXT           "Programmed by Mark Salisbury and John Mulholland",
+                    IDC_ABOUT_TEXT_3,40,44,208,8
+    LTEXT           "Space Dynamics Laboratory, Logan Utah USA",
+                    IDC_ABOUT_TEXT_4,40,61,148,8
+END
+
+IDD_LADACONTROLMODULE_FORM DIALOGEX 0, 0, 223, 351
+STYLE WS_CHILD
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    PUSHBUTTON      "Upload Program",IDC_BUTTON2,121,121,95,14
+    PUSHBUTTON      "Start Communication",IDC_BUTTON1,17,122,95,14
+    PUSHBUTTON      "Break Communication",IDC_BUTTON3,17,142,95,14
+    GROUPBOX        "CR10 Communication Functions",IDC_TEXT6,7,108,209,60
+    CONTROL         140,IDC_CONNECTED,"Static",SS_BITMAP | SS_NOTIFY,19,23,
+                    36,33,WS_EX_CLIENTEDGE
+    GROUPBOX        "Communication Status",IDC_TEXT1,7,7,112,60
+    LTEXT           "Status",IDC_TEXT2,63,21,49,10
+    LTEXT           "Not Connected",IDC_TEXT3,63,34,49,25
+    GROUPBOX        "CR10 Status",IDC_TEXT4,7,71,113,34
+    LTEXT           "CR10 Time",IDC_TEXT5,25,86,36,12,SS_CENTERIMAGE
+    LTEXT           "",IDC_CR10TIME,65,86,45,12,SS_CENTERIMAGE | SS_SUNKEN
+    PUSHBUTTON      "Change Time",IDC_BUTTON4,121,142,95,14
+    PUSHBUTTON      "Take Silent Picture",IDC_BUTTON5,125,175,79,14
+    LTEXT           "Retrieval time for input locations:",IDC_STATIC,15,199,
+                    103,8
+    LTEXT           "J Command Time:",IDC_STATIC,7,231,57,8
+    LTEXT           "K Command Time:",IDC_STATIC,7,249,58,8
+    LTEXT           "Max:",IDC_STATIC,107,218,16,8
+    LTEXT           "Other Time:",IDC_STATIC,25,263,38,8
+    PUSHBUTTON      "Set Input Location",IDC_BUTTON12,18,175,88,14
+    LTEXT           "Threads in Function:",IDC_STATIC,7,283,66,8
+    LTEXT           "Threads in Function:",IDC_STATIC,7,298,66,8
+    LTEXT           "Threads in Function:",IDC_STATIC,7,313,66,8
+    EDITTEXT        IDC_EDITDELAY,77,327,40,14,ES_AUTOHSCROLL
+    LTEXT           "Extra Delay",IDC_STATIC,36,328,37,8
+    EDITTEXT        IDC_TW1,79,283,36,13,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_TW2,79,297,36,13,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_TW3,79,311,36,13,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_RETR_TIME,41,210,28,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_JTIME,70,229,28,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_JTIMEMAX,103,229,28,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_KTIME,70,246,28,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_KTIMEMAX,103,246,28,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_OTIME,70,263,28,14,ES_AUTOHSCROLL | ES_READONLY
+    EDITTEXT        IDC_OTIMEMAX,103,263,28,14,ES_AUTOHSCROLL | ES_READONLY
+END
+
+IDR_MAINFRAME DIALOG DISCARDABLE  0, 0, 330, 16
+STYLE WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "Auto-Wrap",IDC_AUTOWRAP,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,8,3,50,10
+    PUSHBUTTON      "Graph Item List",IDC_EDITLIST,62,1,56,14
+END
+
+IDD_GRAPHBUTTONFORM_FORM DIALOG DISCARDABLE  0, 0, 159, 252
+STYLE WS_CHILD
+FONT 8, "MS Sans Serif"
+BEGIN
+END
+
+RENAME_LOCATION DIALOG DISCARDABLE  0, 0, 178, 98
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,41,77,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,99,77,50,14
+    CTEXT           "",IDC_WIN_TEXT,13,7,55,14,SS_CENTERIMAGE
+    CTEXT           "Old Name",IDC_STATIC,37,29,32,14,SS_CENTERIMAGE
+    EDITTEXT        IDC_NEW_NAME,75,49,89,14,ES_WANTRETURN
+    CTEXT           "",IDC_NUMBER,75,7,23,14,SS_CENTERIMAGE | SS_SUNKEN
+    LTEXT           "",IDC_OLD_NAME,75,29,89,14,SS_CENTERIMAGE | SS_SUNKEN
+    CTEXT           "New Name",IDC_STATIC,33,49,36,14,SS_CENTERIMAGE
+END
+
+PROGRESS_DIALOG DIALOG DISCARDABLE  0, 0, 186, 77
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "Cancel",IDCANCEL,67,54,50,14
+    CONTROL         "Progress1",IDC_PROGRESS1,"msctls_progress32",PBS_SMOOTH | 
+                    WS_BORDER,25,33,134,14
+    CTEXT           "",IDC_WINDOW_TEXT,7,7,172,22,SS_CENTERIMAGE
+    CTEXT           "100%",IDC_PERCENT,162,33,17,14,SS_CENTERIMAGE
+END
+
+MONITOR_DIALOG DIALOG DISCARDABLE  0, 0, 321, 210
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Choose Input Locations to Save and Monitor"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LISTBOX         IDC_A_LOCATIONS,13,59,112,119,LBS_MULTIPLESEL | 
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    CTEXT           "Available Input Locations",IDC_TEXT3,13,30,70,21,
+                    SS_SUNKEN
+    LISTBOX         IDC_S_LOCATIONS,137,59,113,119,LBS_MULTIPLESEL | 
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Insert ->",IDC_INSERT,13,182,113,21
+    PUSHBUTTON      "<- Remove",IDC_REMOVE,139,182,111,21
+    CTEXT           "Selected Input Locations",IDC_TEXT4,138,30,70,21,
+                    SS_SUNKEN
+    PUSHBUTTON      "Rename Location",IDC_RENAME_LOCATION,264,77,50,24,
+                    BS_CENTER | BS_VCENTER | BS_MULTILINE
+    DEFPUSHBUTTON   "OK",IDOK,264,7,50,24
+    PUSHBUTTON      "Cancel",IDCANCEL,264,180,50,23
+    PUSHBUTTON      "    Sort Locations",IDC_SORT_LOCATIONS,264,112,50,23,
+                    BS_CENTER | BS_VCENTER | BS_MULTILINE
+    PUSHBUTTON      "Associate FSL file...",IDC_FSL_FILE,264,42,50,24,
+                    BS_CENTER | BS_VCENTER | BS_MULTILINE
+    LTEXT           "Number of selected Input Locations",IDC_TEXT1,93,7,113,
+                    11,SS_CENTERIMAGE
+    EDITTEXT        IDC_N_LOCATIONS,215,7,24,14,ES_AUTOHSCROLL | ES_READONLY
+    PUSHBUTTON      "Select All",IDC_SELECT_ALLI,88,30,37,21,BS_LEFT | 
+                    BS_VCENTER | BS_MULTILINE
+    PUSHBUTTON      "Select All",IDC_SELECT_ALLS,212,30,37,21,BS_CENTER | 
+                    BS_MULTILINE
+    COMBOBOX        IDC_WHICH_GRAPH,44,7,37,55,CBS_DROPDOWNLIST | NOT 
+                    WS_VISIBLE | WS_DISABLED | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Graph",IDC_TEXT2,17,7,20,11,SS_CENTERIMAGE | NOT 
+                    WS_VISIBLE
+END
+
+IDD_NEW_PROJECT DIALOG DISCARDABLE  0, 0, 419, 290
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "New Project Settings Dialog"
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "OK",IDOK,355,265,50,14,WS_GROUP
+    LTEXT           "Folder for Saved Data:",IDC_TEXT12,15,235,72,12,
+                    SS_CENTERIMAGE
+    LTEXT           "Input Locations to Retrieve and Save to Disk",IDC_TEXT3,
+                    21,20,143,12,SS_CENTERIMAGE
+    LTEXT           "Data Retrieval Frequency",IDC_TEXT4,21,106,82,12,
+                    SS_CENTERIMAGE
+    LTEXT           "How frequently should data be saved to disk?",
+                    IDC_TEXT10,15,166,145,12,SS_CENTERIMAGE
+    CONTROL         "Gather and store Final Storage from CR10",
+                    IDC_SAVE_FINAL_STORAGE,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,15,200,147,12
+    LTEXT           "Create new data files",IDC_TEXT11,15,217,67,12,
+                    SS_CENTERIMAGE
+    CONTROL         "by Size",IDC_BY_SIZE,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP | WS_TABSTOP,141,217,39,12
+    CONTROL         "by Time",IDC_BY_TIME,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP | WS_TABSTOP,94,217,41,12
+    LTEXT           "Save these project settings in this .lada file",
+                    IDC_TEXT13,11,267,135,12,SS_CENTERIMAGE
+    RTEXT           "Plotting New Data Frequency",IDC_TEXT6,223,40,94,12,
+                    SS_CENTERIMAGE
+    PUSHBUTTON      "Browse for folder...",IDC_BROWSE_DATA_FOLDER,221,235,72,
+                    14,WS_GROUP
+    EDITTEXT        IDC_DATA_FOLDER,97,235,114,14,ES_AUTOHSCROLL | WS_GROUP
+    LISTBOX         IDC_LOCATION_LIST,21,37,130,45,LBS_SORT | 
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_GROUP | 
+                    WS_TABSTOP
+    CONTROL         "Save the average of all data gathered between data writes",
+                    IDC_AVERAGE,"Button",BS_AUTORADIOBUTTON | WS_GROUP | 
+                    WS_TABSTOP,13,183,201,12
+    CONTROL         "Save data gathered at one instant",IDC_ONE_INSTANT,
+                    "Button",BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,217,
+                    183,123,12
+    EDITTEXT        IDC_SAVE_PROJECT,152,265,179,14,ES_AUTOHSCROLL | 
+                    WS_GROUP
+    COMBOBOX        IDC_DATA_RETRIEVAL_FREQ,110,106,86,75,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_GROUP | WS_TABSTOP
+    COMBOBOX        IDC_GRAPH_PLOT_FREQ,323,40,81,82,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_GROUP | WS_TABSTOP
+    COMBOBOX        IDC_SAVE_DATA_FREQ,171,166,87,81,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_GROUP | WS_TABSTOP
+    GROUPBOX        "Data Storage Options",IDC_TEXT14,7,135,405,125
+    PUSHBUTTON      "Edit Location List",IDC_EDIT_LOCATION_LIST,21,87,130,14,
+                    WS_GROUP
+    GROUPBOX        "CR10 Communication ",IDC_TEXT1,7,7,197,123
+    GROUPBOX        "Graph Options",IDC_TEXT2,214,7,198,123
+    COMBOBOX        IDC_N_BACK_POINTS,324,57,80,54,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_GROUP | WS_TABSTOP
+    RTEXT           "Number of back data points",IDC_TEXT7,223,57,94,12,
+                    SS_CENTERIMAGE
+    LTEXT           "( back points are most recently retrieved data points stored in memory.  The more back points, the greater time span that can be visible on one graph.)",
+                    IDC_TEXT9,224,94,180,28
+    COMBOBOX        IDC_SIZE_TIME,187,217,90,79,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    RTEXT           "Visible Time Span",IDC_TEXT8,223,74,94,12,
+                    SS_CENTERIMAGE
+    EDITTEXT        IDC_VISIBLE_SPAN,323,72,80,14,ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_TABSTOP
+    CONTROL         "Save input locations to file",IDC_SAVE_LOCATIONS,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,15,150,99,10
+    RTEXT           "Number of Graphs",IDC_TEXT5,223,23,94,12,SS_CENTERIMAGE
+    COMBOBOX        IDC_N_GRAPHS,323,23,43,54,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_GROUP | WS_TABSTOP
+END
+
+IDD_CHOOSE_TIME DIALOG DISCARDABLE  0, 0, 186, 95
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Choose CR10 Time"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,51,74,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,109,74,50,14
+    CONTROL         "DateTimePicker1",IDC_DATETIMEPICKER1,"SysDateTimePick32",
+                    DTS_RIGHTALIGN | WS_TABSTOP,49,22,100,15
+    CONTROL         "DateTimePicker2",IDC_DATETIMEPICKER2,"SysDateTimePick32",
+                    DTS_RIGHTALIGN | DTS_UPDOWN | WS_TABSTOP | 0x8,49,43,100,
+                    15
+    CTEXT           "Select the new CR10 time",IDC_TEXT1,7,7,172,9
+    LTEXT           "Date",IDC_TEXT2,7,26,30,10
+    LTEXT           "Time",IDC_TEXT3,7,46,30,11
+END
+
+IDD_GRAPH_PROPERTIES DIALOGEX 0, 0, 271, 178
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Graph Display Properties"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,7,125,50,14
+    GROUPBOX        "Graph 1 Properties",IDC_TEXT2,120,28,144,143
+    LTEXT           "Plot new data points",IDC_TEXT1,7,7,70,12,
+                    SS_CENTERIMAGE
+    COMBOBOX        IDC_DATA_PLOT_FREQ,7,26,86,93,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Number of data points to display",IDC_TEXT4,7,45,102,12,
+                    SS_CENTERIMAGE
+    EDITTEXT        IDC_NPOINTS,7,64,43,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_VIS_TIME_SPAN,7,104,93,14,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    LTEXT           "Visible Time Span",IDC_TEXT6,7,85,93,12,SS_CENTERIMAGE
+    LTEXT           "(10-1000)",IDC_TEXT5,57,64,53,14,SS_CENTERIMAGE
+    LTEXT           "Choose graph",IDC_TEXT3,134,9,45,12,SS_CENTERIMAGE
+    COMBOBOX        IDC_C_WGRAPH,188,9,48,59,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    PUSHBUTTON      "Edit List",IDC_EDIT_LIST,204,52,52,14
+    CONTROL         "List2",IDC_ACTIVE_LIST,"SysListView32",LVS_REPORT | 
+                    LVS_NOCOLUMNHEADER | WS_BORDER | WS_TABSTOP,126,74,131,
+                    90,WS_EX_CLIENTEDGE
+    CONTROL         "Display this graph",IDC_SHOW_GRAPH,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,126,42,71,12
+    LTEXT           "Graph Items:",IDC_STATIC,126,57,41,12,SS_CENTERIMAGE
+END
+
+IDD_CAMERADIALOG_DIALOG DIALOGEX 0, 0, 510, 319
+STYLE DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | 
+    WS_SYSMENU
+EXSTYLE WS_EX_LEFTSCROLLBAR | WS_EX_APPWINDOW
+CAPTION "CameraDialog"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    COMBOBOX        IDC_FREQUENCY,89,14,48,68,CBS_DROPDOWN | WS_VSCROLL | 
+                    WS_TABSTOP
+    LTEXT           "Period",IDC_STATIC,10,14,26,12,SS_CENTERIMAGE
+    LTEXT           "Resolution",IDC_STATIC,144,14,34,12,SS_CENTERIMAGE
+    COMBOBOX        IDC_RESOLUTION,185,14,48,69,CBS_DROPDOWN | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    CONTROL         "List1",IDC_FILEBOX,"SysListView32",LVS_REPORT | 
+                    WS_BORDER | WS_TABSTOP,4,35,184,190
+    CONTROL         "",IDC_PICTURE,"Static",SS_BLACKFRAME,199,57,304,255,
+                    WS_EX_CLIENTEDGE
+    PUSHBUTTON      "Camera 1",IDC_CAMERA1,261,17,50,14
+    PUSHBUTTON      "Camera 2",IDC_CAMERA2,261,36,50,14
+    LTEXT           "Take Picture",IDC_STATIC,297,6,42,8
+    CONTROL         "Spin1",IDC_SPIN1,"msctls_updown32",UDS_SETBUDDYINT | 
+                    UDS_ARROWKEYS,71,14,11,12
+    EDITTEXT        IDC_TVALUE,43,14,21,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "Save",IDC_SAVE,319,17,50,14,WS_DISABLED
+    PUSHBUTTON      "Clear",IDC_CLEAR,319,36,50,14,WS_DISABLED
+END
+
+IDD_EDITLOCATION DIALOG DISCARDABLE  0, 0, 188, 113
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Edit Input Location"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,69,92,50,14
+    LTEXT           "Input Location",IDC_STATIC,13,17,46,14,SS_CENTERIMAGE
+    EDITTEXT        IDC_EDIT1,69,17,40,14,ES_AUTOHSCROLL
+    LTEXT           "Value",IDC_STATIC,13,43,19,14,SS_CENTERIMAGE
+    EDITTEXT        IDC_EDIT2,69,43,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT3,69,69,40,14,ES_AUTOHSCROLL
+    LTEXT           "New Value",IDC_STATIC,13,69,36,14,SS_CENTERIMAGE
+    PUSHBUTTON      "Set Value",IDC_SETVALUE,121,69,50,14
+    PUSHBUTTON      "Get Value",IDC_GETVALUE,121,43,50,14
+END
+
+IDD_DATA_TRANSFER DIALOG DISCARDABLE  0, 0, 430, 245
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Data Transfer"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "Copy Now",IDOK,247,11,57,21
+    PUSHBUTTON      "Cancel",IDCANCEL,329,11,57,21
+    RTEXT           "Source Folder",IDC_STATIC,7,9,56,14,SS_CENTERIMAGE
+    EDITTEXT        IDC_SOURCE_FOLDER,70,9,144,14,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    EDITTEXT        IDC_DESTINATION_FOLDER,70,67,111,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Make Default",IDC_SET_DEFAULT,124,48,57,14
+    RADIOBUTTON     "All Files (Old and New)",IDC_ALL_FILES,90,129,96,14
+    RADIOBUTTON     "New Files Only",IDC_NEW_FILES_ONLY,15,129,69,14
+    CONTROL         "Picture Files",IDC_PICTURE_FILES,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,15,163,63,14
+    RTEXT           "Files Selected",IDC_STATIC,215,52,70,14,SS_CENTERIMAGE
+    CTEXT           "100",IDC_NUM_SELECTED,293,52,20,14,SS_CENTERIMAGE
+    CONTROL         "FLOPPY",IDC_FLOPPY,"Button",BS_OWNERDRAW | WS_TABSTOP,
+                    17,46,21,18
+    CONTROL         "PCMCIA",IDC_PCMCIA,"Button",BS_OWNERDRAW | WS_TABSTOP,
+                    42,46,21,18
+    LTEXT           "Folder Name",IDC_STATIC,21,67,41,14,SS_CENTERIMAGE
+    PUSHBUTTON      "Other",IDC_OTHER,70,48,36,14
+    GROUPBOX        "Select Files For Transfer",IDC_STATIC,7,116,186,122
+    CONTROL         "Archive Files",IDC_ARCHIVE_FILES,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,15,146,103,14
+    CONTROL         "Real Time Files",IDC_REAL_TIME_FILES,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,15,197,119,14
+    GROUPBOX        "Select Destination Folder",IDC_STATIC,7,34,186,57
+    GROUPBOX        "Selected Files",IDC_STATIC,206,39,217,199
+    CONTROL         "List1",IDC_FILELIST,"SysListView32",LVS_REPORT | 
+                    LVS_SHOWSELALWAYS | LVS_SORTASCENDING | LVS_AUTOARRANGE | 
+                    WS_BORDER | WS_TABSTOP,215,72,199,155
+    CONTROL         "Diagnostic Files",IDC_DIAGNOSTIC,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,13,214,119,14
+    CONTROL         "Small (JPG)",IDC_JPG,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,35,180,52,14
+    CONTROL         "Large(DIB)",IDC_DIB,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,97,180,50,14
+    PUSHBUTTON      "Convert DIB to JPG",IDC_DIBTOJPG,12,97,86,14
+    RTEXT           "Total Size",IDC_STATIC,321,52,55,14,SS_CENTERIMAGE
+    CTEXT           "100KB",IDC_TOTAL_BYTES,384,52,30,14,SS_CENTERIMAGE
+END
+
+IDD_SELECTICON DIALOG DISCARDABLE  0, 0, 143, 55
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Choose Icon for Directory"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,80,8,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,80,31,50,14
+    CONTROL         "Floppy",IDC_FLOPPY,"Button",BS_AUTORADIOBUTTON,16,8,51,
+                    14
+    CONTROL         "PCMCIA",IDC_PCMCIA,"Button",BS_AUTORADIOBUTTON,16,31,54,
+                    14
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "Comments", "\0"
+            VALUE "CompanyName", "\0"
+            VALUE "FileDescription", "LADA Control Module MFC Application\0"
+            VALUE "FileVersion", "1, 0, 0, 1\0"
+            VALUE "InternalName", "LADA Control Module\0"
+            VALUE "LegalCopyright", "Copyright (C) 2000\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "LADA Control Module.EXE\0"
+            VALUE "PrivateBuild", "\0"
+            VALUE "ProductName", "LADA Control Module Application\0"
+            VALUE "ProductVersion", "1, 0, 0, 1\0"
+            VALUE "SpecialBuild", "\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 262
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 74
+    END
+
+    IDD_LADACONTROLMODULE_FORM, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 216
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 344
+    END
+
+    IDD_GRAPHBUTTONFORM_FORM, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 152
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 245
+    END
+
+    RENAME_LOCATION, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 171
+        TOPMARGIN, 3
+        BOTTOMMARGIN, 91
+    END
+
+    PROGRESS_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 70
+    END
+
+    MONITOR_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 314
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 203
+    END
+
+    IDD_NEW_PROJECT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 412
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 283
+    END
+
+    IDD_CHOOSE_TIME, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 88
+    END
+
+    IDD_GRAPH_PROPERTIES, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 264
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 171
+    END
+
+    IDD_CAMERADIALOG_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 4
+        RIGHTMARGIN, 503
+        TOPMARGIN, 6
+        BOTTOMMARGIN, 312
+    END
+
+    IDD_EDITLOCATION, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 181
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 106
+    END
+
+    IDD_DATA_TRANSFER, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 423
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 238
+    END
+
+    IDD_SELECTICON, DIALOG
+    BEGIN
+        LEFTMARGIN, 16
+        RIGHTMARGIN, 130
+        TOPMARGIN, 8
+        BOTTOMMARGIN, 45
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+    IDR_MAINFRAME           "LADA Control Module\n\nLADA Data\nLADA Files (*.lada)\n.lada\nLADAControlModule.Document\nLADA Document"
+END
+
+STRINGTABLE PRELOAD DISCARDABLE 
+BEGIN
+    AFX_IDS_APP_TITLE       "LADA Control Module"
+    AFX_IDS_IDLEMESSAGE     "For Help, press F1"
+    AFX_IDS_HELPMODEMESSAGE "Select an object on which to get Help"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_INDICATOR_EXT        "EXT"
+    ID_INDICATOR_CAPS       "CAP"
+    ID_INDICATOR_NUM        "NUM"
+    ID_INDICATOR_SCRL       "SCRL"
+    ID_INDICATOR_OVR        "OVR"
+    ID_INDICATOR_REC        "REC"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_FILE_NEW             "Create a new document\nNew"
+    ID_FILE_OPEN            "Open an existing document\nOpen"
+    ID_FILE_CLOSE           "Close the active document\nClose"
+    ID_FILE_SAVE            "Save the active document\nSave"
+    ID_FILE_SAVE_AS         "Save the active document with a new name\nSave As"
+    ID_FILE_PAGE_SETUP      "Change the printing options\nPage Setup"
+    ID_FILE_PRINT_SETUP     "Change the printer and printing options\nPrint Setup"
+    ID_FILE_PRINT           "Print the active document\nPrint"
+    ID_FILE_PRINT_PREVIEW   "Display full pages\nPrint Preview"
+    ID_FILE_SEND_MAIL       "Send the active document through electronic mail\nSend Mail"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_APP_ABOUT            "Display program information, version number and copyright\nAbout"
+    ID_APP_EXIT             "Quit the application; prompts to save documents\nExit"
+    ID_HELP_INDEX           "Opens Help\nHelp Topics"
+    ID_HELP_FINDER          "List Help topics\nHelp Topics"
+    ID_HELP_USING           "Display instructions about how to use help\nHelp"
+    ID_CONTEXT_HELP         "Display help for clicked on buttons, menus and windows\nHelp"
+    ID_HELP                 "Display help for current task or command\nHelp"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_FILE_MRU_FILE1       "Open this document"
+    ID_FILE_MRU_FILE2       "Open this document"
+    ID_FILE_MRU_FILE3       "Open this document"
+    ID_FILE_MRU_FILE4       "Open this document"
+    ID_FILE_MRU_FILE5       "Open this document"
+    ID_FILE_MRU_FILE6       "Open this document"
+    ID_FILE_MRU_FILE7       "Open this document"
+    ID_FILE_MRU_FILE8       "Open this document"
+    ID_FILE_MRU_FILE9       "Open this document"
+    ID_FILE_MRU_FILE10      "Open this document"
+    ID_FILE_MRU_FILE11      "Open this document"
+    ID_FILE_MRU_FILE12      "Open this document"
+    ID_FILE_MRU_FILE13      "Open this document"
+    ID_FILE_MRU_FILE14      "Open this document"
+    ID_FILE_MRU_FILE15      "Open this document"
+    ID_FILE_MRU_FILE16      "Open this document"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_NEXT_PANE            "Switch to the next window pane\nNext Pane"
+    ID_PREV_PANE            "Switch back to the previous window pane\nPrevious Pane"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_WINDOW_SPLIT         "Split the active window into panes\nSplit"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_EDIT_CLEAR           "Erase the selection\nErase"
+    ID_EDIT_CLEAR_ALL       "Erase everything\nErase All"
+    ID_EDIT_COPY            "Copy the selection and put it on the Clipboard\nCopy"
+    ID_EDIT_CUT             "Cut the selection and put it on the Clipboard\nCut"
+    ID_EDIT_FIND            "Find the specified text\nFind"
+    ID_EDIT_PASTE           "Insert Clipboard contents\nPaste"
+    ID_EDIT_REPEAT          "Repeat the last action\nRepeat"
+    ID_EDIT_REPLACE         "Replace specific text with different text\nReplace"
+    ID_EDIT_SELECT_ALL      "Select the entire document\nSelect All"
+    ID_EDIT_UNDO            "Undo the last action\nUndo"
+    ID_EDIT_REDO            "Redo the previously undone action\nRedo"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    ID_VIEW_TOOLBAR         "Show or hide the toolbar\nToggle ToolBar"
+    ID_VIEW_STATUS_BAR      "Show or hide the status bar\nToggle StatusBar"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_SCSIZE          "Change the window size"
+    AFX_IDS_SCMOVE          "Change the window position"
+    AFX_IDS_SCMINIMIZE      "Reduce the window to an icon"
+    AFX_IDS_SCMAXIMIZE      "Enlarge the window to full size"
+    AFX_IDS_SCNEXTWINDOW    "Switch to the next document window"
+    AFX_IDS_SCPREVWINDOW    "Switch to the previous document window"
+    AFX_IDS_SCCLOSE         "Close the active window and prompts to save the documents"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_SCRESTORE       "Restore the window to normal size"
+    AFX_IDS_SCTASKLIST      "Activate Task List"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    AFX_IDS_PREVIEW_CLOSE   "Close print preview mode\nCancel Preview"
+    IDS_MBUTTON1            "Associate\nFSL file..."
+    IDS_MBUTTON2            "Select All"
+    IDS_MBUTTON3            "Select All"
+    IDS_MBUTTON4            "Rename Location"
+    IDS_MBUTTON5            "Sort\nLocations"
+    IDS_MBUTTON6            "Insert->"
+    IDS_MBUTTON7            "<-Remove"
+    IDS_MTITLE              "Choose Input Locations to Save and Monitor"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_N_FILESIZE2         "100 K"
+    IDS_N_FILESIZE3         "500 K"
+    IDS_MTEXT1              "Number of Selected Input Locations"
+    IDS_MTEXT2              "Graph"
+    IDS_MTEXT3              "Available\nInput Locations"
+    IDS_MTEXT4              "Selected\nInput Locations"
+    IDS_PTITLE              "New Project Settings Dialog"
+    IDS_PTEXT1              "CR10 Communication"
+    IDS_PTEXT2              "Graph Options"
+    IDS_PTEXT3              "Input Locations to Retrieve and Save to Disk"
+    IDS_PTEXT4              "Data Retrieval Frequency"
+    IDS_PTEXT5              "Number of Graphs"
+    IDS_PTEXT6              "Plotting New Data Frequency"
+    IDS_PTEXT7              "Number of Back Points"
+    IDS_PTEXT8              "Visible Time Span"
+    IDS_PTEXT9              "(back points are most recently retrieved data points stored in memory.  The more back points, the greater time span that can be visible on a graph.)"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDR_GRAPHBUTTONFORM_TMPL 
+                            "GraphButtonForm\n\nGraphB\nGraphB Files (*.gra)\n.gra\nGraphButtonForm.Document\nGraphB Document"
+    IDS_DATA_TRANSFER       "Data Transfer"
+    IDS_GRAPH               "Graph"
+    IDS_CAMERAS             "Cameras"
+    IDS_SYSTEM_CHECK        "System Check"
+    IDS_CHANGE_LANGUAGE     "Switch Language"
+    IDS_MAN_SAMPLE          "Manual Sample"
+    IDS_SYS_DIAGNOSIS       "System Diagnosis"
+    IDS_STEXT1              "A step-by-step dialog showing how to setup the LADA system."
+    IDS_STEXT2              "A testing prodecure to make sure all LADA components are working correctly."
+    IDS_STEXT3              "A prodecure used to calibrate the soil moisture probe sensors and prepare the root module for planting."
+    IDS_STEXT4              "The regular operating program of LADA.  Primary function is data retrieval and storage."
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_ABOUT_TEXT_1        "LADA Control Module Version 1.0"
+    IDS_ABOUT_TEXT_2        "Copyright (C) 2000"
+    IDS_ABOUT_TEXT_3        "Programmed by Mark Salisbury and John Mulholland"
+    IDS_ABOUT_TEXT_4        "Space Dynamics Laboratory, Logan Utah USA"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_OK                  "OK"
+    IDS_CANCEL              "Cancel"
+    IDS_ABOUT_TITLE         "About LADA Control Module"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_N_DATAPLOT1         "1 point / sec"
+    IDS_N_DATAPLOT2         "12 points / minute"
+    IDS_N_DATAPLOT3         "3 points / minute"
+    IDS_N_DATAPLOT4         "1 point / minute"
+    IDS_N_DATAPLOT5         "20 points / hour"
+    IDS_N_DATAPLOT6         "10 points / hour"
+    IDS_N_DATAPLOT7         "4 points / hour"
+    IDS_N_BACKPOINT1        "100 points"
+    IDS_N_BACKPOINT2        "500 points"
+    IDS_N_BACKPOINT3        "1000 points"
+    IDS_N_BACKPOINT4        "custom number (10-1000)"
+    IDS_N_DATARETR1         "1 retrieval / sec"
+    IDS_N_DATARETR2         "30 retrievals / minute"
+    IDS_N_DATARETR3         "20 retrievals / minute"
+    IDS_N_DATARETR4         "15 retrievals / minute"
+    IDS_N_DATARETR5         "12 retrievals / minute"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_N_DATARETR6         "10 retrievals / minute"
+    IDS_N_DATARETR7         "6 retrievals / minute"
+    IDS_N_DATARETR8         "4 retrievals / minute"
+    IDS_N_DATARETR9         "2 retrievals / minute"
+    IDS_N_DATARETR10        "1 retrieval / minute"
+    IDS_N_DATASAVE1         "1 write / sec"
+    IDS_N_DATASAVE2         "2 writes / minute"
+    IDS_N_DATASAVE3         "1 write / minute"
+    IDS_N_DATASAVE4         "12 writes / hour"
+    IDS_N_DATASAVE5         "4 writes / hour"
+    IDS_N_DATASAVE6         "2 writes / hour"
+    IDS_N_DATASAVE7         "1 write / hour"
+    IDS_N_FILETIME1         "Hourly"
+    IDS_N_FILETIME2         "Daily"
+    IDS_N_FILETIME3         "Weekly"
+    IDS_N_FILESIZE1         "50 K"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_PTEXT10             "How frequently should data be saved to disk?"
+    IDS_PTEXT11             "Create new data files"
+    IDS_PTEXT12             "Folder for Saved Data"
+    IDS_PTEXT13             "Save the project settings in this .lada file"
+    IDS_PTEXT14             "Data Storage Options"
+    IDS_PBUTTON1            "Edit Location List"
+    IDS_PBUTTON2            "Save input locations to file"
+    IDS_PBUTTON3            "Save average of data gathered between writes"
+    IDS_PBUTTON4            "Save data gathered at one moment"
+    IDS_PBUTTON5            "Gather and store Final Storage from CR10"
+    IDS_PBUTTON6            "by Time"
+    IDS_PBUTTON7            "by Size"
+    IDS_PBUTTON8            "Browse for Folder..."
+    IDS_LTEXT1              "Communication Status"
+    IDS_LTEXT2              "Status"
+    IDS_LTEXT3              "Not Connected"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_LTEXT4              "CR10 Status"
+    IDS_LTEXT5              "CR10 Time"
+    IDS_LTEXT6              "CR10 Communication Functions"
+    IDS_LBUTTON1            "Start Communication"
+    IDS_LBUTTON2            "Upload Program"
+    IDS_LBUTTON3            "Break Communication"
+    IDS_LBUTTON4            "Change Time"
+    IDS_CTITLE              "Choose CR10 Time"
+    IDS_CTEXT1              "Select the new CR10 time"
+    IDS_CTEXT2              "Date"
+    IDS_CTEXT3              "Time"
+    IDS_NOT_ENOUGH_DATA     "There is not enough data to graph"
+    IDS_NO_ITEMS_SELECTED   "No Data Items Are Selected"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_GTEXT1              "Plot new data points"
+    IDS_GTEXT2              "Graph Properties"
+    IDS_GTEXT3              "Choose graph"
+    IDS_GTEXT4              "Number of data points to display"
+    IDS_GTEXT5              "(10-1000)"
+    IDS_GTEXT6              "Visible Time Span"
+    IDS_GTEXT7              "??"
+    IDS_GTEXT8              "??"
+    IDS_GBUTTON1            "Display this graph"
+    IDS_GBUTTON2            "Edit Location List"
+    IDS_GBUTTON3            "??"
+    IDS_GTITLE              "Graph Display Properties"
+END
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_STEXT5              "Contains information about LADA and help in case of problems / system failure."
+    IDS_STEXT6              "Allows user to switch language at run-time."
+    IDS_STEXT7              " "
+    IDS_SBUTTON1            "Set Up"
+    IDS_SBUTTON2            "Check Out"
+    IDS_SBUTTON3            "Wet Up"
+    IDS_SBUTTON4            "Main Program"
+    IDS_SBUTTON5            "Help"
+    IDS_SBUTTON6            "Change Language"
+    IDS_SBUTTON7            "Exit"
+    IDS_SBUTTON8            " "
+    IDS_STITLE              "LADA Software"
+    IDS_WELCOMESTRING       "Welcome to LADA"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#endif //_WIN32
+#include "res\LADA Control Module.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#include "afxprint.rc"       // printing/print preview resources
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

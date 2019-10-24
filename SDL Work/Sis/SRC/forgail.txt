@@ -1,0 +1,12 @@
+Hi Gail,
+
+	Just some small things.  Since this is the previous version of SIS that I am working with, it is designed to read 10 numbers from the filenum.log file in the sis/log directory.  It shouldn't crash if you don't do anything to the file, but the filenumbers will come out in the wrong order.  If you delete the 6th number from the file, that should correspond to the "nonexistant" smd*.dat file that this version of sis won't create.  Otherwise the numbers for gl1, gl2, gh1, gh2, and elh files will all be the incorrect.  If you don't care about filenumbers how they stand, just delete this file and let sis recreate it.  
+
+Next, this file uses the sis.uir file that the old sis uses, and has it pathed into the directory inc, under the name sis.uir.  This should be the same thing as what your old version of sis uses. 
+
+The saturation calibration and the temperature calibrations that were done for these probes are being used for conversions, even though the sat. cals are incorrect, as we both know.    Also it is using the calibrations that we did last summer for the gas analyzers.  
+
+
+Any problems, let me know.
+
+Brandon.

@@ -1,0 +1,66 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>CS 5100 Lecture 31 - Greg Jones</TITLE>
+<META NAME="Template" CONTENT="C:\Program Files\Microsoft Office\Templates\Lecture Notes.dot">
+</HEAD>
+<BODY>
+
+<B><I><FONT SIZE=5><P>Visual C++ Controls Example&#9;Lecture 5100.31</P>
+<OL TYPE="A">
+
+</I></FONT><LI>Some Controls</LI>
+<OL>
+
+<LI>Button</LI>
+<OL TYPE="a">
+
+<LI>This is one of the simplest and easiest to use controls.  It does not normally require a surrogate (or buddy) control, but the CButton class is available if it does.</LI>
+<LI>The simplest way to use a button is to insert one onto a dialog.  The button’s action can be set by using the Class Wizard message tab to create a function for &quot;Button clicked&quot; or BN_CLICKED, then write the appropriate code for the button click event handler.</LI></OL>
+
+<LI>The List Box control can be added in the same way.  It is probably best to associate a CListBox surrogate variable.</LI>
+<OL TYPE="a">
+
+<LI>The list control can be initialized by adding C strings (char arrays terminated with the null character) to the CListBox object.  The current selection can be set or obtained from the same object, using the GetCurSel and SetCurSel member functions.</LI>
+<LI>Initialization of the box should occur in the OnInitDialog function.  Indeed, this is the place for most initialization code for dialogs.</LI>
+<LI>Lists could have associated icons by way of an Image List (CImageList) object, which is essentially an array of images.  The image list can be associated to the list, with an indication of which image is to be used for each list entry.</LI>
+<LI>The Property Sheet for lists contains a large number of options for controlling the appearance of the list.</LI></OL>
+
+<LI>Scroll bars require a greater degree of effort than in Java.</LI>
+<OL TYPE="a">
+
+<LI>The scroll bar control should again have an associated surrogate control variable of type CScrollBar.</LI>
+<LI>The control can be initialized (in OnInitDialog) by way of the surrogate variable, calling the SetScrollRange function to establish the minimum and maximum values, and the SetScrollPos function to initialize the position of the thumb.</LI>
+<LI>Scroll bar controls have no events in and of themselves.  A horizontal scroll bar on a dialog generates a WM_OnHScroll message.  The best thing is to use the Class wizard to generate an event handler for this message.  The generated handler will provide the following parameters:</LI>
+<OL TYPE="i">
+
+<LI>UINT</B> <B>nSBCode: this is a code, like SB_LINELEFT, to indicate a click on the left arrow; SB_PAGELEFT to indicate a click in the trough left of the thumb: of SB_LEFT, to indicate scrolling to the extreme left edge of the trough.</LI>
+</B><LI> <B>UINT nPos, which indicates the value associated with the thumb position after an SB_THUMBPOSITION or SB_THUMBTRACK scroll action, in which the user positions the thumb.</LI>
+<LI>CScrollBar*</B> <B>pScrollBar, which is a pointer to the scrollbar itself.</LI></OL>
+
+<LI>The handler for the scroll bar scroll event should calculate the new position of the thumb, using the standard size for a line or page or edge, or the value of nPos where appropriate.  The surrogate control variable is then set to this position, and the visible control responds.</LI></OL>
+</OL>
+
+<LI>Dialog Boxes</LI>
+<OL>
+
+<LI>Besides dialog applications, any application can display a dialog box.  The most obvious example is the &quot;About&quot; dialog which is automatically generated in Visual C++ applications.</LI>
+<LI>Other dialogs can be created by using the Insert menu Resource selection, then choosing the Dialog node from the tree, and then the particular kind of dialog as a subnode if necessary, or the general dialog type.</LI>
+<LI>The programmer will find, the next time the Class Wizard is used, a message that a class could be generated for this dialog.  This should be done.</LI>
+<LI>When it is desirable to display the dialog, the code should declare a new object, say myDialog, of this class, then execute myDialog.DoModal.  Of course, it will be necessary to include the header file of the dialog class in order to reference it.  See the example3 directory at the ftp site.</LI>
+<LI>When the user concludes by clicking the OK or Cancel buttons on the dialog, DoModal terminates execution and returns to the point of call.  Non-modal dialog interaction is somewhat more complicated. See the example4 directory at the ftp site.</LI></OL>
+
+<LI>Drawing on Dialogs</LI>
+<OL>
+
+<LI>It is possible to draw on dialogs in response to some action/message.</LI>
+<OL TYPE="a">
+
+<LI>To draw at all, we need to get a device context, similar to the Java Graphics object, in which to do drawing.  This can be done by getting a CClientDC object for the dialog, calling the constructor with a &quot;this&quot; pointer for the dialog.</LI>
+<LI>The device context can then be used for drawing.  We may want to generate a new pen or brush, with which to carry out draw or fill operations.  These should be selected by the SelectObject function of the CDC class.  It is generally considered good form to save the reference to the old pen or brush, which is returned by the SelectObject function, and restore it after the drawing operation. See the example3 directory at the ftp site.</LI>
+<LI>A significant problem with this drawing technique is that the CDialog class has no OnDraw function.  Thus, whatever drawing we do is not repaired in case the dialog is obscured by another window.  Of course, with modal dialogs, this isn’t much of a problem.  However, if we wish to take care of the problem, we may either make the redrawing occur in an event handler for the exposure message, or override the OnPaint method, which is a bit tricky.  A better alternative is to do our drawing on a CView object, which does have an OnDraw function. See the example4 directory at the ftp site.</LI></OL>
+</OL>
+</OL>
+</B></BODY>
+</HTML>

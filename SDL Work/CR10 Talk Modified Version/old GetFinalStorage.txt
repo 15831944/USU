@@ -1,0 +1,282 @@
+// Get final storage
+	static int LastDSP = 0;
+	
+	int Locations;
+	int LocationsLeftThisRead;
+	int LocationsStored;
+	int pReadBufPos = 0;
+	int i = 0; 
+	int j = 0;
+	unsigned char B, C, D, E;
+	int polarity;
+	int number;
+	int exponent;
+	DWORD bytesWritten;
+	char numberOut[10];
+	
+	int lastNumber = 0;
+	unsigned char lastB, lastC, lastD, lastE;
+	int	lastType, CurrentType;
+
+	char SendBuf[10];
+	int data[NO_DATA_ITEMS];
+	ExecuteACommand(data);
+	
+	int TotalStorageLocations = data[FILLED_FS_LOCATIONS];
+	int DSP = data[DATA_STORAGE_POINTER];
+	int MPTR = MoveMPTR(0);
+	if (MPTR != DSP) 
+		MessageBox("MPTR != DSP","Warning",MB_ICONEXCLAMATION);
+
+	if (LastDSP == 0)
+		LastDSP = MPTR + 2;
+		
+	if (fileOut == NULL){
+		char fileNameBuff[50];
+		CTime theTime = CTime::GetCurrentTime();
+		CString s = theTime.Format( "%H;%M;%S, %B %d, %Y" );
+		wsprintf(fileNameBuff,"C:\\FS Data %s.dat",s);
+
+		fileOut = CreateFile(fileNameBuff, 
+		GENERIC_WRITE, 
+		0, 
+		NULL, 
+		CREATE_ALWAYS, 
+		FILE_ATTRIBUTE_ARCHIVE, 
+		NULL);
+	}
+
+	if (!fileOut){
+		DisplayErrorMessage(GetLastError());
+		return FALSE;
+	}
+
+	int LocationsToRetrieve = MPTR - LastDSP;
+	if (LocationsToRetrieve < 0) 
+		LocationsToRetrieve += TotalStorageLocations;
+
+	// move MPTR to LastDSP
+	if (LastDSP > TotalStorageLocations)
+		LastDSP -= TotalStorageLocations;
+	
+	if (MoveMPTR(LastDSP) != LastDSP)
+		return FALSE;
+
+	while (LocationsToRetrieve)
+	{
+		SetWindowNumber( IDC_LOCS_RETRIEVE, LocationsToRetrieve);
+		Locations = Min( LocationsToRetrieve, MAX_FS_DOWNLOAD);
+		//LocationsLeftThisRead = Locations;
+
+		//SetWindowNumber( IDC_LOCATIONS_LEFT, LocationsLeftThisRead );
+				
+		//for ( int p = 1; p < 9; p++){
+				
+		/*
+		if (readBufPos >= 206) 
+			break;
+		if (!Reconnect())
+			return FALSE;
+
+		PingCR10(20)||PingCR10(50)||PingCR10(500);
+			
+		MoveMPTR(LastDSP);
+		Sleep(20);
+		}
+		
+		if (p==9)
+			return FALSE;
+		
+		*/
+		SetWindowNumber (IDC_FS_POSITION, 1);
+		
+		int badReads = 0;
+					
+		LocationsStored = 0;
+		readBufPos = 0;
+		wsprintf(SendBuf,"%iF\r",Locations);
+		Send(SendBuf, strlen(SendBuf));
+		for (int t = 0; readBufPos < 8; t++) {
+			if (t > 15){
+				SetWindowNumber (IDC_FS_POSITION, 2);
+				return FALSE;
+			}
+			Sleep(30);
+		}
+		i = 0;
+		while (readBuf[i] != 'F'){
+			if ( i < readBufPos - 1)
+				i++;
+		}	
+		i += 3;	
+		LocationsLeftThisRead = (readBufPos - i) / 2 - 1;
+		int noReads = 0;
+		
+		//char te[30];
+		//wsprintf(te,"\n*****************************",LastDSP,numberOut);
+		if (!WriteFile(fileOut, "\n*****************************************", 40, &bytesWritten, NULL))
+			DisplayErrorMessage(GetLastError());
+
+		while (/*LocationsLeftThisRead > 0 &&*/ noReads < 15){
+			SetWindowNumber (IDC_FS_POSITION, 3);
+			Sleep(10);
+			LocationsLeftThisRead = (readBufPos - i) / 2 - 1;
+			
+			SetWindowNumber( IDC_LOCS_RETRIEVE, LocationsToRetrieve );
+			
+			SetWindowNumber( IDC_READ_BUF, readBufPos );
+			if (i >= readBufPos - 3)
+				noReads++;
+			for (; i < readBufPos - 3; i+=2){
+				LocationsLeftThisRead = (readBufPos - i) / 2 - 1;
+				SetWindowNumber( IDC_LOCATIONS_LEFT, LocationsLeftThisRead );
+				B = (unsigned char) readBuf[i];
+				C = (unsigned char) readBuf[i + 1];
+					
+				while (C == 0xFC){
+					// this means byte 2 is hex FC, which should
+					// never happen.
+					// when this happens the position is off by 
+					// one, or a one byte location was received
+					// from the CR10.
+					//if (badReads % 2 == 0){
+					//	LocationsLeftThisRead++;
+					//	LastDSP--;
+					//}
+					i++;
+					badReads++;
+					B = (unsigned char) readBuf[i];
+					C = (unsigned char) readBuf[i + 1];
+				}
+					polarity = 2;
+					if ((B & 0x1C) == 0x1C){
+					// second data type format
+					if ((B & 0xE0) == 0xE0){
+						// this byte is the start of an output array.
+						number = ((B & 0x03) << 8) + C;
+						CurrentType = 1;
+					}
+					else if ((B & 0x7F) == 0x7F){
+						// B is the first byte of a two byte dummy value 
+						// the second byte is always transmitted as 0
+						CurrentType = 2;
+					}
+					else if ((B & 0x20) == 0x20){
+						// B is the third byte of a 4 byte value
+						// this should not be needed because I will 
+						// be skipping ahead two bytes when I hit
+						// the first byte in a 4 byte value
+						CurrentType = 3;
+					}
+					else{ 
+						// B is the first byte of a 4 byte value
+						if (i > readBufPos - 4)
+								// not all 4 bytes for this 4 byte value
+							// have been placed in readBuf yet
+							Sleep(20);
+						CurrentType = 4;	
+						D = (unsigned char) readBuf[i + 2];
+						E = (unsigned char) readBuf[i + 3];
+						LocationsLeftThisRead--;
+						LastDSP++;
+						if (B & 0x40)
+							polarity = -1;
+						else
+							polarity = 1;
+						if ((B & 0x02) && (B & 0x80))
+							exponent = -5;
+						else if (B & 0x02)
+							exponent = -4;
+						else if ((B & 0x01) && (B & 0x80))
+							exponent = -3;
+						else if (B & 0x01)
+							exponent = -2;
+						else if (B & 0x80)
+							exponent = -1;
+						else 
+							exponent = 0;
+						number = polarity * (((D & 0x01) << 16) + (C << 8) + E);
+					
+						i+=2;
+					}
+				}
+				else{
+					CurrentType = 5;
+					if (B & 0x80)
+						polarity = -1;
+					else
+						polarity = 1;
+						if ((B & 0x60) == 0x60)
+						exponent = -3;
+					else if(B & 0x40)
+						exponent = -2;
+					else if(B & 0x20)
+						exponent = -1;
+					else
+						exponent = 0;
+					
+					number = polarity * (((B & 0x1F) << 8) + C);
+				}
+				
+				// store a 4 byte high-resolution value
+				iToString(number, exponent, numberOut);
+				if (CurrentType == 5 &&
+					//(number != lastNumber + 1 && lastNumber != 0) ||
+					//(number == 0) 
+					numberOut[0] < '0' || numberOut[0] > '9')
+				{
+					polarity *= 1;
+				}
+				if (CurrentType == 5)
+					lastNumber = number;
+				
+				if (CurrentType == 1){
+					wsprintf(numberOut, "%i,",number);
+					if (number == 252){
+						//something is not right
+						polarity *= 1;
+					}				
+				}
+				else if (CurrentType == 2)
+					wsprintf(numberOut,"DUMMY");
+				else
+					wsprintf(numberOut,"%s,",numberOut);
+					
+				
+				char toFile[30];
+				wsprintf(toFile,"\n%i: %s",LastDSP,numberOut);
+				if (!WriteFile(fileOut, toFile, strlen(toFile), &bytesWritten, NULL))
+					DisplayErrorMessage(GetLastError());
+				
+				
+				lastB = B;
+				lastC = C;
+				lastD = D;
+				lastE = E;
+				lastType = CurrentType;
+				LastDSP++;
+				LocationsLeftThisRead--;
+				LocationsToRetrieve--;
+			}
+			
+		}//while(LocationsLeftThisRead)
+	
+		if (LastDSP > TotalStorageLocations)
+			LastDSP -= TotalStorageLocations;
+		SetWindowNumber (IDC_FS_POSITION, 4);
+		MPTR = MoveMPTR(LastDSP);
+		SetWindowNumber( IDC_LASTDSP, LastDSP );
+		//if (LastDSP != MPTR)
+		//	MessageBox("Error in keeping track of MPTR","Error",MB_ICONEXCLAMATION);
+		//ExecuteACommand(data);
+		
+		//if (LocationsStored  == 0)
+		//	break;
+		// no more data was stored after the last send command
+	} //while(LocationsToRetrieve)
+	SetWindowNumber (IDC_FS_POSITION, 5);	
+	if (fileOut){
+		CloseHandle( fileOut );  // handle to object);
+		fileOut = NULL;
+	}
+	return TRUE;

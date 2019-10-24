@@ -1,0 +1,61 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: LADA Control Module - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "c:\windows\TEMP\RSPC103.TMP" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /D "_RAPID_TRANSLATION" /FR"Debug/" /Fp"Debug/LADA Control Module.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\Program Files\Microsoft Visual Studio\Common\MSDev98\Bin\Ladacontrolmodule\DataTransfer.cpp"
+]
+Creating command line "cl.exe @c:\windows\TEMP\RSPC103.TMP" 
+Creating temporary file "c:\windows\TEMP\RSPC104.TMP" with contents
+[
+Winmm.lib RapTra30D.lib /nologo /subsystem:windows /incremental:yes /pdb:"Debug/LADA Control Module.pdb" /debug /machine:I386 /out:"Debug/LADA Control Module.exe" /pdbtype:sept 
+".\Debug\cameradialogDlg.obj"
+".\Debug\ChangeLocationDlg.obj"
+".\Debug\ChooseIcon.obj"
+".\Debug\ChooseLocationsDialog.obj"
+".\Debug\ChooseTime.obj"
+".\Debug\ColorCheckButton.obj"
+".\Debug\CommFunctions.obj"
+".\Debug\CommOperations.obj"
+".\Debug\CustomBitmapButton.obj"
+".\Debug\DataTransfer.obj"
+".\Debug\FileData.obj"
+".\Debug\GraphButtonForm.obj"
+".\Debug\GraphDisplayView.obj"
+".\Debug\GraphProperties.obj"
+".\Debug\GraphWindow.obj"
+".\Debug\LADA Control Module.obj"
+".\Debug\LADA Control ModuleDoc.obj"
+".\Debug\LADA Control ModuleView.obj"
+".\Debug\LADADIAGDlg.obj"
+".\Debug\LADASetupDlg.obj"
+".\Debug\MainFrm.obj"
+".\Debug\ProgressDialog.obj"
+".\Debug\ProjectSettingsDialog.obj"
+".\Debug\RenameLocationDialog.obj"
+".\Debug\StartDialog.obj"
+".\Debug\StdAfx.obj"
+".\Debug\Step.obj"
+".\Debug\Stepinfo.obj"
+".\Debug\WaitTimerInfo.obj"
+".\Debug\LADA Control Module.res"
+]
+Creating command line "link.exe @c:\windows\TEMP\RSPC104.TMP"
+<h3>Output Window</h3>
+Compiling...
+DataTransfer.cpp
+Linking...
+
+
+
+<h3>Results</h3>
+LADA Control Module.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

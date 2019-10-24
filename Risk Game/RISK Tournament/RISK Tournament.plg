@@ -1,0 +1,134 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: RISK Tournament - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x409 /fo"Debug/RISK Tournament.res" /d "_DEBUG" /d "_AFXDLL" "C:\Source Code\My Projects\Risk Game\RISK Tournament\RISK Tournament.rc"" 
+Creating temporary file "C:\DOCUME~1\MARKSA~1\LOCALS~1\Temp\RSP36.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Debug/RISK Tournament.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\Source Code\My Projects\Risk Game\RISK Tournament\AttackForm.cpp"
+"C:\Source Code\My Projects\Risk Game\RISK Tournament\GameProcessorThread.cpp"
+"C:\Source Code\My Projects\Risk Game\RISK Tournament\RISK Tournament.cpp"
+"C:\Source Code\My Projects\Risk Game\RISK Tournament\RISK TournamentDlg.cpp"
+"C:\Source Code\My Projects\Risk Game\RISK Tournament\TestData.cpp"
+"C:\Source Code\My Projects\Risk Game\RISK Tournament\TradeInForm.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\MARKSA~1\LOCALS~1\Temp\RSP36.tmp" 
+Creating temporary file "C:\DOCUME~1\MARKSA~1\LOCALS~1\Temp\RSP37.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Debug/RISK Tournament.pch" /Yc"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\Source Code\My Projects\Risk Game\RISK Tournament\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\MARKSA~1\LOCALS~1\Temp\RSP37.tmp" 
+Creating temporary file "C:\DOCUME~1\MARKSA~1\LOCALS~1\Temp\RSP38.tmp" with contents
+[
+ManagerDLL.lib /nologo /subsystem:windows /incremental:yes /pdb:"Debug/RISK Tournament.pdb" /debug /machine:I386 /out:"Debug/RISK Tournament.exe" /pdbtype:sept 
+".\Debug\AttackForm.obj"
+".\Debug\GameProcessorThread.obj"
+".\Debug\RISK Tournament.obj"
+".\Debug\RISK TournamentDlg.obj"
+".\Debug\StdAfx.obj"
+".\Debug\TestData.obj"
+".\Debug\TradeInForm.obj"
+".\Debug\RISK Tournament.res"
+]
+Creating command line "link.exe @C:\DOCUME~1\MARKSA~1\LOCALS~1\Temp\RSP38.tmp"
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+StdAfx.cpp
+Compiling...
+AttackForm.cpp
+c:\source code\my projects\risk game\risk tournament\typedecs.h(18) : error C2011: 'LastMoveEnum' : 'enum' type redefinition
+c:\source code\my projects\risk game\risk tournament\typedecs.h(27) : error C2011: 'LAST_MOVE_INFO' : 'struct' type redefinition
+c:\source code\my projects\risk game\risk tournament\typedecs.h(34) : error C2011: 'COUNTRY_INFO' : 'struct' type redefinition
+c:\source code\my projects\risk game\risk tournament\typedecs.h(43) : error C2011: 'COUNTRY_DATA' : 'struct' type redefinition
+c:\source code\my projects\risk game\risk tournament\typedecs.h(49) : error C2011: 'PLAYER_INFO' : 'struct' type redefinition
+c:\source code\my projects\risk game\risk tournament\typedecs.h(59) : error C2011: 'CARD_DATA' : 'struct' type redefinition
+c:\source code\my projects\risk game\risk tournament\typedecs.h(78) : error C2011: 'AI_CALLS' : 'struct' type redefinition
+c:\source code\my projects\risk game\risk tournament\typedecs.h(92) : error C2011: 'CountryListEnum' : 'enum' type redefinition
+c:\source code\my projects\risk game\risk tournament\typedecs.h(139) : error C2011: 'ContinentListEnum' : 'enum' type redefinition
+GameProcessorThread.cpp
+c:\source code\my projects\risk game\risk tournament\typedecs.h(18) : error C2011: 'LastMoveEnum' : 'enum' type redefinition
+c:\source code\my projects\risk game\risk tournament\typedecs.h(27) : error C2011: 'LAST_MOVE_INFO' : 'struct' type redefinition
+c:\source code\my projects\risk game\risk tournament\typedecs.h(34) : error C2011: 'COUNTRY_INFO' : 'struct' type redefinition
+c:\source code\my projects\risk game\risk tournament\typedecs.h(43) : error C2011: 'COUNTRY_DATA' : 'struct' type redefinition
+c:\source code\my projects\risk game\risk tournament\typedecs.h(49) : error C2011: 'PLAYER_INFO' : 'struct' type redefinition
+c:\source code\my projects\risk game\risk tournament\typedecs.h(59) : error C2011: 'CARD_DATA' : 'struct' type redefinition
+c:\source code\my projects\risk game\risk tournament\typedecs.h(78) : error C2011: 'AI_CALLS' : 'struct' type redefinition
+c:\source code\my projects\risk game\risk tournament\typedecs.h(92) : error C2011: 'CountryListEnum' : 'enum' type redefinition
+c:\source code\my projects\risk game\risk tournament\typedecs.h(139) : error C2011: 'ContinentListEnum' : 'enum' type redefinition
+RISK Tournament.cpp
+c:\source code\my projects\risk game\risk tournament\typedecs.h(18) : error C2011: 'LastMoveEnum' : 'enum' type redefinition
+c:\source code\my projects\risk game\risk tournament\typedecs.h(27) : error C2011: 'LAST_MOVE_INFO' : 'struct' type redefinition
+c:\source code\my projects\risk game\risk tournament\typedecs.h(34) : error C2011: 'COUNTRY_INFO' : 'struct' type redefinition
+c:\source code\my projects\risk game\risk tournament\typedecs.h(43) : error C2011: 'COUNTRY_DATA' : 'struct' type redefinition
+c:\source code\my projects\risk game\risk tournament\typedecs.h(49) : error C2011: 'PLAYER_INFO' : 'struct' type redefinition
+c:\source code\my projects\risk game\risk tournament\typedecs.h(59) : error C2011: 'CARD_DATA' : 'struct' type redefinition
+c:\source code\my projects\risk game\risk tournament\typedecs.h(78) : error C2011: 'AI_CALLS' : 'struct' type redefinition
+c:\source code\my projects\risk game\risk tournament\typedecs.h(92) : error C2011: 'CountryListEnum' : 'enum' type redefinition
+c:\source code\my projects\risk game\risk tournament\typedecs.h(139) : error C2011: 'ContinentListEnum' : 'enum' type redefinition
+RISK TournamentDlg.cpp
+c:\source code\my projects\risk game\risk tournament\typedecs.h(18) : error C2011: 'LastMoveEnum' : 'enum' type redefinition
+c:\source code\my projects\risk game\risk tournament\typedecs.h(27) : error C2011: 'LAST_MOVE_INFO' : 'struct' type redefinition
+c:\source code\my projects\risk game\risk tournament\typedecs.h(34) : error C2011: 'COUNTRY_INFO' : 'struct' type redefinition
+c:\source code\my projects\risk game\risk tournament\typedecs.h(43) : error C2011: 'COUNTRY_DATA' : 'struct' type redefinition
+c:\source code\my projects\risk game\risk tournament\typedecs.h(49) : error C2011: 'PLAYER_INFO' : 'struct' type redefinition
+c:\source code\my projects\risk game\risk tournament\typedecs.h(59) : error C2011: 'CARD_DATA' : 'struct' type redefinition
+c:\source code\my projects\risk game\risk tournament\typedecs.h(78) : error C2011: 'AI_CALLS' : 'struct' type redefinition
+c:\source code\my projects\risk game\risk tournament\typedecs.h(92) : error C2011: 'CountryListEnum' : 'enum' type redefinition
+c:\source code\my projects\risk game\risk tournament\typedecs.h(139) : error C2011: 'ContinentListEnum' : 'enum' type redefinition
+TestData.cpp
+TradeInForm.cpp
+c:\source code\my projects\risk game\risk tournament\typedecs.h(18) : error C2011: 'LastMoveEnum' : 'enum' type redefinition
+c:\source code\my projects\risk game\risk tournament\typedecs.h(27) : error C2011: 'LAST_MOVE_INFO' : 'struct' type redefinition
+c:\source code\my projects\risk game\risk tournament\typedecs.h(34) : error C2011: 'COUNTRY_INFO' : 'struct' type redefinition
+c:\source code\my projects\risk game\risk tournament\typedecs.h(43) : error C2011: 'COUNTRY_DATA' : 'struct' type redefinition
+c:\source code\my projects\risk game\risk tournament\typedecs.h(49) : error C2011: 'PLAYER_INFO' : 'struct' type redefinition
+c:\source code\my projects\risk game\risk tournament\typedecs.h(59) : error C2011: 'CARD_DATA' : 'struct' type redefinition
+c:\source code\my projects\risk game\risk tournament\typedecs.h(78) : error C2011: 'AI_CALLS' : 'struct' type redefinition
+c:\source code\my projects\risk game\risk tournament\typedecs.h(92) : error C2011: 'CountryListEnum' : 'enum' type redefinition
+c:\source code\my projects\risk game\risk tournament\typedecs.h(139) : error C2011: 'ContinentListEnum' : 'enum' type redefinition
+C:\Source Code\My Projects\Risk Game\RISK Tournament\TradeInForm.cpp(37) : error C2065: 'CompDoTradeIn' : undeclared identifier
+C:\Source Code\My Projects\Risk Game\RISK Tournament\TradeInForm.cpp(39) : error C2065: 'MsgBox' : undeclared identifier
+C:\Source Code\My Projects\Risk Game\RISK Tournament\TradeInForm.cpp(40) : error C2065: 'ReleaseAndEnd' : undeclared identifier
+C:\Source Code\My Projects\Risk Game\RISK Tournament\TradeInForm.cpp(44) : error C2065: 'hasCountryCard' : undeclared identifier
+C:\Source Code\My Projects\Risk Game\RISK Tournament\TradeInForm.cpp(60) : error C2065: 'CardsUsed' : undeclared identifier
+C:\Source Code\My Projects\Risk Game\RISK Tournament\TradeInForm.cpp(60) : error C2109: subscript requires array or pointer type
+C:\Source Code\My Projects\Risk Game\RISK Tournament\TradeInForm.cpp(60) : error C2106: '=' : left operand must be l-value
+C:\Source Code\My Projects\Risk Game\RISK Tournament\TradeInForm.cpp(78) : error C2039: 'CardType' : is not a member of 'CARD_DATA'
+        c:\source code\my projects\risk game\risk tournament\typedecs.h(59) : see declaration of 'CARD_DATA'
+C:\Source Code\My Projects\Risk Game\RISK Tournament\TradeInForm.cpp(78) : error C2039: 'CardType' : is not a member of 'CARD_DATA'
+        c:\source code\my projects\risk game\risk tournament\typedecs.h(59) : see declaration of 'CARD_DATA'
+C:\Source Code\My Projects\Risk Game\RISK Tournament\TradeInForm.cpp(78) : error C2039: 'CardType' : is not a member of 'CARD_DATA'
+        c:\source code\my projects\risk game\risk tournament\typedecs.h(59) : see declaration of 'CARD_DATA'
+C:\Source Code\My Projects\Risk Game\RISK Tournament\TradeInForm.cpp(84) : error C2039: 'CardType' : is not a member of 'CARD_DATA'
+        c:\source code\my projects\risk game\risk tournament\typedecs.h(59) : see declaration of 'CARD_DATA'
+C:\Source Code\My Projects\Risk Game\RISK Tournament\TradeInForm.cpp(84) : error C2039: 'CardType' : is not a member of 'CARD_DATA'
+        c:\source code\my projects\risk game\risk tournament\typedecs.h(59) : see declaration of 'CARD_DATA'
+C:\Source Code\My Projects\Risk Game\RISK Tournament\TradeInForm.cpp(84) : error C2039: 'CardType' : is not a member of 'CARD_DATA'
+        c:\source code\my projects\risk game\risk tournament\typedecs.h(59) : see declaration of 'CARD_DATA'
+C:\Source Code\My Projects\Risk Game\RISK Tournament\TradeInForm.cpp(84) : error C2039: 'CardType' : is not a member of 'CARD_DATA'
+        c:\source code\my projects\risk game\risk tournament\typedecs.h(59) : see declaration of 'CARD_DATA'
+C:\Source Code\My Projects\Risk Game\RISK Tournament\TradeInForm.cpp(90) : error C2039: 'CardType' : is not a member of 'CARD_DATA'
+        c:\source code\my projects\risk game\risk tournament\typedecs.h(59) : see declaration of 'CARD_DATA'
+C:\Source Code\My Projects\Risk Game\RISK Tournament\TradeInForm.cpp(90) : error C2059: syntax error : '>'
+C:\Source Code\My Projects\Risk Game\RISK Tournament\TradeInForm.cpp(91) : error C2143: syntax error : missing ';' before '{'
+C:\Source Code\My Projects\Risk Game\RISK Tournament\TradeInForm.cpp(102) : error C2065: 'index' : undeclared identifier
+C:\Source Code\My Projects\Risk Game\RISK Tournament\TradeInForm.cpp(102) : error C2065: 'wCard' : undeclared identifier
+C:\Source Code\My Projects\Risk Game\RISK Tournament\TradeInForm.cpp(105) : error C2039: 'CardType' : is not a member of 'CARD_DATA'
+        c:\source code\my projects\risk game\risk tournament\typedecs.h(59) : see declaration of 'CARD_DATA'
+Generating Code...
+Error executing cl.exe.
+
+
+
+<h3>Results</h3>
+RISK Tournament.exe - 65 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

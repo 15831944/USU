@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<attributes version="1.0">
+   <fileobject name="SquaresGame.java">
+      <attr name="class_dependency_javax.swing.JPanel" stringvalue="SquaresGame.ScorePanel;SquaresGame.GamePanel.SquaresPanel;SquaresGame.GamePanel"/>
+      <attr name="class_dependency_javax.swing.JButton" stringvalue="SquaresGame.GamePanel.SquaresPanel.Side;SquaresGame.GamePanel.SquaresPanel.Square"/>
+      <attr name="class_dependency_javax.swing.JFrame" stringvalue="SquaresGame;JFrame"/>
+      <attr name="class_dependency_java.awt.event.ActionListener" stringvalue="SquaresGame.GamePanel.SquaresPanel.Side.listener"/>
+   </fileobject>
+</attributes>

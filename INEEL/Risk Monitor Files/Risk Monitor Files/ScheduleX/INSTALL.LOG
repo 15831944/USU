@@ -1,0 +1,241 @@
+***  Installation Started 06/06/2001 13:17  ***
+Title: Infragistics ScheduleX 8.03 Setup
+Source: C:\TEMP\GLB164.tmp | 06-06-2001 | 13:17:42 | 71680
+Made Dir: D:\Risk Monitor\ScheduleX
+File Copy: D:\Risk Monitor\ScheduleX\UNINSTAL.EXE | 12-05-2000 | 09:39:48 | | 149504 | 30fdd633
+RegDB Key: Software\Microsoft\Windows\CurrentVersion\Uninstall\Infragistics ScheduleX 8.03
+RegDB Val: Infragistics ScheduleX 8.03
+RegDB Name: DisplayName
+RegDB Root: 2
+RegDB Old: Infragistics ScheduleX 8.03
+RegDB Key: Software\Microsoft\Windows\CurrentVersion\Uninstall\Infragistics ScheduleX 8.03
+RegDB Val: D:\RISKMO~1\SCHEDU~1\UNINSTAL.EXE D:\RISKMO~1\SCHEDU~1\INSTALL.LOG
+RegDB Name: UninstallString
+RegDB Root: 2
+RegDB Old: D:\RISKMO~1\SCHEDU~1\UNINSTAL.EXE D:\RISKMO~1\SCHEDU~1\INSTALL.LOG
+File Copy: D:\Risk Monitor\ScheduleX\readme.htm
+File Copy: D:\Risk Monitor\ScheduleX\Infragistics.htm | 11-16-2000 | 12:27:30 | | 277 | 52225193
+Made Dir: D:\Risk Monitor\ScheduleX\BACKUP
+Version: Following file not copied.
+File Overwrite: C:\WINNT\system32\ASYCFILT.DLL | 08-31-1999 | 16:55:18 | 2.40.4277.1 | 147728 | 87926973
+File Overwrite: C:\WINNT\system32\Msvcrt.dll | | | | 295000 | 770c8856
+File Overwrite: C:\WINNT\system32\OLEAUT32.DLL | | | | 598288 | 318df43b
+File Overwrite: C:\WINNT\system32\OLEPRO32.DLL | | | | 164112 | 1c167281
+File Overwrite: C:\WINNT\system32\STDOLE2.TLB | | | | 17920 | f66da4b0
+Version: Following file not copied.
+File Overwrite: C:\WINNT\system32\MFC42.DLL | 10-27-1999 | 14:35:32 | 6.0.8665.0 | 995383 | 806535d
+File Overwrite: C:\WINNT\system32\PVShared.dll | 12-05-2000 | 15:13:50 | 8.0.0.0 | 401408 | 77f68ae8
+File Copy: D:\Risk Monitor\ScheduleX\PVCalendar.ocx | 12-14-2000 | 09:41:48 | 8.0.3.2 | 283584 | f870ed26
+File Copy: D:\Risk Monitor\ScheduleX\PVDateEdit.ocx | 12-14-2000 | 09:41:40 | 8.0.3.2 | 152496 | d12fcd2b
+File Copy: D:\Risk Monitor\ScheduleX\PVDayView8.ocx | 12-14-2000 | 09:41:50 | 8.0.3.2 | 357312 | 3545b5a9
+File Copy: D:\Risk Monitor\ScheduleX\PVTaskPad.ocx | 12-14-2000 | 09:41:56 | 8.0.3.2 | 533440 | fa77b684
+File Copy: D:\Risk Monitor\ScheduleX\PVTime.ocx | 12-14-2000 | 09:41:46 | 8.0.3.2 | 144304 | 4b429138
+File Copy: D:\Risk Monitor\ScheduleX\pvcalendar.dep | 12-14-2000 | 08:48:16 | | 339 | 126d7606
+File Copy: D:\Risk Monitor\ScheduleX\pvdateedit.dep | 12-14-2000 | 08:49:40 | | 753 | f4aa5874
+File Copy: D:\Risk Monitor\ScheduleX\pvdayview8.dep | 12-14-2000 | 08:50:00 | | 338 | 77bf2e13
+File Copy: D:\Risk Monitor\ScheduleX\pvtaskpad.dep | 12-14-2000 | 08:52:32 | | 337 | d7b5aa1c
+File Copy: D:\Risk Monitor\ScheduleX\pvtime.dep | 12-14-2000 | 08:52:46 | | 745 | 4e576121
+Made Dir: D:\Risk Monitor\ScheduleX\Help
+File Copy: D:\Risk Monitor\ScheduleX\Help\pvDateEdit.chm | 12-14-2000 | 16:39:34 | | 155844 | 7c6d817c
+File Copy: D:\Risk Monitor\ScheduleX\Help\pvTimeEdit.chm | 12-14-2000 | 16:59:14 | | 49546 | ecd82812
+File Copy: D:\Risk Monitor\ScheduleX\Help\ScheduleX.chm | 12-14-2000 | 21:49:52 | | 15179 | bdbbc318
+File Copy: D:\Risk Monitor\ScheduleX\Help\scxCalendar.chm | 12-14-2000 | 16:30:48 | | 100746 | 15159c90
+File Copy: D:\Risk Monitor\ScheduleX\Help\scxDayView.chm | 12-14-2000 | 16:40:46 | | 135126 | a5fed355
+File Copy: D:\Risk Monitor\ScheduleX\Help\scxTaskPad.chm | 12-14-2000 | 16:58:30 | | 89216 | 6527ff31
+Made Dir: D:\Risk Monitor\ScheduleX\Samples
+File Copy: D:\Risk Monitor\ScheduleX\Samples\Samples Description.htm | 12-09-2000 | 12:07:08 | | 959 | 86920223
+Made Dir: D:\Risk Monitor\ScheduleX\Samples\C++
+Made Dir: D:\Risk Monitor\ScheduleX\Samples\C++\ScheduleX
+Made Dir: D:\Risk Monitor\ScheduleX\Samples\C++\ScheduleX\PIM
+File Copy: D:\Risk Monitor\ScheduleX\Samples\C++\ScheduleX\PIM\font.cpp | 03-03-2000 | 13:01:24 | | 2098 | 13d47828
+File Copy: D:\Risk Monitor\ScheduleX\Samples\C++\ScheduleX\PIM\font.h | 03-03-2000 | 13:01:24 | | 1042 | 3e4d9372
+File Copy: D:\Risk Monitor\ScheduleX\Samples\C++\ScheduleX\PIM\picture.cpp | 08-23-1999 | 13:12:12 | | 1128 | 3a70039e
+File Copy: D:\Risk Monitor\ScheduleX\Samples\C++\ScheduleX\PIM\picture.h | 08-23-1999 | 13:12:12 | | 1295 | 1b7109e5
+File Copy: D:\Risk Monitor\ScheduleX\Samples\C++\ScheduleX\PIM\pvalarm.cpp | 03-03-2000 | 13:01:24 | | 2089 | d273a4c8
+File Copy: D:\Risk Monitor\ScheduleX\Samples\C++\ScheduleX\PIM\pvalarm.h | 03-03-2000 | 13:01:24 | | 1402 | 6bef454
+File Copy: D:\Risk Monitor\ScheduleX\Samples\C++\ScheduleX\PIM\pvappointment.cpp | 03-03-2000 | 13:01:24 | | 5877 | bc4a4f34
+File Copy: D:\Risk Monitor\ScheduleX\Samples\C++\ScheduleX\PIM\pvappointment.h | 03-03-2000 | 13:01:24 | | 2321 | ebe67f98
+File Copy: D:\Risk Monitor\ScheduleX\Samples\C++\ScheduleX\PIM\pvappointmentset.cpp | 03-03-2000 | 13:01:24 | | 3467 | e9c8723
+File Copy: D:\Risk Monitor\ScheduleX\Samples\C++\ScheduleX\PIM\pvappointmentset.h | 03-03-2000 | 13:01:24 | | 1788 | ea06fe5a
+File Copy: D:\Risk Monitor\ScheduleX\Samples\C++\ScheduleX\PIM\pvcalendar.cpp | 04-05-2000 | 09:00:22 | | 23445 | dba5645d
+File Copy: D:\Risk Monitor\ScheduleX\Samples\C++\ScheduleX\PIM\pvcalendar.h | 04-05-2000 | 09:00:22 | | 6897 | f5393974
+File Copy: D:\Risk Monitor\ScheduleX\Samples\C++\ScheduleX\PIM\pvdayview.cpp | 03-03-2000 | 13:01:24 | | 12568 | d7a0f030
+File Copy: D:\Risk Monitor\ScheduleX\Samples\C++\ScheduleX\PIM\pvdayview.h | 03-03-2000 | 13:01:24 | | 4423 | c6de4db9
+File Copy: D:\Risk Monitor\ScheduleX\Samples\C++\ScheduleX\PIM\pvtaskitem.cpp | 08-23-1999 | 13:12:18 | | 2088 | f36507bc
+File Copy: D:\Risk Monitor\ScheduleX\Samples\C++\ScheduleX\PIM\pvtaskitem.h | 08-23-1999 | 13:12:18 | | 1455 | 1c05d274
+File Copy: D:\Risk Monitor\ScheduleX\Samples\C++\ScheduleX\PIM\pvtaskpad.cpp | 08-23-1999 | 13:12:18 | | 7224 | b970e511
+File Copy: D:\Risk Monitor\ScheduleX\Samples\C++\ScheduleX\PIM\pvtaskpad.h | 08-23-1999 | 13:12:18 | | 3073 | a196f816
+File Copy: D:\Risk Monitor\ScheduleX\Samples\C++\ScheduleX\PIM\ReadMe.txt | 05-13-1999 | 15:25:22 | | 3633 | c765718e
+File Copy: D:\Risk Monitor\ScheduleX\Samples\C++\ScheduleX\PIM\resource.h | 04-26-2000 | 09:51:18 | | 871 | c665a6b9
+File Copy: D:\Risk Monitor\ScheduleX\Samples\C++\ScheduleX\PIM\ScheduleX.clw | 04-26-2000 | 09:52:06 | | 1350 | 1de943b5
+File Copy: D:\Risk Monitor\ScheduleX\Samples\C++\ScheduleX\PIM\ScheduleX.cpp | 05-13-1999 | 15:25:22 | | 2105 | 6b4ebe95
+File Copy: D:\Risk Monitor\ScheduleX\Samples\C++\ScheduleX\PIM\ScheduleX.dsp | 03-03-2000 | 13:02:54 | | 8212 | 8c06c5d8
+File Copy: D:\Risk Monitor\ScheduleX\Samples\C++\ScheduleX\PIM\ScheduleX.dsw | 03-03-2000 | 13:02:54 | | 719 | 24978aa1
+File Copy: D:\Risk Monitor\ScheduleX\Samples\C++\ScheduleX\PIM\ScheduleX.exe | 04-26-2000 | 09:51:52 | 1.0.0.1 | 32768 | aef91155
+File Copy: D:\Risk Monitor\ScheduleX\Samples\C++\ScheduleX\PIM\ScheduleX.h | 05-13-1999 | 15:25:22 | | 1357 | 6486570e
+File Copy: D:\Risk Monitor\ScheduleX\Samples\C++\ScheduleX\PIM\ScheduleX.rc | 04-26-2000 | 09:51:50 | | 11844 | f305dee9
+File Copy: D:\Risk Monitor\ScheduleX\Samples\C++\ScheduleX\PIM\ScheduleXDlg.cpp | 03-03-2000 | 13:05:02 | | 10811 | 5340981b
+File Copy: D:\Risk Monitor\ScheduleX\Samples\C++\ScheduleX\PIM\ScheduleXDlg.h | 03-03-2000 | 13:05:20 | | 1745 | 21e7260
+File Copy: D:\Risk Monitor\ScheduleX\Samples\C++\ScheduleX\PIM\StdAfx.cpp | 05-13-1999 | 15:25:24 | | 211 | 1aeacd1e
+File Copy: D:\Risk Monitor\ScheduleX\Samples\C++\ScheduleX\PIM\StdAfx.h | 05-13-1999 | 15:25:24 | | 1054 | 3713ad54
+Made Dir: D:\Risk Monitor\ScheduleX\Samples\C++\ScheduleX\PIM\res
+File Copy: D:\Risk Monitor\ScheduleX\Samples\C++\ScheduleX\PIM\res\ScheduleX.ico | 05-03-1999 | 11:19:14 | | 1078 | 25920370
+File Copy: D:\Risk Monitor\ScheduleX\Samples\C++\ScheduleX\PIM\res\ScheduleX.rc2 | 05-13-1999 | 15:25:24 | | 401 | 6427790
+Made Dir: D:\Risk Monitor\ScheduleX\Samples\IE
+Made Dir: D:\Risk Monitor\ScheduleX\Samples\IE\ScheduleX
+Made Dir: D:\Risk Monitor\ScheduleX\Samples\IE\ScheduleX\Pim
+File Copy: D:\Risk Monitor\ScheduleX\Samples\IE\ScheduleX\Pim\caltp.htm | 04-26-2000 | 09:32:46 | | 6128 | 45c00691
+File Copy: D:\Risk Monitor\ScheduleX\Samples\IE\ScheduleX\Pim\dayview.htm | 04-26-2000 | 09:32:30 | | 1489 | 7880876e
+File Copy: D:\Risk Monitor\ScheduleX\Samples\IE\ScheduleX\Pim\default.htm | 04-26-2000 | 09:27:58 | | 429 | 772139b0
+File Copy: D:\Risk Monitor\ScheduleX\Samples\IE\ScheduleX\Pim\scxstyle.css | 12-01-1999 | 17:13:34 | | 3412 | bdbfe302
+Made Dir: D:\Risk Monitor\ScheduleX\Samples\VB
+Made Dir: D:\Risk Monitor\ScheduleX\Samples\VB\ScheduleX
+Made Dir: D:\Risk Monitor\ScheduleX\Samples\VB\ScheduleX\PIM
+File Copy: D:\Risk Monitor\ScheduleX\Samples\VB\ScheduleX\PIM\app.ico | 05-03-1999 | 10:48:38 | | 766 | c40548e6
+File Copy: D:\Risk Monitor\ScheduleX\Samples\VB\ScheduleX\PIM\apps.day1 | 10-19-2000 | 13:11:38 | | 6341 | df7aa5e3
+File Copy: D:\Risk Monitor\ScheduleX\Samples\VB\ScheduleX\PIM\appt.bmp | 03-18-1999 | 14:24:20 | | 322 | dc8dcf66
+File Copy: D:\Risk Monitor\ScheduleX\Samples\VB\ScheduleX\PIM\calendar.cal1 | 10-19-2000 | 13:15:50 | | 2924 | 911d9baa
+File Copy: D:\Risk Monitor\ScheduleX\Samples\VB\ScheduleX\PIM\clsPVSXOL.cls | 05-19-1999 | 10:21:20 | | 8747 | a23e3a35
+File Copy: D:\Risk Monitor\ScheduleX\Samples\VB\ScheduleX\PIM\clsScheduleX.cls | 10-19-2000 | 13:23:14 | | 10873 | 2ca9fbb7
+File Copy: D:\Risk Monitor\ScheduleX\Samples\VB\ScheduleX\PIM\frmAbout.frm | 12-12-2000 | 17:49:50 | | 9184 | 7d701c8b
+File Copy: D:\Risk Monitor\ScheduleX\Samples\VB\ScheduleX\PIM\frmAbout.frx | 12-12-2000 | 17:49:50 | | 963 | 36f3ffa1
+File Copy: D:\Risk Monitor\ScheduleX\Samples\VB\ScheduleX\PIM\frmMain.frm | 12-12-2000 | 17:49:50 | | 23782 | 82aa5ca6
+File Copy: D:\Risk Monitor\ScheduleX\Samples\VB\ScheduleX\PIM\frmMain.frx | 12-12-2000 | 17:49:50 | | 2490 | 49c4776c
+File Copy: D:\Risk Monitor\ScheduleX\Samples\VB\ScheduleX\PIM\MSOUTL85.OLB | 03-12-1998 | 00:00:00 | 8.5.5003.0 | 127488 | d0016100
+File Copy: D:\Risk Monitor\ScheduleX\Samples\VB\ScheduleX\PIM\pim.exe | 12-12-2000 | 17:49:58 | 1.0.0.0 | 81920 | caf4cbee
+File Copy: D:\Risk Monitor\ScheduleX\Samples\VB\ScheduleX\PIM\pim.vbp | 12-12-2000 | 17:49:50 | | 1335 | e14e6e7b
+File Copy: D:\Risk Monitor\ScheduleX\Samples\VB\ScheduleX\PIM\PIM.vbw | 12-12-2000 | 17:50:06 | | 168 | 2b7f3d01
+File Copy: D:\Risk Monitor\ScheduleX\Samples\VB\ScheduleX\PIM\task.bmp | 05-12-1999 | 16:13:38 | | 1334 | d9979201
+File Copy: D:\Risk Monitor\ScheduleX\Samples\VB\ScheduleX\PIM\TaskPad.tsk1 | 10-19-2000 | 13:11:42 | | 5758 | 7a1900d4
+Made Dir: D:\Risk Monitor\ScheduleX\CAB
+File Copy: D:\Risk Monitor\ScheduleX\CAB\PVCalendar.cab | 12-14-2000 | 09:43:04 | | 126385 | 77c3cf8f
+File Copy: D:\Risk Monitor\ScheduleX\CAB\pvdateedit.cab | 12-14-2000 | 09:42:52 | | 69986 | 8ec78419
+File Copy: D:\Risk Monitor\ScheduleX\CAB\PVDayView8.cab | 12-14-2000 | 09:43:06 | | 161327 | 55747b
+File Copy: D:\Risk Monitor\ScheduleX\CAB\PVTaskPad.cab | 12-14-2000 | 09:43:08 | | 247995 | 6f0dd42f
+File Copy: D:\Risk Monitor\ScheduleX\CAB\pvtime.cab | 12-14-2000 | 09:43:00 | | 58009 | dc68156d
+Made Dir: D:\Risk Monitor\ScheduleX\Product Activation Wizard
+File Copy: D:\Risk Monitor\ScheduleX\Product Activation Wizard\ProdActWizIG.exe | 12-14-2000 | 15:04:16 | 1.1.0.8 | 344064 | d0a9c44b
+File Copy: D:\Risk Monitor\ScheduleX\Product Activation Wizard\CFC.dll | 12-08-2000 | 17:58:18 | 1.0.0.2 | 45056 | f818eb71
+File Copy: C:\WINNT\system32\ickhttps2.ocx | 07-18-2000 | 01:00:32 | 2.0.0.31 | 100464 | f1f7cbc1
+File Overwrite: C:\WINNT\system32\MSXML.DLL | | | | 533776 | 2075269d
+Version: Following file not copied.
+File Overwrite: C:\WINNT\system32\scrrun.dll | 05-11-2001 | 17:11:28 | 5.1.0.5010 | 147512 | afe84ea4
+File Overwrite: C:\WINNT\system32\XENROLL.DLL | 12-07-1999 | 11:00:00 | 5.131.2146.1 | 110664 | 1e8d12a5
+Backup Copy: D:\Risk Monitor\ScheduleX\BACKUP\xenroll.dll
+Version: Following file not copied.
+File Overwrite: C:\WINNT\system32\MSCOMCTL.OCX | 05-22-2000 | 00:00:00 | 6.0.88.62 | 1064456 | ff2614bc
+Version: Following file not copied.
+File Overwrite: C:\WINNT\system32\MSVBVM60.DLL | 08-21-2000 | 00:00:00 | 6.0.89.64 | 1388544 | 581278eb
+Made Dir: C:\WINNT\Profiles\sanfwm\Start Menu\Programs\Infragistics
+Made Dir: C:\WINNT\Profiles\sanfwm\Start Menu\Programs\Infragistics\ScheduleX
+Shell Link: C:\WINNT\Profiles\sanfwm\Start Menu\Programs\Infragistics\ScheduleX\ScheduleX Help.lnk
+Link Info: D:\Risk Monitor\ScheduleX\Help\ScheduleX.chm | D:\Risk Monitor\ScheduleX\Help |  | 0 | 1 | 0 | 
+Shell Link: C:\WINNT\Profiles\sanfwm\Start Menu\Programs\Infragistics\ScheduleX\PIM Sample.lnk
+Link Info: D:\Risk Monitor\ScheduleX\Samples\VB\ScheduleX\PIM\pim.exe |  |  | 0 | 1 | 0 | 
+Shell Link: C:\WINNT\Profiles\sanfwm\Start Menu\Programs\Infragistics\ScheduleX\Infragistics Web Site.lnk
+Link Info: D:\Risk Monitor\ScheduleX\Infragistics.htm |  |  | 0 | 1 | 0 | 
+Shell Link: C:\WINNT\Profiles\sanfwm\Start Menu\Programs\Infragistics\ScheduleX\ScheduleX Readme.lnk
+Link Info: D:\Risk Monitor\ScheduleX\readme.htm |  |  | 0 | 1 | 0 | 
+Shell Link: C:\WINNT\Profiles\sanfwm\Start Menu\Programs\Infragistics\ScheduleX\Product Activation Wizard.lnk
+Link Info: D:\Risk Monitor\ScheduleX\Product Activation Wizard\ProdActWizIG.exe |  |  | 0 | 1 | 0 | 
+RegDB TREE: Infragistics.ScheduleX.ActiveX\Version8
+RegDB Root: 0
+RegDB Key: Infragistics.ScheduleX.ActiveX\Version8
+RegDB Val: 
+RegDB Key: Infragistics.ScheduleX.ActiveX\Version8\BuildNumber
+RegDB Val: 8.0.3.0002
+RegDB Old: 8.0.3.0005.01
+RegDB Key: Infragistics.ScheduleX.ActiveX\Version8\UserName
+RegDB Val: Mark Salisbury
+RegDB Old: Mark Salisbury
+RegDB Key: Infragistics.ScheduleX.ActiveX\Version8\CompanyName
+RegDB Val: INEEL
+RegDB Old: INEEL
+RegDB Key: Infragistics.ScheduleX.ActiveX\Version8\SerialNumber
+RegDB Val: 198001006791473219
+RegDB Key: Infragistics.ScheduleX.ActiveX\Version8\InstallDir
+RegDB Val: D:\Risk Monitor\ScheduleX
+RegDB Old: D:\Risk Monitor\ScheduleX
+RegDB Key: Infragistics.ScheduleX.ActiveX\Version8\HelpFileDir
+RegDB Val: D:\Risk Monitor\ScheduleX\HELP
+RegDB Old: D:\Risk Monitor\ScheduleX\HELP
+RegDB Key: SOFTWARE\Microsoft\Windows\Help
+RegDB Val: D:\Risk Monitor\ScheduleX\Help
+RegDB Name: pvDateEdit.chm
+RegDB Root: 2
+RegDB Old: D:\Risk Monitor\ScheduleX\Help
+RegDB Key: SOFTWARE\Microsoft\Windows\Help
+RegDB Val: D:\Risk Monitor\ScheduleX\Help
+RegDB Name: pvTimeEdit.chm
+RegDB Root: 2
+RegDB Old: D:\Risk Monitor\ScheduleX\Help
+RegDB Key: SOFTWARE\Microsoft\Windows\Help
+RegDB Val: D:\Risk Monitor\ScheduleX\Help
+RegDB Name: scxCalendar.chm
+RegDB Root: 2
+RegDB Old: D:\Risk Monitor\ScheduleX\Help
+RegDB Key: SOFTWARE\Microsoft\Windows\Help
+RegDB Val: D:\Risk Monitor\ScheduleX\Help
+RegDB Name: scxDayView.chm
+RegDB Root: 2
+RegDB Old: D:\Risk Monitor\ScheduleX\Help
+RegDB Key: SOFTWARE\Microsoft\Windows\Help
+RegDB Val: D:\Risk Monitor\ScheduleX\Help
+RegDB Name: scxTaskPad.chm
+RegDB Root: 2
+RegDB Old: D:\Risk Monitor\ScheduleX\Help
+RegDB TREE: Infragistics.InstalledProducts\ScheduleX 8.0
+RegDB Root: 0
+RegDB Key: Infragistics.InstalledProducts\ScheduleX 8.0
+RegDB Val: 198001006791473219
+Self-Register: C:\WINNT\system32\OLEAUT32.DLL
+Self-Register: C:\WINNT\system32\OLEPRO32.DLL
+Self-Register: C:\WINNT\system32\MFC42.DLL
+Self-Register: C:\WINNT\system32\PVShared.dll
+Self-Register: D:\Risk Monitor\ScheduleX\PVCalendar.ocx
+Self-Register: D:\Risk Monitor\ScheduleX\PVDateEdit.ocx
+Self-Register: D:\Risk Monitor\ScheduleX\PVDayView8.ocx
+Self-Register: D:\Risk Monitor\ScheduleX\PVTaskPad.ocx
+Self-Register: D:\Risk Monitor\ScheduleX\PVTime.ocx
+Self-Register: C:\WINNT\system32\ickhttps2.ocx
+Self-Register: C:\WINNT\system32\MSXML.DLL
+Self-Register: C:\WINNT\system32\scrrun.dll
+Self-Register: C:\WINNT\system32\XENROLL.DLL
+Self-Register: C:\WINNT\system32\MSCOMCTL.OCX
+Self-Register: C:\WINNT\system32\MSVBVM60.DLL
+RegDB Key: Software\Microsoft\Windows\CurrentVersion\Uninstall\Infragistics ScheduleX 8.03
+RegDB Val: 8.0.3.0002
+RegDB Name: DisplayVersion
+RegDB Root: 2
+RegDB Old: 8.0.3.0005.01
+RegDB Key: Software\Microsoft\Windows\CurrentVersion\Uninstall\Infragistics ScheduleX 8.03
+RegDB Val: D:\Risk Monitor\ScheduleX\Help\pvcalendar.chm
+RegDB Name: HelpLink
+RegDB Root: 2
+RegDB Old: D:\Risk Monitor\ScheduleX\Help\pvcalendar.chm
+RegDB Key: Software\Microsoft\Windows\CurrentVersion\Uninstall\Infragistics ScheduleX 8.03
+RegDB Val: (609) 655-5000
+RegDB Name: HelpTelephone
+RegDB Root: 2
+RegDB Old: (609) 655-5000
+RegDB Key: Software\Microsoft\Windows\CurrentVersion\Uninstall\Infragistics ScheduleX 8.03
+RegDB Val: Infragistics, Inc.
+RegDB Name: Publisher
+RegDB Root: 2
+RegDB Old: Infragistics, Inc.
+RegDB Key: Software\Microsoft\Windows\CurrentVersion\Uninstall\Infragistics ScheduleX 8.03
+RegDB Val: http://www.infragistics.com
+RegDB Name: URLInfoAbout
+RegDB Root: 2
+RegDB Old: http://www.infragistics.com
+RegDB Key: Software\Microsoft\Windows\CurrentVersion\Uninstall\Infragistics ScheduleX 8.03
+RegDB Val: Infragistics Technical Support
+RegDB Name: Contact
+RegDB Root: 2
+RegDB Old: Infragistics Technical Support
+RegDB Key: Software\Microsoft\Windows\CurrentVersion\Uninstall\Infragistics ScheduleX 8.03
+RegDB Val: D:\Risk Monitor\ScheduleX\PVCalendar.ocx,-0
+RegDB Name: DisplayIcon
+RegDB Root: 2
+RegDB Old: D:\Risk Monitor\ScheduleX\PVCalendar.ocx,-0
+User Rights: Admin

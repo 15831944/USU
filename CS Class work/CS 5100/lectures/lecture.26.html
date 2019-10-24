@@ -1,0 +1,63 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>CS 5100 Lecture 26 - Greg Jones</TITLE>
+<META NAME="Template" CONTENT="C:\Program Files\Microsoft Office\Templates\Lecture Notes.dot">
+</HEAD>
+<BODY>
+
+<B><I><FONT SIZE=5><P>Drag and Drop&#9;Lecture 5100.26</P>
+<OL TYPE="A">
+
+</I></FONT><LI>Concepts</LI>
+<OL>
+
+<LI>The purpose of drag and drop is to simulate physically picking an object up and moving it.  Most often, the GUI Component is &quot;picked up&quot; by pressing the left mouse button while over the component, and &quot;dropped&quot; by releasing the button in another spot.  The action of moving the mouse with the button depressed is called &quot;dragging.&quot;</LI>
+<LI>Drag and drop GUI operations can result in three different kinds of actions: </LI>
+<OL TYPE="a">
+
+<LI>Move the object to another location</LI>
+<LI>Copy the object in another location (often signaled by a plus symbol on the cursor)</LI>
+<LI>Place a reference (link) to the object in another location (often signaled by an arrow on the cursor)</LI></OL>
+
+<LI>Using the MVC concept, the visible gestures involved in drag and drop are the view; the listeners, sources, targets, and recognizers involved are the controller; and a transferable form of the underlying data model of the object is the model.  A transferable object is one which has some recognizable data flavor (e.g., MIME type) which can be processed by both the source and target objects.</LI>
+<LI>Drag and drop operations are closely allied to clipboard operations.  Both have the purpose of permitting the transfer of an object from one location to another.  Cut, copy, and paste correspond to move, copy, and drop.</LI>
+<LI>Drag and drop is not supported by the AWT or Swing API’s, but by the java.awt.dnd package.</LI>
+<LI>It is quite possible for drag and drop operations to be initiated programmatically, as well as by user gestures.</LI></OL>
+
+<LI>Entities involved in drag and drop and the drag and drop sequence</LI>
+<OL>
+
+<LI>A DragSource comes into existence, associated with some presentation element (Component) in the GUI, to initiate a Drag and Drop of some potentially Transferable data.</LI>
+<LI>One or more DropTarget(s) come into/go out of existence, associated with  presentation elements in the GUI (Components), potentially capable of consuming Transferable data types.</LI>
+<LI>A DragGestureRecognizer is obtained from the DragSource and is associated with a Component in order to track and identify any Drag initiating gesture by the user over the Component.</LI>
+<LI>A user makes a Drag gesture over the Component, which the registered DragGestureRecognizer detects, and notifies its DragGestureListener of.</LI>
+<LI>The DragGestureListener causes the DragSource to initiate the Drag and Drop operation on behalf of the user, perhaps animating the GUI Cursor and/or rendering an Image of the item(s) that are the subject of the operation.</LI>
+<LI>As the user gestures navigate over Component(s) in the GUI with associated DropTarget(s), the DragSource receives notifications in order to provide "Drag Over" feedback effects, and the DropTarget(s) receive notifications in order to provide "Drag Under" feedback effects based upon the operation(s) supported and the data type(s) involved.</LI></OL>
+
+<LI>Drag and Drop States</LI>
+<OL>
+
+<LI>The gesture itself moves a logical cursor across the GUI hierarchy, intersecting the geometry of GUI Component(s), possibly resulting in the logical "Drag" cursor entering, crossing, and subsequently leaving Component(s) and associated DropTarget(s).</LI>
+<LI>The DragSource object manifests "Drag Over" feedback to the user, in the typical case by animating the GUI Cursor associated with the logical cursor.</LI>
+<LI>DropTarget objects manifest "Drag Under" feedback to the user, in the typical case, by rendering animations into their associated GUI Component(s) under the GUI Cursor.</LI>
+<LI>The determination of the feedback effects, and the ultimate success or failure of the data transfer, should one occur, is parameterized as follows:</LI>
+<OL TYPE="a">
+
+<LI>By the transfer "operation" selected by the user, and supported by both the DragSource and DropTarget: Copy, Move or Reference(link).</LI>
+<LI>By the intersection of the set of data types provided by the DragSource and the set of data types comprehensible by the DropTarget.</LI>
+<LI>When the user terminates the drag operation, normally resulting in a successful Drop, both the DragSource and DropTarget receive notifications that include, and result in the type negotiation and transfer of, the information associated with the DragSource via a Transferable object.</LI></OL>
+</OL>
+
+<LI>Simulating drag and drop within a single Java Swing application</LI>
+<OL>
+
+<LI>Intra-application drag and drop does not have to worry about the transferable nature of the data, since it recognizes its own data formats and structures.</LI>
+<LI>Standard mouse and mouse motion listeners can recognize gestures.</LI>
+<LI>Drag over effects can be created by moving an object in the drag layer of a layered pane, along with the cursor.</LI>
+<LI>Drag under effects can be created by tracking mouse motion for target appearance changes during rollover, and by tracking mouse actions for target animation during drops.</LI></OL>
+</OL>
+
+<FONT FACE="Courier New"></B></FONT></BODY>
+</HTML>

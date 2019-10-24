@@ -1,0 +1,109 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>CS 5100 Lecture 11 - Greg Jones</TITLE>
+<META NAME="Template" CONTENT="C:\Program Files\Microsoft Office\Templates\Lecture Notes.dot">
+</HEAD>
+<BODY>
+
+<B><I><FONT SIZE=5><P>Color and Fonts&#9;Lecture 5100.11</P>
+<OL TYPE="A">
+
+</I></FONT><LI>Color</LI>
+<OL>
+
+<LI>Java uses a 24-bit color system, in which eight bits are used each for representing the red, green, and blue intensity.  It is also possible to represent colors using hue, saturation, and brightness.</LI>
+<LI>There are 13 named colors, like black, white, orange, magenta, etc.</LI>
+<LI>Colors can be represented in the constructor numerically in several ways:</LI>
+<OL TYPE="a">
+
+<LI>by three integer numbers ranging from 0 to 255</LI>
+<LI>by a hex number, like 0x0000ff for blue, or its decimal equivalent, 255</LI>
+<LI>by float intensity ranges, like (0.0, 1.0, 0.0) for green.</LI></OL>
+
+<LI>Methods getRed, getGreen, getBlue, or getRGB return the integer values of colors.</LI>
+<LI>Methods brighter() and darker() change colors slightly.</LI>
+<LI>Like fonts, we can create color properties in resource files.</LI>
+<LI>The class method getColor(String s) will return the color associated with a system property name, or a default if the name isn’t found.</LI></OL>
+
+<LI>Color Schemes (in java.awt.SystemColor)</LI>
+<OL>
+
+<LI>Systems provide certain color schemes, or themes.  For instance, in MSWindows, these are set through the Control Panel Display application Appearance tab.  It is not possible to change these from within a Java application, but a variety of &quot;constants&quot; representing the specific colors for menubar backgrounds, titlebar foregrounds, etc. are available.</LI>
+<LI>These are not really constant, since user action can change them.</LI>
+<LI>They are used automatically in components like pushbuttons or menu selections.  Application programmers can access and use them elsewhere to provide a look and feel to their applications which is consistent with the general system.</LI></OL>
+
+<LI>The ColorModel Abstract Class (in java.awt.image)</LI>
+<OL>
+
+<LI>Most often, current hardware uses one byte to indicate 256 different intensity levels for each of the three primary colors used to put together the color of a pixel.  With something like a million pixels on a screen, this means allocating at least 3M of memory to hold a single image.  While this can be done, using what is called the DirectColorModel, it may not be possible to store a lot of images in graphics memory.</LI>
+<LI>Thus, it is desirable to find a more compact way of storing colors for pixels.  The answer is the IndexColorModel, in which we store not 1M integers (at 4 bytes apiece) but 1M indexes at 1 byte apiece.  Each byte index has value 0 to 255 and is the index of one of the 256 colors stored in an array of 256 integers, called a color map.  The image is then restricted to displaying these 256 colors.  We could change the contents of the color map, and when repainted, the image would immediately show the new colors in place of the old.</LI>
+<LI>Some platform dependencies, including the limitation on the number of colors displayable, may cause certain compromises.  Thus, even with the DirectColorModel, we may not see exactly the color we expected.  However, the Java system will use the closest color it can.</LI>
+<LI>Because it makes sense to use integers (4 bytes) rather than 3 byte chunks, the Java system actually uses a &quot;four primary color&quot; system, ARGB, when the alpha component is the degree of transparency.  An A value of 0 means that the pixel is completely transparent, showing whatever is beneath it, while 255 is totally opaque.  In between the pixel displayed is a &quot;cloudy&quot; mixture of background and foreground.</LI>
+<LI>The ColorModel constructor can’t be called directly, because it is an abstract class, but it takes as a parameter the number of bits used to represent color for a pixel.  The maximum is 32.</LI>
+<LI>getPixelSize returns the number of bits per pixel.</LI>
+<LI>getAlpha[Red][Green][Blue](pixel) returns the intensity level of the four primary components of a pixel’s color.</LI>
+<LI>getRGB(pixel) returns the color of the pixel in the standard format, while getRGBDefault returns the color model which is the standard on the platform.</LI></OL>
+
+<LI>The DirectColorModel Class</LI>
+<OL>
+
+<LI>The constructor takes parameters for the number of bits per pixel and masks for the positions of the Alpha, Red, Green, and Blue intensities within those bits.  There is another constructor which eliminates Alpha color components</LI>
+<LI>getAlpha[Red][Green][Blue]Mask returns the corresponding masks for the color model object.</LI></OL>
+
+<LI>The IndexColorModel Class</LI>
+<OL>
+
+<LI>There are a variety of constructors, with parameters for the number of bits per index, the number of color map entries, a single byte array with interleaved a,r,g,b components, or four separate byte arrays, a starting location in the interleaved array representing the 0 index, a boolean indicating whether there are alpha components, and the index of the &quot;transparent&quot; color in the map.</LI>
+<LI>getMapSize returns the number of entries in the map, while getTransparentPixel returns its index.</LI>
+<LI>getAlphas[Reds][Greens][Blues](byte[]) returns the individual arrays of primary color intensities.</LI></OL>
+
+<LI>Fonts</LI>
+<OL>
+
+<LI>A font is a set of glyphs to which characters are mapped.  The mapping is neither single-valued nor one-one.</LI>
+<LI>Java permits a limited set of current font families.  They are arbitrarily named Serif, SansSerif, Monotype, Dialog, DialogInput, and Symbol?.</LI>
+<LI>Three of these names are normally mapped in the following way: Serif to Times Roman, SansSerif to Helvetica, Monotype to Courier</LI>
+<LI>To find all the fonts supported on any platform, call Toolkit.getDefaultToolkit().getFontList(). This method returns a String array of the fonts available.  Java contains no fonts in itself.  It depends on native peer fonts.</LI>
+<LI>Beside the family, and font also has an integer size (more or less in points, which are about 1/72 inch) and a style, plain, bold, italic, or bold italic.  Font constants font.PLAIN, font.BOLD, font.ITALIC are used to specify these.  Use font.BOLD | font.ITALIC to specify bold italic.</LI>
+<LI>There is no underlining capability in AWT.  It is fairly easy, using FontMetrics, to underline text that has been drawn.</LI></OL>
+
+<LI>Font Methods</LI>
+<OL>
+
+<LI>The constructor, Font(name, size, style)</LI>
+<LI>getName, getSize, getStyle return a font’s characteristics</LI>
+<LI>isPlain, isBold, isItalic say whether a font has those styles.  You need to use both isBold and isItalic to determine whether a font style is bold italic.</LI>
+<LI>getFamily returns the actual family associated with a font name.  Thus getName might return SansSerif, while getFamily might return Helvetica.</LI></OL>
+
+<LI>System Properties and Resources</LI>
+<OL>
+
+<LI>Although Java tries to be platform independent, there are certain system &quot;settings&quot; it may need to know.</LI>
+<OL TYPE="a">
+
+<LI>These are provided, not through platform-dependent system calls, but as strings called properties.  The following system properties are always available: file.separator, java.class.version, java.vendor, java.vendor.url, java.home, java.version, line.separator, os.arch, os.name, os.version, path.separator.</LI>
+<LI>These are available to applications but not applets, which are restricted for security reasons: awt.toolkit, file.encoding, file.encoding.pkg, java.class.path, user.dir, user.home, user.language, user.name, user.region, user.timezone.</LI>
+<LI>A property string can be returned by calling, e.g., System.getProperty(&quot;os.arch&quot;)</LI></OL>
+
+<LI>Users can create &quot;resource&quot; files in any arbitrary location, then read properties  from the resource file.  See Appendix A of the book by Zelkowitz for examples.  Specifically, this means that other Font instances than the standard ones can be created and used through resource files.</LI></OL>
+
+<LI>Font Metrics</LI>
+<OL>
+
+<LI>The FontMetrics class provides no public constructor.  It is abstract, and must be implemented by a native peer.  Font metrics are obtained for the current Graphics font by getGraphics().getFontMetrics, or for an arbitrary font by Toolkit.getDefaultToolkit().getFontMetrics (font).</LI>
+<LI>FontMetrics methods include</LI>
+<OL TYPE="a">
+
+<LI>getLeading(), which returns the height in pixels of the blank area between lines;</LI>
+<LI>getAscent, getDescent, getMaxAscent, and getMaxDescent which return the height in pixels above and below the baseline for that font;</LI>
+<LI>getHeight, which returns the sum of leading, ascent, and descent, that is, the full height of a line of text in that font, ignoring glyphs that exceed standard ascent or descent;</LI>
+<LI>getCharWidth and getStringWidth which returns the width in pixels for a char or string;</LI>
+<LI>getWidths, which returns an array of widths for the first 255 characters in a font.</LI></OL>
+
+<LI>These font metrics are used for underlining, highlighting, boxing, arranging borders, etc.</LI></OL>
+</OL>
+
+</B></BODY>
+</HTML>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<attributes version="1.0">
+   <fileobject name="Album.java">
+      <attr name="class_dependency_javax.swing.JPanel" stringvalue="Album"/>
+      <attr name="class_dependency_javax.swing.JMenuItem" stringvalue="Album.MyMenuItem"/>
+      <attr name="class_dependency_java.awt.event.ActionListener" stringvalue="Album.MenuItemListener"/>
+   </fileobject>
+   <fileobject name="SquaresGame.java">
+      <attr name="class_dependency_javax.swing.JFrame" stringvalue="JFrame;SquaresGame"/>
+   </fileobject>
+</attributes>

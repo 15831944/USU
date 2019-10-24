@@ -1,0 +1,41 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: Condition Editor Text - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\TEMP\RSPE63.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Debug/Condition Editor Text.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"D:\marks\CR10 Talk\Condition Editor Text\EditCondition.cpp"
+"D:\marks\CR10 Talk\Condition Editor Text\ChooseItem.cpp"
+]
+Creating command line "cl.exe @C:\TEMP\RSPE63.tmp" 
+Creating temporary file "C:\TEMP\RSPE64.tmp" with contents
+[
+/nologo /subsystem:windows /incremental:yes /pdb:"Debug/Condition Editor Text.pdb" /debug /machine:I386 /out:"Debug/Condition Editor Text.exe" /pdbtype:sept 
+".\Debug\Condition Editor Text.obj"
+".\Debug\Condition Editor TextDlg.obj"
+".\Debug\EditCondition.obj"
+".\Debug\StdAfx.obj"
+".\Debug\Condition Editor Text.res"
+".\Debug\ChooseItem.obj"
+]
+Creating command line "link.exe @C:\TEMP\RSPE64.tmp"
+<h3>Output Window</h3>
+Compiling...
+ChooseItem.cpp
+Generating Code...
+Skipping... (no relevant changes detected)
+EditCondition.cpp
+Linking...
+
+
+
+<h3>Results</h3>
+Condition Editor Text.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

@@ -1,0 +1,268 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\Super Duper Scavenger Hunt.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\Super Duper Scavenger Hunt.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_SUPERDUPERSCAVENGERHUNT_DIALOG DIALOGEX 0, 0, 214, 147
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "Super Duper Scavenger Hunt"
+FONT 16, "BD SantaMonica"
+BEGIN
+    EDITTEXT        IDC_ANSWER,79,7,61,12,ES_AUTOHSCROLL
+    LTEXT           "The secret code is",IDC_ANSWER_TEXT,11,7,64,10,
+                    SS_CENTERIMAGE
+    LTEXT           "Time remaining",IDC_STATIC,11,79,60,10,SS_CENTERIMAGE
+    LTEXT           "You should start",IDC_TEXT1,11,96,58,10,SS_CENTERIMAGE
+    LTEXT           "Your next point is",IDC_TEXT2,11,40,60,10,
+                    SS_CENTERIMAGE
+    LTEXT           "away",IDC_TEXT3,136,40,48,10,SS_CENTERIMAGE
+    LTEXT           "at",IDC_TEXT4,11,58,10,10,SS_CENTERIMAGE
+    LTEXT           "degrees from North.",IDC_TEXT5,70,58,65,10,
+                    SS_CENTERIMAGE
+    DEFPUSHBUTTON   "Next Step!",IDC_BUTTON1,82,126,50,14
+    LTEXT           "",IDC_RIDDLE_TEXT,11,38,196,34
+    PUSHBUTTON      "Give me a hint!",IDC_BUTTON2,145,7,62,12
+    LTEXT           "Your riddle is:",IDC_DIRECTION_TEXT,11,23,57,10,
+                    SS_CENTERIMAGE
+    LTEXT           "Static",IDC_LOCATION,72,97,125,22,0,WS_EX_CLIENTEDGE
+    LTEXT           "Static",IDC_TIME_LEFT,75,79,87,10,SS_CENTERIMAGE,
+                    WS_EX_CLIENTEDGE
+    LTEXT           "Static",IDC_HEADING,29,58,32,10,SS_CENTERIMAGE,
+                    WS_EX_CLIENTEDGE
+    LTEXT           "Static",IDC_DISTANCE,74,40,55,10,SS_CENTERIMAGE,
+                    WS_EX_CLIENTEDGE
+END
+
+IDD_WELCOME DIALOG DISCARDABLE  0, 0, 280, 115
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Welcome Young Adventurers"
+FONT 18, "BD Bockloo"
+BEGIN
+    DEFPUSHBUTTON   "Yes!",IDOK,77,89,50,14
+    PUSHBUTTON      "No, I'm chicken",IDCANCEL,141,89,63,14
+    LTEXT           "Alas brave young travelers!  For good or for evil, you have made the decision to embark upon this long and bewildering quest.  For this I commend you.  Beware -- few there be that complete it successfully.",
+                    IDC_STATIC,7,7,266,26
+    LTEXT           "Heed my words.  Pay close attention to detail as you proceed.  Do not waste your precious time.  And above all keep your wits about you.  If you do this, you may succeed.  I wish you the best of luck!",
+                    IDC_STATIC,7,37,255,28
+    LTEXT           "Are you ready to continue your quest?",IDC_STATIC,7,69,
+                    256,14
+END
+
+IDD_INSTRUCTIONS1 DIALOG DISCARDABLE  0, 0, 211, 132
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "To aid in your quest..."
+FONT 18, "BD Bockloo"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,81,111,50,14
+    LTEXT           "The first judgment to be passed upon you will be a test of your ability to follow instructions. ",
+                    IDC_STATIC,21,7,169,19
+    LTEXT           "Each point in your journey will include directions to the next point in your journey.  ",
+                    IDC_STATIC,21,30,169,18
+    LTEXT           "Since your skills in following the sun and stars may not be sufficient to give you precise orientation, we will provide you with a magical pointing device, which some call ""protractor"".",
+                    IDC_STATIC,21,52,169,34
+    LTEXT           "You should also have in your posession a map of the kingdom you will be travelling.",
+                    IDC_STATIC,21,90,169,17
+END
+
+IDD_INSTRUCTIONS2 DIALOG DISCARDABLE  0, 0, 221, 158
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "To aid in your quest..."
+FONT 18, "BD Bockloo"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,85,137,50,14
+    LTEXT           "At each point in your journey, you will find a secret code that will give you directions to your next point.",
+                    IDC_STATIC,23,7,175,19
+    LTEXT           "You will be alotted a period of time to find each point.  Should you fail to find this point, you will be given its secret code so that you will not fall behind and perish.  Should you fail to find too many points, you will fail the quest.",
+                    IDC_STATIC,23,72,175,41
+    LTEXT           "You may now begin your quest!  Remember to press 'Proceed' when you believe your answer is correct.",
+                    IDC_STATIC,23,118,175,17
+    LTEXT           "Some points you will pass by solving a riddle.",
+                    IDC_STATIC,23,58,175,11
+    LTEXT           " Using your compass and map, you should determine the location of the next point, where you will find another secret code, until you have triumphed.",
+                    IDC_STATIC,23,29,175,26
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904B0"
+        BEGIN
+            VALUE "CompanyName", "\0"
+            VALUE "FileDescription", "Super Duper Scavenger Hunt MFC Application\0"
+            VALUE "FileVersion", "1, 0, 0, 1\0"
+            VALUE "InternalName", "Super Duper Scavenger Hunt\0"
+            VALUE "LegalCopyright", "Copyright (C) 2001\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "Super Duper Scavenger Hunt.EXE\0"
+            VALUE "ProductName", "Super Duper Scavenger Hunt Application\0"
+            VALUE "ProductVersion", "1, 0, 0, 1\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_SUPERDUPERSCAVENGERHUNT_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 11
+        RIGHTMARGIN, 207
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 140
+    END
+
+    IDD_WELCOME, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 273
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 108
+    END
+
+    IDD_INSTRUCTIONS1, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 203
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 125
+    END
+
+    IDD_INSTRUCTIONS2, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 213
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 151
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#endif //_WIN32
+#include "res\Super Duper Scavenger Hunt.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

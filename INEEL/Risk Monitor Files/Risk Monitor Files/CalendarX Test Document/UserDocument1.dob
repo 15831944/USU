@@ -1,0 +1,163 @@
+VERSION 5.00
+Object = "{22ACD161-99EB-11D2-9BB3-00400561D975}#1.0#0"; "PVCalendar.ocx"
+Begin VB.UserDocument UserDocument1 
+   ClientHeight    =   7170
+   ClientLeft      =   0
+   ClientTop       =   0
+   ClientWidth     =   6300
+   HScrollSmallChange=   225
+   ScaleHeight     =   7170
+   ScaleWidth      =   6300
+   VScrollSmallChange=   225
+   Begin VB.CommandButton Command2 
+      Caption         =   "Rand. Test"
+      Height          =   375
+      Left            =   3600
+      TabIndex        =   2
+      Top             =   240
+      Width           =   1455
+   End
+   Begin VB.CommandButton Command1 
+      Caption         =   "Set Bitmaps"
+      Height          =   375
+      Left            =   1320
+      TabIndex        =   1
+      Top             =   240
+      Width           =   1575
+   End
+   Begin PVATLCALENDARLib.PVCalendar PVCalendar1 
+      Height          =   5055
+      Left            =   240
+      TabIndex        =   0
+      Top             =   720
+      Width           =   5775
+      _Version        =   524288
+      BorderStyle     =   0
+      Appearance      =   1
+      FirstDay        =   0
+      Frame           =   2
+      SelectMode      =   1
+      DisplayFormat   =   0
+      DateOrientation =   0
+      CustomTextOrientation=   2
+      ImageOrientation=   8
+      DOWText0        =   "Sun"
+      DOWText1        =   ""
+      DOWText2        =   ""
+      DOWText3        =   ""
+      DOWText4        =   ""
+      DOWText5        =   ""
+      DOWText6        =   ""
+      MonthText0      =   "January"
+      MonthText1      =   "February"
+      MonthText2      =   "March"
+      MonthText3      =   "April"
+      MonthText4      =   "May"
+      MonthText5      =   "June"
+      MonthText6      =   "July"
+      MonthText7      =   "August"
+      MonthText8      =   "September"
+      MonthText9      =   "October"
+      MonthText10     =   "November"
+      MonthText11     =   "December"
+      HeaderBackColor =   12632256
+      HeaderForeColor =   0
+      DisplayBackColor=   12632256
+      DisplayForeColor=   0
+      DayBackColor    =   12632256
+      DayForeColor    =   0
+      SelectedDayForeColor=   16777215
+      SelectedDayBackColor=   8388608
+      BeginProperty HeaderFont {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      BeginProperty DOWFont {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      BeginProperty DaysFont {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      MultiLineText   =   -1  'True
+      EditMode        =   0
+      BeginProperty TextFont {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+   End
+End
+Attribute VB_Name = "UserDocument1"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = True
+Attribute VB_PredeclaredId = False
+Attribute VB_Exposed = True
+Option Explicit
+
+Private Sub Command1_Click()
+    'Dim Picture As IPictureDisp
+    'Set Picture = LoadPicture("C:\WINNT\Geometrix.bmp", vbLPSmall, vbLPDefault)
+    'Set Picture = LoadPicture("C:\WINNT\Geometrix.bmp", 100, 100, Default)
+    Dim Indicator(1 To 3) As IPictureDisp
+    Set Indicator(1) = LoadPicture("D:\Risk Monitor\Images\LowIndicator.bmp")
+    Set Indicator(2) = LoadPicture("D:\Risk Monitor\Images\MediumIndicator.bmp")
+    Set Indicator(3) = LoadPicture("D:\Risk Monitor\Images\HighIndicator.bmp")
+    
+    Dim i As Integer
+    Dim wDate As String
+    Dim num As Integer
+    
+    For i = 1 To 31
+        wDate = "May-" & Str(i) & "-2001"
+        num = Int(3 * Rnd + 1)
+        PVCalendar1.DATEImage(wDate) = Indicator(num)
+    Next i
+    
+End Sub
+
+Private Sub Command2_Click()
+    Dim i As Integer
+    Dim c1 As Integer
+    Dim c2 As Integer
+    Dim c3 As Integer
+    Dim c4 As Integer
+    
+    Dim num As Integer
+    
+    For i = 1 To 3000
+        num = Int(3 * Rnd + 1)
+        If (num = 1) Then
+            c1 = c1 + 1
+        ElseIf (num = 2) Then
+            c2 = c2 + 1
+        ElseIf (num = 3) Then
+            c3 = c3 + 1
+        ElseIf (num = 4) Then
+            c4 = c4 + 1
+        End If
+    Next
+    MsgBox ("c1=" & Str(c1) & " c2= " & Str(c2) & " c3 = " & Str(c3) & " c4 = " & Str(c4))
+       
+End Sub
+

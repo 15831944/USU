@@ -1,0 +1,132 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<title>ScheduleX ReadMe</title>
+</head>
+
+<body link="#0000FF" vlink="#800080">
+
+<hr color="black" noShade>
+<p align="center"><font size="6"><b>ScheduleX</b></font><font size="1">(TM)</font></p>
+<p align="center"><font size="+0"><b>ActiveX</b></font><font size="2"><b>(TM)</b></font><font size="+0"><b>
+Control</b></font></p>
+<dl>
+  <div align="center">
+    <center>
+    <dt>Version 8.03</center></dt>
+  </div>
+  <div align="center">
+    <center>
+    <dt>January, 2001<br>
+    </center></dt>
+  </div>
+  <div align="center">
+    <center>
+    <dt>(C) Copyright Infragistics, Inc., 1999-2001</center></dt>
+  </div>
+  <div align="center">
+    <center>
+    <dt>2540 Route 130</center></dt>
+  </div>
+  <div align="center">
+    <center>
+    <dt>Cranbury, NJ 08512 USA<br>
+    </center></dt>
+  </div>
+  <div align="center">
+    <center>
+    <dt>Voice (609) 655-5000</center></dt>
+  </div>
+  <div align="center">
+    <center>
+    <dt>Fax (609) 655-5353</center></dt>
+  </div>
+  <div align="center">
+    <center>
+    <dt>Internet <a href="http://www.infragistics.com/"><font color="#0000ff"><u>http://www.infragistics.com</u></font></a></center></dt>
+  </div>
+  <dd>&nbsp;</dd>
+</dl>
+<p><font size="2">This document contains release notes for ScheduleX.
+Information in this document is more current than the on-line Help.</font></p>
+<hr color="black" noShade>
+<p><font size="2"><b><u>Included Samples</u></b></font></p>
+<p><font size="2">The <i>Samples</i> sub-folder of your product installation
+folder contains various samples demonstrating the use of the product. Brief
+descriptions of these can be found in the file <i>Samples Descriptions.htm</i>,
+located in the <i>Samples</i> folder.</font></p>
+<p><font size="2"><b>Note:</b>  This installation is current and equivalent with
+the latest service pack, (SP2) for version 8 of this product.&nbsp;</font></p>
+<p><font size="2"><b>What is New in ScheduleX 8.0&nbsp;<br>
+</b>* New Spin Buttons on Calendar&nbsp;<br>
+* A new UI for DayView.&nbsp;<br>
+* All-Day Events in DayView&nbsp;<br>
+* Multi-Line Text in Dates in Calendar&nbsp;<br>
+* Documentation written with HTML help to provide indexing, full-text searching
+capabilities, and context-sensitive help.<br>
+</font><strong><font size="2">Calendar<br>
+* </font></strong><font size="2">Added new event - DateDblClick to differentiate
+double clicking anywhere on the calendar vs. on a particular date.<br>
+* Added ability to use page up and page down keys to scroll through the months.<br>
+</font><strong><font size="2">DayView<br>
+* </font></strong><font size="2">Implemented ability to set execute flag
+programmatically</font></p>
+<p><b><u><font size="2">Problems Corrected By This Release (8.03.002) January,
+2001:</font></u></b></p>
+<blockquote>
+  <p><b><font size="2">Calendar<br>
+  </font></b>- <font size="2">Improved Calendar functionality for use in the
+  Access 97 environment.<br>
+  </font>- <font size="2">Fixed Appointment Reading problem so that edit mode is
+  set correctly from the value in the file.<br>
+  </font><b><font size="2">DayView<br>
+  - </font></b><font size="2">Improved functionality for use in Access 97.<br>
+  - In read-only mode you could still add appointments and select time slots.&nbsp;
+  This is now prevented.<br>
+  Fixed problem with multiple selection (read-only).<br>
+  - Alarms were not being turned off when alarm was Acknowledged in the
+  AfterAppointmentAlarm event,<br>
+  can now check whether an appointment was postponed or acknowledged.<br>
+  - Starting caption on dayview was wrong if you changed the system date before
+  executing program.<br>
+  - Implemented/Fixed multiple selection editing. Can now edit appointments when
+  multiple selection is on.<br>
+  - Editing an appointment while shift/ctrl is pressed now can be done<br>
+  - Resize cursors and Move cursors now can edit appointments.<br>
+  - Fixed problem that occurred when you changed an appointment to another time
+  that already had<br>
+  an appointment there, it would not show appointment until refreshed.<br>
+  - Fixed memory reference error when changing startDateTime and EndDate Time.<br>
+  - Fixed problem of SetTopIndex not working on FormLoad when the control is not
+  yet sized.<br>
+  - Fixed TopIndex property to work consistently after setting it the first
+  time.<br>
+  - Fixed DayView selection so that when SetSelectedSlot is called, the arrow
+  keys will correctly move from the newly selected slot instead of the
+  previously selected slot.<br>
+  - Added code to prevent Tab keys from starting to edit the control.<br>
+  - Fixed problem with 24 hour military time not being used on the appointment
+  dialog when editing an existing appointment.<br>
+  </font></p>
+</blockquote>
+<b><u><font size="2">Problems Corrected By The Previous Release:</font></u></b>
+<blockquote>
+  <font size="2"><br>
+  </font><strong><font size="2">Calendar<br>
+  - </font></strong><font size="2">When the regional settings were not set to
+  M/d/yy, VarDateFromStr was converting the string according to the users locale
+  which would throw the Calendar off.<br>
+  - Dates with multiple lines of text were not being saved/loaded correctly.<br>
+  </font><strong><font size="2">DayView<br>
+  </font></strong>- <font size="2">The AppointmentDialogStrings method didn't
+  have a way to set the &quot;All Day Event&quot;, file types in the browse
+  dialog, or the confirm save/delete message boxes.<br>
+  - DayView wasn't taking the control panel settings correctly for displaying
+  24-hour time.<br>
+  </font>- <font size="2">Fixed problem with the TopIndex property not working.</font>
+</blockquote>
+</body>
+</html>

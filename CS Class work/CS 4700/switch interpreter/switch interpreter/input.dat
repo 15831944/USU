@@ -1,0 +1,12 @@
+	int x = 12;
+	switch (x)
+	{
+	case 4:
+		break;
+	case 6:
+	case 12:
+		{
+		} break;
+	case 13..21:
+		break;
+	}

@@ -1,0 +1,59 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>CS 5100 Lecture 36 - Greg Jones</TITLE>
+<META NAME="Template" CONTENT="C:\Program Files\Microsoft Office\Templates\Lecture Notes.dot">
+</HEAD>
+<BODY>
+
+<B><I><FONT SIZE=5><P>Drag and Drop&#9;Examples&#9;&#9;&#9;                                        Lecture 5100.36</P>
+</I></FONT>
+<OL TYPE="A">
+
+<LI>Drag and drop within a single application</LI>
+<OL>
+
+<LI>This can often be accomplished by simple mouse-motion detection, using the OnMouseMove function mapped to the WM_MOUSEMOVE event.  The parameters are:</LI>
+<OL TYPE="a">
+
+<LI>Flags which indicate whether the shift and control keys are depressed, and whether each of the three mouse keys are depressed.</LI>
+<LI>A CPoint, which indicates the current mouse position within the window.</LI></OL>
+
+<LI>In order to create a specialized cursor for drag operations within the application, you can use LoadCursor and SetCursor, after drawing your own cursor and obtaining a handle for it.  You may need to override the default WM_SETCURSOR event handler, which may reset to the standard cursor each time after you set to the specialized cursor.</LI>
+<LI>Cursor parameters: Monochrome (two color) 32x32; Small (16 color) 16x16; Normal (16 color) 32x32; Large (256 color) 64x64</LI>
+<LI>You might also choose simply to alter the draw routine to display some image at the point of the mouse motion.</LI>
+<LI>By capturing the point at which a mouse move is reported, you can also draw dragover and dragunder effects.</LI></OL>
+
+<LI>Windows Explorer file drop</LI>
+<OL>
+
+<LI>This is a very limited drop interaction, which allows you to drag file or directory names.</LI>
+<LI>In the main application class, InitInstance function, the member m_pMainWnd is available.  Call m_pMainWnd-&gt;DragAcceptFiles() to set up for file drops.  If you want the drops to occur only in some subwindow, the same call for that window will work.</LI>
+<LI>If dropping onto a document view you might, in the MainFrm class, have an OnDropFiles function which is mapped to the WM_DROPFILES message.  It could include these statements, which find the active view, determine the file name (contained in the hDropInfo parameter), then cause the view to be redrawn using the filename found in buffer. </LI></OL>
+
+<P>CSDIFileDropView * v = (CSDIFileDropView *) GetActiveView();</P>
+<P>int i = DragQueryFile(hDropInfo, 0, v-&gt;buffer, 99);</P>
+<P>v-&gt;Invalidate();</P>
+<LI>OLE Drop</LI>
+<OL>
+
+<LI>OLE is a much more sophisticated data transfer method.</LI>
+<LI>A drop target object, of type COleDropTarget, must be declared.</LI>
+<LI>The drop target must be registered in connection with a control on which the drops will occur.  For instance, in a document/view application we could call m_target.Register(this) in the OnCreate function for the view.</LI>
+<LI>Also in the view there would need to be: </LI>
+<OL TYPE="a">
+
+<LI>an OnDragOver function, which determines what drop effect (NONE, COPY, MOVE, LINK, SCROLL ) will be portrayed.  It may need to provide some internal drag over or drag under effects;</LI>
+<LI>an OnDragEnter, which will provide an initial drop effect and some initial drag over or drag under effects;</LI>
+<LI>an OnDragLeave, which will provide an exiting drop effect and reset drag over or drag under effects;</LI>
+<LI>an OnDrop function, which will declare a STGMEDIUM structure and initialize it from the pDataObject parameter by calling GetData(type, &amp;struc), where type is one of the types it understands.  It will then test the type of storage medium contained in the data object by examining the tymed field of the structure, and access it if it understands it.  The code for accessing a file identifier would be</LI>
+<P>&#9;&#9;pDataObject-&gt;GetData(CF_HDROP, &amp;struc);</P>
+<P>&#9;&#9;HDROP hdrop = (HDROP)GlobalLock(struc.hGlobal);</P>
+<P>&#9;&#9;int i = DragQueryFile(hdrop, 0, buffer, 99);</P>
+<P>&#9;&#9;GlobalUnlock(hdrop);</P>
+<LI>It is necessary to lock the data object to make sure no other thread is accessing it.  It is also necessary to release the structure subsequently:  ReleaseStgMedium(&amp;struc);</LI></OL>
+</OL>
+</OL>
+</B></BODY>
+</HTML>

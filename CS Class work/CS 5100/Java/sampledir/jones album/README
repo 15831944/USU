@@ -1,0 +1,4 @@
+In order for this to work, the directory photos should be a
+subdirectory of the directory in which jones.alb resides; the
+file boys1.jpg should also be in that directory; and the file
+s_and_i.jpg should be in the root directory.

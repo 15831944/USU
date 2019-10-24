@@ -1,0 +1,99 @@
+/*
+ * JInternalFrame.java
+ *
+ * Created on March 22, 2002, 3:58 PM
+ */
+
+/**
+ *
+ * @author  Default
+ */
+
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+import javax.swing.event.*;
+
+public class DocumentWindow extends javax.swing.JInternalFrame 
+                            implements InternalFrameListener, ActionListener
+{
+
+    /** Creates new form JInternalFrame */
+    public DocumentWindow(String title) 
+    {
+        setTitle(title);
+        initComponents();
+    }
+
+    private void initComponents() 
+    {
+        String text = new String();
+        jEditorPane1 = new javax.swing.JEditorPane("text/rtf",text);
+        editor = jEditorPanel.getEditorKit();
+        editor.
+        setMaximizable(true);
+        setIconifiable(true);
+        setResizable(true);
+        setClosable(true);
+        setPreferredSize(new java.awt.Dimension(300, 250));
+        getContentPane().add(jEditorPane1, java.awt.BorderLayout.CENTER);
+        pack();
+        addInternalFrameListener(this);
+    }
+    
+    //////////////////////////////////////////////////////////////////////////
+    // InternalFrameListener interface implementation
+    //////////////////////////////////////////////////////////////////////////
+    public void internalFrameClosing(InternalFrameEvent e) 
+    {
+        displayMessage("Internal frame closing",e);  
+    }
+
+    public void internalFrameClosed(InternalFrameEvent e) 
+    {
+        displayMessage("Internal frame closed",e);
+        //listenedToWindow = null;
+    }
+
+    public void internalFrameOpened(InternalFrameEvent e) 
+    {
+        //XXX: We don't seem to get any of these.
+        displayMessage("Internal frame opened",e);
+    }
+
+    public void internalFrameIconified(InternalFrameEvent e) 
+    {
+        displayMessage("Internal frame iconified", e);
+    }
+
+    public void internalFrameDeiconified(InternalFrameEvent e) 
+    {
+        displayMessage("Internal frame deiconified", e);
+    }
+
+    public void internalFrameActivated(InternalFrameEvent e) 
+    {
+        displayMessage("Internal frame activated", e);
+    }
+
+    public void internalFrameDeactivated(InternalFrameEvent e) 
+    {
+        displayMessage("Internal frame deactivated", e);
+    }
+
+    void displayMessage(String prefix, InternalFrameEvent e) 
+    {
+        String s = prefix + ": " + e.getSource(); 
+        //display.append(s + newline);
+        System.out.println(s);
+    }
+
+    public void actionPerformed(ActionEvent e) 
+    {
+        //if (e.getActionCommand().equals(SHOW)) {
+            //XXX: Can't reuse internal frame (bug 4138031).
+            //listenedToWindow.setVisible(true)
+    }
+    private javax.swing.JEditorPane jEditorPane1;
+    private RTFEditorKit editor;
+}

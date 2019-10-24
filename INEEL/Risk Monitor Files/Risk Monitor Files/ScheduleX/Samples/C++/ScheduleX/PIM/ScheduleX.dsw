@@ -1,0 +1,33 @@
+Microsoft Developer Studio Workspace File, Format Version 6.00
+# WARNING: DO NOT EDIT OR DELETE THIS WORKSPACE FILE!
+
+###############################################################################
+
+Project: "ScheduleX"=".\ScheduleX.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Global:
+
+Package=<5>
+{{{
+}}}
+
+Package=<3>
+{{{
+    {22ACD16F-99EB-11D2-9BB3-00400561D975}
+    {154DEBDE-A401-11D2-9BC2-00400561D975}
+    {E56F52B0-D0AD-11D2-9C0A-00A0CC3A1AD6}
+    {69CD5E88-EE24-11D3-9DC0-00A0CC3A1AD6}
+}}}
+
+###############################################################################
+

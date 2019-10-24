@@ -1,0 +1,69 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: String Editor - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x409 /fo"Release/String Editor.res" /d "NDEBUG" /d "_AFXDLL" "C:\String Editor\String Editor.rc"" 
+Creating temporary file "c:\windows\TEMP\RSP92A5.TMP" with contents
+[
+/nologo /MD /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Release/String Editor.pch" /Yu"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"C:\String Editor\Find.cpp"
+"C:\String Editor\LeftView.cpp"
+"C:\String Editor\MainFrm.cpp"
+"C:\String Editor\NewStringTableDlg.cpp"
+"C:\String Editor\String Editor.cpp"
+"C:\String Editor\String EditorDoc.cpp"
+"C:\String Editor\String EditorView.cpp"
+"C:\String Editor\StringInfo.cpp"
+"C:\String Editor\StringProperties.cpp"
+]
+Creating command line "cl.exe @c:\windows\TEMP\RSP92A5.TMP" 
+Creating temporary file "c:\windows\TEMP\RSP92A6.TMP" with contents
+[
+/nologo /MD /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Release/String Editor.pch" /Yc"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"C:\String Editor\StdAfx.cpp"
+]
+Creating command line "cl.exe @c:\windows\TEMP\RSP92A6.TMP" 
+Creating temporary file "c:\windows\TEMP\RSP92A7.TMP" with contents
+[
+/nologo /subsystem:windows /incremental:no /pdb:"Release/String Editor.pdb" /machine:I386 /out:"Release/String Editor.exe" 
+".\Release\Find.obj"
+".\Release\LeftView.obj"
+".\Release\MainFrm.obj"
+".\Release\NewStringTableDlg.obj"
+".\Release\StdAfx.obj"
+".\Release\String Editor.obj"
+".\Release\String EditorDoc.obj"
+".\Release\String EditorView.obj"
+".\Release\StringInfo.obj"
+".\Release\StringProperties.obj"
+".\Release\String Editor.res"
+]
+Creating command line "link.exe @c:\windows\TEMP\RSP92A7.TMP"
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+StdAfx.cpp
+Compiling...
+Find.cpp
+LeftView.cpp
+MainFrm.cpp
+NewStringTableDlg.cpp
+String Editor.cpp
+String EditorDoc.cpp
+String EditorView.cpp
+StringInfo.cpp
+StringProperties.cpp
+Generating Code...
+Linking...
+
+
+
+<h3>Results</h3>
+String Editor.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

@@ -1,0 +1,27 @@
+// Here is the format for this file-
+// first, comments may be included by using a '//' at the beginning of a line
+// this data is used for the calibration dialog
+// the first line contains the name of the i.l. group, then the name in russian, 
+// then the number of probes in the group
+// then each line following is information for a probe in that group
+// first is the english probe name, then the russian, then the data input location
+// then the offset input location...
+Carbon Dioxide Probe,Углый Кислый Газ,1
+Probe 1,Проб 1,6,137
+Oxygen Probes,Пробы Кислороды,4
+Probe 1,Проб 1,91,129
+Probe 2,Проб 2,92,131
+Probe 3,Проб 3,93,133
+Probe 4,Проб 4,94,135
+Soil Moisture Probe Saturations,Датчиков Влажности,8
+Probe 1,Проб 1,82,30
+Probe 2,Проб 2,83,32
+Probe 3,Проб 3,84,34
+Probe 4,Проб 4,85,36
+Probe 5,Проб 5,86,38
+Probe 6,Проб 6,87,40
+Wick 1,Вик 1,88,42
+Wick 2,Вик 2,89,44
+
+
+

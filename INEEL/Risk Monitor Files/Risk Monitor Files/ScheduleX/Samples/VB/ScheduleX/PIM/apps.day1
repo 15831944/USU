@@ -1,0 +1,160 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PROPID:-//ProtoView Development Corp//ProtoView ScheduleX DayView//EN//1.0
+X-PVSXDay-Caption;LANGUAGE=us-EN:Thursday, October 19, 2000
+X-PVSXDay-Appearance;LANGUAGE=us-EN:1
+X-PVSXDay-BorderStyle;LANGUAGE=us-EN:0
+X-PVSXDay-Increments;LANGUAGE=us-EN:1
+X-PVSXDay-UseControlPanel;LANGUAGE=us-EN:-1
+X-PVSXDay-TimeSeparator;LANGUAGE=us-EN::
+X-PVSXDay-AMString;LANGUAGE=us-EN:AM
+X-PVSXDay-PMString;LANGUAGE=us-EN:PM
+X-PVSXDay-TimeBackColor;LANGUAGE=us-EN:16777215
+X-PVSXDay-SelectedTimeBackColor;LANGUAGE=us-EN:8388608
+X-PVSXDay-SelectMode;LANGUAGE=us-EN:1
+X-PVSXDay-DOYAlignment;LANGUAGE=us-EN:0
+X-PVSXDay-EnableDayChange;LANGUAGE=us-EN:-1
+X-PVSXDay-ApptsForeColor;LANGUAGE=us-EN:0
+X-PVSXDay-ApptsBackColor;LANGUAGE=us-EN:16777215
+X-PVSXDay-ApptsBarColor;LANGUAGE=us-EN:16711680
+X-PVSXDay-UseCustomCaption;LANGUAGE=us-EN:0
+X-PVSXDay-UseStandardDialogs;LANGUAGE=us-EN:-1
+X-PVSXDay-ApptDlgStr0;LANGUAGE=us-EN:Appointment on mm/dd/yyyy
+X-PVSXDay-ApptDlgStr1;LANGUAGE=us-EN:Save and Close
+X-PVSXDay-ApptDlgStr2;LANGUAGE=us-EN:Delete
+X-PVSXDay-ApptDlgStr3;LANGUAGE=us-EN:This appointment occurs in the past.
+X-PVSXDay-ApptDlgStr4;LANGUAGE=us-EN:Start Time:
+X-PVSXDay-ApptDlgStr5;LANGUAGE=us-EN:AM
+X-PVSXDay-ApptDlgStr6;LANGUAGE=us-EN:PM
+X-PVSXDay-ApptDlgStr7;LANGUAGE=us-EN:End Time:
+X-PVSXDay-ApptDlgStr8;LANGUAGE=us-EN:Alarm
+X-PVSXDay-ApptDlgStr9;LANGUAGE=us-EN:Minutes
+X-PVSXDay-ApptDlgStr10;LANGUAGE=us-EN:Hour
+X-PVSXDay-ApptDlgStr11;LANGUAGE=us-EN:Hours
+X-PVSXDay-ApptDlgStr12;LANGUAGE=us-EN:Day
+X-PVSXDay-ApptDlgStr13;LANGUAGE=us-EN:Days
+X-PVSXDay-ApptDlgStr14;LANGUAGE=us-EN:Week
+X-PVSXDay-ApptDlgStr15;LANGUAGE=us-EN:Weeks
+X-PVSXDay-ApptDlgStr16;LANGUAGE=us-EN:Description:
+X-PVSXDay-ApptDlgStr17;LANGUAGE=us-EN:Execute Program
+X-PVSXDay-ApptDlgStr18;LANGUAGE=us-EN:Program Settings
+X-PVSXDay-ApptDlgStr19;LANGUAGE=us-EN:Program:
+X-PVSXDay-ApptDlgStr20;LANGUAGE=us-EN:Program Arguments:
+X-PVSXDay-ApptDlgStr21;LANGUAGE=us-EN:Browse...
+X-PVSXDay-ApptDlgStr22;LANGUAGE=us-EN:Execute Now
+X-PVSXDay-ApptDlgStr23;LANGUAGE=us-EN:Browse
+X-PVSXDay-ApptDlgStr24;LANGUAGE=us-EN:All Day Event
+X-PVSXDay-ApptDlgStr25;LANGUAGE=us-EN:Executable Files (*.exe;*.com)|*.exe;*.com|Batch Files (*.bat)|*.bat|All Files (*.*)|*.*|
+X-PVSXDay-ApptDlgStr26;LANGUAGE=us-EN:Save Changes
+X-PVSXDay-ApptDlgStr27;LANGUAGE=us-EN:Do you want to save changes?
+X-PVSXDay-ApptDlgStr28;LANGUAGE=us-EN:Confirm Delete
+X-PVSXDay-ApptDlgStr29;LANGUAGE=us-EN:This item has changed.  Are you sure you want to delete it?
+X-PVSXDay-CaptionFont-Name;LANGUAGE=us-EN:MS Sans Serif
+X-PVSXDay-CaptionFont-SizeLo;LANGUAGE=us-EN:82500
+X-PVSXDay-CaptionFont-SizeHi;LANGUAGE=us-EN:0
+X-PVSXDay-CaptionFont-Charset;LANGUAGE=us-EN:0
+X-PVSXDay-CaptionFont-Weight;LANGUAGE=us-EN:400
+X-PVSXDay-CaptionFont-Underline;LANGUAGE=us-EN:0
+X-PVSXDay-CaptionFont-Italic;LANGUAGE=us-EN:0
+X-PVSXDay-CaptionFont-Strikethrough;LANGUAGE=us-EN:0
+X-PVSXDay-TimeFont-Name;LANGUAGE=us-EN:MS Sans Serif
+X-PVSXDay-TimeFont-SizeLo;LANGUAGE=us-EN:97500
+X-PVSXDay-TimeFont-SizeHi;LANGUAGE=us-EN:0
+X-PVSXDay-TimeFont-Charset;LANGUAGE=us-EN:0
+X-PVSXDay-TimeFont-Weight;LANGUAGE=us-EN:400
+X-PVSXDay-TimeFont-Underline;LANGUAGE=us-EN:0
+X-PVSXDay-TimeFont-Italic;LANGUAGE=us-EN:0
+X-PVSXDay-TimeFont-Strikethrough;LANGUAGE=us-EN:0
+X-PVSXDay-AppointmentsFont-Name;LANGUAGE=us-EN:MS Sans Serif
+X-PVSXDay-AppointmentsFont-SizeLo;LANGUAGE=us-EN:82500
+X-PVSXDay-AppointmentsFont-SizeHi;LANGUAGE=us-EN:0
+X-PVSXDay-AppointmentsFont-Charset;LANGUAGE=us-EN:0
+X-PVSXDay-AppointmentsFont-Weight;LANGUAGE=us-EN:400
+X-PVSXDay-AppointmentsFont-Underline;LANGUAGE=us-EN:0
+X-PVSXDay-AppointmentsFont-Italic;LANGUAGE=us-EN:0
+X-PVSXDay-AppointmentsFont-Strikethrough;LANGUAGE=us-EN:0
+BEGIN:VEVENT
+X-PVSXAppt-Version;LANGUAGE=us-EN:1.0
+DTSTART:20001019T073000
+DTEND:20001019T080000
+DESCRIPTION:fbzsdgbdzbgz
+X-PVSXAppt-ReadOnly;LANGUAGE=us-EN:0
+X-PVSXAppt-CustomColors;LANGUAGE=us-EN:0
+X-PVSXAppt-ForeColor;LANGUAGE=us-EN:0
+X-PVSXAppt-BackColor;LANGUAGE=us-EN:0
+X-PVSXAppt-BarColor;LANGUAGE=us-EN:0
+END:VEVENT
+BEGIN:VEVENT
+X-PVSXAppt-Version;LANGUAGE=us-EN:1.0
+DTSTART:20001019T090000
+DTEND:20001019T110000
+DESCRIPTION:Developer Meeting
+X-PVSXAppt-ReadOnly;LANGUAGE=us-EN:0
+X-PVSXAppt-CustomColors;LANGUAGE=us-EN:0
+X-PVSXAppt-ForeColor;LANGUAGE=us-EN:0
+X-PVSXAppt-BackColor;LANGUAGE=us-EN:0
+X-PVSXAppt-BarColor;LANGUAGE=us-EN:0
+END:VEVENT
+BEGIN:VEVENT
+X-PVSXAppt-Version;LANGUAGE=us-EN:1.0
+DTSTART:20001019T100000
+DTEND:20001019T120000
+DESCRIPTION:Product Meeting
+X-PVSXAppt-ReadOnly;LANGUAGE=us-EN:0
+X-PVSXAppt-CustomColors;LANGUAGE=us-EN:0
+X-PVSXAppt-ForeColor;LANGUAGE=us-EN:0
+X-PVSXAppt-BackColor;LANGUAGE=us-EN:0
+X-PVSXAppt-BarColor;LANGUAGE=us-EN:0
+END:VEVENT
+BEGIN:VEVENT
+X-PVSXAppt-Version;LANGUAGE=us-EN:1.0
+DTSTART:20001019T130000
+DTEND:20001019T150000
+DESCRIPTION:Sales Meeting
+X-PVSXAppt-ReadOnly;LANGUAGE=us-EN:0
+X-PVSXAppt-CustomColors;LANGUAGE=us-EN:0
+X-PVSXAppt-ForeColor;LANGUAGE=us-EN:0
+X-PVSXAppt-BackColor;LANGUAGE=us-EN:0
+X-PVSXAppt-BarColor;LANGUAGE=us-EN:0
+BEGIN:VALARM
+X-PVSXAlarm-Version;LANGUAGE=us-EN:1.0
+ACTION:DISPLAY
+DESCRIPTION:MY Oh no, not the sales meeting
+X-PVSXAlarm-Display;LANGUAGE=us-EN:MY Sales Meeting
+TRIGGER;VALUE=DATE-TIME:20001019T151100
+DURATION:PT15M
+REPEAT:0
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+X-PVSXAppt-Version;LANGUAGE=us-EN:1.0
+DTSTART:20001019T150000
+DTEND:20001019T220000
+DESCRIPTION:Try to rest before tomorrow's meetings
+X-PVSXAppt-ReadOnly;LANGUAGE=us-EN:0
+X-PVSXAppt-CustomColors;LANGUAGE=us-EN:0
+X-PVSXAppt-ForeColor;LANGUAGE=us-EN:0
+X-PVSXAppt-BackColor;LANGUAGE=us-EN:0
+X-PVSXAppt-BarColor;LANGUAGE=us-EN:0
+END:VEVENT
+BEGIN:VEVENT
+X-PVSXAppt-Version;LANGUAGE=us-EN:1.0
+DTSTART:20001019T150000
+DTEND:20001019T170000
+DESCRIPTION:Marketing Meeting
+X-PVSXAppt-ReadOnly;LANGUAGE=us-EN:0
+X-PVSXAppt-CustomColors;LANGUAGE=us-EN:0
+X-PVSXAppt-ForeColor;LANGUAGE=us-EN:0
+X-PVSXAppt-BackColor;LANGUAGE=us-EN:0
+X-PVSXAppt-BarColor;LANGUAGE=us-EN:0
+BEGIN:VALARM
+X-PVSXAlarm-Version;LANGUAGE=us-EN:1.0
+ACTION:DISPLAY
+DESCRIPTION:Oh no, not the marketing meeting
+X-PVSXAlarm-Display;LANGUAGE=us-EN:Marketing Meeting
+TRIGGER;VALUE=DATE-TIME:20001019T151100
+DURATION:PT15M
+REPEAT:1
+END:VALARM
+END:VEVENT
+END:VCALENDAR

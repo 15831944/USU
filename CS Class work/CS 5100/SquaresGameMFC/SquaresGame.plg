@@ -1,0 +1,45 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: SquaresGame - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\MARKSA~1\LOCALS~1\Temp\RSPFF.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /FR"Debug/" /Fp"Debug/SquaresGame.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\Source Code\CS Class work\CS 5100\SquaresGameMFC\SquaresGameMFC\HardComputer.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\MARKSA~1\LOCALS~1\Temp\RSPFF.tmp" 
+Creating temporary file "C:\DOCUME~1\MARKSA~1\LOCALS~1\Temp\RSP100.tmp" with contents
+[
+/nologo /subsystem:windows /incremental:yes /pdb:"Debug/SquaresGame.pdb" /debug /machine:I386 /out:"Debug/SquaresGame.exe" /pdbtype:sept 
+".\Debug\BestScoresDialog.obj"
+".\Debug\ComputerPlayer.obj"
+".\Debug\EasyComputer.obj"
+".\Debug\GameOverDialog.obj"
+".\Debug\GameSizeDialog.obj"
+".\Debug\HardComputer.obj"
+".\Debug\NewGameDialog.obj"
+".\Debug\Square.obj"
+".\Debug\SquareEdge.obj"
+".\Debug\SquareGame.obj"
+".\Debug\SquaresGame.obj"
+".\Debug\SquaresGameDlg.obj"
+".\Debug\StdAfx.obj"
+".\Debug\SquaresGame.res"
+]
+Creating command line "link.exe @C:\DOCUME~1\MARKSA~1\LOCALS~1\Temp\RSP100.tmp"
+<h3>Output Window</h3>
+Compiling...
+HardComputer.cpp
+Linking...
+
+
+
+<h3>Results</h3>
+SquaresGame.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

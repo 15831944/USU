@@ -1,0 +1,144 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>CS 5100 Lecture 16 - Greg Jones</TITLE>
+<META NAME="Template" CONTENT="C:\Program Files\Microsoft Office\Templates\Lecture Notes.dot">
+</HEAD>
+<BODY>
+
+<B><I><FONT SIZE=5><P>Text Components and Trees&#9;Lecture 5100.16</P>
+<OL TYPE="A">
+
+</I></FONT><LI>JTextComponent</LI>
+<OL>
+
+<LI>This is the base, abstract class for all other text objects (figure 7.21)</LI>
+<OL TYPE="a">
+
+<LI>JTextField and JTextArea</LI>
+<LI>JPasswordField</LI>
+<LI>JEditorPane</LI>
+<LI>JTextPane</LI></OL>
+
+<LI>While abstract, it does implement a great deal of the functionality of all other text objects.</LI>
+<OL TYPE="a">
+
+<LI>Standard operations like cut, copy, and paste.</LI>
+<LI>Editor commands like move to end or beginning of line or text</LI>
+<LI>Keymaps which associate specific keystrokes with editor commands</LI>
+<LI>Cursor and caret position</LI>
+<LI>Document model and document events - DefaultStyledDocument</LI>
+<LI>Text selection</LI>
+<LI>Loading from and saving to character streams</LI>
+<LI>Associating points in the view to text positions in the model</LI></OL>
+</OL>
+
+<LI>JTextField</LI>
+<OL>
+
+<LI>Much like the AWT TextField</LI>
+<LI>Constructor</LI>
+<OL TYPE="a">
+
+<LI>Document</LI>
+<LI>String</LI>
+<LI>Column size</LI></OL>
+
+<LI>Horizontal alignment</LI>
+<LI>Horizontal visibility</LI>
+<LI>Scroll offset</LI>
+<LI>Action command</LI></OL>
+
+<LI>JPasswordField</LI>
+<OL>
+
+<LI>Pretty much like text field, but echoes all characters with an echo character, which can be set and gotten.  If the echo character is not set, there is no echo.</LI>
+<LI>The getText method is replaced by getPassword.</LI></OL>
+
+<LI>JTextArea</LI>
+<OL>
+
+<LI>Being multi-line, there is a possibility of line wrapping, if the method setLineWrap has been called.  Lines will be wrapped at either word or character boundaries, as determined by setWrapStyleWord.</LI>
+<LI>Constructor</LI>
+<OL TYPE="a">
+
+<LI>Document</LI>
+<LI>String</LI>
+<LI>Row and column size</LI></OL>
+
+<LI>Line operations</LI>
+<OL TYPE="a">
+
+<LI>getLineCount</LI>
+<LI>getLineEnd(Start)Offset to get character positions within the document</LI>
+<LI>getLineOfOffset to reverse, that is, go from position to line number</LI></OL>
+
+<LI>insert and append and replaceRange</LI>
+<LI>setTabSize</LI></OL>
+
+<LI>JEditorPane</LI>
+<OL>
+
+<LI>Able to work with text that is HTML or RTF encoded, as well as straight ASCII text.</LI>
+<LI>Constructor</LI>
+<OL TYPE="a">
+
+<LI>URL</LI>
+<LI>MIME type</LI>
+<LI>String</LI></OL>
+
+<LI>Initialization through setPage, setText, or read</LI>
+<LI>Editor kits</LI>
+<LI>Works with hyperlinks.</LI></OL>
+
+<LI>JTextPane</LI>
+<OL>
+
+<LI>Able to work with multiple text styles (e.g. fonts) within a single document.</LI>
+<LI>Can contain images or other objects.</LI>
+<LI>Can be constructed with a standard document model.</LI>
+<LI>Styles</LI>
+<OL TYPE="a">
+
+<LI>Style Context is the first thing you need.  Call StyleContext.getDefaultStyleContext</LI>
+<LI>Then get a default style and give it a name with addStyle.</LI>
+<LI>Then edit it using setFontFamily, setFontSize, setItalic, etc.</LI>
+<LI>Then add it to the text pane with addStyle.</LI></OL>
+
+<LI>Text is inserted with a style, using insertString, for instance.</LI>
+<LI>The attributes (style attribute values) of a character or paragraph can be found.</LI></OL>
+
+<LI>JTree</LI>
+<OL>
+
+<LI>This is a huge class, which provides the view for tree structures like directory trees, etc.</LI>
+<LI>Auxiliary classes</LI>
+<OL TYPE="a">
+
+<LI>TreePath</LI>
+<LI>TreeNode</LI>
+<LI>TreeModel</LI>
+<LI>TreeCellRenderer</LI>
+<LI>TreeModelEvent</LI>
+<LI>TreeExpansionEvent</LI>
+<LI>TreeSelectionModel</LI>
+<LI>TreeSelectionEvent</LI>
+<LI>TreeWillExpandEvent</LI></OL>
+
+<LI>Constructor.</LI>
+<OL TYPE="a">
+
+<LI>The root may be visible, or not.</LI>
+<LI>TreeNode object – displays as root</LI>
+<LI>Hashtable – root not displayed</LI>
+<LI>Object array – root not displayed</LI>
+<LI>Vector – root not displayed</LI>
+<LI>TreeModel – tree displayed</LI></OL>
+
+<LI>Nodes are identified by row or by path.  They can be expanded or collapsed.  They can be tested to determine whether they are expanded.</LI>
+<LI>Points in the view can be translated to paths or rows, and vice versa.</LI>
+<LI>All sorts of selection operations are possible.</LI></OL>
+</OL>
+</B></BODY>
+</HTML>

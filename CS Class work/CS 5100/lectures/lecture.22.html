@@ -1,0 +1,191 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>LECTXXX</TITLE>
+<META NAME="Template" CONTENT="C:\msoffice\Templates\Presentations\LECTURE TRANSPARENCY.dot">
+</HEAD>
+<BODY>
+
+<B><I><FONT SIZE=5><P>Image Processing&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;Lecture 5100.22</P>
+<OL TYPE="A">
+
+</I></FONT><LI>Images</LI>
+<OL>
+
+<LI>An image is an area in memory which contains visual information.  It is represented abstractly by the class Image.  Concrete image objects are platform dependent and platform produced.</LI>
+<LI>Images are created in several different ways:</LI>
+<OL TYPE="a">
+
+<LI>By calling getImage on either a disk file or a URL.  This function is in the Toolkit and Applet classes.</LI>
+<OL TYPE="i">
+
+<LI>This method returns immediately, before the image is actually loaded.</LI>
+<LI>When you call getImage, you have to give an ImageObserver as one of the parameters.  The ImageObserver interface describes objects which monitor the loading of an image over time.  Presumably the observer takes care of displaying partial images as they are loaded.  If you are getting an Image in a paint method, use the &quot;this pointer&quot; as the image observer.</LI>
+<LI>The actual loading is done by a separate thread, and usually doesn’t start until you attempt either to draw or to prepare or to scale the image.</LI></OL>
+
+<LI>By calling Graphics.createImage for the graphic context associated with some component.  The image created will be blank, but you can draw to it with all the drawing routines.</LI></OL>
+
+<LI>Drawing Images</LI>
+<OL TYPE="a">
+
+<LI>Among the parameters for the drawImage method are:</LI>
+<OL TYPE="i">
+
+<LI>The image itself</LI>
+<LI>The point at which the upper left corner of the image is to appear in the component.</LI>
+<LI>The height and width of the drawn image.  If different than the size of the actual image, scaling will occur.</LI>
+<LI>A hint on which scaling method should be used.</LI>
+<LI>The background color (for use with alpha colors and &quot;invisible&quot; pixels.)</LI>
+<LI>The corner points of a rectangle in the image and another rectangle in the component where it is to be drawn.  Appropriate value selection will cause a portion of the image to be drawn, scaled, clipped, or flipped.</LI></OL>
+
+<LI>The flush method causes the original image to be restored.  In the case of a created image, this would be blank.  URLs would be reloaded and rendered.</LI>
+<LI>The width and height of an image can be obtained by the getWidth and getHeight methods.</LI></OL>
+
+<LI>Scaling</LI>
+<OL TYPE="a">
+
+<LI>One can suggest fast, slow, smooth, default, or area scaling.</LI>
+<LI>The scaledImage method creates an instance of an existing image in a different scale.  This can be done ahead of the time when the image needs to be displayed and is usually preferable to using a scaled version of drawImage, which causes a delay while scaling.</LI></OL>
+</OL>
+
+<LI>Animation</LI>
+<OL>
+
+<LI>The simplest way to animate an image is simply to override the paint method and periodically call repaint.</LI>
+<LI>One problem with this simple approach is that by default, update will cause a flicker.</LI>
+<LI>Another solutions is to draw the component to an image (offscreen buffer) and then draw the image directly to the component in the paint routine.  Since drawing an image is much faster than getting an image or drawing things like filled arcs, this will speed up the process considerably.</LI>
+<LI>Finally, it may be possible only to redraw a small part of the image, leaving most of it static.</LI></OL>
+
+<LI>Media Tracker Objects</LI>
+<OL>
+
+<LI>A media tracker is an object which monitors the loading of images, and other kinds of media, and gives information about their status.</LI>
+<LI>Multiple images can be grouped under  a single ID, and the media tracker can be questioned about the loading of the entire group.  It will tell whether loading is ongoing, was aborted, resulted in an error, or has been completed.</LI>
+<LI>It s possible to use a call to the MediaTracker waitForID to stop thread execution till all elements of the ID group have been loaded.  In addition, we can specify a timeout period for waiting.</LI>
+<LI>If images are to be scaled, it is important to use the version of addImage which has scaling.  Otherwise the MediaTracker might inform us that loading is complete while scaling is still going on.</LI></OL>
+
+<LI>The java.awt.image package contains a number of interfaces and classes for the purpose of manipulating images.</LI>
+<OL>
+
+<LI>Interfaces</LI>
+<OL TYPE="a">
+
+<LI>ImageObserver keeps track of the asynchronous (parallel) development and delivery of images.</LI>
+<LI>ImageProducer delivers images as pixel arrays for display.</LI>
+<LI>ImageConsumer receives images from the ImageProducer.</LI>
+<LI>Producers and consumers interact with each other by calling each other’s methods.</LI></OL>
+
+<LI>Classes</LI>
+<OL TYPE="a">
+
+<LI>ImageFilters are stand between Producers and Consumers for the purpose of modifying images as they pass through the filter.</LI>
+<OL TYPE="i">
+
+<LI>AreaAveragingScaleFilter and ReplicateScaleFilter use two different algorithms to change the width and height of the image while maintaining its information.</LI>
+<LI>CropImageFilter creates an image which is just a copy of a rectangle within the original image.</LI>
+<LI>RGBImageFilter modifies colors during the filtering process.  It is akin to the filters actually used on cameras.  This is actually an abstract class, which must be implemented in a platform-specific fashion.</LI></OL>
+
+<LI>PixelGrabber works something like CropImageFilter, except that it can grab more arbitrary subsets of an image.</LI>
+<LI>MemoryImageSource is a producer which delivers images stored in memory, rather than those downloaded from a network or a file.</LI>
+<LI>FilteredImageSource acts like a producer and filter together.  Its constructor requires an image producer and a filter.</LI>
+<LI>ColorModel is an abstract class.  It describes the way in which pixel colors are identified.</LI>
+<OL TYPE="i">
+
+<LI>The DirectColorModel stores a different color for each pixel.  It is more wasteful of space, and of time in the case of filtering, but provides the full 16M set of colors.</LI>
+<LI>IndexColorModel is more economical, but allows far fewer (a maximum of 256) colors to appear at any one time on the screen.</LI></OL>
+</OL>
+</OL>
+
+<LI>The ImageObserver Class</LI>
+<OL>
+
+<LI>Objects of this class are parameters for a number of image-related methods, including drawImage, prepareImage, getHeight, getWidth, and getProperties.</LI>
+<LI>The reason an image observer needs to be associated with these operations is that they take a significant amount of time when they require network communication.  Thus the operations are not normally carried out in their entirety before returning to the caller.  It is necessary to have somebody to signal as the status of the operation changes.  That somebody is the observer.  Since all components implement this interface, usually the parameter is just &quot;this&quot;.</LI>
+<LI>In the case that an image is stored in main memory, the above operations are not asynchronous, and there is no need of an image observer.</LI>
+<LI>The single ImageObserver method is imageUpdate, which is called by the ImageProducer when it wants to notify that more image information is now available.  The arguments to imageUpdate are:</LI>
+<OL TYPE="a">
+
+<LI>The image in question.</LI>
+<LI>The x, y, height, and width of the image as it currently stands.  These need to be interpreted in connection with the flags:</LI>
+<LI>The flags value, which is a bitwise &quot;or&quot; of individual masks representing:</LI>
+<OL TYPE="i">
+
+<LI>Error – this isn’t going to work</LI>
+<LI>Abort – this didn’t work last time, but if error isn’t set, it might work next time</LI>
+<LI>Allbits – the image is now complete</LI>
+<LI>Framebits – another frame of an animation is now complete</LI>
+<LI>Somebits – a part of an image is now available, and the area is given by x,y,height,width</LI>
+<LI>Height, Width – the dimensions of the image are now available</LI>
+<LI>Properties – the image’s properties are now available.</LI></OL>
+
+<LI>The imageUpdate method returns a boolean: true, if the ImageObserver still wants more information and hopes the ImageProducer will call imageUpdate again, or false if the ImageObserver has all the information about the image it will ever need.</LI>
+<LI>It is possible to override imageUpdate as an alternative to using a MediaTracker.</LI></OL>
+
+<LI>The follow is a good example:</LI></OL>
+
+<P>import java.applet.*;</P>
+<P>import java.awt.*;</P>
+<P>import java.awt.image.ImageObserver;</P>
+<P>public class imageUpdateOver extends Applet {</P>
+<P>Image image;</P>
+<P>boolean loaded = false;</P>
+<P>public void init () {</P>
+<P>image = getImage (getDocumentBase(), "rosey.jpg");</P>
+<P>prepareImage (image, -1, -1, this); // follow the size of the original image</P>
+<P>}</P>
+<P>public void paint (Graphics g) {</P>
+<P>if (loaded)</P>
+<P>g.drawImage (image, 0, 0, this);</P>
+<P>}</P>
+<P>public void update (Graphics g) {</P>
+<P>paint (g);</P>
+<P>}</P>
+<P>public synchronized boolean imageUpdate (Image image, int infoFlags,  int x, int y, int width, int height)        {</P>
+<P>if ((infoFlags &amp; ImageObserver.ALLBITS) != 0) {</P>
+<P>loaded = true;</P>
+<P>repaint();</P>
+<P>return false;</P>
+<P>} else {</P>
+<P>return true;</P>
+<P>}</P>
+<P>}</P>
+<P>} //end class</P>
+<LI>The ImageProducerInterface</LI>
+<OL>
+
+<LI>Its purpose is to either generate image data, or retrieve it from memory or an external source.  An image producer is associated with a single image.</LI>
+<LI>Basically, the process goes like this:</LI>
+<OL TYPE="a">
+
+<LI>An image producer waits for some consumer to register itself by calling the addConsumer method.</LI>
+<LI>The producer then stores the consumer’s reference in a hash table, so it can signal as parts of the image become available.  In the case of a memory-resident single frame image, this is not necessary, because the image is available immediately.</LI>
+<LI>As portions of the image become available, the producer signals the consumers stored in the hash table.</LI></OL>
+
+<LI>Anybody wanting to identify the producer of an image can call the image’s getSource method.</LI>
+<LI>isConsumer and removeConsumer manipulate the consumer hashed list.</LI>
+<LI>startProduction not only registers a consumer, but also begins the delivery of the image.</LI>
+<LI>requestTopDownLeftRightResend asks the producer to send the image in a canonical form.  The request may be ignored.</LI></OL>
+
+<LI>The MemoryImageSource Class</LI>
+<OL>
+
+<LI>This class provides images in memory.  It uses a color model to put pixel information into an array, then gives it to the consumer.  Some uses include:</LI>
+<OL TYPE="a">
+
+<LI>Images generated by software</LI>
+<LI>Images altered by software, for instance, by modifying grabbed rectangles within an image</LI>
+<LI>Images in an unsupported graphics format</LI></OL>
+
+<LI>The constructor has parameters for width, height, the color model, either byte or integer pixel arrays (depending on the color model), the offset to the beginning of the data in the array, the size of the scan line (may be greater than width), and properties of the image.</LI>
+<LI>In the case of animation, in which multiple images representing successive frames are produced, it may be necessary to store images and update their consumers.  Methods related to animation include:</LI>
+<OL TYPE="a">
+
+<LI>setAnimated, which sets a boolean flag indicating that animation will occur</LI>
+<LI>setFullBufferUpdates, which indicates that new frames will consist of entire images.</LI>
+<LI>newPixels sends new data, or can indicate another array from which to read pixel data.</LI>
+<LI>If full buffer updating does not occur, display speed is improved.  Of course, this means that most of the image will be static, and we can update only a rectangular section of it.  In this case, the newPixels method will send only a portion of an image, along with the location and dimension of the rectangle.</LI></OL>
+</OL>
+</OL>
+</B></BODY>
+</HTML>

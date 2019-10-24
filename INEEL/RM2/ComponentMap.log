@@ -1,0 +1,10 @@
+Line 104: Class DiagramControlProject.DiagramControl of control CompDiagram was not a loaded control class.
+Line 110: The property name _ExtentX in CompDiagram is invalid.
+Line 111: The property name _ExtentY in CompDiagram is invalid.
+Line 112: The property name DiagramFolder in CompDiagram is invalid.
+Line 113: The property name DiagramFileName in CompDiagram is invalid.
+Line 114: The property name FormMode in CompDiagram is invalid.
+Line 115: The property name RegionClickDefaultAction in CompDiagram is invalid.
+Line 116: The property name ShowToolboxOnRightClick in CompDiagram is invalid.
+Line 117: The property name InitialDiagramFileName in CompDiagram is invalid.
+Line 118: The property name AllowMultiSelect in CompDiagram is invalid.

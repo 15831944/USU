@@ -1,0 +1,12 @@
+Possible Additions:
+-Creating a 'rules' dialog where you can play with the rules of the game (like allowing unlimited reinforcements)
+-Auto-fight option on the attack dialog (make the fight really fast)
+-More details at the end of the game besides just "Stalin is the Victor!", like the statistics of who won how many battles, how lucky each person was, 
+who died at what point, etc.
+-view board in 1/2 size mode
+-save / load game
+
+acm website - if you don't see you're name change your privacy setting
+risk splash screen
+
+send out email to risk participants- what's up?

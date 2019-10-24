@@ -1,0 +1,73 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>CS 5100 Lecture 2 - Greg Jones</TITLE>
+</HEAD>
+<BODY>
+<DIR>
+
+<B><I><FONT FACE="Arial" SIZE=5><P>Symantec Visual Caf&eacute; and Java&#9;&#9;Lecture 5100.02</P></DIR>
+
+<OL TYPE="A">
+
+</I></FONT><LI>Java</LI>
+<OL>
+
+<LI>As a language, Java is designed to have certain characteristics:</LI>
+<OL TYPE="a">
+
+<LI>Simple – It avoids some complexities of C++ like multiple inheritance, dynamic memory management, pointers, etc.  There is no declaration/definition dichotomy, no header files, no preprocessor.</LI>
+<LI>Object-oriented – objects are instances of classes which are grouped into packages.  All classes inherit from a single Object class.  Interfaces provide a safer, simpler alternative to multiple inheritance.</LI>
+<LI>Distributed – standard Java packages like java.net and the existence of threads allow for the distribution of classes over a network of heterogeneous computers.  Classes can migrate, or can be temporarily downloaded.  Remote Method Invocation permits one thread to start another at a different location.</LI>
+<LI>Interpreted – Java programs are compiled into &quot;byte code&quot;, which is somewhat similar to machine code, and then interpreted by the Java Virtual Machine installed on a computer.  In particular, linking is virtually eliminate, the only vestige being the loading of classes.</LI>
+<LI>Robust – strong typing and the elimination of pointers eliminate many of the errors caused by inappropriate use or casting of values.  Error handling mechanisms are built into the language.</LI>
+<LI>Secure – the elimination of pointers shuts off one of the standard lines of attack from hackers.  Byte codes are inspected by the interpreter to insure that they don’t violate access privileges.  Downloaded software (applets) are not permitted to access files or other system resources.  Digital signature and encryption facilities allow for trusted and secure transmission of data.</LI>
+<LI>Architecture neutral – Java programs run on the standard Java Virtual Machine, and make no use of specific architectural features or operating system facilities.</LI>
+<LI>Portable – it takes a lot of effort to write a Java program which will not run in an equivalent fashion on every machine on which the Java Virtual Machine has been installed.  Internationalization capabilities make it easy to build software for people who use other character sets and writing directions.</LI>
+<LI>High-performance – while no interpreted language is as fast as a compiled one, the Java Virtual Machine is relatively fast for its species.  In addition, many Java development systems provide &quot;just-in-time&quot; compilation.  This means that the first time a statement is executed, it must be interpreted, but subsequent executions are compiled to native machine code.  But more important, the Java environment is a much faster one in which to develop software.  What you lose in program efficiency is more than compensated by what you gain in programmer efficiency.</LI>
+<LI>Multithreaded – threads are lightweight processes.  Java makes it easy to create, synchronize, and manage multiple concurrent threads. You get all of the benefits of parallelism with few of the costs of program complexity and inefficiency.  Here at USU, it is often used for this purpose in teaching parallel processing courses.</LI>
+<LI>Dynamic – classes and native code elements can be dynamically loaded.  Objects can be dynamically created and destroyed.  Automated garbage collection relieves the programmer of the worry of memory leaks.</LI></OL>
+
+<LI>The syntax of Java is sufficiently similar to C++ that you will seldom need to think about how to write Java code.  Of course, there are a few differences:</LI>
+<OL TYPE="a">
+
+<LI>Strings are a separate class, not arrays of chars.</LI>
+<LI>Booleans are a primitive type.</LI>
+<LI>Both &amp; (|) and &amp;&amp; (||) can be used as boolean operators.  The first do not do short-cut evaluation, but the second do.</LI>
+<LI>All characters are really 16 bit Unicode characters.  This facilitates internationalization, but isn’t even noticed if we want to stick with the standard Latin alphabet.</LI>
+<LI>There are no pointers, so there is no call-by-reference or call-by-value distinction.  All object and array variables are references (opaque addresses of the actual structures).  All primitive type (numeric, char, boolean) variables store actual values.  When a primitive type is passed as a parameter, it is passed by value.  When an array or object is passed, the reference is a value.  That is, we can’t make it refer to any other object than the one it started as.  However, we can use the reference to change the state of the object it identifies.</LI>
+<LI>There is no operator overloading.  However, the language applies + as the concatenation operator for strings.  There is also an &quot;instanceof&quot; operator which tells whether an object is an instance of a class.</LI>
+<LI>There is no #include directive.  We can use an import statement, but this simply allows us the shorthand of not writing out the package prefix of certain classes.  For instance, we can refer to the Button class, instead of the java.awt.Button class, if we import java.awt.</LI>
+<LI>Each file corresponds to a &quot;main&quot; class within the file.  The name of the file must be identical (including capitalization) to the name of this class.  The extension of the file must be .java.  These files are compiled into byte code files with the same name and the .class extension.  In any application, one of the classes used contains the main method (functions are usually called methods in Java).  In order to run an application, we run the java interpreter from a command line, giving the name of the &quot;main&quot; class as an argument.  In order to make this work, the java interpreter must be found in the current path, and the &quot;classpath&quot; must contain the standard class libraries on which our classes are based.</LI></OL>
+
+<LI>Learning enough Java to use it hasn’t been too difficult for me.  I feel that one of the best ways to learn the syntax, style, and idioms of the language is to examine carefully the code generated by the Symantec Visual Caf&eacute; system.</LI></OL>
+
+<LI>Visual Caf&eacute; is a User Interface Development System.  </LI>
+<OL>
+
+<LI>This means that it generates a fair amount of code automatically, based on our specifications.  In order to make the best use of this environment, we have to be careful not to modify the generated code inappropriately.  Usually there are comments to indicate where we can safely modify it.  In particular, there are sections delimited by //{{ and //}} comments which shouldn’t be altered or moved.</LI>
+<LI>There are a variety of editors:</LI>
+<OL TYPE="a">
+
+<LI>The Form Designer allows us to use drag and drop actions to specify the appearance and components the Graphical User Interface.  The component palette and menu are used in this process.</LI>
+<LI>The Class Browser provides a form fill-in interface (Property Window) for specifying the properties of classes.</LI>
+<LI>The Insert Class Wizard helps us to utilize non-graphical classes like timers, sockets, etc.</LI>
+<LI>The Interaction Wizard helps us to specify interactions between components of the Graphical User Interface.</LI>
+<LI>The Text Editor allows us to customize the generated code.</LI>
+<LI>The Menu Designer permits specialized editing of menus and menubars. </LI>
+<LI>The Hierarchy Editor allows us to add, delete, or change inheritance relationships. </LI></OL>
+
+<LI>Visual Caf&eacute; promotes organization of all the elements of a product by means of the project structure.</LI>
+<OL TYPE="a">
+
+<LI>Typically, the code (.java, .class, .html) and other files (notes, documentation, plans, etc.) related to a product are stored in a single directory hierarchy.  The environment keeps track of them if we add them to the project or create them from the project.  It is possible to add files which exist in other directories and are part of other projects.</LI>
+<LI>Certain files, with extension like .vbj, .vep, and .cdb keep track of the state of the project as a whole.</LI>
+<LI>When we save or execute a project, the environment checks to see which elements have been changed, then rebuilds those parts of the project which are out of date.</LI></OL>
+
+<LI>Generally, one views the project from the aspect of objects, packages, or files.  Each of these has a tab in the project window.  Multiple projects can be open at the same time, and we can view one or the other by selecting it in the Window menu.  It is also possible to define different desktop layouts, called workspaces.  Two of these are predefined: Edit and Debug.</LI>
+<LI>Visual Caf&eacute; provides a good debugger with the standard capabilities.  There are windows to show regular and watch variables, breakpoints, threads, and calls.  Values can be examined (including via Value Tips, which pop the value up when we allow the cursor to dwell on the variable name), changed, and used to trigger conditional breakpoints.  We can step into, over, or out of methods.</LI>
+<LI>Help is provided online in several contexts: Help Topics (how to use the environment), Java API (information about the Application Program Interface, classes which make it easier for you to develop software), and a Java Language Reference.  I would recommend that you use these frequently.</LI></OL>
+</OL>
+</B></BODY>
+</HTML>

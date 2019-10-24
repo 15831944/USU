@@ -1,0 +1,76 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>CS 5100 Lecture 12 - Greg Jones</TITLE>
+<META NAME="Template" CONTENT="C:\Program Files\Microsoft Office\Templates\Lecture Notes.dot">
+</HEAD>
+<BODY>
+
+<B><I><FONT SIZE=5><P>Swing Concepts&#9;Lecture 5100.12</P>
+<OL TYPE="A">
+
+</I></FONT><LI>The Swing Tool Set</LI>
+<OL>
+
+<LI>Comprised of:</LI>
+<OL TYPE="a">
+
+<LI>A different architecture than the Abstract Windowing Toolkit.  It is largely compatible with AWT, but extends it by having lightweight components with their own look and feel</LI>
+<LI>A new set of visual components, many of which mirror AWT components.  For instance, JFrame or JButton replace Frame and Button.</LI>
+<LI>A set of non-visual components which support the abstractions added to AWT in the Swing architecture.</LI></OL>
+
+<LI>The current standard is to have Swing components in the javax.swing package.  This is javax, not java.  That is, it is an extension of standard java, not standard java.</LI>
+<LI>While all Swing classes are derived from AWT classes, it doesn't work to mix AWT and Swing components in the same application, since the heavyweight AWT components will inevitably be rendered on top of the lightweight Swing components.</LI>
+<LI>It is the fact that JDK 1.1 AWT Container and Component classes are abstract, and have no native peers, that permits the creation of lightweight classes.</LI>
+<LI>In order to program with Swing, one must have JDK 1.1 and also have the Swing classes.  These are most commonly found in a swing.zip file.</LI>
+<LI>The book also describes some features of Java2, which is JDK 1.2.</LI>
+<LI>The abstractions and features added by Swing include:</LI>
+<OL TYPE="a">
+
+<LI>Lightweight components and containers</LI>
+<LI>A containment model in which containers delegate responsibilities to specialized subcontainers.</LI>
+<LI>The inclusion of standard data models and implementations.</LI>
+<LI>Pluggable look-and-feel</LI>
+<LI>Support for the Model-View-Controller architecture.</LI>
+<LI>ToolTips</LI>
+<LI>Internationalization</LI>
+<LI>Attachment of action commands to all components.</LI></OL>
+</OL>
+
+<LI>JComponent</LI>
+<OL>
+
+<LI>Since it is derived from Container, all Swing components can contain other components.  Thus we can have images on buttons, rather than simple text labels.  This allows for very sophisticated components.</LI>
+<LI>JComponent (and JContainer, for that matter) are not responsible for providing native peers.  Rather, they provide methods to support the determination of appropriate native peers.  Specific subclasses, if heavyweight, will implement those methods to choose appropriate peers.</LI>
+<LI>Since it is lightweight, classes derived from JComponent can also be lightweight.</LI>
+<LI>All classes derived from JComponent have the following properties:</LI>
+<OL TYPE="a">
+
+<LI>A data model (getModel, setModel)</LI>
+<LI>A PLAF (getUI, setUI, updateUI)</LI>
+<LI>A ToolTip (createToolTIp, getToolTIpLocation, getToolTipText, setToolTip)</LI>
+<LI>A root pane to provide a delegate for containment and management of children (getRootPane, getContentPane)</LI>
+<LI>A locale for internationalization (getLocale, setLocale)</LI>
+<LI>An action command</LI>
+<LI>Double buffering to minimize flicker when rendering.  Double buffering means that an image is created in off-screen memory, then transferred very rapidly to the screen. (setDoubleBuffered)</LI>
+<LI>Accessibility (getAccessibileContext)</LI></OL>
+</OL>
+
+<LI>Swing Containers</LI>
+<OL>
+
+<LI>Some are heavyweight, others are not.</LI>
+<LI>Have structured containment instead of the flat AWT containment</LI>
+<LI>Permit Z-ordering, thus allowing stacking of children, container-wide drawing and popups, etc.</LI>
+<LI>Swing containment displays good object-oriented design in the sense that:</LI>
+<OL TYPE="a">
+
+<LI>It factors different aspects of containment into different subcontainers, so that containers which don't need those aspects don't have to use them</LI>
+<LI>It avoids repetition, and promotes reuse</LI>
+<LI>It separates abstract containment issues from specific implementations</LI>
+<LI>It maintains compatibility with AWT</LI></OL>
+</OL>
+</OL>
+</B></BODY>
+</HTML>

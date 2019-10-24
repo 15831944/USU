@@ -1,0 +1,31 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: FlyBy - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\MERUSER\LOCALS~1\Temp\RSP94.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /D "_AFXDLL" /FR"Debug/" /Fp"Debug/FlyBy.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\Temp\FLYBY\FlyBy\main.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\MERUSER\LOCALS~1\Temp\RSP94.tmp" 
+Creating command line "link.exe winmm.lib /nologo /subsystem:windows /incremental:yes /pdb:"Debug/FlyBy.pdb" /debug /machine:I386 /out:"Debug/FlyBy.exe" /pdbtype:sept  .\Debug\main.obj .\Debug\Object3d.obj .\Debug\Polygon.obj .\Debug\ReadObject.obj .\Debug\Vector3d.obj "
+<h3>Output Window</h3>
+Compiling...
+main.cpp
+C:\Temp\FLYBY\FlyBy\main.cpp(39) : warning C4101: 'message' : unreferenced local variable
+Linking...
+Creating command line "bscmake.exe /nologo /o"Debug/FlyBy.bsc"  .\Debug\main.sbr .\Debug\Object3d.sbr .\Debug\Polygon.sbr .\Debug\ReadObject.sbr .\Debug\Vector3d.sbr"
+Creating browse info file...
+<h3>Output Window</h3>
+
+
+
+<h3>Results</h3>
+FlyBy.exe - 0 error(s), 1 warning(s)
+</pre>
+</body>
+</html>

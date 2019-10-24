@@ -1,0 +1,133 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>CS 5100 Lecture 23 - Greg Jones</TITLE>
+<META NAME="Template" CONTENT="C:\Program Files\Microsoft Office\Templates\Lecture Notes.dot">
+</HEAD>
+<BODY>
+
+<B><I><FONT SIZE=5><P>The List Data Model&#9;Lecture 5100.23</P>
+<OL TYPE="A">
+
+</I></FONT><LI>A fundamental principle of software engineering is to choose the right abstraction to model the problem space and at the same time choose the right implementation to optimize the software while remaining faithful to the abstraction.</LI>
+<OL>
+
+<LI>In GUI programming we often need to deal with three different kinds of abstractions.  It is best to factor these into different classes, since they are relatively independent of each other.</LI>
+<OL TYPE="a">
+
+<LI>The visible GUI component is an abstraction of data which makes sense to the user.</LI>
+<LI>The data model is an abstraction of the same data which makes sense to the software.</LI>
+<LI>The GUI component state model is an abstraction of the current operations on the data which makes sense to the user.</LI></OL>
+
+<LI>On the other hand, it is necessary to maintain all these models in synchronization with each other.  This concept is implemented by the MVC paradigm.</LI>
+<OL TYPE="a">
+
+<LI>M (model) stands for the data model, V (view) for the GUI component, and C for a controller which responds to events which change either M or V, and brings the other up to date.</LI>
+<LI>Typically, the Swing architecture implements the data model as a class and both the view and controller together as a single class.  This is because it is difficult for the controller to synchronize the view without knowledge of the view class implementation.</LI>
+<LI>In fact, both data models and controllers (listeners) are initially specified as interfaces.  In the case of the data model, this is to allow the application programmer to optimize the implementation.  In the case of the controller, it is to allow us to have the view class object implement the interface and thus fold both behaviors (view and controller) into one class.</LI>
+<LI>Nevertheless, for those who are willing to accept default behavior, there are default data model class implementations which use &quot;standard&quot; implementations, perhaps those which we learn in an algorithms and data structures course.</LI></OL>
+
+<LI>Many Swing GUI components have associated default data models which they use to hold the data which they present visually to the user.</LI></OL>
+
+<LI>List classes and interfaces</LI>
+<OL>
+
+<LI>The list view is the JList class, which is a concrete class.</LI>
+<OL TYPE="a">
+
+<LI>There is a constructor which uses an existing data model as a parameter. At the time of initialization the visible data elements in the Jlist are those stored in the data model.</LI>
+<LI>Methods getModel and setModel permit the JList to report which ListModel object is holding its data, or change its model.</LI></OL>
+
+<LI>The list data model is specified by the ListModel interface.  It has no attributes, and four methods:</LI>
+<OL TYPE="a">
+
+<LI>addListDataListener</LI>
+<LI>getElementAt(index) – the list is conceptually a list of data elements at indexes 0, 1, …</LI>
+<LI>getSize </LI>
+<LI>removeListDataListener</LI></OL>
+
+<LI>The listDataListener interface specifies no attributes, and three methods:</LI>
+<OL TYPE="a">
+
+<LI>contentsChanged(ListDataEvent e) - Sent when the contents of the list has changed in a way that's too complex to characterize with the following methods.</LI>
+<LI>  intervalAdded(ListDataEvent e) - Sent after the indices in the index0,index1 interval have been inserted in the data model.  The index0 and index1 values are gotten from the event.</LI>
+<LI>  intervalRemoved(ListDataEvent e)</LI></OL>
+
+<LI>It seems odd that the list data model interface doesn’t specify methods for adding and removing elements, but the listener for the data model foresees these actions.  This is simply because there would be no meaning to a listener if the data model didn’t change.  Typical implementations of the data model interface do provide methods for inserting and deleting.</LI>
+<LI>Note that the listener is added to the data model, not the JList.  This makes sense, since the listener is usually the JList itself (if it is extended to implement the listener interface), and so the controller must be listening for events in the data model.</LI>
+<LI>The event class is ListDataEvent</LI>
+<OL TYPE="a">
+
+<LI>Constants: CONTENTS_CHANGED, INTERVAL_ADDED, INTERVAL_REMOVED</LI>
+<LI>Methods:</LI>
+<OL TYPE="i">
+
+<LI>getIndex0 and getIndex1 return the beginning and ending indexes of the interval affected.</LI>
+<LI>getType returns the constant representing the kind of event that occurred.</LI></OL>
+</OL>
+
+<LI>There is an AbstractListModel class, which implements the ListModel interface.</LI>
+<LI>The DefaultListModel is an extension of the AbstractListModel, based on the model of storing a list in a vector (a variable-length array).  It has many methods, some of which of interest are:</LI>
+<OL TYPE="a">
+
+<LI>add(int index, Object element)</LI>
+<LI>addElement(Object obj) adds at the end</LI>
+<LI>capacity() - Returns the current capacity of this list.</LI>
+<LI>clear() - Removes all of the elements from this list.</LI>
+<LI>contains(Object elem)</LI>
+<LI> elementAt(int index)</LI>
+<LI>ensureCapacity(int minCapacity) - Increases the capacity of this list, if necessary</LI>
+<LI>firstElement()</LI>
+<LI>get(int index) and getElementAt(int index).  The preferred method is get.</LI>
+<LI>getSize()</LI>
+<LI>indexOf(Object elem)</LI>
+<LI>indexOf(Object elem, int index) - searches for the first occurence of the given argument, beginning the search at index.</LI>
+<LI>insertElementAt(Object obj, int index)</LI>
+<LI>isEmpty()</LI>
+<LI>lastElement()</LI>
+<LI>lastIndexOf(Object elem) and lastIndexOf(Object elem, int index)</LI>
+<LI>remove(int index)</LI>
+<LI>removeAllElements()</LI>
+<LI>removeElement(Object obj)</LI>
+<LI>removeElementAt(int index)</LI>
+<LI>removeRange(int fromIndex, int toIndex)</LI>
+<LI>set(int index, Object element) - Replaces the element at the specified position in this list with the specified element.</LI>
+<LI>setSize(int newSize)</LI>
+<LI>size()</LI></OL>
+</OL>
+
+<LI>Generally, for any of the Abstract Data Types (adt’s) implemented in Swing there will be a:</LI>
+<OL>
+
+<LI>Jadt class with a Jadt(model) constructor and getModel, setModel, addAdtListener and removeAdtListener methods.</LI>
+<LI>An AdtDataListener interface.</LI>
+<LI>An AdtDataEvent class.</LI>
+<LI>An AbstractAdtModel class.</LI>
+<LI>A DefaultAdtModel class extending the abstract class.</LI></OL>
+
+<LI>The preferred model of interaction seems to be this:</LI>
+<OL>
+
+<LI>The user generates events in the view.</LI>
+<LI>The view’s event handlers modify the data model, thus generating data model events.</LI>
+<LI>The controller in the view responds to these events, updating the view.</LI></OL>
+
+<LI>There is an entirely different model, which attempts to describe the state of a JList view.  The state of a list consists of the items in the list which are selected.  This has nothing to do with the data per se, but rather only with the indexes that are selected.  For this reason, we use a separate interface specifying a data model to represent the state of the list, the ListSelectionModel.  JList delegates to classes implementing this interface the task of keeping track of its selections.</LI>
+<OL>
+
+<LI>JList has setSelectionModel and getSelectionModel methods.  If none is set, there is a default model constructed along with the JList.</LI>
+<LI>The basic data associated with the selection model is a set of selection intervals, each of which has an anchor index at one end of the interval and a lead index at the other end of the interval.  If the interval is being selected by mouse drags, for instance, the lead index is at the current position of the mouse, and the anchor is fixed at the index where the mouse started the drag operation.</LI>
+<LI>There are three possible selection modes:</LI>
+<OL TYPE="a">
+
+<LI>Single – one interval, with anchor = lead</LI>
+<LI>Single interval – one interval, with possibly different anchor and lead</LI>
+<LI>Multiple interval – in this case the methods getLeadSelection and getAnchorSelection refer to the last interval selected.</LI>
+<LI>There is a getSelectionMode method</LI></OL>
+
+<LI>It is not possible to get all intervals, only the active (last) one.   However we can get the min and max selection indexes, and test elements in between with isSelected.</LI></OL>
+
+<LI>Frequently the Jadt class will do some of the work of interfacing to its state model.  In the case of JList, there is a getSelectedIndices method which does return an array of all selected indices.</LI></OL>
+</B></BODY>
+</HTML>

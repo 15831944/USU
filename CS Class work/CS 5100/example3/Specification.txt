@@ -1,0 +1,24 @@
+CS 5100 Spring, 2000
+Fifth Homework Assignment
+Due April 14
+
+The purpose of this assignment is to provide a tool for users to choose a set of four colors that
+go well together.  This is much the same as homework 3, except that it will be done in Visual 
+C++.  You may want to look at the Java code for the solution to homework 3, which is in the
+assignment3 directory.
+
+Your application will display four areas, each having a common boundary with each of the other three.  
+Initially, they will be colored red, green, blue, and white.  The user may change the color of
+any one of these areas by double-clicking within it.  This should pop up a window containing
+three scrollbars with accompanying text fields; one for the red component of the area color, one for
+the green, and one for the blue.  The text fields will have a number from 0 to 255 indicating the
+current setting of the associated scrollbar.  The user should be able to change the color of the area
+that was double-clicked by scrolling the scrollbar, or by typing a new number in the text field, 
+followed by a return.  After such an event, a new color will be constructed based on the RGB 
+components represented by the scrollbar/textfield values, and the associated area will be redrawn
+in that color.  Make sure that all four colors can be simultaneously edited.  That is to say, the
+user should not have to close a window or click an "Accept" button, or anything similar, to proceed
+to edit another color.  It should simply be possible to double-click the other color's area and have
+another window with scrollbars and text fields pop up for it.  These should also be real windows,
+which the user can position anywhere on the screen.
+

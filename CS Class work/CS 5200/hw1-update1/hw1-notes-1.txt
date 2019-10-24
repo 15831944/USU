@@ -1,0 +1,22 @@
+Hints for HW1
+
+
+TestPackage:
+
+- The test cases for the Configuration class use a test.ini file that
+  is excepted to exist in the parent directory of where the executable
+  is placed.  Don't remove or change that test.ini file.
+
+
+Updates:
+
+- Updates CServerApp (server.cpp)
+  - Code add to call loadEventData() during the initialization of an
+    instance.
+    CServerApp::loadEventData() simpified.
+  - CServerApp::unloadEventData() added to code.  This method will
+    save all event data to the data file and then remove those objects
+    from memory.
+- New Event.dat
+- New Client.ini that include a configuration property for the server IP address
+- New Event.cpp that include the implementation of the save(ostream& out) method

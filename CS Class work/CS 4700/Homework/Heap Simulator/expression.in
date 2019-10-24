@@ -1,0 +1,8 @@
+set a = new object;
+set b = new object;
+set c = a;
+set d = b;
+delete a;
+delete b;
+set c = new object;
+delete d;

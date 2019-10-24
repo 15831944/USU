@@ -1,0 +1,168 @@
+void MyLine(int x1, int y1, int x2, int y2, WindowClass &MyWindow, COLORREF color)
+{
+	
+	int dy = y2 - y1;
+	int dx = x2 - x1;
+
+
+	int baseStep = dx / dy;
+	//if (baseStep > maxBaseStep)
+	//	maxBaseStep = baseStep;
+	int nExtraSteps = dx % dy;
+	//int whichLine = dy / nExtraSteps + 1;
+
+	//if (nExtraSetps == 0)
+	for (;y1 <= y2; y1++)
+	{
+		for (int i = 0; i < baseStep; i++)
+			MyWindow.DrawPixel(x1++,y1, color);
+		
+		if (y1 * nExtraSteps % dy < nExtraSteps) // y1 % whichLine
+			MyWindow.DrawPixel(x1++,y1, color);
+	}
+}
+
+void BLine(int x1, int y1, int x2, int y2, WindowClass &MyWindow, COLORREF color)
+{
+	if (fabs(x2 - x1) > fabs(y2 - y1))
+	{
+		if (x2 < x1)
+		{
+			int ytemp = y1;
+			int xtemp = x1;
+			x1 = x2;
+			y1 = y2;
+			x2 = xtemp;
+			y2 = ytemp;
+		}
+		
+		int increment = 1;
+		int dx = x2 - x1;
+		int dy = y2 - y1;		
+		
+		if (dy < 0){
+			dy *= -1;
+			increment = -1;
+		}	
+		int twoDyDx = 2 * (dy - dx);
+		int twoDy = 2 * dy;
+		int di = 2 * dy - dx;
+		MyWindow.DrawPixel(x1++, ymax-y1, color);
+
+		for (; x1 < x2; x1++)
+		{
+			if (di >= 0){
+				y1+=increment;
+				di += twoDyDx;
+			}
+			else 
+				di += twoDy;
+
+			MyWindow.DrawPixel(x1, ymax-y1, color);
+		}
+	}
+	else
+	{
+		if (y2 < y1)
+		{
+			int ytemp = y1;
+			int xtemp = x1;
+			x1 = x2;
+			y1 = y2;
+			x2 = xtemp;
+			y2 = ytemp;
+		}
+
+		int increment = 1;
+		int dx = x2 - x1;
+		int dy = y2 - y1;
+		
+		if (dx < 0){
+			dx *= -1;
+			increment = -1;
+		}
+
+		int di = 2 * dx - dy;
+		int twoDxDy = 2 * (dx - dy);
+		int twoDx = 2 * dx;
+	
+		MyWindow.DrawPixel(x1, ymax-y1++, color);
+
+		for (; y1 < y2; y1++)
+		{
+			if (di >= 0){
+				x1+=increment;
+				di += twoDxDy;
+			}
+			else 
+				di += twoDx;
+
+			MyWindow.DrawPixel(x1, ymax-y1, color);
+		}
+	}
+}
+
+void ellipseMidpoint (int xCenter, int yCenter, int Rx, int Ry, WindowClass &MyWindow, COLORREF color)
+{
+	int Rx2 = Rx * Rx;
+	int Ry2 = Ry * Ry;
+	int twoRx2 = 2 * Rx2;
+	int twoRy2 = 2 * Ry2;
+	int p;
+	int x = 0;
+	int y = Ry;
+	int px = 0;
+	int py = twoRx2 * y;
+	void ellipsePlotPoints (int, int, int, int, WindowClass &, COLORREF);
+
+	ellipsePlotPoints (xCenter, yCenter, x, y, MyWindow, color);
+	
+	/*Region 1*/
+	
+	p = (int)(Ry2 - Rx2 * Ry + 0.25 * Rx2 + .5);
+	while (px < py)
+	{
+		px += twoRy2;
+		x++;
+		if (p < 0)
+			p += Ry2 + px;
+		else
+		{
+			y--;
+			py -= twoRx2;
+			p += Ry2 + px - py;
+		}
+		
+		ellipsePlotPoints(xCenter, yCenter, x, y, MyWindow, color);
+	}
+
+	p = (int)(Ry2 * ( x * x + x + .25 ) + Rx2 * (y - 1) * (y - 1) - Rx2 * Ry2 + 0.5);
+	while ( y > 0 )
+	{
+		y--;
+		py -= twoRx2;
+		if (p > 0)
+			p += Rx2 - py;
+		else
+		{
+			x++;
+			px += twoRy2;
+			p += Rx2 - py + px;
+		}
+		ellipsePlotPoints(xCenter, yCenter, x, y, MyWindow, color);
+	}
+}
+
+void ellipsePlotPoints (int xCenter, int yCenter, int x, int y, WindowClass &MyWindow, COLORREF color)
+{
+	MyWindow.DrawPixel(xCenter + x, yCenter + y, color);
+	MyWindow.DrawPixel(xCenter - x, yCenter + y, color);
+	MyWindow.DrawPixel(xCenter + x, yCenter - y, color);
+	MyWindow.DrawPixel(xCenter - x, yCenter - y, color);
+}
+
+void DrawObject(int xCenter, int yCenter, int Size, WindowClass &MyWindow, COLORREF color)
+{
+	ellipseMidpoint (xCenter, yCenter, Size, Size, MyWindow, color);	
+	
+}

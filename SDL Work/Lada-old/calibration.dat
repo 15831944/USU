@@ -1,0 +1,25 @@
+// This data file contains a list of sensors that 
+// can be calibrated using the calibration function.
+// The first line of each sensor group is the name of
+// that sensor group in english, then in russian, 
+// and the number of sensors in that group.
+// Each data field is separated by a comma
+// The following lines contain the probe name in 
+// english, the name in russian, the offset input 
+// location number, and the data input location number.
+// Comments begin with a '/'
+Oxygen Probes,Пробы Кислороды, 4
+Probe 1,Проб 1, 125,
+Probe 2,Проб 2, 127,
+Probe 3,Проб 3, 129,
+Probe 4,Проб 4, 131,
+Soil Moisture Probes,Датчиков Влажности, 8
+Probe 1,Проб 1, 28,
+Probe 2,Проб 2, 30,		
+Probe 3,Проб 3, 32, 
+Probe 4,Проб 4, 34,
+Probe 5,Проб 5, 36,
+Probe 6,Проб 6, 38,
+Wick 1,Вик 1, 40,
+Wick 2,Вик 2, 42,
+

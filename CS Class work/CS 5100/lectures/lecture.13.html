@@ -1,0 +1,71 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>cs 5100 Lecture 13 - Greg Jones</TITLE>
+<META NAME="Template" CONTENT="C:\Program Files\Microsoft Office\Templates\Lecture Notes.dot">
+</HEAD>
+<BODY>
+
+<B><I><FONT SIZE=5><P>Swing Containers&#9;Lecture 5100.13</P>
+<OL TYPE="A">
+
+</I></FONT><LI>General Container Philosophy</LI>
+<OL>
+
+<LI>Containers delegate their containment activities to a root pane, which in turn delegates some of those activities to other specialized panes (subcontainers).</LI>
+<OL TYPE="a">
+
+<LI>The content pane is responsible for actually containing children.  It is an AWT container.</LI>
+<LI>The layered pane is responsible for displaying the children in a z-ordered fashion.  Since the children are all Swing components, they don't have any native peers to draw on the actual terminal screen.  Instead, they utilize UI delegates, which can draw wherever they want to.  In fact, they will draw, as directed, on the nearest parent heavyweight container.  The layered pane defines five major categories or layers.  Within each layer, individual components are still z-ordered.</LI>
+<LI> The glass pane is of the AWT component class.  It is used for intercepting events on a container wide, rather then per child, basis; and also for drawing across children.</LI>
+<LI>The menu bar, which is of JMenubar class.</LI></OL>
+
+<LI>Because every container sends its children to its content pane, it is not possible to set the content pane member to null.</LI>
+<LI>Because the root pane must be responsible for the display of the menubar, it uses a specialized layout manager.  It is impossible to set any other layout manager for a root pane.</LI>
+<LI>Glass panes don't have to be present.  The can be added and removed and replaced at will.</LI>
+<LI>In order to add a child to a container, you must find the content pane with a call to getContentPane, then add to that.</LI>
+<LI>Swing containers may be either heavy or light (Table 6.9).  JInternalFrame is light, even though it implements the Swing containment philosophy.  JDialogBox is heavy, however, so that it can occupy real estate outside the parent's bound.</LI></OL>
+
+<LI>Layered Panes</LI>
+<OL>
+
+<LI>The layers are (from bottom to top):</LI>
+<OL TYPE="a">
+
+<LI>Default - this is were most children are drawn.</LI>
+<LI>Palette - this is for displaying moveable, or floating, toolbars and palettes.</LI>
+<LI>Modal - this is for modal dialogs, which should overlay other children till dealt with.  Non-modal dialogs shouldn't be displayed here.</LI>
+<LI>Popup - this is where popups should be displayed, including those belonging to modal dialogs.  Of course, popups for elements below a modal dialog can't be triggered while the modal dialog is displayed, so there is no chance that they will overlay a modal dialog.</LI>
+<LI>Drag - this is for displaying children such as drag icons, which should be seen on top of everything else.</LI></OL>
+
+<LI>JLayeredPane Methods</LI>
+<OL TYPE="a">
+
+<LI>getComponentsInLayer, getComponentCountInLayer allow us to determine which components are in which layer.</LI>
+<LI>getLayer tells which layer a component is in.</LI>
+<LI>getPosition tells the position of the component in the stack at that layer (0 on top).</LI>
+<LI>highestLayer and lowestLayer indicate the range of child-displaying layers.</LI>
+<LI>moveToBack and moveToFront allow us to move a component in the layer's stack.</LI>
+<LI>remove takes a child out of a layer</LI>
+<LI>setPosition places a component at a particular position in the layer's stack.</LI></OL>
+</OL>
+
+<LI>Look and Feel</LI>
+<OL>
+
+<LI>All lightweight components delegate their rendering on the screen to a ComponentUI, rather than to a native peer.  These ComponentUIs are what create the look and feel of a component.</LI>
+<LI>So we have implementations of the abstract ComponentUI class named ButtonUI, LabelUI, ListUI, etc.</LI>
+<LI>It may be that not all the standard looks and feels are supported (installed) on any given platform.  The following methods help us decide what is available.</LI>
+<OL TYPE="a">
+
+<LI>getSystemLookAndFeelClassName would return the class name of the standard system look and feel.  The Strings returned might be "Metal", "CDE/Motif", "Windows", etc.</LI>
+<LI>getInstalledLookAndFeels would return an array of potential looks and feels on this platform.  The array is of LookAndFeelInfo structures, which in turn would be inspected by getName or getClassName.</LI></OL>
+
+<LI>The setLookAndFeel method could be used to change the current look and feel.</LI>
+<LI>The UIDefaults hash table can be used to determine default look and feel behavior.</LI>
+<LI>The UIManager class is used to provide all current information on supported looks and feels.</LI>
+<LI>The getUI method(component) returns the ComponentUI delegate for that child.</LI></OL>
+</OL>
+</B></BODY>
+</HTML>

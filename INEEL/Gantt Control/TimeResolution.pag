@@ -1,0 +1,51 @@
+VERSION 5.00
+Begin VB.PropertyPage TimeResolutionPage 
+   Caption         =   "PropertyPage1"
+   ClientHeight    =   3600
+   ClientLeft      =   0
+   ClientTop       =   0
+   ClientWidth     =   4800
+   PaletteMode     =   0  'Halftone
+   ScaleHeight     =   3600
+   ScaleWidth      =   4800
+   Begin VB.ComboBox Combo1 
+      Height          =   315
+      ItemData        =   "TimeResolution.pgx":0000
+      Left            =   240
+      List            =   "TimeResolution.pgx":0016
+      Style           =   2  'Dropdown List
+      TabIndex        =   0
+      Top             =   600
+      Width           =   1935
+   End
+   Begin VB.Label Label1 
+      Caption         =   "Select time resolution"
+      Height          =   255
+      Left            =   240
+      TabIndex        =   1
+      Top             =   240
+      Width           =   1935
+   End
+End
+Attribute VB_Name = "TimeResolutionPage"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = True
+Attribute VB_PredeclaredId = False
+Attribute VB_Exposed = True
+Option Explicit
+
+Private Sub Combo1_Change()
+Changed = True
+End Sub
+
+Private Sub PropertyPage_ApplyChanges()
+SelectedControls(0).TimeResolution = Combo1.ListIndex
+SelectedControls(0).RedrawGanttChart
+Changed = False
+
+End Sub
+
+Private Sub PropertyPage_Initialize()
+Combo1.ListIndex = SelectedControls(0).TimeResolution
+End Sub
+

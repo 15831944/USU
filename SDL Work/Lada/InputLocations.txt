@@ -1,0 +1,5 @@
+Input Locations can now be collected in two ways, essentially blocking and non-blocking:
+UpdateGraphTimer,GetILDataTimer, will continue to use the same non-blocking method.
+This is important so as to not harm user responsiveness.
+However, all places that use GetInputLocation or ExecuteICommand or SetLocationAndVerify
+will now be changed to use the new and improved GetInputLocations function...

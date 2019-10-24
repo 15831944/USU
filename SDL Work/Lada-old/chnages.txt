@@ -1,0 +1,2 @@
+1-11-01 12:30 pm added * to display bitmap in LADASetup.cpp
+1-11-01 1:00pm added bounds to ValueToString

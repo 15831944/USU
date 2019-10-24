@@ -1,0 +1,93 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>CS 5100 Lecture 41 - Greg Jones</TITLE>
+<META NAME="Template" CONTENT="C:\Program Files\Microsoft Office\Templates\Lecture Notes.dot">
+</HEAD>
+<BODY>
+
+<B><I><FONT SIZE=5><P>Internet Programming&#9;Lecture 5100.41</P>
+<OL TYPE="A">
+
+</I></FONT><LI>ActiveX Controls in Web Pages</LI>
+<OL>
+
+<LI>Just as applets can be displayed in web pages on Java-enabled browsers, so also can ActiveX controls be displayed.</LI>
+<LI>The Microsoft Internet Explorer does this automatically, while Netscape requires a plugin.</LI>
+<LI>The web page serves as a container for the control.</LI>
+<LI>You can also use the ActiveX Control Test Container from the Tools menu to display your control.  Be sure to register the control first from the same menu, so you can insert it into the test container.</LI></OL>
+
+<LI>Security controls</LI>
+<OL>
+
+<LI>Unlike Java, ActiveX controls are not restricted to a sandbox.  Instead, they are given full access to all system resources.</LI>
+<LI>However, the browser will warn users who have specified at least medium levels of security that a control may not be safe.</LI>
+<LI>It is possible for control authors to eliminate this warning, at the cost of registering it as safe for scripting and initializing.  Code is digitally signed, so that if something goes wrong, the user can discover whom to blame.</LI></OL>
+
+<LI>Advantages of ActiveX controls over Java applets</LI>
+<OL>
+
+<LI>They only need to be downloaded once.</LI>
+<LI>They are usually quite a bit faster.</LI>
+<LI>Controls can fire events to the container.</LI>
+<LI>Controls can interact with Word, Visual Basic forms, and Visual C++ programs.</LI>
+<LI>Controls have greater flexibility of action, since they operate outside the sandbox.</LI>
+<LI>Controls can be licensed, providing an income flow to their authors.</LI></OL>
+
+<LI>Advantages of Java applets over ActiveX controls</LI>
+<OL>
+
+<LI>Typically, ActiveX controls are not as portable as Java applets.</LI>
+<LI>ActiveX controls aren’t as safe.</LI>
+<LI>ActiveX controls are stored permanently on user disks and referenced permanently in user registries.</LI>
+<LI>ActiveX controls are typically larger than corresponding applets.</LI></OL>
+
+<LI>A sample html page (credit to Kate Gregory, <U>Using Visual C++</U>)</LI>
+
+<P>&lt;HEAD&gt;</P>
+
+<P>&lt;TITLE&gt;A Web page with a rolling die&lt;/TITLE&gt;</P>
+
+<P>&lt;/HEAD&gt;</P>
+
+<P>&lt;BODY&gt;</P>
+
+<P>&lt;OBJECT ID="Dieroll1"</P>
+
+<P>CLASSID="CLSID:46646B43-EA16-11CF-870C-00201801DDD6"</P>
+
+<P>CODEBASE="file:///courses/gui/lectures/ActiveXControl"</P>
+
+<P>WIDTH="200"</P>
+
+<P>HEIGHT="200"&gt;</P>
+
+<P>&lt;PARAM NAME="ForeColor" VALUE="0"&gt;</P>
+
+<P>&lt;PARAM NAME="BackColor" VALUE="16777215"&gt;</P>
+
+<P>If you see this text, your browser does not support the OBJECT tag.</P>
+
+<P>&lt;BR&gt;</P>
+
+<P>&lt;/OBJECT&gt;</P>
+
+<P>&lt;BR&gt;</P>
+
+<P>Here is some text after the die</P>
+
+<P>&lt;/BODY&gt;</P>
+
+<P>&lt;/HTML&gt;</P>
+
+<LI>Other Visual C++/Internet connections</LI>
+<OL>
+
+<LI>The CInternetConnection and CInternetFile classes allow us to establish http, ftp, or gopher sessions, and then send and receive information.</LI>
+<LI>The CSocket and CAsynchSocket classes allow us to work directly with sockets via the Winsock specification.</LI>
+<LI>It is possible to select MAPI support through the AppWizard, thus allowing documents to be sent automatically through e-mail using the Messaging API.</LI>
+<LI>The ISAPI classes (Internet Server API) extend the hypertext transfer protocol (http) and also permit the use of filtering.  There is an ISAPI Extension Wizard to simplify ISAPI application generation.</LI></OL>
+</OL>
+</B></BODY>
+</HTML>

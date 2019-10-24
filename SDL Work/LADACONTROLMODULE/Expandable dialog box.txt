@@ -1,0 +1,39 @@
+		CRect rect;
+		GetWindowRect(&rect);
+		int ExpansionSize = 250;
+		if (Expanded)
+		
+		{
+			FileListWindow->DestroyWindow();
+			delete FileListWindow;
+			SetWindowPos(this,0,0,
+				rect.Width() - ExpansionSize, rect.Height(), 
+				SWP_FRAMECHANGED | SWP_NOMOVE | 
+				SWP_SHOWWINDOW | SWP_NOZORDER );
+
+			Expanded = FALSE;
+			GetDlgItem(IDC_SELECT_FILES)->SetWindowText("View Files");
+		}
+		else
+		{
+			GetDlgItem(IDC_SELECT_FILES)->SetWindowText("Hide Files");
+			int borderSize = 20;
+			int left = rect.Width() - 20;
+			int right = rect.Width() + ExpansionSize - borderSize;
+			int top = borderSize;
+			int bottom = rect.Height() - borderSize;
+			CRect ListRect(left,top,right,bottom);
+			SetWindowPos(this,0,0,
+				rect.Width() + ExpansionSize, rect.Height(), 
+				SWP_FRAMECHANGED | SWP_NOMOVE | 
+				SWP_SHOWWINDOW | SWP_NOZORDER );
+			Expanded = TRUE;
+			FileListWindow = new CListBox();
+			DWORD nID = 5000;	//WS_CHILD|WS_VISIBLE|LBS_STANDARD|WS_HSCROLL
+			FileListWindow->Create(WS_CHILD|WS_VISIBLE|LBS_STANDARD|WS_HSCROLL|WS_DISABLED,ListRect,this,IDC_TEMP_FILEVIEW);
+			FileListWindow->SetFont(&smallRussianArial,FALSE);
+			for(int i = 0; i < m_nSelected ; i++)
+			{
+				FileListWindow->AddString(m_PtrFileNames[i]);
+			}
+		}

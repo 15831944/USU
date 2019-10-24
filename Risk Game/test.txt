@@ -1,0 +1,11 @@
+1  per Countries  0.333333
+2  per Countries  0.5
+3  per Countries  0.5
+4  per Countries  0
+5  per Countries  0.333333
+6  per Countries  0.5
+Index 2
+4 Countries in wanted continent
+10 is a country in continent
+10 is an enemy country in continent
+AttackBase= 12

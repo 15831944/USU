@@ -1,0 +1,82 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>CS 5100 Lecture 09 - Greg Jones</TITLE>
+</HEAD>
+<BODY>
+
+<B><I><FONT SIZE=5><P>AWT Concepts&#9;Lecture 5100.09</P>
+<OL TYPE="A">
+
+</I></FONT><LI>Visual Components</LI>
+<OL>
+
+<LI>All AWT visual components are derived from the Component class.  They are all heavyweight, that is, implemented by corresponding native peers.</LI>
+<LI>Figure 4.1 lists the major components</LI>
+<LI>The Component class is abstract, and can’t be instantiated.</LI>
+<LI>Component Properties</LI>
+<OL TYPE="a">
+
+<LI>Background and foreground color, locale, and font</LI>
+<LI>Bounds and size</LI>
+<LI>Relative and screen locations</LI>
+<LI>Cursor</LI>
+<LI>Enabled and visible states</LI>
+<LI>Name ( a String )</LI></OL>
+
+<LI>Component Methods provide set and get ( or is ) functions for all of the attributes above, as well as:</LI>
+<OL TYPE="a">
+
+<LI>getAlignmentX and getAlignmentY</LI>
+<LI>getX and getY</LI>
+<LI>getWidth and getHeight</LI>
+<LI>isShowing</LI></OL>
+
+<LI>Components are frequently queried about their size by layout managers, so they have getPreferredSize and getMiminimSize methods</LI>
+<LI>Many components can be disabled.  For instance, the user can’t type in a disabled TextField or click a disabled Button.  Usually a disabled component is rendered differently.</LI>
+<LI>Cursors are not components.  Rather, the component itself is responsible for rendering (drawing) the cursor that has been set for it.  There are 13 standard Java cursors.</LI></OL>
+
+<LI>Rendering Components</LI>
+<OL>
+
+<LI>Heavyweight AWT components paint themselves.  When we extend them, we need to override the paint(Graphics g) method.  Lightweight components may be rendered by their nearest heavyweight parent.</LI>
+<LI>Painting may be triggered by the system, as when a window that was lowered is raised, or by program action.</LI>
+<LI>In either case, the system or program calls the repaint() method.  This method finds the Graphics object of the component, then schedules a subsequent call to update(Graphics g).  Repaint is hardly ever overridden.</LI>
+<LI>The update(Graphics g) method blanks the component area (paints it to the background color), then calls paint(Graphics g).  We sometimes override update when we are going to paint the entire area anyway, to avoid the erasing or blanking action.  This reduces visible flicker.</LI>
+<LI>The paint(Graphics g) method should have sole responsibility for rendering the visible components.  It can do this directly or by calling other methods to do it.  If some other routine not called by paint carries out rendering, then this can be omitted or overwritten when the system or parent layout manager calls a default paint method, or an incomplete overriding paint method.</LI>
+<LI>There are also forms of repaint which cause only a smaller rectangle within a component to be painted, or enforce a maximum delay before painting.</LI></OL>
+
+<LI>Containers</LI>
+<OL>
+
+<LI>Containers all derived from the Container class, which is concrete.  Containers typically use a layout manager, and maintain a list of component children which have been added to them.</LI>
+<LI>Container Methods</LI>
+<OL TYPE="a">
+
+<LI>Various add methods either add a component at the end of the list, or at some other position in the list, and may reference the child component or give its name, and may receive hints (constraints) for the layout manager.</LI>
+<LI>getComponents returns an array of type Component, and getComponentCount gives the size of the list of child components.  getComponentAt(n) returns the nth component in the list.</LI>
+<LI>FindComponentAt and getComponentAt and getComponent(point) return the component at a particular position.  GetComponentAt will return a child container if it occupies the position, but findComponentAt will proceed to find a grandchild, great-grandchild, etc. primitive component at the position.  In the case of overlapping components at a single position, the last added is returned.</LI>
+<LI>Remove and removeAll remove components from a container.</LI>
+<LI>isAncestorOf tells whether a component is a child, grandchild, etc. of the container.</LI></OL>
+
+<LI>When a container is repainted, all its children are also repainted.  The first on the list is painted first, etc.</LI>
+<LI>The code in listings 4.1 and 4.2 is instructive, but again sloppy and incorrect. </LI>
+<OL TYPE="a">
+
+<LI> Note the use of a call to super, which constructs the base class portion of the object.  </LI>
+<LI>Notice also that objects declared in a constructor and added there to the container are not destroyed by the garbage collection system, because there are live references to them in the component list of the container.  However, they can’t be directly accessed by other methods in the class, and can only be found indirectly by the getComponent(n) method, and then only when we know the index at which the component was added. </LI></OL>
+
+<LI>It is important to both the logical and visual meaning of an application to nest containers.  This keeps related components together under the action of the layout manager, and also permits the use of a variety of layout managers in subcontainers (usually Panels) as appropriate.</LI></OL>
+
+<LI>Other AWT Components and Packages</LI>
+<OL>
+
+<LI>AWT provides capabilities for drawing a large number of shapes and manipulating images.</LI>
+<LI>There are specialized classes representing fonts, font metrics, colors, and system color schemes.</LI>
+<LI>While applets are not directly a part of the AWT toolkit, they are important enough that we talk about them briefly.</LI>
+<LI>Data transfer classes assist in exchanging data through the clipboard; there are also printing classes that make use of system printers.</LI></OL>
+</OL>
+
+</B></BODY>
+</HTML>

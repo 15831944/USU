@@ -1,0 +1,77 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>CS 5100 Lecture 28 - Greg Jones</TITLE>
+<META NAME="Template" CONTENT="C:\Program Files\Microsoft Office\Templates\Lecture Notes.dot">
+</HEAD>
+<BODY>
+
+<B><I><FONT SIZE=5><P>Servlets&#9;Lecture 5100.28</P>
+<OL TYPE="A">
+
+</I></FONT><LI>Background</LI>
+<OL>
+
+<LI>Java is designed to facilitate the downloading of executable code over a network.  This means that code doesn’t have to reside permanently at the site that executes it.</LI>
+<LI>Applets are generally thought of as code to be downloaded as part of an HTML page and executed at a client site.  Servlets are generally thought of as reusable code downloaded to be executed at a server site.  In some ways they perform similar functions to DLLs under Windows.  Related interfaces and classes are found in javax.servlet.</LI>
+<LI>Generally HTML is a request-response system.  The browser requests an HTML page, and then sends back a response to it.  If the page is a form, then the response would include the values filled into the form fields by the client-side user.  The server, receiving and processing that response, would then dynamically create and display another web page tailored to the data in the response.</LI>
+<LI>Servlets are protocol- and platform-independent server side components, written in Java, which dynamically extend Java-enabled servers.  They provide a general framework for services built using the request-response paradigm. Their initial use is to provide secure web access to data which is presented using HTML web pages, interactively viewing or modifying that data using dynamic web page generation  techniques. </LI>
+<LI>Although all servlets are written in Java, their clients may be written in any language. When servlets are used in the middle tiers of application systems, they can in turn be clients to other services, written in any language. For example, servlets can use JDBC to contact application's highly tuned relational databases. Communicating with other kinds of current or legacy systems may call for alternate packages, as required by those systems.</LI></OL>
+
+<LI>Typical Servlet Uses </LI>
+<OL>
+
+<LI>A simple servlet can process data which was POSTed over HTTPS using an HTML FORM, passing data such as a purchase (with credit card data). This would be part of an order entry and processing system, working with product and inventory and perhaps an on-line payment system.</LI>
+<LI>Since servlets handle multiple requests concurrently, the requests can be synchronized with each other to support applications such as on-line conferencing.</LI>
+<LI>One could define a community of active agents, which share work among each other. The code for each agent would be a loaded servlet, and the agents would pass data to each other.</LI>
+<LI>One servlet could forward requests to other servers. This technique can balance the work load among several servers which mirror the content. Or, it could be used to partition a single logical service between several servers, routing requests according to task type organizational boundaries.</LI></OL>
+
+<LI>Servlet mechanisms</LI>
+<OL>
+
+<LI>Servlets implement the Servlet interface, usually by extending either the generic or an HTTP-specific implementation. The simplest possible servlet defines a single method, service: </LI>
+
+<P>import javax.servlet.*;</P>
+
+<P>public class MyServlet extends GenericServlet {</P>
+<P>public void service (</P>
+<P>ServletRequest      request,</P>
+<P>ServletResponse     response</P>
+<P>         ) throws ServletException, IOException</P>
+<P>{</P>
+<P>...</P>
+<P>}</P>
+<P>}</P>
+<LI>The service method is provided with Request and Response parameters. These encapsulate the data sent by the client, providing access to  parameters and allowing servlets to report status including errors. Servlets normally retrieve most of their parameters through an input  stream, and send their responses using an output stream: </LI>
+<P>ServletInputStream  in = request.getInputStream ();</P>
+<P>ServletOutputStream out = response.getOutputStream ();</P>
+<LI>These input and output streams may be used with data in whatever format is appropriate. For example, an applet and servlet might  exchange data using object serialization; HTML, and numerous image formats, may also be appropriate data formats.</LI>
+<LI>Since servlets are Java objects, they have instance-specific data. This means that in effect servlets are independent applications running within servers, without needing the complexity of additional classes (which are required by some alternative server extension APIs). </LI>
+<LI>Servlets are activated by the server through an init call.  Servlet writers may, if they wish, provide their own implementation of this call, to perform potentially costly (usually, I/O intensive) setup only once, rather than once per request. Examples of such implementations include initializing sessions with other network services or getting access to their persistent data (stored in a database or file). </LI>
+<LI>After initialization, servlets handle many requests. Each client request generates one service upcall. These requests may be concurrent; this allows servlets to coordinate activities among many clients. Class-static state may be used to share data between requests. </LI>
+<LI>Requests are processed until the servlet is explicitly shut down by the web server, by calling the destroy method. The servlet's class  may then become eligible for garbage collection.</LI></OL>
+
+<LI>Servlets vs. CGI Programming</LI>
+<OL>
+
+<LI>Servlets are alternatives to executable (compiled or interpreted) code which conforms to the Common Gateway Interface.  Perl, JavaScript, and C++ are all popular CGI languages</LI>
+<LI>Servlet advantages:</LI>
+<OL TYPE="a">
+
+<LI>can handle more complex processes;</LI>
+<LI>can handle concurrent requests;</LI>
+<LI>as Java objects they have states, and don’t need to be reinitialized at each invocation;</LI>
+<LI>Java servlets use fewer resources and run faster.</LI></OL>
+</OL>
+
+<LI>Web Applications</LI>
+<OL>
+
+<LI>Many organizations find that they need to use multi-tier applications. Most client and single server (two tier) models give way to ones which includes many servers, where servers exchange data between each other. </LI>
+<LI>The first tier of such an application could use any number of Java-enabled browsers, including ones running on Network Computers (NCs) as well as ones built on more traditional platforms such as personal computers or workstations. Complex user interface tasks would be  handled by Java applets downloaded from the second tier servers; simpler tasks could be handled using standard HTML forms. </LI>
+<LI>The second tier of such a system would consist of servlets which encapsulate the particular business rules and logic of the application at hand, perhaps arranging to deliver a new shipment of parts. Such rules could include application-specific access controls for sensitive (but  unclassified) corporate data. </LI>
+<LI>The third tier of such systems consists of data repositories. This tier might be accessed using relational database interfaces such as JDBC, or other interfaces supported by legacy data.</LI></OL>
+</OL>
+</B></BODY>
+</HTML>

@@ -1,0 +1,108 @@
+	if (pDoc->commObject == NULL){
+			pDoc->commObject = new CCommOperations(pDoc->InputLocationSaveList,&pDoc->nData,FALSE);
+			
+			if (pDoc->commObject->IsConnected()){
+				m_Connected.SetBitmap((HBITMAP)ConnectedBMP->m_hObject);
+				m_ConnStatus.SetWindowText("Connected");
+			}
+			else
+			{
+				m_ConnStatus.SetWindowText("Trying to Connect");
+				delete pDoc->commObject;
+				pDoc->commObject = NULL;
+				pDoc->DoTimer = TRUE;
+				return;
+			}
+		}
+#ifdef _DEBUG
+		DWORD startTime = timeGetTime();
+		DWORD t1, t2, t3;
+		static DWORD time1Max = 0, time2Max = 0, time3Max = 0;
+		char tb1[10];
+		char tb2[10];
+#endif
+
+		for (int LocPos = 0; pDoc->nData - LocPos > 0; LocPos += 62){
+			int LocsToGet = pDoc->nData - LocPos;
+			if (LocsToGet > 62)
+				LocsToGet = 62;
+#ifdef _DEBUG
+			t1 = timeGetTime();
+#endif
+			if ( !pDoc->commObject->SetJCommand(FALSE, FALSE, TRUE, &pDoc->InputLocationSaveList[LocPos], LocsToGet) || !(t2 = timeGetTime()) ||
+				 !pDoc->commObject->ExecuteKCommand(TRUE, LocsToGet) || !(t3 = timeGetTime()))
+			{
+				// an error occured
+				m_ConnStatus.SetWindowText("Trying to Connect");
+				if (!pDoc->commObject->Reconnect()){
+					pDoc->commObject->EndCR10Comm();
+					delete pDoc->commObject;
+					pDoc->commObject = NULL;
+					m_Connected.SetBitmap((HBITMAP)NConnectedBMP->m_hObject);
+				}
+				else
+				{
+					m_ConnStatus.SetWindowText("Connected");
+					m_Connected.SetBitmap((HBITMAP)ConnectedBMP->m_hObject);
+				}
+#ifdef _DEBUG				
+				wsprintf(tb1,"%i",t2 - t1);
+				wsprintf(tb2,"%i",t3 - t2);
+				GetDlgItem(IDC_TIMEWIN1)->SetWindowText(tb1);
+				GetDlgItem(IDC_TIMEWIN2)->SetWindowText(tb2);
+				if (t2 - t1 > time1Max)
+				{
+					time1Max = t2 - t1;
+					wsprintf(tb1,"%i",time1Max);
+					GetDlgItem(IDC_TIMEWIN3)->SetWindowText(tb1);
+				}
+				if (t3 - t2 > time2Max)
+				{
+					time2Max = t3 - t2;
+					wsprintf(tb1,"%i",time2Max);
+					GetDlgItem(IDC_TIMEWIN4)->SetWindowText(tb1);
+				}
+#endif 
+				pDoc->DoTimer = TRUE;
+				return;
+			}
+	
+#ifdef _DEBUG
+			wsprintf(tb1,"%i",t2 - t1);
+			wsprintf(tb2,"%i",t3 - t2);
+			GetDlgItem(IDC_TIMEWIN1)->SetWindowText(tb1);
+			GetDlgItem(IDC_TIMEWIN2)->SetWindowText(tb2);
+			if (t2 - t1 > time1Max)
+			{
+				time1Max = t2 - t1;
+				wsprintf(tb1,"%i",time1Max);
+				GetDlgItem(IDC_TIMEWIN3)->SetWindowText(tb1);
+			}
+			if (t3 - t2 > time2Max)
+			{
+				time2Max = t3 - t2;
+				wsprintf(tb1,"%i",time2Max);
+				GetDlgItem(IDC_TIMEWIN4)->SetWindowText(tb1);
+			}
+#endif
+			pDoc->commObject->ProcessInputLocations(&pDoc->newData[LocPos], LocsToGet);
+					
+		}
+		pDoc->AddData(pDoc->newData,CTime::GetCurrentTime());
+
+#ifdef _DEBUG
+		m_TimeWnd.SetWindowText(pDoc->commObject->GetCR10Time());
+		DWORD EndTime = timeGetTime() - startTime;
+		char tText[10];
+		wsprintf(tText,"%i",EndTime);
+		GetDlgItem(IDC_TIMEWIN)->SetWindowText(tText);
+		
+		wsprintf(tb1,"%i",EndTime - (t3 - t1));
+		GetDlgItem(IDC_TIMEWIN6)->SetWindowText(tb1);
+		if (EndTime - (t3 - t1) > time3Max)
+		{
+			time3Max = EndTime - (t3 - t1);
+			wsprintf(tb1,"%i",time3Max);
+			GetDlgItem(IDC_TIMEWIN5)->SetWindowText(tb1);
+		}
+#endif

@@ -1,0 +1,51 @@
+#include <afxwin.h>
+#include "Monitor Locations Dlg.h"
+
+CMonitorLocationsDialog::CMonitorLocationsDialog(char *dlgName)
+: CDialog (dlgName)
+{
+
+}
+
+afx_msg void CMonitorLocationsDialog::OnOK(){
+}
+
+afx_msg void CMonitorLocationsDialog::OnCancel(){
+}
+
+afx_msg void CMonitorLocationsDialog::OnRename(){
+}
+
+afx_msg void CMonitorLocationsDialog::OnInsert(){
+}
+
+afx_msg void CMonitorLocationsDialog::OnToggleMonitor(){
+}
+
+afx_msg void CMonitorLocationsDialog::OnToggleFrequency(){
+}
+
+BEGIN_MESSAGE_MAP( CMonitorLocationsDialog, CDialog )
+	ON_COMMAND( IDC_INPUT_LOCATIONS_C, OnToggleMonitor )
+	ON_COMMAND( IDC_INPUT_LOCATIONS_FREQ, OnToggleFrequency )
+	ON_COMMAND( IDC_
+
+
+// This is used for a dialog box which allows you
+// to choose which items to update, how often, and
+// to select which input locations and to change their
+// names.
+
+class CMonitorLocationsDialog : public CDialog {
+public:
+	CMonitorLocationsDialog( char *dlgName );
+	afx_msg void OnOK();
+	afx_msg void OnCancel();
+	afx_msg void OnRename();
+	afx_msg void OnInsert();
+	afx_msg void OnToggleMonitor();
+	afx_msg void OnToggleFrequency();
+private:
+	DECLARE_MESSAGE_MAP()
+};
+

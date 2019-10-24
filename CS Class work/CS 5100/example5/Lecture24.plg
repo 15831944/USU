@@ -1,0 +1,21 @@
+--------------------Configuration: Lecture24 - Win32 Release--------------------
+Begining build with project "D:\tempVC++\Lecture24\Lecture24.dsp", at root.
+Active configuration is Win32 (x86) Application (based on Win32 (x86) Application)
+
+Project's tools are:
+			"32-bit C/C++ Compiler for 80x86" with flags "/nologo /MD /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_AFXDLL" /Fp"Release/Lecture24.pch" /Yu"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c "
+			"OLE Type Library Maker" with flags "/nologo /D "NDEBUG" /mktyplib203 /o NUL /win32 "
+			"Win32 Resource Compiler" with flags "/l 0x409 /fo"Release/Lecture24.res" /d "NDEBUG" /d "_AFXDLL" "
+			"Browser Database Maker" with flags "/nologo /o"Release/Lecture24.bsc" "
+			"COFF Linker for 80x86" with flags "/nologo /subsystem:windows /incremental:no /pdb:"Release/Lecture24.pdb" /machine:I386 /out:"Release/Lecture24.exe" "
+			"Custom Build" with flags ""
+			"<Component 0xa>" with flags ""
+
+Creating command line "rc.exe /l 0x409 /fo"Release/Lecture24.res" /d "NDEBUG" /d "_AFXDLL" "D:\tempVC++\Lecture24\Lecture24.rc"" 
+Creating command line "link.exe /nologo /subsystem:windows /incremental:no /pdb:"Release/Lecture24.pdb" /machine:I386 /out:"Release/Lecture24.exe"  ".\Release\Lecture24.obj" ".\Release\Lecture24Dlg.obj" ".\Release\StdAfx.obj" ".\Release\Lecture24.res"" 
+Compiling resources...
+Linking...
+
+
+
+Lecture24.exe - 0 error(s), 0 warning(s)

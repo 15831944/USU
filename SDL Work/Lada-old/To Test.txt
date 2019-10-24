@@ -1,0 +1,12 @@
+To be tested:
+
+4/18/2001	The Lights on / off 24 hrs day.
+			When you check the lights on 24 hours, they should turn on within 5 seconds...
+
+4/18/2001	Wetup... It crashed when it was supposed to start it's first dose
+			Oleg said it also pumped more water than it was supposed to.
+
+4/18/2001	ParamDlg... test that changing the frequency of SMP tests works.
+
+4/18/2001	Manual Sample... should now show the results of the last SMP reading, manual
+			or automatic, when the window is opened (except when opened in checkout)

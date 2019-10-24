@@ -1,0 +1,8 @@
+#if !defined(AFX_MYDIALOG_H__A5A67CB2_76E3_11D5_8D0E_00104B945A14__INCLUDED_)
+#define AFX_MYDIALOG_H__A5A67CB2_76E3_11D5_8D0E_00104B945A14__INCLUDED_
+
+#if _MSC_VER >= 1000
+#pragma once
+#endif // _MSC_VER >= 1000
+// MyDialog.h : header file
+//

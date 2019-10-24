@@ -1,0 +1,48 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: Assignment 1 - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x409 /fo"Debug/Assignment 1.res" /d "_DEBUG" /d "_AFXDLL" "C:\Source Code\CS Class work\CS 2200\Assignment 1\Assignment 1.rc"" 
+Creating temporary file "C:\DOCUME~1\Owner\LOCALS~1\Temp\RSPC9.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Debug/Assignment 1.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\Source Code\CS Class work\CS 2200\Assignment 1\Assignment 1.cpp"
+"C:\Source Code\CS Class work\CS 2200\Assignment 1\Assignment 1Dlg.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\Owner\LOCALS~1\Temp\RSPC9.tmp" 
+Creating temporary file "C:\DOCUME~1\Owner\LOCALS~1\Temp\RSPCA.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Debug/Assignment 1.pch" /Yc"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\Source Code\CS Class work\CS 2200\Assignment 1\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\Owner\LOCALS~1\Temp\RSPCA.tmp" 
+Creating temporary file "C:\DOCUME~1\Owner\LOCALS~1\Temp\RSPCB.tmp" with contents
+[
+Winmm.lib /nologo /subsystem:windows /incremental:yes /pdb:"Debug/Assignment 1.pdb" /debug /machine:I386 /out:"Debug/Assignment 1.exe" /pdbtype:sept 
+".\Debug\Assignment 1.obj"
+".\Debug\Assignment 1Dlg.obj"
+".\Debug\StdAfx.obj"
+".\Debug\Assignment 1.res"
+]
+Creating command line "link.exe @C:\DOCUME~1\Owner\LOCALS~1\Temp\RSPCB.tmp"
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+StdAfx.cpp
+Compiling...
+Assignment 1.cpp
+Assignment 1Dlg.cpp
+Generating Code...
+Linking...
+
+
+
+<h3>Results</h3>
+Assignment 1.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

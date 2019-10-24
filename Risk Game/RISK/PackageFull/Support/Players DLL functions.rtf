@@ -1,0 +1,139 @@
+{\rtf1\ansi\ansicpg1252\deff0\deflang1033\deflangfe1033{\fonttbl{\f0\fswiss\fprq2\fcharset0 Arial;}{\f1\froman\fprq2\fcharset0 Times New Roman;}}
+{\stylesheet{ Normal;}{\s1 heading 1;}{\s2 heading 2;}{\s3 heading 3;}}
+\viewkind4\uc1\pard\keepn\s2\sb240\sa60\b\i\f0\fs28 RISK Project - Summary of Functions and Data Types used by ManagerDLL and PlayerDLL\par
+\pard\keepn\s3\sb240\sa60\i0\fs26 This document and program code was prepared by Mark Salisbury for ACM at USU.  If you would like to make a comment or ask a question you may contact me at marks@cc.usu.edu.\par
+RISK Data Types:\par
+\pard\b0\f1\fs20 enum LastMoveEnum \par
+\{ \par
+\tab NoMove = 0,\par
+             MadeAttack = 1,\par
+             Retreat = 2,\par
+             CapturedCountry = 3,\par
+             Defeat = 4\par
+\};\par
+struct LAST_MOVE_INFO\par
+\{\par
+\tab LastMoveEnum LastAction;  // the results of the last move made \par
+\tab int FromID; // id of the country from which at attack or retreat was made\par
+\tab int ToID; // id of the country which was attacked or to which a retreat was made\par
+\};\par
+struct COUNTRY_INFO\par
+\{\par
+\tab int OwnerID;  // the player id of the player who owns this country\par
+\tab int ArmyCount;  // the number of armies the owner has in this country\par
+\tab int AdjacentCountries;  // the number of armies adjacent to this country\par
+\tab int EnemyOwnedAdjacentCountries;  // the number of adjacent enemy owned countries\par
+\tab int ContinentID; // the id of the continent to which this country belongs\par
+\};\par
+struct COUNTRY_DATA \par
+\{\par
+\tab int OwnerID;  // the player id of the player who owns this country\par
+\tab int ArmyCount;  // the number of armies the owner has in this country\par
+\};\par
+struct PLAYER_INFO\par
+\{\par
+\tab int IsPlayerHuman;\par
+\tab int ArmyCount;\par
+\tab int ArmiesToPlace;\par
+\tab int CountryCount;\par
+\tab int IsPlayerAlive;\par
+\tab int CardCount;\par
+\};\par
+struct CARD_DATA\par
+\{\par
+\tab int wCountry[8];\par
+\tab int cardType[8]; // 0 = wild, 1 = soldier, 2 = horse, 3 = cannon\par
+\};\b\par
+\pard\keepn\s3\sb240\sa60\f0\fs26\par
+Functions which a Player DLL must export which will be called by the interface:\par
+\pard\b0\f1\fs20\tab\par
+void DefendCountry(int OpposingArmies, int myArmies, int CountryID, int &DiceToRoll)\par
+\pard\fi-360\li720\tx720 -\tab In this section you set the number of dice (1 or 2) you would like to roll when defending against an attack.\par
+\pard char * GetPlayerName()\par
+\pard\fi-360\li720\tx720 -\tab This is called to get the name your DLL would like to be known by.\par
+\pard void CaptureCountry (int FromWhere, int ToWhere, int minArmies, int maxArmies, int &nArmiesToMove)\par
+\pard\fi45\li720 - This is called when your DLL needs to determine how many armies to move into a country it has just attacked.  minArmies is the minimum armies it must move into the country, which is the same as the last number of dice the you used to make your last attack.  maxArmies is how many armies you have remaining.  Note that if the two numbers are the same this function will not be called.\par
+\pard void DoReinforcement(int &FromWhere, int &ToWhere, int &nArmiesToMove)\par
+\pard\li720 - At the end of your turn this function will be called.  If you would like to do a reinforcement move then set the reference parameters which are passed to this function and return TRUE in the function.  Otherwise return FALSE.\par
+\pard BOOL MakeMove (int &AttackWhere, int &FromWhere, int &nArmiesToUse)\par
+\pard\li720 - This function is called to ask your DLL what to do next.  If you want to end your turn then return FALSE. \par
+\pard  BOOL DoTradeIn(int CardCount, CARD_DATA MyCards, int wCards[3], BOOL IsMandatory)\par
+\pard\li720 - This function is called when you have at least 3 risk cards at the start of your turn.  See the note at the top of the function in SampleDLL.\par
+\pard void TurnStartPlaceArmies (int ArmiesToPlace, int &wCountry, int &nArmies)\par
+\pard\li720 - This function is very important.  This is where you determine how many armies to place at the start of your turn.  The number of armies you have remaining to place is passed in with ArmiesToPlace.  If you do not place all of your armies at once then this function will be called again.\par
+\pard void InitialPlaceArmies (int ArmiesToPlace, int &wCountry, int &nArmies)\par
+\pard\li720 - This function is the same as TurnStartPlaceArmies with the exception that it is called at the beginning of the game instead of beginning of the turn.\par
+\pard void Initialize(int ID, int nplayers)\par
+\pard\li720 - This function will be called at the beginning of the game to tell you what your player ID is and how many players will be playing in this game of RISK.\par
+\pard\par
+\pard\keepn\s3\sb240\sa60\b\f0\fs26 Error Functions:\par
+\pard\b0\f1\fs20 Many of the functions which may be called in ManagerDLL return an int.  If the function was successful, then it returns TRUE, otherwise FALSE.  The most common cause of failure is passing a function an invalid array subscript.  To get information about the last error, these functions may be useful.  I have tried to indicate valid array subscripts in function parameter lists where possible.\par
+unsigned int  GetLastErrorCode();\par
+- returns the LastErrorCode.  Call this or GetLastErrorDescription after an error has occurred.  This does not apply to errors caused by anything besides a call you have made to a function in ManagerDLL. \par
+const char *  GetRiskErrorInfo( unsigned int ErrCode );\par
+- call this to get the text description of a particular error. \par
+const char *  GetLastErrorDescription();\par
+- call this to get the text description of the last error.\par
+int   GetAttackError(int FromCountry (1 to 42), int ToCountry (1 to 42));\par
+- call this function when deciding to attack two countries to verify that the attack is valid.  It will return 0 if there is no error, otherwise it will return an error code.\par
+\pard\keepn\s3\sb240\sa60\b\f0\fs26 Functions to get information about the RISK Board and Armies on the board:\par
+\pard\b0\f1\fs20 Note that the return value of these functions is almost always an error code.  It is not the value of the data being sought after.  \par
+int   AreCountriesAdjacent(int CountryA (1 to 42), int CountryB (1 to 42));\par
+- given two country ids, this will tell you if those countries are adjacent.\par
+int   GetCountryInfo(int wCountry (1 to 42), COUNTRY_INFO &InfoStruct);\par
+- this will fill in a COUNTRY_INFO structure about a given country.\par
+int   GetCountryName(int wCountry (1 to 42), char *name);\par
+- simply gets the name of a particular country.\par
+int   GetAdjacentCountryCount(int wCountry (1 to 42), int &AdjacentCount);\par
+- tells how many countries are adjacent to a particular country.\par
+ int   GetAdjacentCountryID(int wCountry (1 to 42), int wIndex (0 to n - 1), int &AdjacentID);\par
+- used to get the id of an adjacent country to a particular country.  This is used in conjunction with GetAdjacentCountryCount().\par
+ int   GetContinentOwner(int wContinent (1 to 6), int &Owner);\par
+- given a particular continent, this will determine if any one person owns that continent.\par
+ int   GetContinentCountryCount(int wContinent (1 to 6), int &Count);\par
+- tells how many countries are in a continent.\par
+ int   GetContinentCount();\par
+- tells how many continents are on the map.  Always returns 6.\par
+ int   GetContinentCountryID(int ContinentCountryIndex (0 to n - 1), int wContinent (1 to 6), int & wCountry);\par
+- returns country id of the ith country in a continent.\par
+ int   GetContinentValue(int wContinent (1 to 6), int &ArmyValue);\par
+- returns the bonus in armies of owning a particular continent.\par
+\par
+\pard\keepn\s3\sb240\sa60\b\f0\fs26 Functions to get information about players:\par
+\pard\b0\f1\fs20 int   GetPlayerInfo(int wPlayer (0 to # players - 1), PLAYER_INFO &Player);\par
+- this function copies the PLAYER_INFO data about any player into a PLAYER_INFO data structure.\par
+const char *  GetDLLName(int wPlayer (0 to # players - 1));\par
+- returns the name of the DLL of a particular player.  This function will return NULL if you are trying to get the DLL name of a human player.\par
+int   CalculateArmiesToPlace(int wPlayer (0 to # players - 1), int &ArmyCount);\par
+- returns the number of armies that a certain player will receive on their next turn if they do not loose any of the countries which they hold.  Does not take into account armies which they may receive as a result of a RISK card trade in.\par
+\par
+\b\f0\fs26 Functions to get information about the tournament status:\f1\par
+\b0\fs20 In a tournament all players will be given a unique ID, starting with 0.  To find out how many DLLs there are, call GetTotalDLLCount.  To find out how many wins each player has, call GetDLLWinCount and pass from 0-Number of Dlls - 1 as the input parameter.  GetPlayerWinCount will return the same information, only the player id of a player in the current game is used for input.  GetDLLID returns the DLL id of a player in the current game.  Note that this information is not always available.  \par
+ int GetPlayerWinCount(int PlayerID);\par
+ int GetDLLWinCount(int DLLID);\par
+ int GetDLLID(int PlayerID);\par
+ int GetTotalDLLCount();\par
+\pard\keepn\s3\sb240\sa60\b\f0\fs26 Miscellaneous Functions:\par
+\pard\b0\f1\fs20 int   GetNextTradeInValue();\par
+- returns the value of the next trade in.\par
+int   GetCardType(int wCard (0 to 42), int &rCardType);\par
+- gives the card type for a card.  You should not need this function as card type is stored for every card in the CARD_DATA data type.\par
+LAST_MOVE_INFO  GetLastMove();\par
+- this function is very useful, especially in the MakeMove function.  This function retrieves the LAST_MOVE_INFO, in which the results of the actions taken in response to the last call to MakeMove are stored.  Look at the LAST_MOVE_INFO for a better idea of what kind of information is stored here.\par
+int   LookAtCards(CARD_DATA &MyCards);\par
+- returns a copy of the data structure which is holding your RISK cards.\par
+\pard\keepn\s3\sb240\sa60\b\f0\fs26 Functions used exclusively by the interface:\par
+\pard\b0\f1\fs20 (you will not need to call these functions.  If you do, nothing will happen).\par
+ int   InitializeDLL(COUNTRY_DATA * CountryArray, int & currentPlayer, int TotalPlayers, PLAYER_INFO * PlayerInfoArray, CARD_DATA * CardArray, int &TradeIns, LAST_MOVE_INFO & LastMove );\par
+ int   TestPlayerDLL(char * DLLName, char * PlayerName);\par
+ int   SetDLLName(int wPlayer, char * DLLName); \par
+void  CallPlaceArmiesAtStart(int ArmiesToPlace, int &wCountry, int &nArmies);\par
+void  CallPlaceArmies(int ArmiesToPlace, int &wCountry, int &nArmies);\par
+BOOL  CallMakeMove (int &AttackWhere, int &FromWhere, int &nArmiesToUse);\par
+void  CallCaptureCountry(int FromWhere, int ToWhere, int minArmies, int maxArmies, int &nArmiesToMove);\par
+BOOL  CallDoReinforcement(int &FromWhere, int &ToWhere, int &nArmies);\par
+void  CallDefendCountry(int OpposingArmies, int myArmies, int CountryID, int &DiceToRoll);\par
+BOOL  CallDoTradeIn(int CardCount, int wCards[3], BOOL IsMandatory);\par
+void  CallGetPlayerName(char * name)\par
+}
+ 

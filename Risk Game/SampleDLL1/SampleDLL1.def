@@ -1,0 +1,19 @@
+; SampleDLL1.def : Declares the module parameters for the DLL.
+
+LIBRARY      "SampleDLL1"
+DESCRIPTION  'SampleDLL1 Windows Dynamic Link Library'
+
+EXPORTS
+    ; Explicit exports can go here
+	CaptureCountry
+	DoReinforcement
+	DoTradeIn
+	Initialize
+	InitialPlaceArmies
+	MakeMove
+	TurnStartPlaceArmies
+	DefendCountry
+	GetPlayerName
+	ReleaseMemory
+	TurnComplete
+

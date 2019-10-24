@@ -1,0 +1,56 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>CS 5100 Lecture 08 - Greg Jones</TITLE>
+<META NAME="Template" CONTENT="C:\Program Files\Microsoft Office\Templates\Lecture Notes.dot">
+</HEAD>
+<BODY>
+
+<B><I><FONT SIZE=5><P>Basic Java GUI Structure&#9;Lecture 5100.08</P>
+<OL TYPE="A">
+
+</I></FONT><LI>Program Building Blocks</LI>
+<OL>
+
+<LI>Visual components are those which appear in some form on the screen.  They include all the items in Table 3.1.</LI>
+<LI>Some of these are containers, which can manage other "child" components (containers or not) which are displayed within their own rectangular display areas.</LI>
+<LI>Windows use non-visual components, layout managers, to which they delegate the job of choosing the exact placement of these children.</LI>
+<LI>Containers nested within containers usually give the informational structure required for a user to understand the use and relationship of various components.  Thus the parent-child hierarchy tends to be a multilevel tree, with each nested container using its own layout manager.</LI></OL>
+
+<LI>Program Code Structure</LI>
+<OL>
+
+<LI>The application program must have a main method, which is the method initially executed by the Java Virtual Machine.  One of its tasks is to create a top-level heavyweight object and populate it with the components necessary for the application</LI>
+<LI>Since there are no "free standing" functions in Java, the main method must be a member of some class.</LI>
+<OL TYPE="a">
+
+<LI>One alternative is to derive this main class from Frame ( or JFrame ), and then let the main method create an instance of the main class and make it visible.  Usually, the constructor takes care of creating all the components and adding them to the application class.</LI>
+<LI>Another alternative is to have the main class be a non-top-level class like Panel ( or JInternalFrame ), and allow the main method to create a separate frame, then construct and add an instance of the application class to it.  This has the advantage of allowing the application to be reused within another application if desired, since the panel can be added to any container.</LI></OL>
+
+<LI>Listings 3.1 and 3.2 show these two alternatives, but are faulty.  The first part of each listing is correct, except that it imports some unnecessary classes.</LI></OL>
+
+<LI>Sizing</LI>
+<OL>
+
+<LI>The top-level or outermost container can be sized in several different ways.</LI>
+<LI>If there is an overriding definition of getPreferredSize, which returns an object of type Dimension, then the preferred size will be used.  This is the best technique.</LI>
+<LI>If there are components with preferred sizes, then the container will be of the size the layout manager needs to display the components appropriately.</LI>
+<LI>The pack method is used to trigger the layout process.</LI>
+<LI>The setBounds method for the outermost container will set its size if it is not using a layout manager.</LI></OL>
+
+<LI>Event handling</LI>
+<OL>
+
+<LI>Some minimum event handling should be defined for each application.  In particular, there should be a WindowListener which can respond to a request to close the application.</LI>
+<LI>Additional event handling is added to satisfy the functional requirements of the application.  While skeletons of these methods can be automatically generated, much of the work in GUI programming is in specializing event handlers for the application.</LI></OL>
+
+<LI>Applets</LI>
+<OL>
+
+<LI>Applets are meant to be run without an independent outermost container.  The applet code is identified in an HTML page, and when the page position becomes visible, the browser starts the Java Virtual Machine and requests construction of an outermost container for the applet to run in, and construction of the applet object itself.  At a minimum, the HTML code should name the applet class file and the size of the outermost container.</LI>
+<LI>Unlike standalone applications, applets don't have a main method.  Instead, there is a start method, which is called by the browser.  The application class constructor is replaced by an init method.  It is called by the browser before start is called.  There are also stop and destroy methods.  Stop halts the applet when its page position disappears.  Destroy releases any resources if this is necessary for efficiency.</LI>
+<LI>A class derived from Applet ( or JApplet) can serve as both an application and an applet if it contains a main method.  Usually this would construct the applet object, create a frame, call init and start, then add the applet object to the frame.  Essentially, the main method is taking the place of the browser.</LI></OL>
+</OL>
+</B></BODY>
+</HTML>

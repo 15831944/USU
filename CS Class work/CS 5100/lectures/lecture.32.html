@@ -1,0 +1,51 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>CS 5100 Lecture 32 - Greg Jones</TITLE>
+<META NAME="Template" CONTENT="C:\Program Files\Microsoft Office\Templates\Lecture Notes.dot">
+</HEAD>
+<BODY>
+
+<B><I><FONT SIZE=5><P>Visual C++ Control and Message Examples&#9;Lecture 5100.32</P>
+<OL TYPE="A">
+
+</I></FONT><LI>Drawing</LI>
+<OL>
+
+<LI>In the last lecture’s example, we looked at drawing on a dialog.  You may have noticed that the drawing disappears if we cover, then uncover the dialog.  This is because the drawing was done in an event handler for a left button press, and hence was not re-executed when the system calls OnPaint to repaint the dialog container.  OnPaint corresponds to the Java repaint().</LI>
+<LI>In Java we are able to avoid this problem by drawing in the paint() method.  The corresponding function in Visual C++ is OnDraw().  However, the CDialog class doesn’t have an OnDraw() function.  It might be possible to edit the OnPaint to perform the painting there.  We would have to be careful in doing so.</LI>
+<LI>In Visual C++, drawing is not really meant to happen on a dialog, which is, after all, a container.  The standard is to draw on a view (derived from CView), which does have an OnDraw routine.   The easiest way to do this is to create an SDI (Single Document Interface) application, delete what is not needed on the menubar menus, and draw on the document view.  Another way would be to insert a CFormView in the dialog.</LI></OL>
+
+<LI>Modeless dialogs</LI>
+<OL>
+
+<LI>Dialogs are displayed in modal form by calling DoModal.  This function locks focus on the dialog and will not return until the user clicks OK or Cancel, so there can be no other interaction with the application in the meantime.</LI>
+<LI>Nonmodal dialogs thus can’t be displayed by way of DoModal.  Instead, we need to do the following:</LI>
+<OL TYPE="a">
+
+<LI>Construct a dialog, then call its Create function;</LI>
+<LI>Make sure the dialog properties indicate it is visible;</LI>
+<LI>If the OK and Cancel buttons are meant to dismiss the dialog, make sure they call DestroyWindow, to eliminate the visible component on the screen, and don’t issue a delegation call to CDialog::OnOK or CDialog::OnCancel;</LI>
+<LI>In the PostNcDestroy method, which is called after the window is destroyed, execute &quot;delete this;&quot; in order to eliminate the memory allocated for the CDialog object.</LI></OL>
+
+<LI>The MyButton class represents a CButton surrogate control variable for the button in the modeless dialog.  It is declared in the View .h file, and created in the OnCreate method in the View .cpp file.</LI></OL>
+
+<LI>The code for this example is in example4 at the FTP site.  </LI>
+<OL>
+
+<LI>If the project files are available, copy them to a directory/subdirectory (for res) then open the project (dsw) file in Visual C++.</LI>
+<LI>If the project files are not available</LI>
+<OL TYPE="a">
+
+<LI>create a new Win32 application project, specifying a project name, and choosing &quot;empty project.&quot;</LI>
+<LI>copy the .ico and .rc2 files into the res subdirectory of the new project directory</LI>
+<LI>copy the .cpp, .h, and .rc files into the new project directory</LI>
+<LI>choose Project..Settings..General..Use MFC in a shared DLL</LI>
+<LI>choose Project..Add to project..Files and add all the files copied to the project directory and res subdirectory</LI>
+<LI>choose Project..Rebuild All to build the project</LI>
+<LI>run the executable</LI></OL>
+</OL>
+</OL>
+</B></BODY>
+</HTML>

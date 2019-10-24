@@ -1,0 +1,29 @@
+; RiskMon.def : Declares the module parameters for the DLL.
+
+LIBRARY      "RiskMon"
+DESCRIPTION  'RiskMon Windows Dynamic Link Library'
+
+EXPORTS
+    ; Explicit exports can go here
+	StartWorkerThread
+	SetWorkspace
+	DoAllUpdates
+	ContinueAllUpdates
+	CloseWorkerThread
+	CalcRiskFromCompList
+	AddSingleComp
+	CalcRiskFromCompList
+	GetNextCritBE
+	LoadCritBE
+	GetBEName
+	SystemCount
+	GetSystemName
+	ClearBEList
+	LoadSystem
+	GetNumOfBE
+	GetAverageUpdateSpeed
+	IsProjectGood
+	UpdateProject
+	SuspendUpdates
+	ResumeUpdates
+	SetModeID

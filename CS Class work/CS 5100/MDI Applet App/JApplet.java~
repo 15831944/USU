@@ -1,0 +1,206 @@
+/*
+ * JApplet.java
+ *
+ * Created on March 22, 2002, 3:39 PM
+ */
+
+/**
+ *
+ * @author  Default
+ */
+
+import javax.swing.*;
+import DocumentWindow;
+
+public class JApplet extends javax.swing.JApplet {
+
+    /** Creates new form JApplet */
+    public JApplet() 
+    {
+        //openDocumentCount = 0;
+        //document = new DocumentWindow[10];
+        initComponents();
+    }
+
+    private void initComponents() 
+    {
+        menuListener = new java.awt.event.ActionListener() 
+        {
+           public void actionPerformed(java.awt.event.ActionEvent evt) {
+               MenuItemActionPerformed(evt);
+           }
+        };
+        
+        menuWindowListener = new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                WindowMenuItemActionPerformed(evt);
+            }
+        };
+        
+        menuBar = new javax.swing.JMenuBar();
+        
+        fileMenu = new javax.swing.JMenu("File");
+        newMenuItem = new javax.swing.JMenuItem("New");
+        fileMenu.add(newMenuItem);
+        openMenuItem = new javax.swing.JMenuItem("Open");
+        fileMenu.add(openMenuItem);
+        saveMenuItem = new javax.swing.JMenuItem("Save");
+        fileMenu.add(saveMenuItem);
+        saveAsMenuItem = new javax.swing.JMenuItem("Save As ...");
+        fileMenu.add(saveAsMenuItem);
+        exitMenuItem = new javax.swing.JMenuItem("Exit");
+        newMenuItem.addActionListener(menuListener);
+        openMenuItem.addActionListener(menuListener);
+        saveMenuItem.addActionListener(menuListener);
+        exitMenuItem.addActionListener(menuListener);
+        fileMenu.add(exitMenuItem);
+        menuBar.add(fileMenu);
+        
+        editMenu = new javax.swing.JMenu("Edit");
+        cutMenuItem = new javax.swing.JMenuItem("Cut");
+        editMenu.add(cutMenuItem);
+        copyMenuItem = new javax.swing.JMenuItem("Copy");
+        editMenu.add(copyMenuItem);
+        pasteMenuItem = new javax.swing.JMenuItem("Paste");
+        editMenu.add(pasteMenuItem);
+        deleteMenuItem = new javax.swing.JMenuItem("Delete");
+        editMenu.add(deleteMenuItem);
+        menuBar.add(editMenu);
+        
+        //helpMenu = new javax.swing.JMenu();
+        //helpMenu.setText("Help");
+        //contentMenuItem = new javax.swing.JMenuItem();
+        //contentMenuItem.setText("Contents");
+        //helpMenu.add(contentMenuItem);
+        //aboutMenuItem = new javax.swing.JMenuItem();
+        //aboutMenuItem.setText("About");
+        //helpMenu.add(aboutMenuItem);
+        //menuBar.add(helpMenu);
+        
+        windowMenu = new JMenu("Window");
+        menuBar.add(windowMenu);
+        
+        desktopPane = new javax.swing.JDesktopPane();
+        //desktopPane.setSize(400,300);
+        //setContentPane(desktopPane);
+        //desktopPane.getContentPane().setJMenuBar(menuBar);
+        getContentPane().setLayout(new java.awt.BorderLayout());
+        getContentPane().add(desktopPane, java.awt.BorderLayout.CENTER);
+        setJMenuBar(menuBar);
+        //pack();
+    }
+
+    protected void addDocumentToWindowMenu(String windowName, DocumentWindow document)
+    {
+        JMenuItem newMenuItem = new MyWindowMenuItem(windowName,document);
+        windowMenu.add(newMenuItem);
+        windowMenu.addActionListener(menuWindowListener);
+    }
+    
+    protected void createDocumentWindow() 
+    {
+        String windowName = new String("Untitled = "+(openDocumentCount+1));        
+        DocumentWindow window = new DocumentWindow(windowName);
+        window.setVisible(true); //necessary as of kestrel
+        desktopPane.add(window);
+        //window.setContentPane(desktopPane.);
+        addDocumentToWindowMenu(windowName, window);
+
+        try 
+        {
+            window.setLocation(xOffset*openDocumentCount, yOffset*openDocumentCount);
+            window.setSelected(true);
+        } 
+        catch (java.beans.PropertyVetoException e) 
+        {
+
+        }
+        openDocumentCount++;
+    }
+
+    private class MyWindowMenuItem extends JMenuItem
+    {
+        public DocumentWindow docWindow;
+        public MyWindowMenuItem(String name, DocumentWindow dw)
+        {
+            super(name);
+            docWindow = dw;
+        }
+    }
+    
+    private void MenuItemActionPerformed(java.awt.event.ActionEvent evt) 
+    {
+        //System.exit(0);
+        // close...?
+        
+        String caption = ((JMenuItem)evt.getSource()).getText();
+        if (caption.compareTo("New") == 0)
+        {
+            //if (openDocumentCount < 10)
+            //{
+            //    document[openDocumentCount] = new DocumentWindow();
+            //    document[openDocumentCount].setVisible(true);
+            //    openDocumentCount++;
+                //desktopPane.add(new DocumentWindow());
+            //}
+            createDocumentWindow();
+        }
+        else if(caption.compareTo("Open") == 0)
+        {
+            //if (openDocumentCount < 10)
+            //{
+             
+            //    openDocumentCount++;
+            //}
+        }
+        else
+        {
+            //desktopPane.
+            System.out.println("something else selected");
+            
+        }
+    }
+    private void WindowMenuItemActionPerformed(java.awt.event.ActionEvent evt) 
+    {
+        MyWindowMenuItem menuItem = (MyWindowMenuItem)evt.getSource();
+        try
+        {
+            System.out.println(menuItem.docWindow.getTitle());
+            menuItem.docWindow.setSelected(true);
+        }
+        catch(java.beans.PropertyVetoException e)
+        {
+            e.printStackTrace();
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    private int openDocumentCount = 0;
+    //private DocumentWindow document[];
+
+    // Variables declaration - do not modify
+    private java.awt.event.ActionListener menuWindowListener;
+    private java.awt.event.ActionListener menuListener;
+    private javax.swing.JMenu windowMenu;
+    private final int xOffset = 30;
+    private final int yOffset = 30;
+    private javax.swing.JMenuBar menuBar;
+    private javax.swing.JMenu fileMenu;
+    private javax.swing.JMenuItem newMenuItem;
+    private javax.swing.JMenuItem openMenuItem;
+    private javax.swing.JMenuItem saveMenuItem;
+    private javax.swing.JMenuItem saveAsMenuItem;
+    private javax.swing.JMenuItem exitMenuItem;
+    private javax.swing.JMenu editMenu;
+    private javax.swing.JMenuItem cutMenuItem;
+    private javax.swing.JMenuItem copyMenuItem;
+    private javax.swing.JMenuItem pasteMenuItem;
+    private javax.swing.JMenuItem deleteMenuItem;
+    private javax.swing.JMenu helpMenu;
+    private javax.swing.JMenuItem contentMenuItem;
+    private javax.swing.JMenuItem aboutMenuItem;
+    private javax.swing.JDesktopPane desktopPane;
+    // End of variables declaration
+
+}

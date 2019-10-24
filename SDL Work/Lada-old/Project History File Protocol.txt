@@ -1,0 +1,29 @@
+Project history file protocol:
+
+Each line begins with either the time stamp and category  or phase during which the note was entered
+or a tab character.
+Notes will be entered sequentially.
+If a note is to contain data (number or character sequence) the data will always be prefaced with 
+a colon.
+If a line begins with a tab, it is information identified by the previous line.
+Using specific protocol will make it easier for the computer to sort and identify data.
+
+an example file might be:
+
+11/09/2000  14:23:05  Project Settings- project file created.
+11/09/2000  15:23:05  Setup- started. 
+11/09/2000  15:25:12  Setup- note entered on Step 1:
+	We found that cable (a) wouldn't fit till we jimmy rigged it.
+11/09/2000  15:45:01  Setup- completed.
+11/09/2000  15:45:01  Check Out- started.
+11/09/2000  15:45:01  Check Out- completed.
+11/09/2000  15:45:01  Check Out- finished with no errors.
+or
+11/09/2000  15:45:01  Check Out- finished with the folowing errors:
+	No light detected by light sensor b.
+	Pump would not turn backwards.
+11/09/2000  17:09:58  Wetup- started.
+11/09/2000  17:09:58  Wetup- pump interval: 10 minutes
+11/09/2000  17:09:58  Wetup- volume to pump:  1 liter
+11/10/2000  17:09:58  Wetup- completed.
+11/12/2000  09:23:14  Project Settings- setting fan on time changed to: 17 hours

@@ -1,0 +1,119 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>CS 5100 Lecture 14 - Greg Jones</TITLE>
+<META NAME="Template" CONTENT="C:\Program Files\Microsoft Office\Templates\Lecture Notes.dot">
+</HEAD>
+<BODY>
+
+<B><I><FONT SIZE=5><P>Swing Buttons, Combo Boxes, File Choosers, Labels, Lists&#9;Lecture 5100.14</P>
+<OL TYPE="A">
+
+</I></FONT><LI>Additional Swing Components Beyond AWT</LI>
+<OL>
+
+<LI>Panes</LI>
+<OL TYPE="a">
+
+<LI>JEditorPane understands particular formats and provides formatting;</LI>
+<LI>JLayeredPane</LI>
+<LI>JOptionPane makes it easy to show warnings, ask for confirmations or input, etc.;</LI>
+<LI>JScrollPane allows scrolling over a large view while maintaining column and row headers;</LI>
+<LI>JSplitPane provides two panes, horizontal or vertical, whose shared space can be adjusted by the user;</LI>
+<LI>JTabbedPane permits the user to click a tab and select a single component to occupy all the space in the container.</LI></OL>
+
+<LI>Controls</LI>
+<OL TYPE="a">
+
+<LI>JprogressBar displays degree of task completion visually and as a percentage;</LI>
+<LI>JradioButton is part of a group of toggle buttons, only one of which can be selected at a time;</LI>
+<LI>JSlider behaves like a scroll bar, but has tick marks and doesn’t have arrow buttons;</LI>
+<LI>JToggleButton shows set/reset state by color change (default) or icon/text change;</LI>
+<LI>JPasswordField is just a TextField with an echo character set;</LI>
+<LI>JToolBar can be floated, can have margins, and can be either horizontal or vertical.</LI></OL>
+
+<LI>Selection components</LI>
+<OL TYPE="a">
+
+<LI>JcolorChooser permits color selection using a variety of specialized tabbed panes;</LI>
+<LI>JComboBox is the standard editable text field with drop down selection list;</LI>
+<LI>JList is a generic selection list.</LI></OL>
+
+<LI>View components</LI>
+<OL TYPE="a">
+
+<LI>JTree gives a view of an associated tree model;</LI>
+<LI>JViewport displays a rectangle within the underlying view;</LI>
+<LI>JTable displays data as a table with row and column headers.</LI></OL>
+
+<LI>JToopTip</LI>
+<LI>In this section of the book, the author uses a new class, Box, and two layouts, Grid and Box.</LI>
+<OL TYPE="a">
+
+<LI>Box is essentially a panel with a box layout.  </LI>
+<LI>The box layout permits easy nesting of vertical/horizontal arrangements of  components</LI>
+<LI>The grid layout permits easy display of components in rows and columns.</LI></OL>
+</OL>
+
+<LI>Buttons</LI>
+<OL>
+
+<LI>AbstractButton</LI>
+<LI>Implementation Buttons (figure 7.1)</LI>
+<OL TYPE="a">
+
+<LI>Button - standard</LI>
+<LI>CheckBox, RadioButton - two-state devices with different appearance and semantics</LI>
+<LI>MenuItem - appears in a menu as a selection</LI>
+<LI>CheckBoxMenuItem, RadioButtonMenuItem- toggled menu selection</LI>
+<LI>Menu - drops a menu from a menubar</LI>
+<LI>ToggleButton - an abstraction</LI></OL>
+
+<LI>General Button Behavior</LI>
+<OL TYPE="a">
+
+<LI>Buttons have several states: enabled, selected, and rollover enabled.  Additionally, toggle buttons have a set/reset state.</LI>
+<LI>Buttons can display text and/or icons.  The position of the text with respect to the icon, and the alignment of the text/icon pair in the available space, can be set or gotten.</LI>
+<LI>Icon is an interface.  The ImageIcon class implements it, and allows easy construction of icons from gif files.</LI>
+<LI>Mnemonics are keys which, when the AbstractButton is visible, trigger the action of the button.  A mnemonic should be a letter in the text of a button, which will be underlined.  If the letter appears multiple times, the first occurrence is underlined.</LI>
+<LI>The setFocusPainted method allows us to indicate whether a button will be highlighted when it has the keyboard focus.  If it has focus, then the enter key will also trigger the action.</LI></OL>
+</OL>
+
+<LI>Combo Boxes</LI>
+<OL>
+
+<LI>These are selection components which allow us to display the single selected item.  When the drop down list is displayed, we can select another item.  The list will then disappear, and the new selected item will be displayed.  If a combo box is editable, then we can also select by typing the name of an item on the list.</LI>
+<LI>Combo boxes can be constructed either from a model, or from an array of objects, or from a vector.</LI>
+<LI>In a combo box we can add items to the end, insert them at a particular position, set the number of items that can be seen without scrolling, and get or set the item selected.</LI></OL>
+
+<LI>File Choosers</LI>
+<OL>
+
+<LI>These are the familiar file selection boxes which permit us to navigate directories, display files according to a filter, and do something with the selected file(s), usually open or save them.  It is a very complex class, with a large number of methods.</LI>
+<LI>The action to be taken in selecting a file can be whatever you wish.  This action is triggered by clicking the Approve button.  Generally, we may have a single event handler for that event, so it may be necessary to determine what kind of file chooser is displayed.  The may be done by means of the getDialogType, getApproveButtonText, or getDialogTitle methods.</LI>
+<LI>The event handler will need to know which file(s) were selected.  The can be done by the getSelectedFile and getSelectedFiles methods.  These return objects of type File, so the getName method may be necessary to obtain the actual name string of the file.  You can also get the description of a file.</LI>
+<LI>The event handler will need to know the directory being displayed, using getCurrentDirectory.</LI>
+<LI>We can set a file selection mode, permitting the selection of files only, directories only, or both.</LI>
+<LI>Sometimes a File Chooser being displayed becomes outdated.  It can be updated by the rescanCurrentDirectory method.</LI></OL>
+
+<LI>Labels</LI>
+<OL>
+
+<LI>Labels provide explanatory text and/or icons in the GUI.  They can't be selected or receive focus.</LI>
+<LI>Labels can be constructed with a text, an icon, and a horizontal alignment within the area which contains them.</LI>
+<LI>Labels can be aligned by calling setHorizontalAligment and setVerticalAligment with one of the alignment constants, leading, trailing, top, bottom, left, right, or center.</LI>
+<LI>They can also be aligned with setAlignmentX, a method which they inherit from Component.  The argument is a float between 1.0 (left) and 0.0 (right).</LI></OL>
+
+<LI>Lists</LI>
+<OL>
+
+<LI>These are selection devices for all sorts of objects, like strings, images, buttons, etc.</LI>
+<LI>Lists can enforce single selection, interval selection (some number of contiguous items), or multiple interval selection (multiple contiguous stretches, each within a set region).  Standard multiple selection is achieved by letting each element be a different region.</LI>
+<LI>Lists can be constructed from an array, a vector, or a data model.</LI>
+<LI>There are calls for controlling the number of items visible without scrolling, whether a specific item is visible, what the selection highlight color is, etc.</LI>
+<LI>Methods exist to tell what item(s) have been selected, or to select other(s).  Getting can be done by retrieving index positions or objects.</LI>
+<LI>There are also methods for obtaining pixel values of selections and changing these to indexes.</LI></OL>
+</OL>
+</B></BODY>
+</HTML>

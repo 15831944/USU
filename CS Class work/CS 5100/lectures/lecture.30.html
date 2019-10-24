@@ -1,0 +1,112 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>CS 5100 Lecture 30 - Greg Jones</TITLE>
+<META NAME="Template" CONTENT="C:\Program Files\Microsoft Office\Templates\Lecture Notes.dot">
+</HEAD>
+<BODY>
+
+<B><I><FONT SIZE=5><P>Visual C++ Controls and Messages                                              Lecture 5100.30</P>
+<OL TYPE="A">
+
+</I></FONT><LI>Controls are the components which are added to an application.</LI>
+<OL>
+
+<LI>Most of them are to be found on the control palette which pops up when we display the visual editor for a visible object.</LI>
+<OL TYPE="a">
+
+<LI>Picture (image)</LI>
+<LI>Static Text (label)</LI>
+<LI>Edit box (text field or text area)</LI>
+<LI>Group box (CheckboxGroup, perhaps a panel?)</LI>
+<LI>Button</LI>
+<LI>Checkbox</LI>
+<LI>Radio Button</LI>
+<LI>Combo box (Choice with text field for selection or with label for selected)</LI>
+<LI>List box</LI>
+<LI>Scrollbars</LI>
+<LI>Spin (thumbwheel)</LI>
+<LI>Progress bar</LI>
+<LI>Slider</LI>
+<LI>Hotkey</LI>
+<LI>List control</LI>
+<LI>Tree control</LI>
+<LI>Tab (like JTabbedPane)</LI>
+<LI>Animation</LI>
+<LI>Rich Edit (fancier text editor)</LI></OL>
+
+<LI>Some controls aren’t on the palette.  These can usually be found on the Control branch of the MFC hierarchy.</LI>
+<OL TYPE="a">
+
+<LI>ImageList (vector of images)</LI>
+<LI>Header (allows you to narrow or widen a column)</LI>
+<LI>Status bar</LI>
+<LI>Tool bar</LI>
+<LI>Tool tip </LI>
+<LI>Property Sheet</LI>
+<LI>Wizard</LI></OL>
+
+<LI>Generally, controls can be created using the visual editor, or by declaring objects of the appropriate class and then calling their create function to initialize them.  For instance, the CButton create function has arguments for:</LI>
+<OL TYPE="a">
+
+<LI>The button’s label</LI>
+<LI>The button’s style – usually these kinds of things are or’ed masks.</LI>
+<LI>The button’s size and position.</LI>
+<LI>The button’s parent.</LI>
+<LI>The button’s ID – these are hand entered after using the View menu, Resource Symbols… selection, New button.  We would then enter a name (all caps, following the standard format, IDC_????), and be given the corresponding ID number.</LI></OL>
+</OL>
+
+<LI>Messages are the event messages that are passed around the system as a result of user or program action.</LI>
+<OL>
+
+<LI>&quot;Message&quot; is a generic term for three different categories of information:</LI>
+<OL TYPE="a">
+
+<LI>Message – this is the general form</LI>
+<LI>Command – these are sent to controls to indicate that they should respond as if a user had manipulated them directly</LI>
+<LI>Notification – these are the result of user action, like selecting  a menu item or clicking a button</LI></OL>
+
+<LI>Messages are mapped to event handler functions (listeners) by means of memory maps, which essentially add the handler to the control’s list of listeners.</LI>
+<OL TYPE="a">
+
+<LI>Message maps are built both within the header (.h) and executable (.cpp) files.</LI>
+<LI>Message maps are constructed in large part by macros:</LI>
+<OL TYPE="i">
+
+<LI>DECLARE_MESSAGE_MAP (.h)</LI>
+<P>In this example snippet, five handlers are declared, then entered in a map</P>
+<P>&#9;// Generated message map functions</P>
+<P>&#9;//{{AFX_MSG(CLecture24Dlg)</P>
+<P>&#9;virtual BOOL OnInitDialog();</P>
+<P>&#9;afx_msg void OnSysCommand(UINT nID, LPARAM lParam);</P>
+<P>&#9;afx_msg void OnPaint();</P>
+<P>&#9;afx_msg HCURSOR OnQueryDragIcon();</P>
+<P>&#9;afx_msg void OnButton1();</P>
+<P>&#9;//}}AFX_MSG</P>
+<P>&#9;DECLARE_MESSAGE_MAP()</P>
+
+<LI>BEGIN_MESSAGE_MAP and END_MESSAGE_MAP (.cpp)</LI>
+
+<P>BEGIN_MESSAGE_MAP(CLecture24Dlg, CDialog)</P>
+<P>&#9;&#9;//{{AFX_MSG_MAP(CLecture24Dlg)</P>
+<P>&#9;&#9;ON_WM_SYSCOMMAND()</P>
+<P>&#9;&#9;ON_WM_PAINT()</P>
+<P>&#9;&#9;ON_WM_QUERYDRAGICON()</P>
+<P>&#9;&#9;ON_BN_CLICKED(IDC_BUTTON1, OnButton1)</P>
+<P>&#9;&#9;//}}AFX_MSG_MAP</P>
+<P>END_MESSAGE_MAP()</P>
+
+<LI>ON_COMMAND(_RANGE) maps one or more commands to a handler</LI>
+<LI>ON(_REGISTERED)_MESSAGE maps handling of user-defined messages</LI>
+<LI>ON_NOTIFY(_RANGE) maps handling of one or more control-notification messages</LI>
+<LI>ON_UPDATE_COMMAND_UI(_RANGE) maps instructions to update commands (e.g., update the disabling of menu selections) prior to displaying a menu, toolbar, etc.</LI></OL>
+
+<LI>Many common, low-level messages are already handled by the base MFC classes which we extend in our applications.  This means we don’t have to worry about them.</LI></OL>
+
+<LI>Messages are mapped using the Class Wizard’s Message Maps tab.  We select the project and class we are interested in, and the control ID within that class.  Then a list of messages is presented.  If a handler already exists, it is listed below.  Otherwise, we can select a message, add a function as a handler, then edit the handler code.</LI>
+<LI>There is also a popup dialog for adding message handlers, which is obtained by right-clicking the class in the Class View.  </LI>
+<LI>Message names are usually formatted according to a strict naming pattern.  Thus, a Button command will be prefixed by BM, while a button notification will be prefixed BN.  For an Edit Box, it would be EM and EN.</LI></OL>
+</OL>
+</B></BODY>
+</HTML>

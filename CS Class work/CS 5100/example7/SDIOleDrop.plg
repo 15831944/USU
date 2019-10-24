@@ -1,0 +1,57 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: SDIOleDrop - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x409 /fo"Debug/SDIOleDrop.res" /d "_DEBUG" /d "_AFXDLL" "C:\COURSES\GUI\Project00\SDIOleDrop\SDIOleDrop.rc"" 
+Creating temporary file "c:\windows\TEMP\RSPD052.TMP" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Debug/SDIOleDrop.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\COURSES\GUI\Project00\SDIOleDrop\CntrItem.cpp"
+"C:\COURSES\GUI\Project00\SDIOleDrop\MainFrm.cpp"
+"C:\COURSES\GUI\Project00\SDIOleDrop\SDIOleDrop.cpp"
+"C:\COURSES\GUI\Project00\SDIOleDrop\SDIOleDropDoc.cpp"
+"C:\COURSES\GUI\Project00\SDIOleDrop\SDIOleDropView.cpp"
+]
+Creating command line "cl.exe @c:\windows\TEMP\RSPD052.TMP" 
+Creating temporary file "c:\windows\TEMP\RSPD053.TMP" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Debug/SDIOleDrop.pch" /Yc"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\COURSES\GUI\Project00\SDIOleDrop\StdAfx.cpp"
+]
+Creating command line "cl.exe @c:\windows\TEMP\RSPD053.TMP" 
+Creating temporary file "c:\windows\TEMP\RSPD054.TMP" with contents
+[
+/nologo /subsystem:windows /incremental:yes /pdb:"Debug/SDIOleDrop.pdb" /debug /machine:I386 /out:"Debug/SDIOleDrop.exe" /pdbtype:sept 
+.\Debug\CntrItem.obj
+.\Debug\MainFrm.obj
+.\Debug\SDIOleDrop.obj
+.\Debug\SDIOleDropDoc.obj
+.\Debug\SDIOleDropView.obj
+.\Debug\StdAfx.obj
+.\Debug\SDIOleDrop.res
+]
+Creating command line "link.exe @c:\windows\TEMP\RSPD054.TMP"
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+StdAfx.cpp
+Compiling...
+CntrItem.cpp
+MainFrm.cpp
+SDIOleDrop.cpp
+SDIOleDropDoc.cpp
+SDIOleDropView.cpp
+Generating Code...
+Linking...
+
+
+
+<h3>Results</h3>
+SDIOleDrop.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

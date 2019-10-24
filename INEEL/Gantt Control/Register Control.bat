@@ -1,0 +1,1 @@
+c:\winnt\system32\regsvr32 "d:\gantt control\gantt control ver 1.00.ocx"

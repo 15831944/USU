@@ -1,0 +1,2400 @@
+;{CR10X}
+;
+*Table 1 Program
+  01: 5         Execution Interval (seconds)
+;************Initialization at Startup************************************
+1:  If Flag/Port (P91)
+ 1: 28       Do if Flag 8 is Low
+ 2: 30       Then Do
+
+;************Reset Flags**************************************************
+     2:  Do (P86)
+      1: 21       Set Flag 1 Low
+
+     3:  Do (P86)
+      1: 22       Set Flag 2 Low
+
+     4:  Do (P86)
+      1: 23       Set Flag 3 Low
+
+     5:  Do (P86)
+      1: 27       Set Flag 7 Low
+
+     6:  Do (P86)
+      1: 18       Set Flag 8 High
+
+;************Configure Control Ports**************************************
+     7:  Set Port(s) (P20)
+      1: 4777     C8..C5 = 10ms/output/output/output
+      2: 7733     C4..C1 = output/output/1ms/1ms
+
+;************Reset All Outputs for Growth Module A************************
+     8:  Set Port(s) (P20)
+      1: 9000     C8..C5 = nc/low/low/low
+      2: 0099     C4..C1 = low/low/nc/nc
+
+     9:  Do (P86)
+      1: 78       Pulse Port 8
+
+;************Set Which Program and Revision are Currently Running*********
+     10:  Z=F (P30)
+      1: 13001    F
+      2: 00       Exponent of 10
+      3: 1        Z Loc [ Program   ]
+
+;************Initialize Timing Intervals, Counters and Monitors***********
+     11:  Z=F (P30)
+      1: 0.0      F
+      2: 00       Exponent of 10
+      3: 110      Z Loc [ ASMPCount ]
+
+     12:  Z=F (P30)
+      1: 0        F
+      2: 00       Exponent of 10
+      3: 109      Z Loc [ MA_PCount ]
+
+     13:  Z=F (P30)
+      1: 0        F
+      2: 00       Exponent of 10
+      3: 112      Z Loc [ ALightsOn ]
+
+     14:  Z=F (P30)
+      1: 12       F
+      2: 00       Exponent of 10
+      3: 113      Z Loc [ ALightOff ]
+
+     15:  Z=F (P30)
+      1: 0        F
+      2: 00       Exponent of 10
+      3: 120      Z Loc [ ALghtTime ]
+
+     16:  Z=F (P30)
+      1: 0        F
+      2: 00       Exponent of 10
+      3: 121      Z Loc [ AFanTime  ]
+
+     17:  Z=F (P30)
+      1: 0        F
+      2: 00       Exponent of 10
+      3: 122      Z Loc [ ALitOnOff ]
+
+     18:  Z=F (P30)
+      1: 0        F
+      2: 00       Exponent of 10
+      3: 123      Z Loc [ AFanOnOff ]
+
+     19:  Z=F (P30)
+      1: 0        F
+      2: 00       Exponent of 10
+      3: 124      Z Loc [ APmp1OnOf ]
+
+     20:  Z=F (P30)
+      1: 0        F
+      2: 00       Exponent of 10
+      3: 125      Z Loc [ APmp2OnOf ]
+
+     21:  Z=F (P30)
+      1: 0        F
+      2: 00       Exponent of 10
+      3: 28       Z Loc [ PmpErrCnt ]
+
+22:  Z=F (P30)
+ 1: 651      F
+ 2: 00       Exponent of 10
+ 3: 138      Z Loc [ Press_cal ]
+
+;****These Input Locations allow moistures to be read every 20 ***********
+;****minutes or every hour, and also write to Final Storage every 20******
+;****minutes or every hour.  However to use the 20 min. interval for******
+;****example, you need to disable the 1hour counter by setting ***********
+;****ARead1Hr and AWrite1Hr to something equal to or greater than sixty.**
+;****Also, the Read needs to proceed the write function by 5 minutes. Thus
+;****if ARead20Mn is 14 then AWrite20m should be 19.********************
+
+;************20 Minute Read Counter Disabled******************************
+     23:  Z=F (P30)
+      1: 21       F
+      2: 0        Exponent of 10
+      3: 114      Z Loc [ ARead20mn ]
+
+;************60 Minute Read Counter Enabled*******************************
+     24:  Z=F (P30)
+      1: 54       F
+      2: 00       Exponent of 10
+      3: 115      Z Loc [ ARead1Hr  ]
+
+;************20 Minute Write Counter Disabled*****************************
+     25:  Z=F (P30)
+      1: 21       F
+      2: 00       Exponent of 10
+      3: 116      Z Loc [ AWrite20m ]
+
+;************60 Minute Write Counter Enabled******************************
+     26:  Z=F (P30)
+      1: 59       F
+      2: 00       Exponent of 10
+      3: 117      Z Loc [ AWrite1Hr ]
+
+     27:  Z=F (P30)
+      1: 59       F
+      2: 00       Exponent of 10
+      3: 111      Z Loc [ AWtrIntvl ]
+
+;************Initialize Growth Module Constants***************************
+     28:  Z=F (P30)
+      1: -10      F
+      2: 00       Exponent of 10
+      3: 20       Z Loc [ MoistMin  ]
+
+     29:  Z=F (P30)
+      1: 120      F
+      2: 00       Exponent of 10
+      3: 21       Z Loc [ MoistMax  ]
+
+     30:  Z=F (P30)
+      1: 12       F
+      2: 00       Exponent of 10
+      3: 22       Z Loc [ WatVolMul ]
+
+     31:  Z=F (P30)
+      1: 10       F
+      2: 00       Exponent of 10
+      3: 27       Z Loc [ MaxPmpVol ]
+
+;************Initialize SMP Constants in Growth Module A******************
+     32:  Z=F (P30)
+      1: 0        F
+      2: 00       Exponent of 10
+      3: 107      Z Loc [ MA_PumpIn ]
+
+     33:  Z=F (P30)
+      1: 0        F
+      2: 00       Exponent of 10
+      3: 108      Z Loc [ MA_PmpOut ]
+
+     34:  Z=F (P30)
+      1: 0        F
+      2: 00       Exponent of 10
+      3: 105      Z Loc [ MAVolNeed ]
+
+     35:  Z=F (P30)
+      1: 0        F
+      2: 00       Exponent of 10
+      3: 106      Z Loc [ MATotVolP ]
+
+     36:  Z=F (P30)
+      1: 50       F
+      2: 00       Exponent of 10
+      3: 104      Z Loc [ MASatLvl  ]
+
+     37:  Z=F (P30)
+      1: 0        F
+      2: 00       Exponent of 10
+      3: 30       Z Loc [ MPA1Ofset ]
+
+     38:  Z=F (P30)
+      1: 1        F
+      2: 00       Exponent of 10
+      3: 31       Z Loc [ MPA1Mult  ]
+
+     39:  Z=F (P30)
+      1: 0        F
+      2: 00       Exponent of 10
+      3: 32       Z Loc [ MPA2Ofset ]
+
+     40:  Z=F (P30)
+      1: 1        F
+      2: 00       Exponent of 10
+      3: 33       Z Loc [ MPA2Mult  ]
+
+     41:  Z=F (P30)
+      1: 0        F
+      2: 00       Exponent of 10
+      3: 34       Z Loc [ MPA3Ofset ]
+
+     42:  Z=F (P30)
+      1: 1        F
+      2: 00       Exponent of 10
+      3: 35       Z Loc [ MPA3Mult  ]
+
+     43:  Z=F (P30)
+      1: 0        F
+      2: 00       Exponent of 10
+      3: 36       Z Loc [ MPA4Ofset ]
+
+     44:  Z=F (P30)
+      1: 1        F
+      2: 00       Exponent of 10
+      3: 37       Z Loc [ MPA4Mult  ]
+
+     45:  Z=F (P30)
+      1: 0        F
+      2: 00       Exponent of 10
+      3: 38       Z Loc [ MPA5Ofset ]
+
+     46:  Z=F (P30)
+      1: 1        F
+      2: 00       Exponent of 10
+      3: 39       Z Loc [ MPA5Mult  ]
+
+     47:  Z=F (P30)
+      1: 0        F
+      2: 00       Exponent of 10
+      3: 40       Z Loc [ MPA6Ofset ]
+
+     48:  Z=F (P30)
+      1: 1        F
+      2: 00       Exponent of 10
+      3: 41       Z Loc [ MPA6Mult  ]
+
+     49:  Z=F (P30)
+      1: 0        F
+      2: 00       Exponent of 10
+      3: 42       Z Loc [ WicA1Oset ]
+
+     50:  Z=F (P30)
+      1: 1        F
+      2: 00       Exponent of 10
+      3: 43       Z Loc [ WicA1Mult ]
+
+     51:  Z=F (P30)
+      1: 0        F
+      2: 00       Exponent of 10
+      3: 44       Z Loc [ WicA2Oset ]
+
+     52:  Z=F (P30)
+      1: 1        F
+      2: 00       Exponent of 10
+      3: 45       Z Loc [ WicA2Mult ]
+
+     53:  Z=F (P30)
+      1: -2.6326  F
+      2: -4       Exponent of 10
+      3: 126      Z Loc [ Cabin_O2M ]
+
+     54:  Z=F (P30)
+      1: 2.5166   F
+      2: -4       Exponent of 10
+      3: 127      Z Loc [ Cabin_O2O ]
+
+     55:  Z=F (P30)
+      1: 8.71     F
+      2: -2       Exponent of 10
+      3: 128      Z Loc [ MA_O2_1_M ]
+
+     56:  Z=F (P30)
+      1: -3344.8  F
+      2: 0        Exponent of 10
+      3: 129      Z Loc [ MA_O2_1_O ]
+
+     57:  Z=F (P30)
+      1: 1        F
+      2: 0        Exponent of 10
+      3: 130      Z Loc [ MA_O2_2_M ]
+
+     58:  Z=F (P30)
+      1: 0        F
+      2: 0        Exponent of 10
+      3: 131      Z Loc [ MA_O2_2_O ]
+
+     59:  Z=F (P30)
+      1: 1        F
+      2: 0        Exponent of 10
+      3: 132      Z Loc [ MA_O2_3_M ]
+
+     60:  Z=F (P30)
+      1: 0        F
+      2: 0        Exponent of 10
+      3: 133      Z Loc [ MA_O2_3_O ]
+
+     61:  Z=F (P30)
+      1: 1        F
+      2: 0        Exponent of 10
+      3: 134      Z Loc [ MA_O2_4_M ]
+
+     62:  Z=F (P30)
+      1: 0        F
+      2: 0        Exponent of 10
+      3: 135      Z Loc [ MA_O2_4_O ]
+
+     63:  Z=F (P30)
+      1: .897     F
+      2: -6       Exponent of 10
+      3: 136      Z Loc [ Cabn_CO2M ]
+
+     64:  Z=F (P30)
+      1: -3.9711  F
+      2: -2       Exponent of 10
+      3: 137      Z Loc [ Cabn_CO2O ]
+
+     65:  Z=F (P30)
+      1: 0        F
+      2: 00       Exponent of 10
+      3: 118      Z Loc [ AManCtrl  ]
+
+66:  End (P95)
+
+;************Read # of Min. in Current Day, and Hrs. in Current Year******
+;************These are Real Time Control Counters ************************
+67:  Time (P18)
+ 1: 1        Minutes into current day (maximum 1440)
+ 2: 20       Mod/By
+ 3: 18       Loc [ MinMod20  ]
+
+68:  Time (P18)
+ 1: 1        Minutes into current day (maximum 1440)
+ 2: 60       Mod/By
+ 3: 17       Loc [ MinMod60  ]
+
+69:  Time (P18)
+ 1: 2        Hours into current year {maximum 8784)
+ 2: 24       Mod/By
+ 3: 19       Loc [ TimeInHrs ]
+
+;*************************************************************************
+;   Read Cabin and Control Module Monitoring Sensors into Input Storage
+;*************************************************************************
+
+70:  Volts (SE) (P1)
+ 1: 1        Reps
+ 2: 35       2500 mV 50 Hz Rejection Range
+ 3: 5        SE Channel
+ 4: 4        Loc [ Cabin_RH  ]
+ 5: 0.0853   Mult
+ 6: 20.196   Offset
+
+71:  Volts (SE) (P1)
+ 1: 1        Reps
+ 2: 35       2500 mV 50 Hz Rejection Range
+ 3: 10       SE Channel
+ 4: 6        Loc [ Cabin_CO2 ]
+ 5: 1        Mult
+ 6: 0        Offset
+
+72:  Z=X*Y (P36)
+ 1: 136      X Loc [ Cabn_CO2M ]
+ 2: 6        Y Loc [ Cabin_CO2 ]
+ 3: 6        Z Loc [ Cabin_CO2 ]
+
+73:  Full Bridge (P6)
+ 1: 1        Reps
+ 2: 32       7.5 mV 50 Hz Rejection Range
+ 3: 4        DIFF Channel
+ 4: 3        Excite all reps w/Exchan 3
+ 5: 2500     mV Excitation
+ 6: 3        Loc [ Cabin_P   ]
+ 7: 381      Mult
+ 8: 15.5     Offset
+
+74:  Z=X*Y (P36)
+ 1: 6        X Loc [ Cabin_CO2 ]
+ 2: 138      Y Loc [ Press_cal ]
+ 3: 6        Z Loc [ Cabin_CO2 ]
+
+75:  Z=X+Y (P33)
+ 1: 137      X Loc [ Cabn_CO2O ]
+ 2: 6        Y Loc [ Cabin_CO2 ]
+ 3: 6        Z Loc [ Cabin_CO2 ]
+
+76:  Temp (107) (P11)
+ 1: 1        Reps
+ 2: 9        SE Channel
+ 3: 2        Excite all reps w/E2
+ 4: 8        Loc [ CMRefTemp ]
+ 5: 1.0      Mult
+ 6: -3       Offset
+
+77:  Thermocouple Temp (DIFF) (P14)
+ 1: 1        Reps
+ 2: 32       7.5 mV 50 Hz Rejection Range
+ 3: 6        DIFF Channel
+ 4: 02       Type E (Chromel-Constantan)
+ 5: 8        Ref Temp Loc [ CMRefTemp ]
+ 6: 2        Loc [ Cabin_T   ]
+ 7: 1.0      Mult
+ 8: 0        Offset
+
+78:  Internal Temperature (P17)
+ 1: 7        Loc [ CR10_RefT ]
+
+79:  Volts (SE) (P1)
+ 1: 1        Reps
+ 2: 34       250 mV 50 Hz Rejection Range
+ 3: 6        SE Channel
+ 4: 5        Loc [ Cabin_O2  ]
+ 5: 1        Mult
+ 6: 0        Offset
+
+80:  Z=X*Y (P36)
+ 1: 126      X Loc [ Cabin_O2M ]
+ 2: 5        Y Loc [ Cabin_O2  ]
+ 3: 5        Z Loc [ Cabin_O2  ]
+
+81:  Z=X*Y (P36)
+ 1: 5        X Loc [ Cabin_O2  ]
+ 2: 138      Y Loc [ Press_cal ]
+ 3: 5        Z Loc [ Cabin_O2  ]
+
+82:  Z=X+Y (P33)
+ 1: 127      X Loc [ Cabin_O2O ]
+ 2: 5        Y Loc [ Cabin_O2  ]
+ 3: 5        Z Loc [ Cabin_O2  ]
+
+;************Read Sensors on AM25Ts **************************************
+
+83:  Do (P86)
+ 1: 42       Set Port 2 High
+
+;************AM25T Reference PRT******************************************
+84:  Full Bridge (P6)
+ 1: 1        Reps
+ 2: 33       25 mV 50 Hz Rejection Range
+ 3: 1        DIFF Channel
+ 4: 1        Excite all reps w/Exchan 1
+ 5: 1200     mV Excitation
+ 6: 56       Loc [ MA_Ref_T  ]
+ 7: -0.001   Mult
+ 8: 0.09707  Offset
+
+85:  BR Transform Rf[X/(1-X)] (P59)
+ 1: 1        Reps
+ 2: 56       Loc [ MA_Ref_T  ]
+ 3: 10.025   Multiplier (Rf)
+
+86:  Temperature RTD (P16)
+ 1: 1        Reps
+ 2: 56       R/R0 Loc [ MA_Ref_T  ]
+ 3: 56       Loc [ MA_Ref_T  ]
+ 4: 1.0      Mult
+ 5: 0.0      Offset
+
+87:  Do (P86)
+ 1: 71       Pulse Port 1
+
+88:  Do (P86)
+ 1: 71       Pulse Port 1
+
+;Channel 1
+89:  Volt (SE) (P1)
+ 1: 1        Reps
+ 2: 35       2500 mV 50 Hz Rejection Range
+ 3: 1        SE Channel
+ 4: 72       Loc [ MA_Wic1_T ]
+ 5: 0.1882   Mult
+ 6: -260     Offset
+
+90:  Volt (SE) (P1)
+ 1: 1        Reps
+ 2: 35       2500 mV 50 Hz Rejection Range
+ 3: 2        SE Channel
+ 4: 73       Loc [ MA_Wic2_T ]
+ 5: 0.1902   Mult
+ 6: -260.28  Offset
+
+91:  Do (P86)
+ 1: 71       Pulse Port 1
+
+92:  Do (P86)
+ 1: 71       Pulse Port 1
+
+;Channel 2
+93:  Thermocouple Temp (DIFF) (P14)
+ 1: 1        Reps
+ 2: 32       7.5 mV 50 Hz Rejection Range
+ 3: 1        DIFF Channel
+ 4: 2        Type E (Chromel-Constantan)
+ 5: 56       Ref Temp Loc [ MA_Ref_T  ]
+ 6: 52       Loc [ MA_Intk_T ]
+ 7: 1.0      Mult
+ 8: 0.0      Offset
+
+94:  Do (P86)
+ 1: 71       Pulse Port 1
+
+95:  Do (P86)
+ 1: 71       Pulse Port 1
+
+;Channel 3
+96:  Volt (SE) (P1)
+ 1: 1        Reps
+ 2: 35       2500 mV 50 Hz Rejection Range
+ 3: 1        SE Channel
+ 4: 66       Loc [ MA_SMP1_T ]
+ 5: 0.1956   Mult
+ 6: -272.91  Offset
+
+97:  Volt (SE) (P1)
+ 1: 1        Reps
+ 2: 35       2500 mV 50 Hz Rejection Range
+ 3: 2        SE Channel
+ 4: 67       Loc [ MA_SMP2_T ]
+ 5: 0.1926   Mult
+ 6: -267.31  Offset
+
+98:  Do (P86)
+ 1: 71       Pulse Port 1
+
+99:  Do (P86)
+ 1: 71       Pulse Port 1
+
+;Channel 4
+100:  Volt (SE) (P1)
+ 1: 1        Reps
+ 2: 35       2500 mV 50 Hz Rejection Range
+ 3: 1        SE Channel
+ 4: 68       Loc [ MA_SMP3_T ]
+ 5: 0.1939   Mult
+ 6: -269     Offset
+
+101:  Volts (SE) (P1)
+ 1: 1        Reps
+ 2: 35       2500 mV 50 Hz Rejection Range
+ 3: 2        SE Channel
+ 4: 57       Loc [ MA_Leaf_T ]
+ 5: .1       Mult
+ 6: 1        Offset
+
+102:  Do (P86)
+ 1: 71       Pulse Port 1
+
+103:  Do (P86)
+ 1: 71       Pulse Port 1
+
+;Channel 5
+104:  Thermocouple Temp (DIFF) (P14)
+ 1: 1        Reps
+ 2: 32       7.5 mV 50 Hz Rejection Range
+ 3: 1        DIFF Channel
+ 4: 2        Type E (Chromel-Constantan)
+ 5: 56       Ref Temp Loc [ MA_Ref_T  ]
+ 6: 54       Loc [ MA_Mid_T  ]
+ 7: 1.0      Mult
+ 8: 0.0      Offset
+
+105:  Do (P86)
+ 1: 71       Pulse Port 1
+
+106:  Do (P86)
+ 1: 71       Pulse Port 1
+
+;Channel 6
+107:  Thermocouple Temp (DIFF) (P14)
+ 1: 1        Reps
+ 2: 32       7.5 mV 50 Hz Rejection Range
+ 3: 1        DIFF Channel
+ 4: 2        Type E (Chromel-Constantan)
+ 5: 56       Ref Temp Loc [ MA_Ref_T  ]
+ 6: 55       Loc [ MA_Bot_T  ]
+ 7: 1.0      Mult
+ 8: 0.0      Offset
+
+108:  Do (P86)
+ 1: 71       Pulse Port 1
+
+109:  Do (P86)
+ 1: 71       Pulse Port 1
+
+;Channel 7
+110:  Volts (SE) (P1)
+ 1: 1        Reps
+ 2: 35       2500 mV 50 Hz Rejection Range
+ 3: 1        SE Channel
+ 4: 98       Loc [ MA_Bot_L  ]
+ 5: 1.1375   Mult
+ 6: 12       Offset
+
+111:  Volts (SE) (P1)
+ 1: 1        Reps
+ 2: 34       250 mV 50 Hz Rejection Range
+ 3: 2        SE Channel
+ 4: 91       Loc [ MA_O2_1   ]
+ 5: 1        Mult
+ 6: 0        Offset
+
+112:  Z=X*Y (P36)
+ 1: 128      X Loc [ MA_O2_1_M ]
+ 2: 91       Y Loc [ MA_O2_1   ]
+ 3: 91       Z Loc [ MA_O2_1   ]
+
+113:  Z=X*Y (P36)
+ 1: 91       X Loc [ MA_O2_1   ]
+ 2: 138      Y Loc [ Press_cal ]
+ 3: 91       Z Loc [ MA_O2_1   ]
+
+114:  Z=X+Y (P33)
+ 1: 129      X Loc [ MA_O2_1_O ]
+ 2: 91       Y Loc [ MA_O2_1   ]
+ 3: 91       Z Loc [ MA_O2_1   ]
+
+115:  Do (P86)
+ 1: 71       Pulse Port 1
+
+116:  Do (P86)
+ 1: 71       Pulse Port 1
+
+;Channel 8
+117:  Volts (SE) (P1)
+ 1: 1        Reps
+ 2: 34       250 mV 50 Hz Rejection Range
+ 3: 1        SE Channel
+ 4: 92       Loc [ MA_O2_2   ]
+ 5: 1        Mult
+ 6: 0        Offset
+
+118:  Z=X*Y (P36)
+ 1: 130      X Loc [ MA_O2_2_M ]
+ 2: 92       Y Loc [ MA_O2_2   ]
+ 3: 92       Z Loc [ MA_O2_2   ]
+
+119:  Z=X*Y (P36)
+ 1: 92       X Loc [ MA_O2_2   ]
+ 2: 138      Y Loc [ Press_cal ]
+ 3: 92       Z Loc [ MA_O2_2   ]
+
+120:  Z=X+Y (P33)
+ 1: 131      X Loc [ MA_O2_2_O ]
+ 2: 92       Y Loc [ MA_O2_2   ]
+ 3: 92       Z Loc [ MA_O2_2   ]
+
+121:  Volts (SE) (P1) ;
+ 1: 1        Reps
+ 2: 35       2500 mV 50 Hz Rejection Range
+ 3: 2        SE Channel
+ 4: 95       Loc [ MA_Bubble ]
+ 5: 1.0      Mult
+ 6: 0.0      Offset
+
+122:  Do (P86)
+ 1: 71       Pulse Port 1
+
+123:  Do (P86)
+ 1: 71       Pulse Port 1
+
+;Channel 9
+124:  Volts (SE) (P1)
+ 1: 1        Reps
+ 2: 34       250 mV 50 Hz Rejection Range
+ 3: 1        SE Channel
+ 4: 93       Loc [ MA_O2_3   ]
+ 5: 1        Mult
+ 6: 0        Offset
+
+125:  Z=X*Y (P36)
+ 1: 132      X Loc [ MA_O2_3_M ]
+ 2: 93       Y Loc [ MA_O2_3   ]
+ 3: 93       Z Loc [ MA_O2_3   ]
+
+126:  Z=X*Y (P36)
+ 1: 93       X Loc [ MA_O2_3   ]
+ 2: 138      Y Loc [ Press_cal ]
+ 3: 93       Z Loc [ MA_O2_3   ]
+
+127:  Z=X+Y (P33)
+ 1: 133      X Loc [ MA_O2_3_O ]
+ 2: 93       Y Loc [ MA_O2_3   ]
+ 3: 93       Z Loc [ MA_O2_3   ]
+
+128:  Volts (SE) (P1)
+ 1: 1        Reps
+ 2: 34       250 mV 50 Hz Rejection Range
+ 3: 2        SE Channel
+ 4: 94       Loc [ MA_O2_4   ]
+ 5: 1        Mult
+ 6: 0        Offset
+
+129:  Z=X*Y (P36)
+ 1: 134      X Loc [ MA_O2_4_M ]
+ 2: 94       Y Loc [ MA_O2_4   ]
+ 3: 94       Z Loc [ MA_O2_4   ]
+
+130:  Z=X*Y (P36)
+ 1: 94       X Loc [ MA_O2_4   ]
+ 2: 138      Y Loc [ Press_cal ]
+ 3: 94       Z Loc [ MA_O2_4   ]
+
+131:  Z=X+Y (P33)
+ 1: 135      X Loc [ MA_O2_4_O ]
+ 2: 94       Y Loc [ MA_O2_4   ]
+ 3: 94       Z Loc [ MA_O2_4   ]
+
+;display O2 #1 readings on #2,3,4
+132:  Z=X (P31)
+ 1: 91       X Loc [ MA_O2_1   ]
+ 2: 92       Z Loc [ MA_O2_2   ]
+
+133:  Z=X (P31)
+ 1: 91       X Loc [ MA_O2_1   ]
+ 2: 93       Z Loc [ MA_O2_3   ]
+
+134:  Z=X (P31)
+ 1: 91       X Loc [ MA_O2_1   ]
+ 2: 94       Z Loc [ MA_O2_4   ]
+
+135:  Do (P86)
+ 1: 71       Pulse Port 1
+
+136:  Do (P86)
+ 1: 71       Pulse Port 1
+
+;Channel 10
+137:  Volts (SE) (P1)
+ 1: 1        Reps
+ 2: 35       2500 mV 50 Hz Rejection Range
+ 3: 1        SE Channel
+ 4: 9        Loc [ DC12Vn_V  ]
+ 5: 0.0097   Mult
+ 6: 0        Offset
+
+138:  Volts (SE) (P1)
+ 1: 1        Reps
+ 2: 35       2500 mV 50 Hz Rejection Range
+ 3: 2        SE Channel
+ 4: 11       Loc [ DC12Vc_V  ]
+ 5: 0.0090   Mult
+ 6: 0        Offset
+
+139:  Volts (SE) (P1)
+ 1: 1        Reps
+ 2: 35       2500 mV 50 Hz Rejection Range
+ 3: 3        SE Channel
+ 4: 10       Loc [ DC12Vn_I  ]
+ 5: -3.075   Mult
+ 6: -85      Offset
+
+140:  Volts (SE) (P1)
+ 1: 1        Reps
+ 2: 35       2500 mV 50 Hz Rejection Range
+ 3: 4        SE Channel
+ 4: 12       Loc [ DC12Vc_I  ]
+ 5: -2.83    Mult
+ 6: -117     Offset
+
+141:  Do (P86)
+ 1: 71       Pulse Port 1
+
+142:  Do (P86)
+ 1: 71       Pulse Port 1
+
+;Channel 11
+143:  Volts (SE) (P1)
+ 1: 1        Reps
+ 2: 35       2500 mV 50 Hz Rejection Range
+ 3: 1        SE Channel
+ 4: 47       Loc [ MADC28V_V ]
+ 5: 0.0192   Mult
+ 6: 0        Offset
+
+144:  Volts (SE) (P1)
+ 1: 1        Reps
+ 2: 35       2500 mV 50 Hz Rejection Range
+ 3: 3        SE Channel
+ 4: 48       Loc [ MADC28V_I ]
+ 5: 2.5      Mult
+ 6: 150      Offset
+
+145:  Do (P86)
+ 1: 71       Pulse Port 1
+
+146:  Do (P86)
+ 1: 71       Pulse Port 1
+
+;Channel 12
+147:  Full Bridge (P6)
+ 1: 1        Reps
+ 2: 32       7.5 mV 50 Hz Rejection Range
+ 3: 1        DIFF Channel
+ 4: 3        Excite all reps w/Exchan 3
+ 5: 2500     mV Excitation
+ 6: 99       Loc [ ARefPress ]
+ 7: 381      Mult
+ 8: 15.5     Offset
+
+148:  Do (P86)
+ 1: 71       Pulse Port 1
+
+149:  Do (P86)
+ 1: 71       Pulse Port 1
+
+;Channel 13
+150:  Full Bridge (P6)
+ 1: 1        Reps
+ 2: 32       7.5 mV 50 Hz Rejection Range
+ 3: 1        DIFF Channel
+ 4: 3        Excite all reps w/Exchan 3
+ 5: 2500     mV Excitation
+ 6: 29       Loc [ PressMult ]
+ 7: 1.0      Mult
+ 8: 0.0      Offset
+
+151:  Polynomial (P55)
+ 1: 1        Reps
+ 2: 29       X Loc [ PressMult ]
+ 3: 100      F(X) Loc [ ATensio_1 ]
+ 4: .6368    C0
+ 5: 43.54    C1
+ 6: -1.188   C2
+ 7: 0.0      C3
+ 8: 0.0      C4
+ 9: 0.0      C5
+
+152:  Do (P86)
+ 1: 71       Pulse Port 1
+
+153:  Do (P86)
+ 1: 71       Pulse Port 1
+
+;Channel 14
+154:  Full Bridge (P6)
+ 1: 1        Reps
+ 2: 32       7.5 mV 50 Hz Rejection Range
+ 3: 1        DIFF Channel
+ 4: 3        Excite all reps w/Exchan 3
+ 5: 2500     mV Excitation
+ 6: 29       Loc [ PressMult ]
+ 7: 1.0      Mult
+ 8: 0.0      Offset
+
+155:  Polynomial (P55)
+ 1: 1        Reps
+ 2: 29       X Loc [ PressMult ]
+ 3: 101      F(X) Loc [ ATensio_2 ]
+ 4: .6368    C0
+ 5: 43.54    C1
+ 6: -1.188   C2
+ 7: 0.0      C3
+ 8: 0.0      C4
+ 9: 0.0      C5
+
+156:  Do (P86)
+ 1: 71       Pulse Port 1
+
+157:  Do (P86)
+ 1: 71       Pulse Port 1
+
+;Channel 15
+158:  Full Bridge (P6)
+ 1: 1        Reps
+ 2: 32       7.5 mV 50 Hz Rejection Range
+ 3: 1        DIFF Channel
+ 4: 3        Excite all reps w/Exchan 3
+ 5: 2500     mV Excitation
+ 6: 29       Loc [ PressMult ]
+ 7: 1.0      Mult
+ 8: 0.0      Offset
+
+159:  Polynomial (P55)
+ 1: 1        Reps
+ 2: 29       X Loc [ PressMult ]
+ 3: 102      F(X) Loc [ ATensio_3 ]
+ 4: .6368    C0
+ 5: 43.54    C1
+ 6: -1.188   C2
+ 7: 0.0      C3
+ 8: 0.0      C4
+ 9: 0.0      C5
+
+160:  Do (P86)
+ 1: 71       Pulse Port 1
+
+161:  Do (P86)
+ 1: 71       Pulse Port 1
+
+;Channel 16
+162:  Full Bridge (P6)
+ 1: 1        Reps
+ 2: 32       7.5 mV 50 Hz Rejection Range
+ 3: 1        DIFF Channel
+ 4: 3        Excite all reps w/Exchan 3
+ 5: 2500     mV Excitation
+ 6: 29       Loc [ PressMult ]
+ 7: 1        Mult
+ 8: 0.0      Offset
+
+163:  Polynomial (P55)
+ 1: 1        Reps
+ 2: 29       X Loc [ PressMult ]
+ 3: 103      F(X) Loc [ ATensio_4 ]
+ 4: .6368    C0
+ 5: 43.54    C1
+ 6: -1.188   C2
+ 7: 0.0      C3
+ 8: 0.0      C4
+ 9: 0.0      C5
+
+164:  Do (P86)
+ 1: 71       Pulse Port 1
+
+165:  Do (P86)
+ 1: 71       Pulse Port 1
+
+;Channel 17
+166:  Volt (SE) (P1)
+ 1: 1        Reps
+ 2: 35       2500 mV 50 Hz Rejection Range
+ 3: 1        SE Channel
+ 4: 69       Loc [ MA_SMP4_T ]
+ 5: 0.1947   Mult
+ 6: -270.64  Offset
+
+167:  Volt (SE) (P1)
+ 1: 1        Reps
+ 2: 35       2500 mV 50 Hz Rejection Range
+ 3: 2        SE Channel
+ 4: 70       Loc [ MA_SMP5_T ]
+ 5: 0.2015   Mult
+ 6: -282.57  Offset
+
+168:  Do (P86)
+ 1: 71       Pulse Port 1
+
+169:  Do (P86)
+ 1: 71       Pulse Port 1
+
+;Channel 18
+170:  Volts (SE) (P1)
+ 1: 1        Reps
+ 2: 35       2500 mV 50 Hz Rejection Range
+ 3: 1        SE Channel
+ 4: 50       Loc [ MA_RH     ]
+ 5: 0.09056  Mult
+ 6: 25.203   Offset
+
+171:  Volts (SE) (P1)
+ 1: 1        Reps
+ 2: 35       2500 mV 50 Hz Rejection Range
+ 3: 2        SE Channel
+ 4: 96       Loc [ MA_Top_L  ]
+ 5: 1.1375   Mult
+ 6: 12       Offset
+
+172:  Do (P86)
+ 1: 71       Pulse Port 1
+
+173:  Do (P86)
+ 1: 71       Pulse Port 1
+
+;Channel 19
+174:  Thermocouple Temp (DIFF) (P14)
+ 1: 1        Reps
+ 2: 32       7.5 mV 50 Hz Rejection Range
+ 3: 1        DIFF Channel
+ 4: 2        Type E (Chromel-Constantan)
+ 5: 56       Ref Temp Loc [ MA_Ref_T  ]
+ 6: 51       Loc [ MA_Blst_T ]
+ 7: 1.0      Mult
+ 8: 0.0      Offset
+
+175:  Do (P86)
+ 1: 71       Pulse Port 1
+
+176:  Do (P86)
+ 1: 71       Pulse Port 1
+
+;Channel 20
+177:  Thermocouple Temp (DIFF) (P14)
+ 1: 1        Reps
+ 2: 32       7.5 mV 50 Hz Rejection Range
+ 3: 1        DIFF Channel
+ 4: 2        Type E (Chromel-Constantan)
+ 5: 56       Ref Temp Loc [ MA_Ref_T  ]
+ 6: 53       Loc [ MA_Top_T  ]
+ 7: 1.0      Mult
+ 8: 0.0      Offset
+
+178:  Do (P86)
+ 1: 71       Pulse Port 1
+
+179:  Do (P86)
+ 1: 71       Pulse Port 1
+
+;Channel 21
+180:  Volts (SE) (P1)
+ 1: 1        Reps
+ 2: 35       2500 mV 50 Hz Rejection Range
+ 3: 1        SE Channel
+ 4: 97       Loc [ MA_Mid_L  ]
+ 5: 1.1375   Mult
+ 6: 12       Offset
+
+181:  Volt (SE) (P1)
+ 1: 1        Reps
+ 2: 35       2500 mV 50 Hz Rejection Range
+ 3: 2        SE Channel
+ 4: 71       Loc [ MA_SMP6_T ]
+ 5: 0.1951   Mult
+ 6: -271.52  Offset
+
+182:  Do (P86)
+ 1: 71       Pulse Port 1
+
+183:  Do (P86)
+ 1: 71       Pulse Port 1
+
+;Channel 22
+184:  Volt (Diff) (P2)
+ 1: 1        Reps
+ 2: 35       2500 mV 50 Hz Rejection Range
+ 3: 1        DIFF Channel
+ 4: 46       Loc [ MA_Pump_V ]
+ 5: .01      Mult
+ 6: -4.5     Offset
+
+185:  If (X<=>F) (P89)
+ 1: 46       X Loc [ MA_Pump_V ]
+ 2: 4        <
+ 3: -5       F
+ 4: 30       Then Do
+
+     186:  Z=X+F (P34)
+      1: 46       X Loc [ MA_Pump_V ]
+      2: 9.0      F
+      3: 46       Z Loc [ MA_Pump_V ]
+
+187:  Else (P94)
+
+     188:  If (X<=>F) (P89)
+      1: 46       X Loc [ MA_Pump_V ]
+      2: 4        <
+      3: 4        F
+      4: 30       Then Do
+
+          189:  Z=F (P30)
+           1: 0.0      F
+           2: 00       Exponent of 10
+           3: 46       Z Loc [ MA_Pump_V ]
+
+     190:  End (P95)
+
+191:  End (P95)
+
+
+192:  Do (P86)
+ 1: 71       Pulse Port 1
+
+193:  Do (P86)
+ 1: 71       Pulse Port 1
+
+;Channel 23
+194:  Do (P86)
+ 1: 71       Pulse Port 1
+
+195:  Do (P86)
+ 1: 71       Pulse Port 1
+
+;Channel 24
+196:  Volts (SE) (P1)
+ 1: 1        Reps
+ 2: 35       2500 mV 50 Hz Rejection Range
+ 3: 1        SE Channel
+ 4: 15       Loc [ DC5Vn_V   ]
+ 5: 0.0051   Mult
+ 6: 0.0      Offset
+
+197:  Volts (SE) (P1)
+ 1: 1        Reps
+ 2: 35       2500 mV 50 Hz Rejection Range
+ 3: 2        SE Channel
+ 4: 13       Loc [ DC16V_V   ]
+ 5: 0.0095   Mult
+ 6: 0        Offset
+
+198:  Volts (SE) (P1)
+ 1: 1        Reps
+ 2: 35       2500 mV 50 Hz Rejection Range
+ 3: 3        SE Channel
+ 4: 16       Loc [ DC5Vn_I   ]
+ 5: -13.8    Mult
+ 6: -340     Offset
+
+199:  Volts (SE) (P1)
+ 1: 1        Reps
+ 2: 34       250 mV 50 Hz Rejection Range
+ 3: 4        SE Channel
+ 4: 14       Loc [ DC16V_I   ]
+ 5: 1        Mult
+ 6: 300      Offset
+
+200:  Do (P86)
+ 1: 71       Pulse Port 1
+
+201:  Do (P86)
+ 1: 71       Pulse Port 1
+
+;Channel 25
+202:  Thermocouple Temp (DIFF) (P14)
+ 1: 1        Reps
+ 2: 32       7.5 mV 50 Hz Rejection Range
+ 3: 1        DIFF Channel
+ 4: 2        Type E (Chromel-Constantan)
+ 5: 8        Ref Temp Loc [ CMRefTemp ]
+ 6: 49       Loc [ MADC28V_T ]
+ 7: 1.0      Mult
+ 8: 0.0      Offset
+
+203:  Do (P86)
+ 1: 52       Set Port 2 Low
+
+;************Read Pulse Counters******************************************
+204:  Pulse (P3)
+ 1: 1        Reps
+ 2: 1        Pulse Channel 1
+ 3: 2        Switch Closure, All Counts
+ 4: 109      Loc [ MA_PCount ]
+ 5: .114     Mult ;
+ 6: 0.0      Offset
+
+;************If Pump 1 is On in Reverse, Calculate Amount Pumped Out******
+205:  If (X<=>F) (P89)
+ 1: 124      X Loc [ APmp1OnOf ]
+ 2: 1        =
+ 3: 2        F
+ 4: 30       Then Do
+
+     206:  Z=X+Y (P33)
+      1: 108      X Loc [ MA_PmpOut ]
+      2: 109      Y Loc [ MA_PCount ]
+      3: 108      Z Loc [ MA_PmpOut ]
+
+207:  Else (P94)
+
+;************If Pump 1 is On Forwards, Calculate Amount Pumped In*********
+     208:  Z=X+Y (P33)
+      1: 107      X Loc [ MA_PumpIn ]
+      2: 109      Y Loc [ MA_PCount ]
+      3: 107      Z Loc [ MA_PumpIn ]
+
+209:  End (P95)
+
+;************Check That Pump is not Turned on Unknowingly or Allowing*****
+;************Too Much Water to be Pumped at One Time.*********************
+
+210:  If Flag/Port (P91)
+ 1: 22       Do if Flag 2 is Low
+ 2: 30       Then Do
+
+     211:  If (X<=>F) (P89)
+      1: 107      X Loc [ MA_PumpIn ]
+      2: 2        <>
+      3: 0        F
+      4: 30       Then Do
+
+;************Count The Error and Turn Off Both Pumps if Error Occurs******
+          212:  Z=Z+1 (P32)
+           1: 28       Z Loc [ PmpErrCnt ]
+
+          213:  Do (P86)
+           1: 3        Call Subroutine 3
+
+          214:  Do (P86)
+           1: 1        Call Subroutine 1
+
+     215:  End (P95)
+
+216:  End (P95)
+
+217:  If (X<=>Y) (P88)
+ 1: 107      X Loc [ MA_PumpIn ]
+ 2: 3        >=
+ 3: 27       Y Loc [ MaxPmpVol ]
+ 4: 30       Then Do
+
+;************Count The Error and Turn Off Both Pumps if Error Occurs******
+     218:  Z=Z+1 (P32)
+      1: 28       Z Loc [ PmpErrCnt ]
+
+     219:  Do (P86)
+      1: 3        Call Subroutine 3
+
+     220:  Do (P86)
+      1: 1        Call Subroutine 1
+
+221:  End (P95)
+
+;************Turn Off Pump 1 if its in Reverse and it Sees a Bubble*******
+
+222:  If (X<=>F) (P89)
+ 1: 124      X Loc [ APmp1OnOf ]
+ 2: 1        =
+ 3: 2        F
+ 4: 30       Then Do
+
+     223:  If (X<=>F) (P89)
+      1: 95       X Loc [ MA_Bubble ]
+      2: 3        >=
+      3: .75      F
+      4: 3        Call Subroutine 3
+
+224:  End (P95)
+
+;************Read Module A Moisture if Flag 1 is set**********************
+225:  If Flag/Port (P91)
+ 1: 11       Do if Flag 1 is High
+ 2: 79       Call Subroutine 79
+
+;************Calculate Amount of Time Lights and Fans are on in Min.******
+226:  IF (X<=>F) (P89)
+ 1: 122      X Loc [ ALitOnOff ]
+ 2: 1        =
+ 3: 1        F
+ 4: 30       Then Do
+
+     227:  Z=X+F (P34)
+      1: 120      X Loc [ ALghtTime ]
+      2: .083333  F
+      3: 120      Z Loc [ ALghtTime ]
+
+228:  End (P95)
+
+
+229:  If (X<=>F) (P89)
+ 1: 123      X Loc [ AFanOnOff ]
+ 2: 1        =
+ 3: 1        F
+ 4: 30       Then Do
+
+     230:  Z=X+F (P34)
+      1: 121      X Loc [ AFanTime  ]
+      2: .083333  F
+      3: 121      Z Loc [ AFanTime  ]
+
+231:  End (P95)
+
+;************Output to Final Storage every 20 or 60 minutes***************
+232:  IF (X<=>Y) (P88)
+ 1: 18       X Loc [ MinMod20  ]
+ 2: 1        =
+ 3: 116      Y Loc [ AWrite20m ]
+ 4: 30       Then Do
+
+     233:  If time is (P92)
+      1: 1     -- Minutes (Seconds --) into a
+      2: 60       Interval (same units as above)
+      3: 95       Call Subroutine 95
+
+234:  End (P95)
+
+235:  IF (X<=>Y) (P88)
+ 1: 17       X Loc [ MinMod60  ]
+ 2: 1        =
+ 3: 117      Y Loc [ AWrite1Hr ]
+ 4: 30       Then Do
+
+     236:  If time is (P92)
+      1: 1     -- Minutes (Seconds --) into a
+      2: 60       Interval (same units as above)
+      3: 95       Call Subroutine 95
+
+237:  End (P95)
+
+;-------------------------------------------------------------------------
+;            Enable Automatic Functions if Flag 3 is High
+;-------------------------------------------------------------------------
+238:  If Flag/Port (P91)
+ 1: 13       Do if Flag 3 is High
+ 2: 30       Then Do
+
+;************Read Module A SMPs & Wicks Hourly or Every 20 min.***********
+     239:  If (X<=>Y) (P88)
+      1: 18       X Loc [ MinMod20  ]
+      2: 1        =
+      3: 114      Y Loc [ ARead20mn ]
+      4: 11       Set Flag 1 High
+
+     240:  IF (X<=>Y) (P88)
+      1: 17       X Loc [ MinMod60  ]
+      2: 1        =
+      3: 115      Y Loc [ ARead1Hr  ]
+      4: 11       Set Flag 1 High
+
+;************Check Water Level and Water Module A if Needed***************
+     241:  If (X<=>Y) (P88)
+      1: 18       X Loc [ MinMod20  ]
+      2: 1        =
+      3: 111      Y Loc [ AWtrIntvl ]
+      4: 30       Then Do
+
+          242:  If time is (P92)
+           1: 1     -- Minutes (Seconds --) into a
+           2: 60       Interval (same units as above)
+           3: 80       Call Subroutine 80
+
+     243:  End (P95)
+
+     244:  If (X<=>Y) (P88)
+      1: 17       X Loc [ MinMod60  ]
+      2: 1        =
+      3: 111      Y Loc [ AWtrIntvl ]
+      4: 30       Then Do
+
+          245:  If time is (P92)
+           1: 1     -- Minutes (Seconds --) into a
+           2: 60       Interval (same units as above)
+           3: 80       Call Subroutine 80
+
+     246:  End (P95)
+
+;************Monitor Water Pumped in Module A to Turn Off*****************
+     247:  If Flag/Port (P91)
+      1: 12       Do if Flag 2 is High
+      2: 30       Then Do
+
+;************Turn Pump Off When it Has Finished Watering GM A*************
+          248:  If (X<=>Y) (P88)
+           1: 107      X Loc [ MA_PumpIn ]
+           2: 3        >=
+           3: 105      Y Loc [ MAVolNeed ]
+           4: 3        Call Subroutine 3
+
+     249:  End (P95)
+
+;************Turn Lights and Fans on in Growth Module A*******************
+     250:  If (X<=>Y) (P88)
+      1: 19       X Loc [ TimeInHrs ]
+      2: 1        =
+      3: 112      Y Loc [ ALightsOn ]
+      4: 30       Then Do
+
+          251:  If time is (P92)
+           1: 1     -- Minutes (Seconds --) into a
+           2: 60       Interval (same units as above)
+           3: 30       Then Do
+
+               252:  Do (P86)
+                1: 7        Call Subroutine 7
+
+               253:  Do (P86)
+                1: 9        Call Subroutine 9
+
+          254:  End (P95)
+
+     255:  End (P95)
+
+;************Turn Lights and Fans Off in Growth Module A******************
+     256:  If (X<=>Y) (P88)
+      1: 19       X Loc [ TimeInHrs ]
+      2: 1        =
+      3: 113      Y Loc [ ALightOff ]
+      4: 30       Then Do
+
+          257:  If time is (P92)
+           1: 1     -- Minutes (Seconds --) into a
+           2: 60       Interval (same units as above)
+           3: 30       Then Do
+
+               258:  Do (P86)
+                1: 6        Call Subroutine 6
+
+               259:  Do (P86)
+                1: 8        Call Subroutine 8
+
+          260:  End (P95)
+
+     261:  End (P95)
+
+262:  End (P95)
+
+;-------------------------------------------------------------------------
+;            This Section of Code Allows Manual Control of Lada
+;-------------------------------------------------------------------------
+263:  If (X<=>F) (P89)
+ 1: 118      X Loc [ AManCtrl  ]
+ 2: 3        >=
+ 3: 1        F
+ 4: 30       Then Do
+
+     264:  Z=X MOD F (P46)
+      1: 118      X Loc [ AManCtrl  ]
+      2: 4        F
+      3: 119      Z Loc [ AMnCtBits ]
+
+     265:  Z=X-Y (P35)
+      1: 118      X Loc [ AManCtrl  ]
+      2: 119      Y Loc [ AMnCtBits ]
+      3: 118      Z Loc [ AManCtrl  ]
+
+;************If Pump2 Bits = 1 (xxxxxx01) Turn Off Pump 2*****************
+     266:  IF (X<=>F) (P89)
+      1: 119      X Loc [ AMnCtBits ]
+      2: 1        =
+      3: 1        F
+      4: 1        Call Subroutine 1
+
+;************If Pump2 Bits = 2 (xxxxxx10) Turn On Pump 2******************
+     267:  IF (X<=>F) (P89)
+      1: 119      X Loc [ AMnCtBits ]
+      2: 1        =
+      3: 2        F
+      4: 2        Call Subroutine 2
+
+     268:  Z=X MOD F (P46)
+      1: 118      X Loc [ AManCtrl  ]
+      2: 16       F
+      3: 119      Z Loc [ AMnCtBits ]
+
+     269:  Z=X-Y (P35)
+      1: 118      X Loc [ AManCtrl  ]
+      2: 119      Y Loc [ AMnCtBits ]
+      3: 118      Z Loc [ AManCtrl  ]
+
+;************If Pump1 Bits = 4 (xxxx01xx) Turn Pump 1 Off*****************
+     270:  IF (X<=>F) (P89)
+      1: 119      X Loc [ AMnCtBits ]
+      2: 1        =
+      3: 4        F
+      4: 3        Call Subroutine 3
+
+;************If Pump1 Bits = 8 (xxxx10xx) Turn On Pump 1 Forward**********
+     271:  IF (X<=>F) (P89)
+      1: 119      X Loc [ AMnCtBits ]
+      2: 1        =
+      3: 8        F
+      4: 4        Call Subroutine 4
+
+;************If Pump1 Bits = 12 (xxxx11xx) Turn Pump 1 On Backwards*******
+     272:  IF (X<=>F) (P89)
+      1: 119      X Loc [ AMnCtBits ]
+      2: 1        =
+      3: 12       F
+      4: 5        Call Subroutine 5
+
+     273:  Z=X MOD F (P46)
+      1: 118      X Loc [ AManCtrl  ]
+      2: 64       F
+      3: 119      Z Loc [ AMnCtBits ]
+
+     274:  Z=X-Y (P35)
+      1: 118      X Loc [ AManCtrl  ]
+      2: 119      Y Loc [ AMnCtBits ]
+      3: 118      Z Loc [ AManCtrl  ]
+
+;************If Light Bits = 16 (xx01xxxx) Turn Lights Off****************
+     275:  IF (X<=>F) (P89)
+      1: 119      X Loc [ AMnCtBits ]
+      2: 1        =
+      3: 16       F
+      4: 6        Call Subroutine 6
+
+;************If Light Bits = 32 (xx10xxxx) Turn Lights On*****************
+     276:  IF (X<=>F) (P89)
+      1: 119      X Loc [ AMnCtBits ]
+      2: 1        =
+      3: 32       F
+      4: 7        Call Subroutine 7
+
+;************If Fan Bits = 64 (01xxxxxx) Turn Fans Off********************
+     277:  IF (X<=>F) (P89)
+      1: 118      X Loc [ AManCtrl  ]
+      2: 1        =
+      3: 64       F
+      4: 8        Call Subroutine 8
+
+;************If Fan Bits = 128 (10xxxxxx) Turn Fans On********************
+     278:  IF (X<=>F) (P89)
+      1: 118      X Loc [ AManCtrl  ]
+      2: 1        =
+      3: 128      F
+      4: 9        Call Subroutine 9
+
+     279:  Z=F (P30)
+      1: 0.0      F
+      2: 00       Exponent of 10
+      3: 118      Z Loc [ AManCtrl  ]
+
+280:  End (P95)
+
+*Table 2 Program
+  02: 60        Execution Interval (seconds)
+
+1:  If Flag/Port (P91)
+ 1: 17       Do if Flag 7 is High
+ 2: 95       Call Subroutine 95
+
+*Table 3 Subroutines
+;*************************************************************************
+;            Subroutine 1 is For Turning Pump 2 Off
+;*************************************************************************
+1:  Beginning of Subroutine (P85)
+ 1: 1        Subroutine 1
+
+     2:  Set Port(s) (P20)
+      1: 9011     C8..C5 = nc/low/high/high
+      2: 1099     C4..C1 = high/low/nc/nc
+
+     3:  Do (P86)
+      1: 78       Pulse Port 8
+
+     4:  Z=F (P30)
+      1: 0        F
+      2: 00       Exponent of 10
+      3: 125      Z Loc [ APmp2OnOf ]
+
+     5:  Z=X+Y (P33)
+      1: 106      X Loc [ MATotVolP ]
+      2: 107      Y Loc [ MA_PumpIn ]
+      3: 106      Z Loc [ MATotVolP ]
+
+     6:  Z=X+Y (P33)
+      1: 26       X Loc [ TotVolPmp ]
+      2: 107      Y Loc [ MA_PumpIn ]
+      3: 26       Z Loc [ TotVolPmp ]
+
+     7:  Z=F (P30)
+      1: 0        F
+      2: 00       Exponent of 10
+      3: 107      Z Loc [ MA_PumpIn ]
+
+8:  End (P95)
+
+;*************************************************************************
+;            Subroutine 2 is For Turning Pump 2 On
+;*************************************************************************
+9:  Beginning of Subroutine (P85)
+ 1: 2        Subroutine 2
+
+     10:  Set Port(s) (P20)
+      1: 9011     C8..C5 = nc/low/high/high
+      2: 1199     C4..C1 = high/high/nc/nc
+
+     11:  Do (P86)
+      1: 78       Pulse Port 8
+
+     12:  Z=F (P30)
+      1: 1        F
+      2: 00       Exponent of 10
+      3: 125      Z Loc [ APmp2OnOf ]
+
+13:  End (P95)
+
+;*************************************************************************
+;            Subroutine 3 is for Turning Pump 1 Off
+;*************************************************************************
+14:  Beginning of Subroutine (P85)
+ 1: 3        Subroutine 3
+
+     15:  Set Port(s) (P20)
+      1: 9011     C8..C5 = nc/low/high/high
+      2: 0099     C4..C1 = low/low/nc/nc
+
+     16:  Do (P86)
+      1: 78       Pulse Port 8
+
+     17:  Z=F (P30)
+      1: 0        F
+      2: 00       Exponent of 10
+      3: 124      Z Loc [ APmp1OnOf ]
+
+     18:  Z=X+Y (P33)
+      1: 106      X Loc [ MATotVolP ]
+      2: 107      Y Loc [ MA_PumpIn ]
+      3: 106      Z Loc [ MATotVolP ]
+
+     19:  Z=X+Y (P33)
+      1: 26       X Loc [ TotVolPmp ]
+      2: 107      Y Loc [ MA_PumpIn ]
+      3: 26       Z Loc [ TotVolPmp ]
+
+     20:  Z=F (P30)
+      1: 0        F
+      2: 00       Exponent of 10
+      3: 107      Z Loc [ MA_PumpIn ]
+
+     21:  Do (P86)
+      1: 22       Set Flag 2 Low
+
+22:  End (P95)
+
+;*************************************************************************
+;            Subroutine 4 is For Turning Pump 1 On Forward
+;*************************************************************************
+23:  Beginning of Subroutine (P85)
+ 1: 4        Subroutine 4
+
+     24:  Set Port(s) (P20)
+      1: 9100     C8..C5 = nc/high/low/low
+      2: 0199     C4..C1 = low/high/nc/nc
+
+     25:  Do (P86)
+      1: 78       Pulse Port 8
+
+     26:  Set Port(s) (P20)
+      1: 9011     C8..C5 = nc/low/high/high
+      2: 0199     C4..C1 = low/high/nc/nc
+
+     27:  Do (P86)
+      1: 78       Pulse Port 8
+
+     28:  Z=F (P30)
+      1: 1        F
+      2: 00       Exponent of 10
+      3: 124      Z Loc [ APmp1OnOf ]
+
+29:  End (P95)
+
+;*************************************************************************
+;            Subroutine 5 is For Turning Pump 1 On in Reverse
+;*************************************************************************
+30:  Beginning of Subroutine (P85)
+ 1: 5        Subroutine 5
+
+     31:  Set Port(s) (P20)
+      1: 9000     C8..C5 = nc/low/low/low
+      2: 0199     C4..C1 = low/high/nc/nc
+
+     32:  Do (P86)
+      1: 78       Pulse Port 8
+
+     33:  Set Port(s) (P20)
+      1: 9011     C8..C5 = nc/low/high/high
+      2: 0199     C4..C1 = low/high/nc/nc
+
+     34:  Do (P86)
+      1: 78       Pulse Port 8
+
+     35:  Z=F (P30)
+      1: 2        F
+      2: 00       Exponent of 10
+      3: 124      Z Loc [ APmp1OnOf ]
+
+36:  End (P95)
+
+;*************************************************************************
+;            Subroutine 6 is For Turning Lights Off
+;*************************************************************************
+37:  Beginning of Subroutine (P85)
+ 1: 6        Subroutine 6
+
+     38:  Set Port(s) (P20)
+      1: 9000     C8..C5 = nc/low/low/low
+      2: 1099     C4..C1 = high/low/nc/nc
+
+     39:  Do (P86)
+      1: 78       Pulse Port 8
+
+     40:  Z=F (P30)
+      1: 0        F
+      2: 00       Exponent of 10
+      3: 122      Z Loc [ ALitOnOff ]
+
+41:  End (P95)
+
+;*************************************************************************
+;            Subroutine 7 is for Turning Lights On
+;*************************************************************************
+42:  Beginning of Subroutine (P85)
+ 1: 7        Subroutine 7
+
+     43:  Set Port(s) (P20)
+      1: 9000     C8..C5 = nc/low/low/low
+      2: 1199     C4..C1 = high/high/nc/nc
+
+     44:  Do (P86)
+      1: 78       Pulse Port 8
+
+     45:  Z=F (P30)
+      1: 1        F
+      2: 00       Exponent of 10
+      3: 122      Z Loc [ ALitOnOff ]
+
+46:  End (P95)
+
+;*************************************************************************
+;            Subroutine 8 is for Turning Fans Off
+;*************************************************************************
+47:  Beginning of Subroutine (P85)
+ 1: 8        Subroutine 8
+
+     48:  Set Port(s) (P20)
+      1: 9001     C8..C5 = nc/low/low/high
+      2: 0099     C4..C1 = low/low/nc/nc
+
+     49:  Do (P86)
+      1: 78       Pulse Port 8
+
+     50:  Z=F (P30)
+      1: 0        F
+      2: 00       Exponent of 10
+      3: 123      Z Loc [ AFanOnOff ]
+
+51:  End (P95)
+
+;*************************************************************************
+;            Subroutine 9 is for Turning Fans On
+;*************************************************************************
+52:  Beginning of Subroutine (P85)
+ 1: 9        Subroutine 9
+
+     53:  Set Port(s) (P20)
+      1: 9001     C8..C5 = nc/low/low/high
+      2: 0199     C4..C1 = low/high/nc/nc
+
+     54:  Do (P86)
+      1: 78       Pulse Port 8
+
+     55:  Z=F (P30)
+      1: 1        F
+      2: 00       Exponent of 10
+      3: 123      Z Loc [ AFanOnOff ]
+
+56:  End (P95)
+
+;*************************************************************************
+;            Subroutine 79 is for reading Module A moisture
+;*************************************************************************
+57:  Beginning of Subroutine (P85)
+ 1: 79       Subroutine 79
+
+     58:  If (X<=>F) (P89)
+      1: 110      X Loc [ ASMPCount ]
+      2: 1        =
+      3: 0        F
+      4: 30       Then Do
+
+;************Store Initial SMP A Temps. for Growth Module A***************
+          59:  Z=X (P31)
+           1: 66       X Loc [ MA_SMP1_T ]
+           2: 58       Z Loc [ MA_SMP1iT ]
+
+          60:  Z=X (P31)
+           1: 67       X Loc [ MA_SMP2_T ]
+           2: 59       Z Loc [ MA_SMP2iT ]
+
+          61:  Z=X (P31)
+           1: 68       X Loc [ MA_SMP3_T ]
+           2: 60       Z Loc [ MA_SMP3iT ]
+
+;************Turn on SMP A Heaters in Growth Module A*********************
+          62:  Set Port(s) (P20)
+           1: 9001     C8..C5 = nc/low/low/high
+           2: 1199     C4..C1 = high/high/nc/nc
+
+          63:  Do (P86)
+           1: 78       Pulse Port 8
+
+     64:  End (P95)
+
+     65:  If (X<=>F) (P89)
+      1: 110      X Loc [ ASMPCount ]
+      2: 1        =
+      3: 4        F
+      4: 30       Then Do
+
+;************Turn Off SMP A Heaters in Growth Module A********************
+          66:  Set Port(s) (P20)
+           1: 9001     C8..C5 = nc/low/low/high
+           2: 1099     C4..C1 = high/low/nc/nc
+
+          67:  Do (P86)
+           1: 78       Pulse Port 8
+
+;************Calculate SMP A Moistures in Growth Module A*****************
+          68:  Z=X-Y (P35)
+           1: 66       X Loc [ MA_SMP1_T ]
+           2: 58       Y Loc [ MA_SMP1iT ]
+           3: 74       Z Loc [ MA_SMP1dT ]
+
+          69:  Z=X*Y (P36)
+           1: 74       X Loc [ MA_SMP1dT ]
+           2: 31       Y Loc [ MPA1Mult  ]
+           3: 82       Z Loc [ MA_SMP1_S ]
+
+          70:  Z=X+Y (P33)
+           1: 82       X Loc [ MA_SMP1_S ]
+           2: 30       Y Loc [ MPA1Ofset ]
+           3: 82       Z Loc [ MA_SMP1_S ]
+
+          71:  Z=X-Y (P35)
+           1: 67       X Loc [ MA_SMP2_T ]
+           2: 59       Y Loc [ MA_SMP2iT ]
+           3: 75       Z Loc [ MA_SMP2dT ]
+
+          72:  Z=X*Y (P36)
+           1: 75       X Loc [ MA_SMP2dT ]
+           2: 33       Y Loc [ MPA2Mult  ]
+           3: 83       Z Loc [ MA_SMP2_S ]
+
+          73:  Z=X+Y (P33)
+           1: 83       X Loc [ MA_SMP2_S ]
+           2: 32       Y Loc [ MPA2Ofset ]
+           3: 83       Z Loc [ MA_SMP2_S ]
+
+          74:  Z=X-Y (P35)
+           1: 68       X Loc [ MA_SMP3_T ]
+           2: 60       Y Loc [ MA_SMP3iT ]
+           3: 76       Z Loc [ MA_SMP3dT ]
+
+          75:  Z=X*Y (P36)
+           1: 76       X Loc [ MA_SMP3dT ]
+           2: 35       Y Loc [ MPA3Mult  ]
+           3: 84       Z Loc [ MA_SMP3_S ]
+
+          76:  Z=X+Y (P33)
+           1: 84       X Loc [ MA_SMP3_S ]
+           2: 34       Y Loc [ MPA3Ofset ]
+           3: 84       Z Loc [ MA_SMP3_S ]
+
+;************Store Initial Temps. for Wicks*******************************
+          77:  Z=X (P31)
+           1: 72       X Loc [ MA_Wic1_T ]
+           2: 64       Z Loc [ MA_Wic1iT ]
+
+          78:  Z=X (P31)
+           1: 73       X Loc [ MA_Wic2_T ]
+           2: 65       Z Loc [ MA_Wic2iT ]
+
+;************Turn On Wick Heaters in Growth Module A**********************
+          79:  Set Port(s) (P20)
+           1: 9010     C8..C5 = nc/low/high/low
+           2: 1199     C4..C1 = high/high/nc/nc
+
+          80:  Do (P86)
+           1: 78       Pulse Port 8
+
+     81:  End (P95)
+
+     82:  If (X<=>F) (P89)
+      1: 110      X Loc [ ASMPCount ]
+      2: 1        =
+      3: 8        F
+      4: 30       Then Do
+
+;***********Turn Off Wick Heaters in Growth Module A**********************
+          83:  Set Port(s) (P20)
+           1: 9010     C8..C5 = nc/low/high/low
+           2: 1099     C4..C1 = high/low/nc/nc
+
+          84:  Do (P86)
+           1: 78       Pulse Port 8
+
+;************Calculate Wick Moistures*************************************
+          85:  Z=X-Y (P35)
+           1: 72       X Loc [ MA_Wic1_T ]
+           2: 64       Y Loc [ MA_Wic1iT ]
+           3: 80       Z Loc [ MA_Wic1dT ]
+
+          86:  Z=X*Y (P36)
+           1: 80       X Loc [ MA_Wic1dT ]
+           2: 43       Y Loc [ WicA1Mult ]
+           3: 88       Z Loc [ MA_Wic1_S ]
+
+          87:  Z=X+Y (P33)
+           1: 88       X Loc [ MA_Wic1_S ]
+           2: 42       Y Loc [ WicA1Oset ]
+           3: 88       Z Loc [ MA_Wic1_S ]
+
+          88:  Z=X-Y (P35)
+           1: 73       X Loc [ MA_Wic2_T ]
+           2: 65       Y Loc [ MA_Wic2iT ]
+           3: 81       Z Loc [ MA_Wic2dT ]
+
+          89:  Z=X*Y (P36)
+           1: 81       X Loc [ MA_Wic2dT ]
+           2: 45       Y Loc [ WicA2Mult ]
+           3: 89       Z Loc [ MA_Wic2_S ]
+
+          90:  Z=X+Y (P33)
+           1: 89       X Loc [ MA_Wic2_S ]
+           2: 44       Y Loc [ WicA2Oset ]
+           3: 89       Z Loc [ MA_Wic2_S ]
+
+;************Store Initial SMP B Temps. in Growth Module A****************
+          91:  Z=X (P31)
+           1: 69       X Loc [ MA_SMP4_T ]
+           2: 61       Z Loc [ MA_SMP4iT ]
+
+          92:  Z=X (P31)
+           1: 70       X Loc [ MA_SMP5_T ]
+           2: 62       Z Loc [ MA_SMP5iT ]
+
+          93:  Z=X (P31)
+           1: 71       X Loc [ MA_SMP6_T ]
+           2: 63       Z Loc [ MA_SMP6iT ]
+
+;************Turn On SMP B Heaters in Growth Module A*********************
+          94:  Set Port(s) (P20)
+           1: 9010     C8..C5 = nc/low/high/low
+           2: 0199     C4..C1 = low/high/nc/nc
+
+          95:  Do (P86)
+           1: 78       Pulse Port 8
+
+     96:  End (P95)
+
+     97:  If (X<=>F) (P89)
+      1: 110      X Loc [ ASMPCount ]
+      2: 1        =
+      3: 12       F
+      4: 30       Then Do
+
+;************Turn Off SMP B Heaters in Growth Module A *******************
+          98:  Set Port(s) (P20)
+           1: 9010     C8..C5 = nc/low/high/low
+           2: 0099     C4..C1 = low/low/nc/nc
+
+          99:  Do (P86)
+           1: 78       Pulse Port 8
+
+;************Calculate SMP B Moistures in Growth Module A*****************
+          100:  Z=X-Y (P35)
+           1: 69       X Loc [ MA_SMP4_T ]
+           2: 61       Y Loc [ MA_SMP4iT ]
+           3: 77       Z Loc [ MA_SMP4dT ]
+
+          101:  Z=X*Y (P36)
+           1: 77       X Loc [ MA_SMP4dT ]
+           2: 37       Y Loc [ MPA4Mult  ]
+           3: 85       Z Loc [ MA_SMP4_S ]
+
+          102:  Z=X+Y (P33)
+           1: 85       X Loc [ MA_SMP4_S ]
+           2: 36       Y Loc [ MPA4Ofset ]
+           3: 85       Z Loc [ MA_SMP4_S ]
+
+          103:  Z=X-Y (P35)
+           1: 70       X Loc [ MA_SMP5_T ]
+           2: 62       Y Loc [ MA_SMP5iT ]
+           3: 78       Z Loc [ MA_SMP5dT ]
+
+          104:  Z=X*Y (P36)
+           1: 78       X Loc [ MA_SMP5dT ]
+           2: 39       Y Loc [ MPA5Mult  ]
+           3: 86       Z Loc [ MA_SMP5_S ]
+
+          105:  Z=X+Y (P33)
+           1: 86       X Loc [ MA_SMP5_S ]
+           2: 38       Y Loc [ MPA5Ofset ]
+           3: 86       Z Loc [ MA_SMP5_S ]
+
+          106:  Z=X-Y (P35)
+           1: 71       X Loc [ MA_SMP6_T ]
+           2: 63       Y Loc [ MA_SMP6iT ]
+           3: 79       Z Loc [ MA_SMP6dT ]
+
+          107:  Z=X*Y (P36)
+           1: 79       X Loc [ MA_SMP6dT ]
+           2: 41       Y Loc [ MPA6Mult  ]
+           3: 87       Z Loc [ MA_SMP6_S ]
+
+          108:  Z=X+Y (P33)
+           1: 87       X Loc [ MA_SMP6_S ]
+           2: 40       Y Loc [ MPA6Ofset ]
+           3: 87       Z Loc [ MA_SMP6_S ]
+
+     109:  End (P95)
+
+     110:  Z=Z+1 (P32)
+      1: 110      Z Loc [ ASMPCount ]
+
+     111:  If (X<=>F) (P89)
+      1: 110      X Loc [ ASMPCount ]
+      2: 1        =
+      3: 13       F
+      4: 30       Then Do
+
+;************Compute the Moisture Average for Growth Module A*************
+          112:  Z=F (P30)
+           1: 0.0      F
+           2: 00       Exponent of 10
+           3: 24       Z Loc [ IntMstAvg ]
+
+          113:  Z=F (P30)
+           1: 0.0      F
+           2: 00       Exponent of 10
+           3: 25       Z Loc [ MstAvgCnt ]
+
+          114:  Z=X (P31)
+           1: 82       X Loc [ MA_SMP1_S ]
+           2: 23       Z Loc [ MoistChec ]
+
+          115:  Do (P86)
+           1: 92       Call Subroutine 92
+
+          116:  Z=X (P31)
+           1: 83       X Loc [ MA_SMP2_S ]
+           2: 23       Z Loc [ MoistChec ]
+
+          117:  Do (P86)
+           1: 92       Call Subroutine 92
+
+          118:  Z=X (P31)
+           1: 84       X Loc [ MA_SMP3_S ]
+           2: 23       Z Loc [ MoistChec ]
+
+          119:  Do (P86)
+           1: 92       Call Subroutine 92
+
+          120:  Z=X (P31)
+           1: 85       X Loc [ MA_SMP4_S ]
+           2: 23       Z Loc [ MoistChec ]
+
+          121:  Do (P86)
+           1: 92       Call Subroutine 92
+
+          122:  Z=X (P31)
+           1: 86       X Loc [ MA_SMP5_S ]
+           2: 23       Z Loc [ MoistChec ]
+
+          123:  Do (P86)
+           1: 92       Call Subroutine 92
+
+          124:  Z=X (P31)
+           1: 87       X Loc [ MA_SMP6_S ]
+           2: 23       Z Loc [ MoistChec ]
+
+          125:  Do (P86)
+           1: 92       Call Subroutine 92
+
+          126:  Z=X/Y (P38)
+           1: 24       X Loc [ IntMstAvg ]
+           2: 25       Y Loc [ MstAvgCnt ]
+           3: 90       Z Loc [ AMoistAvg ]
+
+;************Don't Water if all the Probes are Reading Out of Range*******
+          127:  If (X<=>F) (P89)
+           1: 25       X Loc [ MstAvgCnt ]
+           2: 01       =
+           3: 0        F
+           4: 30       Then Do
+
+               128:  Z=X (P31)
+                1: 21       X Loc [ MoistMax  ]
+                2: 90       Z Loc [ AMoistAvg ]
+
+               129:  Z=X+F (P34)
+                1: 28       X Loc [ PmpErrCnt ]
+                2: 1000     F
+                3: 28       Z Loc [ PmpErrCnt ]
+
+          130:  End (P95)
+
+
+;************Reset SMPCount and Flag 1************************************
+          131:  Z=F (P30)
+           1: 0        F
+           2: 00       Exponent of 10
+           3: 110      Z Loc [ ASMPCount ]
+
+          132:  Do (P86)
+           1: 21       Set Flag 1 Low
+
+     133:  End (P95)
+
+134:  End (P95)
+
+;*************************************************************************
+;            Subroutine 80 is for Watering Module A
+;*************************************************************************
+135:  Beginning of Subroutine (P85)
+ 1: 80       Subroutine 80
+
+;************If the Moisture Average is Too Low **************************
+     136:  If (X<=>Y) (P88)
+      1: 90       X Loc [ AMoistAvg ]
+      2: 4        <
+      3: 104      Y Loc [ MASatLvl  ]
+      4: 30       Then Do
+
+;************Calculate Amount of Water Needed to be Added ****************
+          137:  Z=X-Y (P35)
+           1: 104      X Loc [ MASatLvl  ]
+           2: 90       Y Loc [ AMoistAvg ]
+           3: 105      Z Loc [ MAVolNeed ]
+
+          138:  Z=X*Y (P36)
+           1: 105      X Loc [ MAVolNeed ]
+           2: 22       Y Loc [ WatVolMul ]
+           3: 105      Z Loc [ MAVolNeed ]
+
+;************Set Pump Direction Forward and Turn on Pump in GMA***********
+
+          139:  Do (P86)
+           1: 4        Call Subroutine 4
+
+;************Set Flag 2 to Continually Check to Turn Off Pump*************
+          140:  Do (P86)
+           1: 12       Set Flag 2 High
+
+     141:  End (P95)
+
+142:  End (P95)
+
+;*************************************************************************
+;            Subroutine 92 is for calculating soil moisture average
+;            using only valid moisture measurements.
+;*************************************************************************
+143:  Beginning of Subroutine (P85)
+ 1: 92       Subroutine 92
+
+     144:  If (X<=>Y) (P88)
+      1: 20       X Loc [ MoistMin  ]
+      2: 4        <
+      3: 23       Y Loc [ MoistChec ]
+      4: 30       Then Do
+
+          145:  If (X<=>Y) (P88)
+           1: 23       X Loc [ MoistChec ]
+           2: 4        <
+           3: 21       Y Loc [ MoistMax  ]
+           4: 30       Then Do
+
+               146:  Z=X+Y (P33)
+                1: 24       X Loc [ IntMstAvg ]
+                2: 23       Y Loc [ MoistChec ]
+                3: 24       Z Loc [ IntMstAvg ]
+
+               147:  Z=Z+1 (P32)
+                1: 25       Z Loc [ MstAvgCnt ]
+
+          148:  End (P95)
+
+     149:  End (P95)
+
+150:  End (P95)
+
+
+;*************************************************************************
+;            Subroutine 95 Manages the Output to Final Storage
+;*************************************************************************
+151:  Beginning of Subroutine (P85)
+ 1: 95       Subroutine 95
+
+     152:  Do (P86)
+      1: 10       Set Output Flag High (Flag 0)
+
+     153:  Set Active Storage Area (P80)
+      1: 1        Final Storage Area 1
+      2: 10       Array ID
+
+     154:  Real Time (P77)
+      1: 1110     Year,Day,Hour/Minute (midnight = 0000)
+
+     155:  Sample (P70)
+      1: 1        Reps
+      2: 104      Loc [ MASatLvl  ]
+
+     156:  Sample (P70)
+      1: 8        Reps
+      2: 82       Loc [ MA_SMP1_S ]
+
+     157:  Sample (P70)
+      1: 8        Reps
+      2: 74       Loc [ MA_SMP1dT ]
+
+     158:  Sample (P70)
+      1: 8        Reps
+      2: 66       Loc [ MA_SMP1_T ]
+
+     159:  Sample (P70)
+      1: 4        Reps
+      2: 91       Loc [ MA_O2_1   ]
+
+     160:  Sample (P70)
+      1: 3        Reps
+      2: 106      Loc [ MATotVolP ]
+
+     161:  Sample (P70)
+      1: 5        Reps
+      2: 51       Loc [ MA_Blst_T ]
+
+     162:  Sample (P70)
+      1: 1        Reps
+      2: 57       Loc [ MA_Leaf_T ]
+
+     163:  Sample (P70)
+      1: 1        Reps
+      2: 50       Loc [ MA_RH     ]
+
+     164:  Sample (P70)
+      1: 5        Reps
+      2: 99       Loc [ ARefPress ]
+
+     165:  Sample (P70)
+      1: 1        Reps
+      2: 121      Loc [ AFanTime  ]
+
+     166:  Sample (P70)
+      1: 3        Reps
+      2: 96       Loc [ MA_Top_L  ]
+
+     167:  Sample (P70)
+      1: 1        Reps
+      2: 120      Loc [ ALghtTime ]
+
+     168:  Average (P71)
+      1: 5        Reps
+      2: 2        Loc [ Cabin_T   ]
+
+     169:  Sample (P70)
+      1: 1        Reps
+      2: 90       Loc [ AMoistAvg ]
+
+     170:  Z=F (P30)
+      1: 0        F
+      2: 00       Exponent of 10
+      3: 120      Z Loc [ ALghtTime ]
+
+     171:  Z=F (P30)
+      1: 0        F
+      2: 00       Exponent of 10
+      3: 121      Z Loc [ AFanTime  ]
+
+172:  End (P95)
+
+End Program
+
+-Input Locations-
+1 Program   1 0 1
+2 Cabin_T   1 1 1
+3 Cabin_P   1 1 1
+4 Cabin_RH  1 1 1
+5 Cabin_O2  1 4 4
+6 Cabin_CO2 1 4 4
+7 CR10_RefT 1 0 1
+8 CMRefTemp 1 2 1
+9 DC12Vn_V  1 0 1
+10 DC12Vn_I  1 0 0
+11 DC12Vc_V  1 0 1
+12 DC12Vc_I  1 0 1
+13 DC16V_V   1 0 1
+14 DC16V_I   1 0 1
+15 DC5Vn_V   1 0 1
+16 DC5Vn_I   1 0 1
+17 MinMod60  1 3 1
+18 MinMod20  1 3 1
+19 TimeInHrs 1 2 1
+20 MoistMin  1 1 1
+21 MoistMax  1 2 1
+22 WatVolMul 1 1 1
+23 MoistChec 1 3 6
+24 IntMstAvg 1 2 2
+25 MstAvgCnt 1 2 2
+26 TotVolPmp 1 2 2
+27 MaxPmpVol 1 1 1
+28 PmpErrCnt 1 1 5
+29 PressMult 1 4 4
+30 MPA1Ofset 1 1 1
+31 MPA1Mult  1 1 1
+32 MPA2Ofset 1 1 1
+33 MPA2Mult  1 1 1
+34 MPA3Ofset 1 1 1
+35 MPA3Mult  1 1 1
+36 MPA4Ofset 1 1 1
+37 MPA4Mult  1 1 1
+38 MPA5Ofset 1 1 1
+39 MPA5Mult  1 1 1
+40 MPA6Ofset 1 1 1
+41 MPA6Mult  1 1 1
+42 WicA1Oset 1 1 1
+43 WicA1Mult 1 1 1
+44 WicA2Oset 1 1 1
+45 WicA2Mult 1 1 1
+46 MA_Pump_V 1 3 3
+47 MADC28V_V 1 0 1
+48 MADC28V_I 1 0 1
+49 MADC28V_T 1 0 1
+50 MA_RH     1 1 1
+51 MA_Blst_T 1 1 1
+52 MA_Intk_T 1 1 1
+53 MA_Top_T  1 1 1
+54 MA_Mid_T  1 1 1
+55 MA_Bot_T  1 1 1
+56 MA_Ref_T  1 7 3
+57 MA_Leaf_T 1 1 1
+58 MA_SMP1iT 1 1 1
+59 MA_SMP2iT 1 1 1
+60 MA_SMP3iT 1 1 1
+61 MA_SMP4iT 1 1 1
+62 MA_SMP5iT 1 1 1
+63 MA_SMP6iT 1 1 1
+64 MA_Wic1iT 1 1 1
+65 MA_Wic2iT 1 1 1
+66 MA_SMP1_T 1 3 2
+67 MA_SMP2_T 1 3 2
+68 MA_SMP3_T 1 3 2
+69 MA_SMP4_T 1 3 1
+70 MA_SMP5_T 1 3 1
+71 MA_SMP6_T 1 3 2
+72 MA_Wic1_T 1 4 1
+73 MA_Wic2_T 1 3 2
+74 MA_SMP1dT 1 2 1
+75 MA_SMP2dT 1 2 1
+76 MA_SMP3dT 1 2 1
+77 MA_SMP4dT 1 2 1
+78 MA_SMP5dT 1 2 1
+79 MA_SMP6dT 1 2 1
+80 MA_Wic1dT 1 2 1
+81 MA_Wic2dT 1 2 1
+82 MA_SMP1_S 1 3 2
+83 MA_SMP2_S 1 3 2
+84 MA_SMP3_S 1 3 2
+85 MA_SMP4_S 1 3 2
+86 MA_SMP5_S 1 3 2
+87 MA_SMP6_S 1 3 2
+88 MA_Wic1_S 1 2 2
+89 MA_Wic2_S 1 2 2
+90 AMoistAvg 1 3 2
+91 MA_O2_1   1 10 5
+92 MA_O2_2   1 4 7
+93 MA_O2_3   1 4 7
+94 MA_O2_4   1 4 7
+95 MA_Bubble 1 1 1
+96 MA_Top_L  1 1 1
+97 MA_Mid_L  1 1 2
+98 MA_Bot_L  1 1 2
+99 ARefPress 1 0 1
+100 ATensio_1 1 0 1
+101 ATensio_2 1 0 1
+102 ATensio_3 1 0 1
+103 ATensio_4 1 0 1
+104 MASatLvl  1 3 1
+105 MAVolNeed 1 2 3
+106 MATotVolP 1 3 3
+107 MA_PumpIn 1 8 4
+108 MA_PmpOut 1 1 2
+109 MA_PCount 1 2 2
+110 ASMPCount 1 5 3
+111 AWtrIntvl 1 2 1
+112 ALightsOn 1 1 1
+113 ALightOff 1 1 1
+114 ARead20mn 1 1 1
+115 ARead1Hr  1 1 1
+116 AWrite20m 1 1 1
+117 AWrite1Hr 1 1 1
+118 AManCtrl  1 9 5
+119 AMnCtBits 1 10 3
+120 ALghtTime 1 2 3
+121 AFanTime  1 2 3
+122 ALitOnOff 1 1 3
+123 AFanOnOff 1 1 3
+124 APmp1OnOf 1 2 4
+125 APmp2OnOf 1 0 3
+126 Cabin_O2M 1 1 1
+127 Cabin_O2O 1 1 1
+128 MA_O2_1_M 1 1 1
+129 MA_O2_1_O 1 1 1
+130 MA_O2_2_M 1 1 1
+131 MA_O2_2_O 1 1 1
+132 MA_O2_3_M 1 1 1
+133 MA_O2_3_O 1 1 1
+134 MA_O2_4_M 1 1 1
+135 MA_O2_4_O 1 1 1
+136 Cabn_CO2M 1 1 1
+137 Cabn_CO2O 1 1 1
+138 Press_cal 1 6 1
+139 CA_Wic1_T 1 0 0
+140 CA_Wic2_T 1 0 0
+141 MAWic1_T_ 1 0 0
+142 CA_O2_1   1 0 0
+143 CA_O2_2   1 0 0
+144 CA_O2_3   1 0 0
+145 CA_O2_4   1 0 0
+-Program Security-
+0000
+0000
+0000
+-Mode 4-
+-Final Storage Area 2-
+0
+-CR10X ID-
+0
+-CR10X Power Up-
+3

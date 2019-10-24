@@ -1,0 +1,85 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>CS 5100 Lecture 35 - Greg Jones</TITLE>
+<META NAME="Template" CONTENT="C:\Program Files\Microsoft Office\Templates\Lecture Notes.dot">
+</HEAD>
+<BODY>
+
+<B><I><FONT SIZE=5><P>Drag and Drop, Trees, Image Lists&#9;                                        Lecture 5100.35</P>
+<OL TYPE="A">
+
+</I></FONT><LI>Drag and Drop Basics</LI>
+<OL>
+
+<LI>The simplest version of drag and drop simply provides visual cues as a user selects and drags a visible component on the screen</LI>
+<OL TYPE="a">
+
+<LI>The most obvious cue is a specialized drag cursor, which represents the visible component.  Often it is shaped like the component, with some additional information, like a boxed &quot;+&quot; to indicate that we are performing a copy, or a &quot;NO&quot; symbol, to indicate that dropping is not permitted at the moment.</LI>
+<LI>The cursor should change when over an acceptable drop site.  It may also be wise to highlight the drop site if it is only part of the current window.  For instance, in dragging a file to a toolbar, it could be dropped on the trash can, or into the printer or the e-mail system.  It would be vital to indicate the current drop zone before the user could feel confident in letting go.</LI></OL>
+
+<LI>The more sophisticated version of drag and drop provides data transfer within an application window, between an application’s windows, or between application.</LI>
+<OL TYPE="a">
+
+<LI>In Windows Explorer mode, the data being transferred is just a file name.  The drop site can then open the file, or delete it, or whatever it is supposed to do with a file.</LI>
+<LI>In OLE mode, a portion of the data associated with the visible component is cut or copied and then pasted.  These operations are just like clipboard operations.</LI></OL>
+</OL>
+
+<LI>Image lists for drag and drop operations</LI>
+<OL>
+
+<LI>In order to generate visual cues, we use an image list, of the CImageList class.  The image list is a control, but is not the surrogate for any visible component.  Instead, it is the manager for images, storing them in an &quot;array&quot;. </LI>
+<LI>We usually start with an icon on the screen, although we might also start in an editing application with a selected area.  Such an icon is probably one of several in an ImageList</LI>
+<LI>Image lists can contain:</LI>
+<OL TYPE="a">
+
+<LI>Bitmaps, which are simply Java images.  The can use palettes of various sizes, from two colors to millions.</LI>
+<LI>Icons, which are two bitmaps.  The first is the positive image which will be displayed, and the second is a mask.  The mask takes the place of the &quot;transparent&quot; color in Java.  Where the mask has a 1, the corresponding bitmap pixel is displayed.  Where the mask has a 0, the corresponding background pixel is displayed.</LI>
+<LI>Cursors, which are small, two-color icons</LI></OL>
+
+<LI>Generally, an ImageList contains all bitmaps or all icons.</LI>
+<LI>Bitmaps can be</LI>
+<OL TYPE="a">
+
+<LI>created indirectly from a BITMAP structure</LI>
+<LI>loaded from a resource created with a resource editor (much like Paint) or imported from a file</LI>
+<LI>drawn at run-time</B> <B>by setting bitmap bits </LI></OL>
+
+<LI>Icons could be loaded using, for instance, this code:</LI></OL>
+
+<P>CIcon m_Closed;  // constructs an empty icon</P>
+<P>m_Closed.LoadIcon(IDI_CLOSED); // loads it with a resource</P>
+<LI>Tree Controls</LI>
+<OL>
+
+<LI>A CTreeView has basic CView behavior, plus a GetTreeCtrl function</LI>
+<LI>In a tree control (type CTreeCtrl), InsertItem allows us to create a tree item with a name, two images (these are drawn from an image list associated with the tree view, a generic parameter which can represent anything we want by storing a pointer to another object (like Java’s UserObject), the parent of the item in the tree, and the position of the item with respect to its siblings (first, last, or sorted by name).</LI>
+<LI>The images associated with an item are displayed on the screen, the first one when the item is not selected, and the second when it is selected.</LI>
+<LI>The items’ images are selected by index from an ImageList associated with the tree control.  This list is bound to the tree control by calling the tree control function SetImageList with two arguments, the image list and TVSIL_NORMAL, which indicates that these images are to represent selected and non-selected states.  There is another possible image list which represents other, programmer-defined states.</LI>
+<LI>Before the image list is attached to the tree control, it should have been created to contain icons and loaded with icons.</LI>
+<LI>CreateDragImage creates a drag image list with a single icon in it, built from the current icon representing the item being dragged, with some &quot;graying out&quot;.</LI>
+<LI>Basic tree control creation, expansion, etc. is easy.</LI></OL>
+
+<LI>ImageList operations</LI>
+<OL>
+
+<LI>BeginDrag uses the icon in an image list to create a cursor.  If you are using the tree control, it is the image list created by CreateDragImage.  This icon is displayed along with the current cursor.  If you find this visually confusing, you should hide the current cursor with ShowCursor(false).</LI>
+<LI>DragEnter locks a window and displays the drag image at a specified point in the window, which then owns the cursor.  If you want to drag uniformly throughout an application, then you can give a NULL argument for the window, and get the entire screen as your owning window.</LI>
+<LI>DragMove positions the drag image in the OnMouseMove function.  The position is relative to the point reported in the coordinates of the window which owns the cursor.  If you are trying to drag across visual controls, remember that their OnMouseMove functions must do this.  If you simply create a member variable of type, say, CTreeCtrl, then you have no access to the OnMouseMove function for that class.  Instead, you must create your own class derived from CTreeCtrl and override its OnMouseMove function.</LI>
+<LI>Code to do this, assuming that you have the screen as your owning window:</LI>
+<P>CRect * pRect = new CRect();</P>
+<P>GetWindowRect(pRect);</P>
+<P>point.Offset(pRect-&gt;TopLeft());</P>
+<P>int captionHeight = GetSystemMetrics(SM_CYCAPTION);</P>
+<P>int borderWidth = GetSystemMetrics(SM_CXEDGE);</P>
+<P>point.Offset(borderWidth,captionHeight);</P>
+<FONT SIZE=3><P>m_FileHierarchy.pm_DragImage-&gt;DragMove(point);</P>
+</FONT><LI>DragShowNoLock is an alternative to DragEnter – it is not associated with a window.</LI>
+<LI>DragLeave unlocks the window and hides the image.  This could be done to briefly update a window, after which you could lock it again.</LI>
+<LI>EndDrag releases the temporary drag cursor.</LI>
+<LI>SetDragCursorImage will change the cursor, for instance for entering non-drop zones</LI></OL>
+</OL>
+
+</B></BODY>
+</HTML>

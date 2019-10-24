@@ -1,0 +1,84 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>CS 5100 Lecture 34 - Greg Jones</TITLE>
+<META NAME="Template" CONTENT="C:\Program Files\Microsoft Office\Templates\Lecture.dot">
+</HEAD>
+<BODY>
+
+<B><I><FONT SIZE=5><P>Drawing and Printing                                                                   Lecture 5100.34</P>
+<OL TYPE="A">
+
+</I></FONT><LI>Device Independence</LI>
+<OL>
+
+<LI>One of the difficulties of programming for a variety of hardware platforms is enabling the program to adjust to differences in IO devices, like the size of the screen or the colors or fonts available.</LI>
+<LI>The device context (DC) is used in Visual C++ to bring together all the relevant information about an output device and provide about 175 functions for using that information to tailor output for a specific platform.  With it you can output to both screen and paper.</LI>
+<LI>Specifically, a selection of the CDC functions:</LI>
+<OL TYPE="a">
+
+<LI>MoveTo</LI>
+<LI>LineTo</LI>
+<LI>FillRect (with brush)</LI>
+<LI>FillSolidRect (with solid color)</LI>
+<LI>DrawState ( draw an image with a state indicator like disabled or default)</LI>
+<LI>Ellipse</LI>
+<LI>Rectangle</LI>
+<LI>TextOut (position is upper left of first character)</LI>
+<LI>DrawText (puts text into a rectangle)</LI>
+<LI>GetTextMetrics</LI>
+<LI>GetFontData</LI></OL>
+
+<LI>There are several derived classes, of which CPaintDC is the class you will most often use. Within the CPaintDC constructor and destructor are calls to BeginPaint and EndPaint, which prepare for and terminate window painting at a low level.</LI></OL>
+
+<LI>Painting</LI>
+<OL>
+
+<LI>Displayable objects have a member function called OnPaint, which constructs a paint device context and prepares it for use.  In nonview situations rendering is done in OnPaint, but in view situations it then passes the DC as a parameter to the OnDraw function.  It is the OnDraw function which most nearly corresponds to Java’s paint.</LI>
+<LI>It may be necessary to change the size, or other attributes, of a window before drawing to it.  This is usually done in the PreCreateWindow member function of the view class.  The parameter to this function is a CREATESTRUCT, which contains fields for size, location, and style, such as whether the window can be resized, where scrollbars go, etc.</LI>
+<LI>We can adjust scrollbars (for instance if we are using CScrollView) by calling GetClientRect to return the rectangle representing the client area of the window, then calculating page size and line size to calculate the height of pages.  A call to SetScrollSizes (logical unit type, document size, page size, line size) will determine the size of the elevator (thumb) and the distance moved by an arrow or trough click.</LI>
+<LI>Fonts are specified in structures of type LOGFONT.  Actual fonts of the type CFont are not constructed in the normal fashion.  Instead, we call the CFont member function CreateFontIndirect with the LOGFONT as an argument.  The system will return the closest match to the specifications, and will change the values in LOGFONT to match the actual font delivered.</LI>
+<LI>Fields in the structure include:</LI>
+<OL TYPE="a">
+
+<LI>Height and width in logical units, which are pixels by default, but can be hundreds or thousandths of an inch or centimeter, etc.</LI>
+<LI>Baseline angle and character angle with respect to the baseline.</LI>
+<LI>Weight, e.g., bold, semibold, light, etc.</LI>
+<LI>Flags for family, pitch type, italic, underline, strikethrough, etc.</LI>
+<LI>Character set, like ANSI.</LI>
+<LI>Type face.</LI>
+<LI>Print quality.</LI></OL>
+
+<LI>Once a suitable font is obtained, it should be registered with the device context by calling SelectObject.  This overloaded function can take several different arguments, usually pointers to things like fonts, bitmaps, pens, or brushes.  They return pointers to the previous selected objects, so that we can change the context temporarily, and then return it to its original state.</LI>
+<LI>Pens are used for drawing lines, while brushes are used for filling areas, typically with some pattern drawn in the foreground color.  The patterns are solid, vertical or horizontal or diagonal lines, or crosshatches.</LI>
+<LI>The Invalidate function, which triggers drawing, takes a boolean argument.  If missing, it defaults to TRUE.  This indicates whether the window is to be painted to background before drawing.</LI></OL>
+
+<LI>Printing</LI>
+<OL>
+
+<LI>Printing services are set up, if we ask for it, in normal code generation.  This includes File menu entries for Print, Print Setup, Print Preview.  Since print preview displays just what will be seen on paper, it is a good way to debug programs before actually printing.</LI>
+<LI>So long as the data to be printed does not exceed one page in size, nothing more needs to be done.  However, if there will be multiple pages, a number of steps need to be followed.</LI>
+<LI>You may be surprised to find that the size of printed objects is considerably different than that of the same objects displayed on the screen.  This is because the default units of pixels are in use, and printers usually have a far higher resolution than screens.  To avoid this, select other units, like hundredths of an inch (MM_LOENGLISH), using the SetMapMode function.  Then measurements will be equal in both media.</LI>
+<LI>Unfortunately, the coordinate system associated with low English units reverses the y axis, so that point Y-coordinates get smaller as they go downward. In fact, the default origin is in the upper left corner, and all points are positive x and negative y.</LI>
+<LI>Steps for printing multiple pages:</LI>
+<OL TYPE="a">
+
+<LI>In OnBeginPrinting (activated just before beginning to display data) call the SetMaxPage member function of the print information class with the number of pages as an argument.</LI>
+<LI>In OnPrepareDC (activated just before display a page or screen of data) call SetViewportOrg with the x and y coordinates of the current page origin.  However, this command should be guarded by the condition DC.IsPrinting(), since the function is also called when displaying on a screen, and we wouldn’t want to relocate the origin in that case.</LI></OL>
+
+<LI>The general pattern of calls when printing is:</LI>
+<OL TYPE="a">
+
+<LI>Use OnBeginPrinting to create resources, like fonts, and set number of pages.</LI>
+<LI>Use OnDraw to display data (on a page, in a print preview window, or a regular window).</LI>
+<LI>Use OnEndPrinting to release any resources created in OnBeginPrinting.</LI>
+<LI>Use OnPrepareDC to modify the device context while displaying or printing.</LI>
+<LI>Use OnPreparePrinting to set maximum page count.</LI>
+<LI>Use OnPrint to output things like headers or footers before drawing a page.  Since the default function definition calls OnDraw, it’s possible to override OnPrint to do specialized printing, bypassing OnDraw by refusing to call the parent OnPrint routine.</LI>
+<LI>The sequence is: OnPreparePrinting, OnBeginPrinting, loop through pages with calls to OnPrepareDC and OnPrint for each one, then OnEndPrinting.</LI></OL>
+
+<LI>The argument to OnPreparePrinting is a CPrintInfo structure.  A call to the various set and get functions allows control of maximum and minimum number of pages, the range of pages to be printed, the current page being printed, whether printing is to a page or a preview window, and control over the printing process itself.</LI></OL>
+</OL>
+</B></BODY>
+</HTML>

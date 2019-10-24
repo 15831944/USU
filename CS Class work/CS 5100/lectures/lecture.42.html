@@ -1,0 +1,154 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>CS 5100 Lecture 42 - Greg Jones</TITLE>
+<META NAME="Template" CONTENT="C:\Program Files\Microsoft Office\Templates\Lecture Notes.dot">
+</HEAD>
+<BODY>
+
+<B><I><FONT SIZE=5><P>Motif&#9;Lecture 5100.42</P>
+<OL TYPE="A">
+
+</I></FONT><LI>Basic concepts of the X windows system</LI>
+<OL>
+
+<LI>The goal of X windows is to provide a standard, consistent, graphics-oriented terminal interface which can:</LI>
+<OL TYPE="a">
+
+<LI>Work across networks;</LI>
+<LI>Connect to machines not intended to support those terminals;</LI>
+<LI>Permit customization (font, color, keyboard, etc.);</LI>
+<LI>Support localization (languages, writing direction, character sets, etc.)</LI></OL>
+
+<LI>In X windows interactions, a client application typically runs on another machine (although it may be the local machine), while the local machine acts as the X server.  This reverses the typical client-server identification.</LI>
+<LI>An X server manages a single display, but the display could have many screens.</LI>
+<LI>The elements of an X display are a processor, memory, a bit-mapped screen, a keyboard, and a pointing device (mouse).</LI>
+<LI>Characteristics of windows under X:</LI>
+<OL TYPE="a">
+
+<LI>They are unadorned (no border, title, etc.) rectangular areas on the screen;</LI>
+<LI>All the windows on the screen form a hierarchy, or tree, with the root window at the bottom;</LI>
+<LI>Each window is responsible for managing the geometry of its children, and the children will be clipped if their borders extend beyond the borders of the parent;</LI>
+<LI>Windows may partially or completely cover each other, according to the current stacking order, with the top window in the stacking order occluding others which it covers.</LI></OL>
+
+<LI>The X server has the responsibility of noticing all input events and informing through messages the various client applications of events in which they have expressed interest.  This network communication is done in the language of the X protocol.  The applications, in turn, send messages back to cause output events resulting in changes to the windows.</LI>
+<LI>Perhaps the most important client is the window manager, which deals with issues like moving, resizing, minimizing, restoring, and closing windows.</LI>
+<LI>X windows only provides mechanisms, but never policies, to determine how windows are used.  The policies are imposed by the applications, style guides, and especially the window managers.</LI>
+<LI>Straight X programming is like assembly language programming.  The authors of X recognized this, and also provided a set of functions useful in creating generic components, called widgets.  These widgets can incorporate common behaviors, and thus permit programmers to reuse such objects with very little effort.  These functions are called the X toolkit (Xt) intrinsics.</LI></OL>
+
+<LI>Motif</LI>
+<OL>
+
+<LI>The X windows system actually provides very few widgets, but rather the tools necessary to create and use widgets.  Motif expands on this and consists of several parts:</LI>
+<OL TYPE="a">
+
+<LI>Many classes of useful widgets, which are organized in typical inheritance hierarchies;</LI>
+<LI>The user interface language (UIL), which is a declarative widget programming language;</LI>
+<LI>The Motif resource manager, which makes it easy to manage the data members and behaviors of widgets;</LI>
+<LI>A style, &quot;look and feel&quot;, and set of policies characteristic of Motif, and OSF compliant GUI’s.</LI></OL>
+
+<LI>The architecture of an entire Motif based system uses software built from various sources, running on two independent systems, and communicating via a protocol over a network.</LI>
+<LI>A Motif application tries to be as modeless as possible; i.e., the user is given as much control of the execution thread as possible.  This means that, unlike traditional applications, Motif applications release control to the user, and are only reactivated by the callback mechanism in response to user-generated input events.</LI></OL>
+
+<LI>Typical Applications</LI>
+<OL>
+
+<LI>C code files follow a very standard format.  </LI>
+<OL TYPE="a">
+
+<LI>Declare callback routines.  These describe what the application will do in response to user input events.</LI>
+<LI>Initialize the resource manager.  This will make it possible to manage widgets easily, especially those which are separately created via UIL.</LI>
+<LI>Initialize the application, creating a top-level widget (shell) from which all the rest will grow, and establishing the context, options, and settings. </LI></OL>
+
+<LI>UIL code describes the visible widgets.  UIL source files are somewhat similar to Visual C++ resource files.  They are compiled by the uil compiler into the binary uid (user interface description) files.</LI></OL>
+
+<LI>Simple Editor Example (download makefile, mtest1.c, mtest1.uil)</LI>
+<LI>XtAppInitialize and the application shell</LI>
+<OL>
+
+<LI>Every application requires a shell.  This widget provides the window which is decorated with a border by the window manager.</LI>
+<LI>The application shell has no other visible presence.</LI>
+<LI>If we want the shell to be able to resize itself according to the needs of its children (the application widgets) then we should set the XmnAllowShellResize resource to be true.  Shell resources are set in an arglist, which is passed as an argument to the XtAppinItialize function.</LI>
+<LI>The XtAppinItialize function initializes the toolkit, sets resource values, and creates the application shell.  It is called only once, at the beginning of the C code.</LI>
+<LI>The arguments of the XtAppinItialize function are:</LI>
+<OL TYPE="a">
+
+<LI>The application context, which is produced by the function and given to the application programmer.  This context is an <U>opaque pointer</U> or id number which may be needed for other Xt calls in the future.</LI>
+<LI>The application class name, provided by the application programmer and used by the function to determine the name of the application resource file, which contains customization information.  The resource file is something like a windows .INI file.</LI>
+<LI>The command line options descriptor list, and the number of items in that list.  This permits the function to recognize command line options and set the appropriate variable values for these application resources.</LI>
+<LI>The command line (argv) and the number of tokens on it (argc).  These are modified by the function, as it removes recognized X and Motif resources, as well as the application resources identified in c above, from the list.</LI>
+<LI>A list of fallback resources and values.  These are used in case the application resource file is missing, to set vital resources that should be found in it.</LI>
+<LI>An arglist and count, to hard code shell resources.</LI></OL>
+
+<LI>The function returns the application shell widget as a value.</LI></OL>
+
+<LI>Laying out the UIL-created visible widgets.</LI>
+<OL>
+
+<LI>Motif applications usually make an XmMainWindow widget the first-level child of the shell and the top-level visible widget of the application.  It provides a standard layout, allowing a menu bar, a command window, a work region, a message window, and scroll bars.  These are all optional.  The work area is for additional user interaction.</LI>
+<LI>The UIL code includes a set of values, which in this case are strings used as labels for menu entries.  These are compound strings (or Motif strings) and are more complex that regular strings (null character terminated arrays of char).  All labels have to be compound strings.  The UIL function compound_string converts regular strings into compound strings.</LI>
+<LI>A variety of widgets, declared as UIL objects, are listed in hierarchical order.  All objects have to have a type listed.  Notice that each object can have associated arguments (resource settings) and callbacks.  Those objects which are not leaves of the widget tree also have a controls section, which lists the children.  Think of resources as primitive data members, controls as object members, and callbacks as event-handling function members.</LI>
+<LI>The work region (not to be confused with an XmWorkArea widget) in this case is a text widget, with no children.  In subsequent prototypes a variety of children will be placed in a form.  The form widget has the capability of maintaining the relative position and size of its children, even when one of them is resized.  The form itself always makes its own size as small as it can be while still containing its children.  This is called &quot;shrink wrapping&quot;.  Since the form has no children, if we permitted it to use its default height and width resource settings of 0, then it would shrink wrap down to nothing.</LI></OL>
+
+<LI>Making the UIL-defined hierarchy appear.</LI>
+<OL>
+
+<LI>After a call to MrmInitialize, the Motif resource manager is ready.  So we call MrmOpenHierarchy to locate the hierarchies listed in various uid files.  This is the only point at which we have multiple UIL modules listed.  The function has the following arguments:</LI>
+<OL TYPE="a">
+
+<LI>Number of uid files to open</LI>
+<LI>Names of uid files to open</LI>
+<LI>Ancillary list, which is usually null.</LI>
+<LI>The identifier of the hierarchy list, which is returned to the programmer by the function for later use.  The function returns a status, indicating success or failure of the operation.</LI></OL>
+
+<LI>Next we fetch our only UIL hierarchy by calling MrmFetchWidget.  The arguments are:</LI>
+<OL TYPE="a">
+
+<LI>The hierarchy list id, obtained in the last call.</LI>
+<LI>The name of the root of the hierarchy; in this case our main window widget.</LI>
+<LI>An id of the parent widget; in this case the application shell.</LI>
+<LI>A C declared widget id variable, into which the function will put a pointer to the root widget of the hierarchy.</LI>
+<LI>A C declared widget class variable, into which the function will put a value indicating the class of the root widget of the hierarchy.</LI></OL>
+
+<LI>When a widget or a hierarchy has been fetched, the widgets are still largely independent.  It requires a call to XtManageChild to have the parent of the hierarchy actually take charge of managing the geometry of the widget and its children.</LI>
+<LI>Even when managed, children widgets do not have all the resources they will need, including a window and memory space.  These resources are allocated during the call to XtRealizeWidget.</LI>
+<LI>Unless the widget attribute XmnMappedWhenManaged is true, the widget will still not appear on the screen.  This would require an additional call to XtMapWidget.  However, most widgets have a default value of true for XmnMappedWhenManaged.</LI></OL>
+
+<LI>There are a number of different X drawing routines.  Generally, they require as arguments a display pointer, a drawable (either window or pixmap in memory) to draw to, a graphics context, and a rectangle within the window in which to draw.  The last is specified by the x and y coordinates of the upper left corner, as well as be height and width.</LI><OL>
+
+<OL TYPE="a">
+
+<LI>XDrawPoint (no height or width)</LI>
+<LI>XDrawLine (two pairs of coordinates, no height or width)</LI>
+<LI>XDrawRectangle</LI>
+<LI>XFillRectangle (misses the left and bottom rows)</LI>
+<LI>XDrawArc (also requires starting angle and arc length measured in 64ths of a degree).  The rectangle aspect makes circles into ellipses, but distorts angles.</LI>
+<LI>XFillArc ( misses some pixels)</LI>
+<LI>XDrawString (x and y coordinates are of the baseline, requires a simple string and its length)</LI>
+<LI>XDrawImageString (draws text with background and foreground, producing highlight effect)</LI></OL>
+</OL>
+
+<LI>Callbacks</LI>
+<OL>
+
+<LI>Callbacks do the major work of the application.  They are called in response to user generated events, detected in the application main loop routine.</LI>
+<LI>We may declare a whole list of routines as joint callbacks for a single event.  However, the fact that the order in which they are called is non-deterministic makes groups of little value.</LI>
+<LI>When we want to use a common callback to respond to a variety of events, then we pass information through the tag to allow the callback routine to determine the kind of event that occurred.  The tag is a generic pointer, and can be used to pass any kind of information</LI>
+<LI>The other two callback arguments are standard</LI>
+<OL TYPE="a">
+
+<LI>The id of the widget where the event occurred.</LI>
+<LI>A callback structure which gives additional, useful information about the event.  Each widget’s callback structure has a common part, giving the reason for the callback, and the X event structure.  Beyond that, each widget has additional callback structure fields which carry customized information for that widget class.</LI></OL>
+
+<LI>Callback routines always run to completion in the foreground.  Occasionally, callback execution may cause a recursive re-call of the callback while the first call is still active.  As is generally the case with recursion, we must be careful about static global and local data.</LI>
+<LI>Callback organization can become a significant problem in large applications.  The need is to organize the hundreds of callbacks logically.</LI>
+<OL TYPE="a">
+
+<LI>Functional organization is one alternative.  For instance, creating a single &quot;create&quot; callback to satisfy all widgets.  The specific widget being created is indicated by the tag value.  This makes for non-modular code; whenever we create a new widget, we may need to modify many different callbacks to include tag and processing information for the new widget.</LI>
+<LI>Object-oriented organization is also possible.  One callback routine is used per widget.  Now the tag is used to indicate the kind of event that occurred.  This is much more modular, but may require additional effort to avoid duplicating code among different callback functions which perform similar operations.</LI>
+<LI>Mixed organization is free use of both the techniques above.</LI></OL>
+</OL>
+</OL>
+</B></BODY>
+</HTML>

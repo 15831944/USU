@@ -1,0 +1,196 @@
+BODY
+{
+    BACKGROUND-COLOR: #4682b4;
+    BACKGROUND-IMAGE: none;
+    BACKGROUND-REPEAT: repeat;
+    COLOR: #000000;
+    FONT-FAMILY: arial;
+    FONT-SIZE: 11pt;
+    FONT-WEIGHT: bold
+}
+H1
+{
+    COLOR: #ffffff;
+    FONT-FAMILY: arial;
+    FONT-SIZE: 14pt;
+    FONT-WEIGHT: bold;
+    TEXT-ALIGN: center
+}
+H2
+{
+    COLOR: #000000;
+    FONT-FAMILY: arial;
+    FONT-SIZE: 11px;
+    FONT-WEIGHT: normal;
+    text: align: center
+}
+P.head
+{
+    COLOR: #000000;
+    FONT-FAMILY: arial;
+    FONT-SIZE: 16pt;
+    FONT-WEIGHT: bold;
+    TEXT-ALIGN: center
+}
+P.first
+{
+    COLOR: black;
+    FONT-FAMILY: arial;
+    FONT-SIZE: 14px;
+    FONT-WEIGHT: bold;
+    TEXT-ALIGN: center
+}
+P.second
+{
+    COLOR: black;
+    FONT-FAMILY: arial;
+    FONT-SIZE: 14px;
+    FONT-WEIGHT: bold;
+    TEXT-ALIGN: left
+}
+P.third
+{
+    COLOR: black;
+    FONT-FAMILY: arial;
+    FONT-SIZE: 11px;
+    TEXT-ALIGN: left
+}
+P.fourth
+{
+    COLOR: #000000;
+    FONT-FAMILY: arial;
+    FONT-SIZE: 10pt;
+    FONT-WEIGHT: bold;
+    TEXT-ALIGN: left
+}
+P.presentscreen
+{
+    COLOR: black;
+    FONT-FAMILY: Arial, Verdana, Helvetica, Helv;
+    FONT-SIZE: 12px;
+    FONT-WEIGHT: bold;
+    TEXT-DECORATION: none
+}
+DIV.clTop
+{
+    COLOR: black;
+    FONT-FAMILY: arial;
+    FONT-SIZE: 12px;
+    FONT-WEIGHT: bold;
+    POSITION: absolute;
+    TEXT-DECORATION: none;
+    WIDTH: 170px
+}
+DIV.clSub
+{
+    LEFT: 10px;
+    POSITION: absolute;
+    WIDTH: 170px
+}
+#divCont
+{
+    HEIGHT: 900px;
+    LEFT: 0px;
+    POSITION: relative;
+    TOP: 0px;
+    WIDTH: 170px
+}
+A.clMain
+{
+    COLOR: black;
+    FONT-FAMILY: Arial, Verdana, Helvetica, Helv;
+    FONT-SIZE: 12px;
+    FONT-WEIGHT: bold;
+    TEXT-DECORATION: none
+}
+A.clSubb
+{
+    COLOR: black;
+    FONT-FAMILY: Arial, Verdana, Helvetica, Helv;
+    FONT-SIZE: 12px;
+    TEXT-DECORATION: none
+}
+A.clMenu
+{
+    COLOR: black;
+    FONT-FAMILY: Arial, Verdana, Helvetica, Helv;
+    FONT-SIZE: 12px;
+    FONT-WEIGHT: bold;
+    TEXT-DECORATION: underline
+}
+A.line
+{
+    COLOR: black;
+    FONT-FAMILY: Arial, Verdana, Helvetica, Helv;
+    FONT-SIZE: 10px;
+    TEXT-DECORATION: underline
+}
+A.clDrop
+{
+    COLOR: black;
+    FONT-FAMILY: Arial, Verdana, Helvetica, Helv;
+    FONT-SIZE: 10px;
+    TEXT-DECORATION: none
+}
+A.init
+{
+    COLOR: #cc3333;
+    FONT-FAMILY: Arial, Verdana, Helvetica, Helv;
+    FONT-SIZE: 12px;
+    FONT-WEIGHT: bold;
+    TEXT-DECORATION: underline
+}
+A.over
+{
+    COLOR: yellow;
+    FONT-FAMILY: Arial, Verdana, Helvetica, Helv;
+    FONT-SIZE: 14px;
+    FONT-WEIGHT: bold;
+    TEXT-DECORATION: none
+}
+A.sub
+{
+    COLOR: yellow;
+    FONT-FAMILY: Arial, Verdana, Helvetica, Helv;
+    FONT-SIZE: 9px;
+    TEXT-DECORATION: none
+}
+A.blacklink
+{
+    COLOR: black;
+    TEXT-DECORATION: none
+}
+A.blackline
+{
+    COLOR: black;
+    TEXT-DECORATION: underline
+}
+#divMain
+{
+    POSITION: absolute
+}
+TD.first
+{
+    COLOR: #000000;
+    FONT-FAMILY: arial;
+    FONT-SIZE: 8pt;
+    FONT-WEIGHT: normal;
+    TEXT-ALIGN: center
+}
+INPUT.first
+{
+    COLOR: #000000;
+    FONT-FAMILY: arial;
+    FONT-SIZE: 8pt;
+    FONT-WEIGHT: normal;
+    TEXT-ALIGN: left;
+    WIDTH: 160px
+}
+FONT.first
+{
+    COLOR: darkgray;
+    FONT-FAMILY: Arial, Verdana, Helvetica, Helv;
+    FONT-SIZE: 12px;
+    FONT-WEIGHT: bold;
+    TEXT-DECORATION: none
+}

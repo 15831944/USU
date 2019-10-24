@@ -1,0 +1,11 @@
+Line 14: Class MSComCtl2.FlatScrollBar of control VScroll1 was not a loaded control class.
+Line 26: Class MSComCtl2.FlatScrollBar of control HScroll1 was not a loaded control class.
+Line 20: The property name _ExtentX in VScroll1 is invalid.
+Line 21: The property name _ExtentY in VScroll1 is invalid.
+Line 22: The property name _Version in VScroll1 is invalid.
+Line 24: The property name Orientation in VScroll1 is invalid.
+Line 32: The property name _ExtentX in HScroll1 is invalid.
+Line 33: The property name _ExtentY in HScroll1 is invalid.
+Line 34: The property name _Version in HScroll1 is invalid.
+Line 36: The property name Arrows in HScroll1 is invalid.
+Line 37: The property name Orientation in HScroll1 is invalid.

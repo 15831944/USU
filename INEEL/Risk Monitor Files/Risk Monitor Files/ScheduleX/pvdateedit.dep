@@ -1,0 +1,36 @@
+
+; Dependency file for VB setup wizards.
+; make sure that all version numbers
+; match the OCX version number
+
+[version]
+Version=8.0.3.2
+
+; Dependencies for pvdateedit.ocx
+
+; Default Dependencies ----------------------------------------------
+
+[pvdateedit.ocx]
+Dest=$(WinSysPath)
+Register=$(DLLSelfRegister)
+Version=8.0.3.2
+Uses1=MFC42.dll
+Uses2=MSVCRT.dll
+Uses3=OlePro32.dll
+
+[MFC42.dll]
+Register=$(DLLSelfRegister)
+Dest=$(WinSysPathSysFile)
+Uses1=OlePro32.dll
+Uses2=MSVCRT.dll
+CABFileName=MFC42.cab
+CABDefaultURL=http://activex.microsoft.com/controls/vc
+CABRunFile=MFC42.exe -Q
+
+[MSVCRT.dll]
+Dest=$(WinSysPathSysFile)
+Register=$(DLLSelfRegister)
+
+[OlePro32.dll]
+Dest=$(WinSysPathSysFile)
+Register=$(DLLSelfRegister)

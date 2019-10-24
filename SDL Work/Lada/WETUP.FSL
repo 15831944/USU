@@ -1,0 +1,62 @@
+Final Storage Label File for:  WETUP.CSI
+Date:  6/8/2001
+Time:  06:44:53
+
+11 Output_Table   5.00 Sec
+1 11 L
+2 Year_RTM  L
+3 Day_RTM  L
+4 Hour_Minute_RTM  L
+5 MA_SMP1_S  L
+6 MA_SMP2_S  L
+7 MA_SMP3_S  L
+8 MA_SMP4_S  L
+9 MA_SMP5_S  L
+10 MA_SMP6_S  L
+11 MA_Wic1_S  L
+12 MA_Wic2_S  L
+13 MA_SMP1dT  L
+14 MA_SMP2dT  L
+15 MA_SMP3dT  L
+16 MA_SMP4dT  L
+17 MA_SMP5dT  L
+18 MA_SMP6dT  L
+19 MA_Wic1dT  L
+20 MA_Wic2dT  L
+21 MA_SMP1_T  L
+22 MA_SMP2_T  L
+23 MA_SMP3_T  L
+24 MA_SMP4_T  L
+25 MA_SMP5_T  L
+26 MA_SMP6_T  L
+27 MA_Wic1_T  L
+28 MA_Wic2_T  L
+29 MA_O2_1  L
+30 MA_O2_2  L
+31 MA_O2_3  L
+32 MA_O2_4  L
+33 MATotVolP  L
+34 MA_Blst_T  L
+35 MA_Intk_T  L
+36 MA_Top_T  L
+37 MA_Mid_T  L
+38 MA_Bot_T  L
+39 MA_Leaf_T  L
+40 MA_RH  L
+41 ARefPress  L
+42 ATensio_1  L
+43 ATensio_2  L
+44 ATensio_3  L
+45 ATensio_4  L
+46 MA_Top_L  L
+47 MA_Mid_L  L
+48 MA_Bot_L  L
+49 Cabin_T_AVG  L
+50 Cabin_P_AVG  L
+51 Cabin_RH_AVG  L
+52 Cabin_O2_AVG  L
+53 Cabin_CO2_AVG  L
+54 AMoistAvg  L
+
+
+Estimated Total Final Storage Locations used per day 933120.0

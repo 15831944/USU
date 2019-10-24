@@ -1,0 +1,250 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./Specification_files/filelist.xml">
+<title>CS 5100 - Spring, 2002 - Greg Jones</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Greg Jones</o:Author>
+  <o:LastAuthor>Greg Jones</o:LastAuthor>
+  <o:Revision>2</o:Revision>
+  <o:TotalTime>13</o:TotalTime>
+  <o:Created>2002-01-16T23:12:00Z</o:Created>
+  <o:LastSaved>2002-01-16T23:12:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>297</o:Words>
+  <o:Characters>1695</o:Characters>
+  <o:Company>Utah State University</o:Company>
+  <o:Lines>14</o:Lines>
+  <o:Paragraphs>3</o:Paragraphs>
+  <o:CharactersWithSpaces>2081</o:CharactersWithSpaces>
+  <o:Version>9.3821</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:DisplayHorizontalDrawingGridEvery>0</w:DisplayHorizontalDrawingGridEvery>
+  <w:DisplayVerticalDrawingGridEvery>0</w:DisplayVerticalDrawingGridEvery>
+  <w:UseMarginsForDrawingGridOrigin/>
+  <w:Compatibility>
+   <w:FootnoteLayoutLikeWW8/>
+   <w:ShapeLayoutLikeWW8/>
+   <w:AlignTablesRowByRow/>
+   <w:ForgetLastTabAlignment/>
+   <w:LayoutRawTableWidth/>
+   <w:LayoutTableRowsApart/>
+  </w:Compatibility>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:"MS Mincho";
+	panose-1:0 0 0 0 0 0 0 0 0 0;
+	mso-font-alt:"\FF2D\FF33 \660E\671D";
+	mso-font-charset:128;
+	mso-generic-font-family:roman;
+	mso-font-format:other;
+	mso-font-pitch:fixed;
+	mso-font-signature:1 134676480 16 0 131072 0;}
+@font-face
+	{font-family:"\@MS Mincho";
+	panose-1:0 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:128;
+	mso-generic-font-family:roman;
+	mso-font-format:other;
+	mso-font-pitch:fixed;
+	mso-font-signature:1 134676480 16 0 131072 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoPlainText, li.MsoPlainText, div.MsoPlainText
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 66.0pt 1.0in 66.0pt;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+</head>
+
+<body lang=EN-US style='tab-interval:.5in'>
+
+<div class=Section1>
+
+<p class=MsoPlainText><span style='mso-fareast-font-family:"MS Mincho"'>CS 5100
+- Spring, 2002 - Greg Jones<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='mso-fareast-font-family:"MS Mincho"'>Assignment
+1<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='mso-fareast-font-family:"MS Mincho"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='mso-fareast-font-family:"MS Mincho"'>You
+will implement a simple &quot;complete the square&quot; game.<span
+style="mso-spacerun: yes">  </span>It will allow<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='mso-fareast-font-family:"MS Mincho"'>two
+players to select sides.<span style="mso-spacerun: yes">  </span>After each
+selection, if a player completes<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='mso-fareast-font-family:"MS Mincho"'>a
+square, then that player can continue to select another side.<span
+style="mso-spacerun: yes">  </span>If the<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='mso-fareast-font-family:"MS Mincho"'>player
+doesn’t complete a square, then the other player will get to select<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='mso-fareast-font-family:"MS Mincho"'>a side
+next.<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='mso-fareast-font-family:"MS Mincho"'>Basic
+graphical display of the game<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='mso-fareast-font-family:"MS Mincho"'><span
+style="mso-spacerun: yes">    </span>1. The display will show:<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='mso-fareast-font-family:"MS Mincho"'><span
+style="mso-spacerun: yes">        </span>a window completely filled with a
+scoring area and a game area<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='mso-fareast-font-family:"MS Mincho"'><span
+style="mso-spacerun: yes">        </span>the scoring area will have labels for
+Player 1 and Player 2, <o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='mso-fareast-font-family:"MS Mincho"'><span
+style="mso-spacerun: yes">            </span>and text fields for their scores;
+(6 points)<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='mso-fareast-font-family:"MS Mincho"'><span
+style="mso-spacerun: yes">        </span>the game area will be a 3x3 matrix of
+squares. (15 points)<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='mso-fareast-font-family:"MS Mincho"'><span
+style="mso-spacerun: yes">    </span>2. The cursor will be the standard arrow
+except over the<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='mso-fareast-font-family:"MS Mincho"'><span
+style="mso-spacerun: yes">        </span>sides, where it will be a hand. (9
+points)<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='mso-fareast-font-family:"MS Mincho"'>Basic
+function of the game<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='mso-fareast-font-family:"MS Mincho"'><span
+style="mso-spacerun: yes">    </span>1. Any unselected side can be selected by
+a single click:<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='mso-fareast-font-family:"MS Mincho"'><span
+style="mso-spacerun: yes">        </span>it will then change to another color;
+(6 points)<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='mso-fareast-font-family:"MS Mincho"'><span
+style="mso-spacerun: yes">        </span>it will no longer respond to clicks;
+(9 points)<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='mso-fareast-font-family:"MS Mincho"'><span
+style="mso-spacerun: yes">        </span>its cursor will become the standard
+arrow. (6 points)<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='mso-fareast-font-family:"MS Mincho"'><span
+style="mso-spacerun: yes">    </span>2. Selection of a fourth side to a square
+will result in:<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='mso-fareast-font-family:"MS Mincho"'><span
+style="mso-spacerun: yes">        </span>a change in the color of the square
+indicating which player made<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='mso-fareast-font-family:"MS Mincho"'><span
+style="mso-spacerun: yes">            </span>the move which completed the
+square; (12 points)<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='mso-fareast-font-family:"MS Mincho"'><span
+style="mso-spacerun: yes">        </span>an increment in the score of that
+player.<span style="mso-spacerun: yes">  </span>If a single selection<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='mso-fareast-font-family:"MS Mincho"'><span
+style="mso-spacerun: yes">            </span>completes two squares, two squares
+will be colored the same and <o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='mso-fareast-font-family:"MS Mincho"'><span
+style="mso-spacerun: yes">            </span>two points will be given. (10
+points)<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='mso-fareast-font-family:"MS Mincho"'>Pleasing
+appearance<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='mso-fareast-font-family:"MS Mincho"'><span
+style="mso-spacerun: yes">    </span>1. Squares, labels, and text fields should
+be of uniform size. (5 points)<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='mso-fareast-font-family:"MS Mincho"'><span
+style="mso-spacerun: yes">    </span>2. Colors should not be garish. (3 points)<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='mso-fareast-font-family:"MS Mincho"'><span
+style="mso-spacerun: yes">    </span>3. Proportions should not be strange.<span
+style="mso-spacerun: yes">  </span>In particular, squares should be<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='mso-fareast-font-family:"MS Mincho"'><span
+style="mso-spacerun: yes">        </span>actually square. (9 points)<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='mso-fareast-font-family:"MS Mincho"'>Ease of
+use and understanding<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='mso-fareast-font-family:"MS Mincho"'><span
+style="mso-spacerun: yes">    </span>1. The game should not have any additional
+menus, buttons, shortcuts, or<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='mso-fareast-font-family:"MS Mincho"'><span
+style="mso-spacerun: yes">        </span>other elements that need to be
+used.<span style="mso-spacerun: yes">  </span>The only user action should be<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='mso-fareast-font-family:"MS Mincho"'><span
+style="mso-spacerun: yes">        </span>the clicking of the mouse over a side.
+(4 points)<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='mso-fareast-font-family:"MS Mincho"'>Specified
+elements<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='mso-fareast-font-family:"MS Mincho"'><span
+style="mso-spacerun: yes">    </span>1. When all the squares have been colored,
+no further action is possible<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='mso-fareast-font-family:"MS Mincho"'><span
+style="mso-spacerun: yes">        </span>except to click the close button at
+the upper right of the window<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='mso-fareast-font-family:"MS Mincho"'><span
+style="mso-spacerun: yes">        </span>frame.<span style="mso-spacerun:
+yes">  </span>At that point the game can be terminated by closing the window,<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='text-indent:.5in'><span style='mso-fareast-font-family:
+"MS Mincho"'><span style="mso-spacerun: yes">  </span>with no confirmation
+dialog. (6 points)<o:p></o:p></span></p>
+
+</div>
+
+</body>
+
+</html>

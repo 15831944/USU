@@ -1,0 +1,48 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: BitmapButtonTest - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x409 /fo"Release/BitmapButtonTest.res" /d "NDEBUG" /d "_AFXDLL" "C:\Program Files\Microsoft Visual Studio\Common\MSDev98\Bin\BitmapButtonTest\BitmapButtonTest.rc"" 
+Creating temporary file "c:\windows\TEMP\RSP1D0.TMP" with contents
+[
+/nologo /MD /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Release/BitmapButtonTest.pch" /Yu"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"C:\Program Files\Microsoft Visual Studio\Common\MSDev98\Bin\BitmapButtonTest\BitmapButtonTest.cpp"
+"C:\Program Files\Microsoft Visual Studio\Common\MSDev98\Bin\BitmapButtonTest\BitmapButtonTestDlg.cpp"
+]
+Creating command line "cl.exe @c:\windows\TEMP\RSP1D0.TMP" 
+Creating temporary file "c:\windows\TEMP\RSP01D1.TMP" with contents
+[
+/nologo /MD /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Release/BitmapButtonTest.pch" /Yc"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"C:\Program Files\Microsoft Visual Studio\Common\MSDev98\Bin\BitmapButtonTest\StdAfx.cpp"
+]
+Creating command line "cl.exe @c:\windows\TEMP\RSP01D1.TMP" 
+Creating temporary file "c:\windows\TEMP\RSP01D2.TMP" with contents
+[
+/nologo /subsystem:windows /incremental:no /pdb:"Release/BitmapButtonTest.pdb" /machine:I386 /out:"Release/BitmapButtonTest.exe" 
+".\Release\BitmapButtonTest.obj"
+".\Release\BitmapButtonTestDlg.obj"
+".\Release\StdAfx.obj"
+".\Release\BitmapButtonTest.res"
+]
+Creating command line "link.exe @c:\windows\TEMP\RSP01D2.TMP"
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+StdAfx.cpp
+Compiling...
+BitmapButtonTest.cpp
+BitmapButtonTestDlg.cpp
+Generating Code...
+Linking...
+
+
+
+<h3>Results</h3>
+BitmapButtonTest.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

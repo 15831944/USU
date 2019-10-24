@@ -1,0 +1,51 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: Baby Steps - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x409 /fo"Debug/Baby Steps.res" /d "_DEBUG" /d "_AFXDLL" "C:\Source Code\My Projects\Baby Steps\Baby Steps.rc"" 
+Creating temporary file "C:\DOCUME~1\MARKSA~1\LOCALS~1\Temp\RSP14F.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Debug/Baby Steps.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\Source Code\My Projects\Baby Steps\Baby Steps.cpp"
+"C:\Source Code\My Projects\Baby Steps\Baby StepsDoc.cpp"
+"C:\Source Code\My Projects\Baby Steps\Baby StepsView.cpp"
+"C:\Source Code\My Projects\Baby Steps\MainFrm.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\MARKSA~1\LOCALS~1\Temp\RSP14F.tmp" 
+Creating temporary file "C:\DOCUME~1\MARKSA~1\LOCALS~1\Temp\RSP150.tmp" with contents
+[
+/nologo /subsystem:windows /incremental:yes /pdb:"Debug/Baby Steps.pdb" /debug /machine:I386 /out:"Debug/Baby Steps.exe" /pdbtype:sept 
+".\Debug\Baby Steps.obj"
+".\Debug\Baby StepsDoc.obj"
+".\Debug\Baby StepsView.obj"
+".\Debug\MainFrm.obj"
+".\Debug\SimPropertiesDlg.obj"
+".\Debug\Square.obj"
+".\Debug\StdAfx.obj"
+".\Debug\Baby Steps.res"
+]
+Creating command line "link.exe @C:\DOCUME~1\MARKSA~1\LOCALS~1\Temp\RSP150.tmp"
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+Baby Steps.cpp
+Generating Code...
+Compiling...
+Baby StepsDoc.cpp
+Generating Code...
+Skipping... (no relevant changes detected)
+Baby StepsView.cpp
+MainFrm.cpp
+Linking...
+
+
+
+<h3>Results</h3>
+Baby Steps.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

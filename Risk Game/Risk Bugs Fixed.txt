@@ -1,0 +1,29 @@
+Change the definition of the structure to make it compatible with the new manager.dll (previously fewer than 10 cards were supported.  It is possible for a player to have 10 cards in RISK in a rare circumstance.)
+struct CARD_DATA
+{
+	int wCountry[10];
+	int cardType[10]; // 0 = wild, 1 = soldier, 2 = horse, 3 = cannon
+};
+Add the following function to your DLL if you want:
+extern "C" void __stdcall TurnComplete(int PlayerID)
+{
+	// This will be called at the end of each opponent's turn.  
+	// This gives this DLL the opportunity to make any observations about 
+	// how the board has changed after each opponent's turn.
+	// Implementing anything in this function is entirely optional.
+}
+
+753-3077
+
+Bugs fixed: (12-15-2001)
+1)  Only allows reinforcements to adjacent countries
+2)  Removes correct cards during a trade-in
+3)  Allows you to make more than one trade in if you have more than 5 cards
+4)  Does not allow the computer to leave less than one army after taking a country
+(this is why there would be countries with 0 or negative armies in some cases on the board)
+5)  Does not call the MakeMove function twice before the first roll when attacking a country
+
+What was added?
+
+1)  Functions to find out the number of wins another player already has (if playing in a tournament)
+2)  Function which is called at the end of every players turn (besides your own) so that you can see how the game is changing, who's attacking, who's not

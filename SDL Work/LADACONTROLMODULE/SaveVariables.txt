@@ -1,0 +1,38 @@
+variables for serialization:
+
+*InputLocationSaveList -- contains integer values for input locations to be saved and read
+*InputLocationNameList -- contains names of input locations in russian and english
+dataRetrievalFreq
+dataPlotFreq
+dataWriteFreq
+newFileFreq
+nBackPoints
+newFileSize
+nData
+numGraphs
+saveByAverage
+saveFinalStorage
+saveByTime
+saveLocations
+numGraphs
+dataFolder
+projectOptionsFile
+DataIndex
+*nDataGraph
+ItemChecked
+
+*nFilledPoints
+*nFilledSaveData
+*GraphDataPos
+*GraphData
+*GraphDataBlockSize
+*PositionTime
+*tempArray
+*tempSaveData
+*newData
+*nItemsInTempArray
+graphListModified
+*maxGraphItems
+DoAutoWrap
+lastFileCreationTime
+ILFileOut

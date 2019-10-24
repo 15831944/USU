@@ -1,0 +1,78 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>CS 5100 Lecture 18 - Greg Jones</TITLE>
+</HEAD>
+<BODY>
+
+<B><I><FONT SIZE=5><P>More About Layouts&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;Lecture 5100.18</P>
+<OL TYPE="A">
+
+</I></FONT><LI>Box Layout tries to ensure that components are displayed at a fixed size.</LI>
+<OL>
+
+<LI>These arrange components in a single horizontal or vertical line.  Each component is given the same amount of space,  depending on the biggest preferred size of a component.</LI>
+<LI>The Box layout can be used with any container.</LI>
+<LI>If the container is made bigger, the individual components are not enlarged.</LI>
+<LI>If the container is shrunk, some components may partially or completely disappear.</LI>
+<LI>There are no horizontal and vertical gaps with the Box layout.</LI>
+<LI>The Box class is a natural container to use with this layout, since its default, and only, layout is the Box layout.  It can be constructed to be either horizontal or vertical.</LI>
+<LI>In order to add some formatting, Box containers may also have strut, rigid area,  and glue components.</LI>
+<OL TYPE="a">
+
+<LI>A glue component between visible components will expand like a spring to create empty space between visible components when the Box is enlarged.</LI>
+<LI>A strut component will maintain a fixed width (or height) space between visible components.</LI>
+<LI>A rigid area allocates a fixed width and height at some point in the sequence of visible components.  It is like an orthogonal pair of vertical and horizontal struts.</LI></OL>
+</OL>
+
+<LI>The GridBagLayout provides a rectangular grid display in which columns and rows have unequal sizes, and components can occupy more than one column/row.  This layout manager will not resize components unless instructed to do so.</LI>
+<OL>
+
+<LI>There is also a way to establish priority in claiming additional real estate if it becomes available.</LI>
+<LI>When the GridBagLayout is managing a container, it is possible to add components with their associated constraints with the container’s add method.  This is the preferred way, although it is also possible to add constraints with components to the manager with the addLayoutComponent method.  The general steps for this are:</LI>
+<OL TYPE="a">
+
+<LI>Create a GridBagConstraints object.</LI>
+<LI>Set the different attributes for the first object to be added to the container.</LI>
+<LI>Call layout.setConstraints(component, constraint object) to associate the two in the layout manager’s database.</LI>
+<LI>Add the component to the container.</LI></OL>
+
+<LI>There are methods to get and set constraints.  The get method returns a clone rather than a reference, which means it is easier to use a constraint as a basis for creating another constraint.</LI>
+<LI>The constructor has no parameters, and creates a manager with a lot of defaults.</LI>
+<LI>Since the layout manager may not position things at the absolute upper left corner (within insets), there is a getLayoutOrigin method which tells what the upper left corner is.</LI>
+<LI>The getLayoutDimensions method returns a 2xN array containing the respective widths and heights of the columns and rows.</LI>
+<LI>The getLayoutWeights method returns a 2xN array containing the respective priorities of the columns and rows.  When additional space is available, the manager adds up all the priorities, then the particular row or column gets the fraction of the additional space indicated by dividing its weight by the sum of all weights.</LI>
+<LI>The location(x,y) method tells the grid column and row containing the x,y pixel.</LI></OL>
+
+<LI>The real work in the GridBagLayout is done by objects of the GridBagConstraints class.  The layout manager has no predetermined algorithm for laying out objects.  It uses the constraints associated with each component to create the layout.  Here are the fields of the constraint:</LI>
+<OL>
+
+<LI>anchor, which can be center, north, northeast, etc., indicates where, within the grid cell, the component will lie.  By default, it is CENTER.</LI>
+<LI>fill, which indicates whether the component will stretch to fill the display area of the grid cell when it is larger than the component’s preferred size.  By default it is NONE, meaning that the component won’t expand.  However, it can also be HORIZONTAL, VERTICAL, or BOTH.</LI>
+<LI>gridx and gridy indicate the grid column and row coordinates of the component (0-based).  By default they are RELATIVE, which gives unlikely results.  It tries to add the component to the next column after the previous component.</LI>
+<LI>gridwidth and gridheight give the number of columns and rows occupied by the component.  By default they are 1.  They can also have the value REMAINDER, which means the component will occupy all the remaining columns or rows.</LI>
+<LI>weightx and weighty indicate the priority weights assigned for horizontal or vertical real estate grabbing.  By default they are 0.</LI>
+<LI>ipadx and ipady indicate internal padding, that is, the number of pixels the left and right, or top and bottom, boundaries of the component will be expanded beyond the minimum.  They are used to enlarge the visible size of the component.</LI>
+<LI>insets, which indicate the amount of space between the padded size of the component and the grid boundaries.  In effect, these can be used to increase the size of a column or row in the grid.</LI></OL>
+
+<LI>If more complex layouts are desired, we can use different panels within a container, each with its own layout manager.  In AWT, this does have the disadvantage of creating multiple peers.  It is possible to alleviate this inefficiency by using lightweight JPanels, which don’t require the creation of peers.</LI>
+<LI>We can do without a layout manager entirely, by calling container.setLayout(null).  Then we must place all the components ourselves, and react appropriately to window resizing events.  The Symantec form designer often takes this approach.</LI>
+<LI>We can create custom layout managers by implementing all the methods dictated by the interfaces LayoutManager and LayoutManager2.  There is a relatively interesting example in the book.  It does something like the border layout.  Most of the work is in the layoutContainer method.</LI>
+<LI>Other custom layouts are available from a variety of sources.  Some of those available in sun.awt are:</LI>
+<OL>
+
+<LI>Horizontal[Vertical]BagLayout, which create a single row (column) of components of differing width (height).</LI>
+<LI>VariableGridLayout, which creates a grid of unequally sized rows and columns.  The widths and heights are indicated as fractions, with the total adding up to 1.  These are not taken as hints, so the manager will throw an exception if you calculate anything wrong.</LI>
+<LI>OrientableFlowLayout, which can add components vertically as well as horizontally, and can justify, that is, push either the top or bottom component up against the edge of the container.</LI></OL>
+
+<LI>Among other layouts than GridBag, the collaboration between containers and managers is largely by means of the add method.  This can be overloaded so as to convey specific information to the layout manager along with the component.</LI>
+<OL>
+
+<LI>With the flow and card layout, the information may be an index giving the relative position of the component among the others in the container.</LI>
+<LI>With the border layout, it is an indication of the area in which the component resides.</LI>
+<LI>With the card layout, it may be a string by which the component is known and shown.</LI></OL>
+</OL>
+
+</B></BODY>
+</HTML>

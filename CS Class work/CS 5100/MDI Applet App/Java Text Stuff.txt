@@ -1,0 +1,26 @@
+http://ls10-www.informatik.uni-dortmund.de/LS10/Pages/sopra-specials/doku/swing/uiswing/components/textapi.html
+http://java.sun.com/docs/books/tutorial/java/TOC.html#javaOO
+
+drag and drop
+http://java.sun.com/j2se/1.4/docs/guide/swing/1.4/dnd.html
+http://java.sun.com/j2se/1.4/docs/api/javax/swing/text/JTextComponent.html
+http://developer.java.sun.com/developer/Books/MasteringJava/Ch16/
+http://www.javaworld.com/javaworld/jw-03-1999/jw-03-dragndrop.html
+
+Inner Class Summary 
+static class DefaultEditorKit.BeepAction 
+          Creates a beep. 
+static class DefaultEditorKit.CopyAction 
+          Coies the selected region and place its contents into the system clipboard. 
+static class DefaultEditorKit.CutAction 
+          Cuts the selected region and place its contents into the system clipboard. 
+static class DefaultEditorKit.DefaultKeyTypedAction 
+          The action that is executed by default if a key typed event is received and there is no keymap entry. 
+static class DefaultEditorKit.InsertBreakAction 
+          Places a line/paragraph break into the document. 
+static class DefaultEditorKit.InsertContentAction 
+          Places content into the associated document. 
+static class DefaultEditorKit.InsertTabAction 
+          Places a tab character into the document. 
+static class DefaultEditorKit.PasteAction 
+          Pastes the contents of the system clipboard into the selected region, or before the caret if nothing is selected. 

@@ -1,0 +1,16 @@
+
+; Dependency file for VB setup wizards.
+; make sure that all version numbers
+; match the OCX version number
+
+[version]
+Version=8.0.3.2
+
+; Dependencies for pvcalendar.ocx
+
+; Default Dependencies ----------------------------------------------
+
+[pvcalendar.ocx]
+Dest=$(WinSysPath)
+Register=$(DLLSelfRegister)
+Version=8.0.3.2

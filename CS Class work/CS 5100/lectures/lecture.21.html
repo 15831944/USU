@@ -1,0 +1,66 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>CS 5100 Lecture 21 - Greg Jones</TITLE>
+<META NAME="Template" CONTENT="C:\Program Files\Microsoft Office\Templates\Lecture Notes.dot">
+</HEAD>
+<BODY>
+
+<B><I><FONT SIZE=5><P>More Swing Events&#9;Lecture 5100.21</P>
+<OL TYPE="A">
+
+</I></FONT><LI>List Data Events</LI>
+<OL>
+
+<LI>These events occur because of changes in a list data model.  There is a corresponding ListDataListener which has to be added to the model.  Remember that a data model is not a GUI (visual) component, and so the correlation has to be made between the data model and some visual component.  In the example in the book, a JComboBox object is used to display the list.</LI>
+<LI>The correlation (control) of model and view is carried out in the example by button action listeners which add or delete elements from both the data model and the view.  I think it would be better done by means of data event listeners, which catch data events and post them to the combo box.</LI>
+<LI>Some events are quite standard, like adding or removing an interval of data.  Others are less standard, and are signaled simply as &quot;contents changed.&quot;</LI>
+<LI>Constants: CONTENTS_CHANGED, INTERVAL_ADDED, INTERVAL_REMOVED</LI>
+<LI>Methods:</LI>
+<OL TYPE="a">
+
+<LI>getIndex0() and getIndex1() give the lower and upper indexes of the interval in which the change occurred.</LI>
+<LI>getType() returns the subtype ID</LI></OL>
+</OL>
+
+<LI>List Selection Events</LI>
+<OL>
+
+<LI>These events occur when selection is changed in a JList object.  The book says JList itself can be registered as a listener, although my documentation doesn’t indicate this is true.</LI>
+<LI>No constants</LI>
+<LI>Methods:</LI>
+<OL TYPE="a">
+
+<LI>GetFirstIndex and getLastIndex give the interval of selection.</LI>
+<LI>GetValueIsAdjusting indicates an interval is changing, as when we drag a mouse in a list.</LI></OL>
+</OL>
+
+<LI>Menu events occur on JMenu components and are generated when a menu selection is canceled, deselected, or selected.  There are no constants nor methods.</LI>
+<LI>Popup Menu events occur when a popup menu selection is canceled, or will become visible or invisible.  There are no constants nor methods.</LI>
+<LI>Tree Expansion events occur when a non-leaf node in a JTree is clicked.</LI>
+<OL>
+
+<LI>There are two different listeners, TreeExpansionListener and TreeWillExpandListener, for events that have happened and those that will happen.  Events are generated for expand, collapse, will expand, and will collapse.  The idea of the &quot;will&quot; events is that you might want to either prepare for or forestall certain events.</LI>
+<LI>There are no constants.  The only method is getPath, which returns a TreePath object.  TreePath has many methods, which will break the path into an array of objects, count it, extract the nth object, return the last object in the path, determine a parent path or whether an object is a descendent of the path, etc.</LI></OL>
+
+<LI>Tree Selection events occur when an item in a JTree is selected or deselected.  There are no constants, but there are methods to return a variety of path information objects.</LI>
+<LI>Tree Model events occur when nodes in a tree model are changed, inserted, or changed, or when the tree structure itself is changed.</LI>
+<OL>
+
+<LI>JTree objects possess a built-in model, which can be obtained by the getModel method.  This model is used to hold all the data displayed in the JTree view.</LI>
+<LI>Unfortunately, the view doesn’t necessarily change when the model changes.  However, this can be forced by calls to JTree’s reload method.</LI>
+<LI>There are no constants.  Methods exist to return arrays of child indexes, or children, or path elements, as well as a TreePath object.</LI></OL>
+
+<LI>MenuKeyEvents and MenuDragMouseEvents mimic regular key and mouse drag events when they occur within menus.  This is important, for instance, because under Swing key actions may be used for more than just generating actions on menu selections.  For instance, they may permit us to set or reset checkboxes.</LI>
+<LI>The Swing Action interface</LI>
+<OL>
+
+<LI>This interface extends the action listener.  Objects which implement it provide a variety of attributes, including short and long descriptive strings, icons, enabled/disabled state, value, default key, etc.</LI>
+<LI>When an object implementing the interface is added to a container, the container creates an appropriate visual component, customizes it to the attributes of the action object, initializes its enabled/disabled state, and registers an action listener.</LI>
+<LI>The AbstractAction class provides what is essentially an adapter to implement the Action interface.  While it is abstract, the only missing method implementation is for actionPerformed, which of course the application programmer would want to override anyway.</LI>
+<LI>The most typical use of an object implementing Action is to bring together into a single location identical actions which might appear in several contexts.  For instance, the &quot;cut&quot; action might appear on a menu, in a toolbar, and on a popup menu.  Defining a single Action object and adding to the three containers would produce appropriate visual components in each one.  However, the processing for all of them would pass through the common Action object with the ability to modify all of them, for instance by deactivating them, at a single spot.</LI>
+<LI>Action objects attempt to encapsulate all the relevant information about an action, without specializing to specific situations.  Thus, they model the concept of semantic events. </LI></OL>
+</OL>
+</B></BODY>
+</HTML>

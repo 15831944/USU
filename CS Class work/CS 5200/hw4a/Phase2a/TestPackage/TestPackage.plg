@@ -1,0 +1,83 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: TestPackage - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "c:\windows\TEMP\RSPB092.TMP" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /D "TESTING" /FR"Debug/" /Fp"Debug/TestPackage.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\My Documents\School\Fall 2001\Cs 5200\hw4a\Phase2a\TestPackage\TestPackageDlg.cpp"
+]
+Creating command line "cl.exe @c:\windows\TEMP\RSPB092.TMP" 
+Creating temporary file "c:\windows\TEMP\RSPB093.TMP" with contents
+[
+/nologo /subsystem:windows /incremental:yes /pdb:"Debug/TestPackage.pdb" /debug /machine:I386 /out:"Debug/TestPackage.exe" /pdbtype:sept 
+".\Debug\Building.obj"
+".\Debug\Calendar.obj"
+".\Debug\CalendarDate.obj"
+".\Debug\ClientComChannel.obj"
+".\Debug\ComChannel.obj"
+".\Debug\Configuration.obj"
+".\Debug\DString.obj"
+".\Debug\Event.obj"
+".\Debug\Location.obj"
+".\Debug\LogicalClock.obj"
+".\Debug\Marshall.obj"
+".\Debug\PersistentObjectSet.obj"
+".\Debug\ReservedTime.obj"
+".\Debug\ServerComChannel.obj"
+".\Debug\SockAddr.obj"
+".\Debug\StdAfx.obj"
+".\Debug\strdup.obj"
+".\Debug\TestPackage.obj"
+".\Debug\TestPackageDlg.obj"
+".\Debug\TimeBlock.obj"
+".\Debug\TimeOfDay.obj"
+".\Debug\User.obj"
+".\Debug\TestPackage.res"
+]
+Creating command line "link.exe @c:\windows\TEMP\RSPB093.TMP"
+<h3>Output Window</h3>
+Compiling...
+Skipping... (no relevant changes detected)
+TestPackageDlg.cpp
+Linking...
+Creating temporary file "c:\windows\TEMP\RSPB0A1.TMP" with contents
+[
+/nologo /o"Debug/TestPackage.bsc" 
+".\Debug\StdAfx.sbr"
+".\Debug\Building.sbr"
+".\Debug\Calendar.sbr"
+".\Debug\CalendarDate.sbr"
+".\Debug\ClientComChannel.sbr"
+".\Debug\ComChannel.sbr"
+".\Debug\Configuration.sbr"
+".\Debug\DString.sbr"
+".\Debug\Event.sbr"
+".\Debug\Location.sbr"
+".\Debug\LogicalClock.sbr"
+".\Debug\Marshall.sbr"
+".\Debug\PersistentObjectSet.sbr"
+".\Debug\ReservedTime.sbr"
+".\Debug\ServerComChannel.sbr"
+".\Debug\SockAddr.sbr"
+".\Debug\strdup.sbr"
+".\Debug\TestPackage.sbr"
+".\Debug\TestPackageDlg.sbr"
+".\Debug\TimeBlock.sbr"
+".\Debug\TimeOfDay.sbr"
+".\Debug\User.sbr"]
+Creating command line "bscmake.exe @c:\windows\TEMP\RSPB0A1.TMP"
+Creating browse info file...
+<h3>Output Window</h3>
+
+
+
+<h3>Results</h3>
+TestPackage.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

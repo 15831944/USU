@@ -1,0 +1,7 @@
+18:58:57.140 T   1 bytes .                  13
+18:58:57.250 R   3 bytes ..*                13  10  42
+18:58:57.250 T   1 bytes .                  13
+18:58:57.360 R   3 bytes ..*                13  10  42
+18:59:24.660 Ping failed, timeout was 50 ms.  readBuf:
+*
+

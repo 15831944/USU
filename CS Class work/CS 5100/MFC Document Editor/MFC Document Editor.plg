@@ -1,0 +1,66 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: MFC Document Editor - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x409 /fo"Debug/MFC Document Editor.res" /d "_DEBUG" /d "_AFXDLL" "C:\Source Code\CS Class work\CS 5100\MFC Document Editor\MFC Document Editor.rc"" 
+Creating temporary file "C:\DOCUME~1\MARKSA~1\LOCALS~1\Temp\RSP68.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Debug/MFC Document Editor.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\Source Code\CS Class work\CS 5100\MFC Document Editor\ChildFrm.cpp"
+"C:\Source Code\CS Class work\CS 5100\MFC Document Editor\CloseDialog.cpp"
+"C:\Source Code\CS Class work\CS 5100\MFC Document Editor\CloseWindowsDialog.cpp"
+"C:\Source Code\CS Class work\CS 5100\MFC Document Editor\CntrItem.cpp"
+"C:\Source Code\CS Class work\CS 5100\MFC Document Editor\MainFrm.cpp"
+"C:\Source Code\CS Class work\CS 5100\MFC Document Editor\MFC Document Editor.cpp"
+"C:\Source Code\CS Class work\CS 5100\MFC Document Editor\MFC Document EditorDoc.cpp"
+"C:\Source Code\CS Class work\CS 5100\MFC Document Editor\MFC Document EditorView.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\MARKSA~1\LOCALS~1\Temp\RSP68.tmp" 
+Creating temporary file "C:\DOCUME~1\MARKSA~1\LOCALS~1\Temp\RSP69.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Debug/MFC Document Editor.pch" /Yc"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\Source Code\CS Class work\CS 5100\MFC Document Editor\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\MARKSA~1\LOCALS~1\Temp\RSP69.tmp" 
+Creating temporary file "C:\DOCUME~1\MARKSA~1\LOCALS~1\Temp\RSP6A.tmp" with contents
+[
+/nologo /subsystem:windows /incremental:yes /pdb:"Debug/MFC Document Editor.pdb" /debug /machine:I386 /out:"Debug/MFC Document Editor.exe" /pdbtype:sept 
+".\Debug\ChildFrm.obj"
+".\Debug\CloseDialog.obj"
+".\Debug\CloseWindowsDialog.obj"
+".\Debug\CntrItem.obj"
+".\Debug\MainFrm.obj"
+".\Debug\MFC Document Editor.obj"
+".\Debug\MFC Document EditorDoc.obj"
+".\Debug\MFC Document EditorView.obj"
+".\Debug\StdAfx.obj"
+".\Debug\MFC Document Editor.res"
+]
+Creating command line "link.exe @C:\DOCUME~1\MARKSA~1\LOCALS~1\Temp\RSP6A.tmp"
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+StdAfx.cpp
+Compiling...
+ChildFrm.cpp
+CloseDialog.cpp
+CloseWindowsDialog.cpp
+CntrItem.cpp
+MainFrm.cpp
+MFC Document Editor.cpp
+MFC Document EditorDoc.cpp
+MFC Document EditorView.cpp
+Generating Code...
+Linking...
+
+
+
+<h3>Results</h3>
+MFC Document Editor.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

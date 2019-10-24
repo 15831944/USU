@@ -1,0 +1,47 @@
+// this snipet of code was taken from UpdateInfo()
+// it used syntax to get input location by input location
+// from the CR10.  Now it has been implemented with 
+// binary communication.
+
+//char szError[128];
+		
+// Method one:  ascii communications
+		/*
+		int spos;
+		for (int i = 1; i <= 15; i++){
+			readBufPos = 0;
+			wsprintf(sendBuf,"%hdI\r", i);
+			spos = strlen(sendBuf) + 1;
+			inputWindowText[i][0] = '\0';
+			
+			if (Send(sendBuf,spos - 1)){
+				#ifdef DBUG
+				ShowTimeDiff();
+				#endif
+				//MessageBox(readBuf, "Read buffer contains:");
+				
+				for( int j = spos; j < spos + 10; j++)
+					if (readBuf[j] == ' ') readBuf[j] = '\0';
+				strcpy(inputWindowText[i-1],&readBuf[spos]);
+				
+				//wsprintf(szError,"\nData (%s) was written to window: %ld",&readBuf[spos],i);
+				//OutputDebugString(szError);
+			}
+			else{
+				//MessageBox("Error in receiving data","Error",MB_ICONEXCLAMATION);
+				//wsprintf(szError,"\nError in receiving data.  dataReceived = %s", (dataReceived == TRUE ? "TRUE":"FALSE"));
+				//OutputDebugString(szError);
+				if (i > 0) i--;
+			}
+			PingCR10(20);
+			PingCR10(20);
+		}
+		SetInputLocationWindowsText(inputWindowText);
+		readBufPos = 0;
+		if (Send("C\r",2)){
+			readBuf[24] = '\0';
+			strcpy(timeBuf, &readBuf[3]);
+		}
+		SetTimeWindowText(timeBuf);
+
+		*/

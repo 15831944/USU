@@ -1,0 +1,106 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>CS 5100 Lecture 17 - Greg Jones</TITLE>
+<META NAME="Template" CONTENT="C:\Program Files\Microsoft Office\Templates\Lecture Notes.dot">
+</HEAD>
+<BODY>
+
+<B><I><FONT SIZE=5><P>Layout Managers&#9;Lecture 5100.17</P>
+<OL TYPE="A">
+
+</I></FONT><LI>General Concepts</LI>
+<OL>
+
+<LI>Each container has a layout manager, to which it delegates the task of positioning the container’s components independent of platform specific issues like screen size.</LI>
+<LI>To do this, the layout manager asks the individual components for their own space requirements.  It will first try to do the layout with their preferred sizes, but if this fails will use their minimum size requirements.  It will also consult its own preferred and minimum sizes.</LI>
+<LI>It is the container itself which interacts with the layout manager.  By and large application programs don’t call layout manager methods.  The exception is the Card layout manager, in which the application program switches from displaying one component to showing another.</LI>
+<LI>Most layout managers try to display many components side by side.  It is generally possible to define separate horizontal and vertical gap sizes for the space between components.  Negative gap valued cause components to overlay one another.  The gaps are measured in pixels.  Besides these gaps, there are also insets around the outer edges of the container.</LI></OL>
+
+<LI>The LayoutManager interface defines certain methods that must be implemented by all layout managers.  It is implemented by Grid, Flow, and Viewport</LI>
+<OL>
+
+<LI>addLayoutComponent(string, component) is used to record a component and some qualifying information with the manager.</LI>
+<LI>removeLayoutComponent removes the information stored in 1.</LI>
+<LI>preferredLayoutSize and minimumLayoutSize return information on the sizing of the container, based on the corresponding sizes of its components.</LI>
+<LI>layoutContainer  forces the manager to lay out the container.</LI></OL>
+
+<LI>Containers and Layout Managers</LI>
+<OL>
+
+<LI>Initially, layout can be forced by a call to pack.</LI>
+<LI>invalidate followed by validate is used to signal that the layout manager should reposition all components using information that it is storing.  Besides a software call to invalidate on the container, the following events may invalidate the container:</LI>
+<OL TYPE="a">
+
+<LI>Expose</LI>
+<LI>Resize</LI>
+<LI>Move</LI>
+<LI>Add or remove a component</LI>
+<LI>Set a new layout manager</LI></OL>
+
+<LI>The default layout managers for standard containers are:</LI>
+<OL TYPE="a">
+
+<LI>Frame and JFrame use Border</LI>
+<LI>Panel and JPanel use Flow</LI>
+<LI>Window and JWindow use Border</LI>
+<LI>JLayeredPane has no layout manager; components are positioned absolutely</LI>
+<LI>Box uses Box</LI>
+<LI>JViewport uses Viewport</LI></OL>
+
+<LI>For Swing containers, call setLayout for the content pane, not the container itself.</LI></OL>
+
+<LI>The LayoutManager2 interface defines certain methods implemented by some layout managers.  It is implemented by Border, Card, GridBag, Box, Overlay, and Root</LI>
+<OL>
+
+<LI>addLayoutComponent(component, constraint) is used to record a component and some qualifying information with the manager.  For instance:</LI>
+<OL TYPE="a">
+
+<LI>With the GridBag, the qualifying information consists of constraints (hints, requests); </LI>
+<LI>With the Card, the qualifying information consists of the name of an individual card.</LI></OL>
+
+<LI>maximumLayoutSize returns information on the sizing of the container, based on the corresponding sizes of its components.</LI>
+<LI>getLayoutAlignmentX[Y] is used to determine the layout manager’s preferred alignment.</LI>
+<LI>invalidateLayout is used to signal that the layout manager should discard any component information that it is storing.</LI></OL>
+
+<LI>FlowLayout</LI>
+<OL>
+
+<LI>This layout places components from left to right until there is no more room, then wraps around to a second row, etc.</LI>
+<LI>If the container is resized, then the wrapping will be redone at different points.</LI>
+<LI>If there is inadequate space in the container, the layout manager may not show part or all of some of the components.</LI>
+<LI>The default constructor sets center alignment and both horizontal and vertical gaps of 5 pixels.  However, other forms of the constructor allow the application programmer to specify alignment and gaps.</LI>
+<LI>There are methods to get and set alignments and gaps.  After setting them, a call should be made to the container’s validate method, to cause the container to be laid out with the new parameters.</LI>
+<LI>FlowLayout does not use constraints.</LI></OL>
+
+<LI>BorderLayout</LI>
+<OL>
+
+<LI>This layout divides the container into five regions: North, South, East, West, and Center.  One component can be added to each region.  If more are added, only the last one is displayed.  If no region is specified, the component is added to the center.</LI>
+<LI>If there is not enough space to satisfy the components in all regions, North has highest priority, South next, and so down to Center.  This means the manager may reshape components to make them fit in.</LI>
+<LI>Stretching the container horizontally will not effect vertical region size or horizontal East and West sizes.  A similar effect governs for vertical stretching.</LI>
+<LI>The space normally given to a region with no component added to it will be relinquished to its neighbors.</LI>
+<LI>The default constructor sets the horizontal and vertical gaps at 0, but they can also be set in the other constructor.</LI></OL>
+
+<LI>GridLayout</LI>
+<OL>
+
+<LI>This layout divides the container into equal sized rows and equal sized columns.  The size of each cell is then equal, and is determined by the largest of the individual component widths and the largest of the heights.  If the container is resized, the cells will change in size correspondingly.  On the other hand, shrinking cell size may cause labels to be replaced by "-".</LI>
+<LI>As with the flow layout, components are added left to right, top to bottom.</LI>
+<LI>If the application programmer specifies 0 rows or 0 columns, then the grid is a single column or row with potentially infinite rows or columns.  An exception is thrown when both rows and columns are 0.</LI>
+<LI>Because the programmer might specify, say, a 3 x 4 grid and then add 6 or 60 components, the layout manager might choose to display a different number of rows and columns.</LI>
+<LI>The default constructor creates one infinite row with gaps of size 0.  Other constructors allow specification of rows, columns, and gaps.</LI>
+<LI>There are methods to get and set rows, columns, and gaps.  The container must be validated after setting them.</LI></OL>
+
+<LI>CardLayout</LI>
+<OL>
+
+<LI>This layout displays all components in the same region, but only one at a time in container order.  Typically, the user selects which component to see by means of buttons.</LI>
+<LI>In order to select components, the layout manager can associate a String name with each component.  Unnamed components can’t be selected individually for display, but can be seen using the first, last, next, and previous methods.</LI>
+<LI>The next and previous methods wrap around when they get to the end of the list of components.</LI>
+<LI>The default constructor sets 0 gaps, or they can be specified in the constructor.  There are also get and set methods for gaps.</LI>
+<LI>Names (tags) are given to components by the addLayoutComponent(component, string) method.  These can then be selected to be shown by show(container, name).</LI></OL>
+</OL>
+</B></BODY>
+</HTML>

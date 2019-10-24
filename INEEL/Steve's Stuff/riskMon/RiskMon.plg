@@ -1,0 +1,37 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: RiskMon - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "c:\windows\TEMP\RSPA176.TMP" with contents
+[
+/nologo /MTd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_WINDLL" /D "_USRDLL" /FR"Debug/" /Fp"Debug/RiskMon.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /c 
+"C:\Source Code\INEEL\Steve's Stuff\Steve's Stuff\riskMon\RiskMon.cpp"
+]
+Creating command line "cl.exe @c:\windows\TEMP\RSPA176.TMP" 
+Creating temporary file "c:\windows\TEMP\RSPA177.TMP" with contents
+[
+winmm.lib /nologo /subsystem:windows /dll /incremental:yes /pdb:"Debug/RiskMon.pdb" /debug /machine:I386 /def:".\RiskMon.def" /out:"c:\winnt\system32\RiskMon.dll" /implib:"Debug/RiskMon.lib" /pdbtype:sept 
+".\Debug\ArrayListLL.obj"
+".\Debug\RiskFunctions.obj"
+".\Debug\RiskMon.obj"
+".\Debug\StdAfx.obj"
+".\Debug\StringLList.obj"
+".\Debug\RiskMon.res"
+]
+Creating command line "link.exe @c:\windows\TEMP\RSPA177.TMP"
+<h3>Output Window</h3>
+Compiling...
+RiskMon.cpp
+Linking...
+
+
+
+<h3>Results</h3>
+RiskMon.dll - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

@@ -1,0 +1,55 @@
+22:  WatVolMul	- If GCASatLvl > AMoistAvg, then the difference of these two numbers
+					times this equals to volume of water to pump to bring the water
+					saturation to the correct level.
+24:  MoistAvrg	- This input location is the sum of all valid SMP moisture values,
+					as determined by Subroutine 1.
+25: MoistAvaCnt	- the number of probes that were included in the last
+					calculation of average soil moisture for all soil moisture probes,
+					as determined by Subroutine 1.
+26:  TotVolPmp	- It appears that this input location is redundant... It is assigned the
+					same value as CATotVolP and then never used again.
+88:  AMoistAvg	- The average moisture of the soil moisture probes included
+					in MoistAvaCnt.
+102: GCASatLvl	- The target saturation level the CR10X is trying to attain.
+					May be changed in the 'System' tool.
+103:  CAVolNeed	-  How much water should be pumped into chamber A during the next
+					pump cycle.
+104:  CATotVolP	-  How much water has been pumped into chamber A since the program was
+					first loaded.
+105:  CA_Pump_L	-  How much water has been pumped into chamber A during the current cycle.
+106:  CA_PCount	-  Counts how many revoltions the pump has made since in the last 
+					execution interval (last 5 seconds) then is multiplied by .114 to 
+					convert to the volume of water pumped.  This is then added to
+					CA_Pump_L.  
+107:  ASMPCount	- This variable is incremented as the CR10 moves to the next stage of
+					performing a soil moisture probe reading.  
+108:  AWtrIntvl	- This location controls how many minutes after each 20 minutes after the 
+					hour the pumps will turn on to bring the soil moisture up to the 
+					correct value, as calculated by the difference between GCASatLvl and 
+					AMoistAvg.
+115:  AManCtrl	- This location is used to turn devices on/off when in manual control mode.
+121:  APtrWatch	- This input location is used to keep track of which devices should
+					be on/off.  When pump 1 goes on it should increment by 8, and when
+					it goes off it should decrement by 8. 
+
+I would also add and give a description of how they will affect when the SMPs will measure 
+and when they should turn the pump on.
+
+Read and Write could be set to different values - (1 hour or 20 minutes) 
+
+Frequency:			20 min		1 hr				
+112: A_READ_1_HR	61			3
+111: A_READ_20_MN	3			21
+	These control when to take a SMP reading.
+	If this number is less than 20 (or less than 60) then a reading will take 
+	occur every twenty minutes or hour.  Only one should be set at a time.
+Frequency:			20 min		1 hr
+114: A_WRITE_1_HR	61			6
+113: A_WRITE_20_MN	6			21
+	These control when to write to FS.
+	If this number is less than 20 (or less than 60) then FS will be written to
+	every twenty minutes or hour.  Only one should be set at a time.
+
+also, for flags:
+Flag 1 - set to high when a SMP reading is supposed to start.  Automatically reset
+ when reading is finished.

@@ -1,0 +1,37 @@
+
+12/01/2000  16:31:42  Project Settings- project file created.
+12/01/2000  16:34:59  Project Settings- project file created.
+12/01/2000  16:51:38  Project Settings- project file created.
+12/01/2000  17:22:34  Graph Settings- settings changed.
+12/07/2000  17:12:22  Check Out- started.
+12/07/2000  17:23:43  Check Out- completed.
+12/08/2000  13:27:33  Project Settings- project file created.
+12/08/2000  13:27:36  Setup- started.
+12/08/2000  13:27:40  Setup- completed.
+12/08/2000  13:27:42  Check Out- started.
+12/08/2000  13:27:46  Check Out- completed.
+12/08/2000  13:28:08  Graph Settings- settings changed.
+12/08/2000  13:29:15  Project Settings- project file created.
+12/08/2000  13:29:59  Check Out- started.
+12/08/2000  13:49:09  Project Settings- project file created.
+12/08/2000  13:49:28  Check Out- started.
+12/08/2000  13:51:01  Check Out- started.
+12/08/2000  13:52:02  Check Out- started.
+12/08/2000  13:53:23  Check Out- completed.
+12/08/2000  14:09:23  Setup- started.
+12/08/2000  14:10:08  Setup- completed.
+12/08/2000  14:10:10  Check Out- started.
+12/08/2000  14:11:54  Check Out- completed.
+12/08/2000  14:14:36  Graph Settings- settings changed.
+12/08/2000  14:37:20  Graph Settings- settings changed.
+12/08/2000  14:37:51  Graph Settings- settings changed.
+12/08/2000  14:38:21  Graph Settings- settings changed.
+12/08/2000  14:40:27  Graph Settings- settings changed.
+12/08/2000  14:40:52  Graph Settings- settings changed.
+12/08/2000  15:24:31  Graph Settings- settings changed.
+12/08/2000  15:39:23  Project Settings- project file created.
+12/08/2000  16:01:19  Check Out- started.
+12/08/2000  16:01:32  Check Out- completed.
+12/08/2000  16:57:38  Graph Settings- settings changed.
+12/08/2000  16:57:40  Graph Settings- settings changed.
+12/08/2000  16:57:44  Graph Settings- settings changed.

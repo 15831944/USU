@@ -1,0 +1,38 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: Test Set System Fonts - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "c:\windows\TEMP\RSP2120.TMP" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /FR"Debug/" /Fp"Debug/Test Set System Fonts.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"c:\Test Set System Fonts\Test Set System FontsDlg.cpp"
+]
+Creating command line "cl.exe @c:\windows\TEMP\RSP2120.TMP" 
+Creating temporary file "c:\windows\TEMP\RSP2121.TMP" with contents
+[
+/nologo /subsystem:windows /incremental:yes /pdb:"Debug/Test Set System Fonts.pdb" /debug /machine:I386 /out:"Debug/Test Set System Fonts.exe" /pdbtype:sept 
+".\Debug\StdAfx.obj"
+".\Debug\Test Set System Fonts.obj"
+".\Debug\Test Set System FontsDlg.obj"
+".\Debug\Test Set System Fonts.res"
+]
+Creating command line "link.exe @c:\windows\TEMP\RSP2121.TMP"
+<h3>Output Window</h3>
+Compiling...
+Test Set System FontsDlg.cpp
+Linking...
+Creating command line "bscmake.exe /nologo /o"Debug/Test Set System Fonts.bsc"  ".\Debug\StdAfx.sbr" ".\Debug\Test Set System Fonts.sbr" ".\Debug\Test Set System FontsDlg.sbr""
+Creating browse info file...
+<h3>Output Window</h3>
+
+
+
+<h3>Results</h3>
+Test Set System Fonts.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

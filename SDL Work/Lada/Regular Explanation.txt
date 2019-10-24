@@ -1,0 +1,120 @@
+Overview of the Regular.csi program:
+I wrote this as I was trying to understand what was happening in the code.
+It got started when I was wondering what all the input locations Shane is using
+to debug the Automatic SMP moisture control do.
+
+Lines 5 - 241
+;************Initialization at startup******************************
+	Line 7 is the first line of executable code.  If flag 8 is low, then
+	all input locations are initialized.
+
+Lines 242 - 259
+;************Read # of min. in current day, and hrs. in current year
+	This section stores the current time into values that the code will use
+	later on.  These are real time counters.
+	MinMod20, MinMod60, and TimeInHrs are all set here
+
+Lines 260 - 319
+;Read Cabin and Control Module Monitoring Sensors into Input Storage
+	This section reads cabin values into input locations.
+
+Lines 320 - 430
+;************Read sensors on AM25Ts ********************************
+	This section starts reading of channels from AM25ts.  
+	Port 2 is set high to start.
+	Does this select one of the muliplexors?
+
+Lines 431 - 440
+;display smp1 on reading for smp2&3 TTTTTTTTTTTTTTTTTTTTTTTTTt
+	It appears that the values of smps 2, 3 are set to the value
+	of smp 1.
+	Not sure why this is done...
+		
+Lines 441 - 755
+	Voltages are read from various channels and are translated to input location 
+	readings...
+
+Lines 756 - 768
+	;display tensiometer #4 on #1,2,3TTTTTTTTTTTTTTTTTTTTTT
+	It appears that the values of tensiometers 1, 2, 3 are set to the value
+	of tensiometer 4.
+	Not sure why this is done...
+
+Lines 769 - 871
+	This section reads input locations for chamber A...
+	Soil moisture probe temperatures, relative humidity, light levels, sensor tree temperatures...
+
+Lines 872 - 880
+;display smp4 reading on smp5&6TTTTTTTTTTTTTTTTTTTTTTTT
+	It looks like this copies the values of input location smp4 to smp5 and smp6.
+	Not sure why this is done...
+
+Lines 881 - 990
+	This section reads voltage input locations.
+
+Lines 991 - 1358
+;************Read Chamber A Moisture if flag 1 is set***************
+	This section will perform a SMP reading for chamber one if Flag 1 is set high.
+
+Lines 1359 - 1372
+;************Read Pulse Counters************************************
+	This section will read the number of revolutions of the pump counter
+	and increment the volume pumped.
+
+Lines 1373 - 1399
+;************Output to Final Storage every 20 or 60 minutes*********
+	If the value of MinMod20 = AWrite20m or if
+	MinMod60 = AWrite1Hr, then write to final storage.
+
+Lines 1400 - 1614
+;************Enable Automatic Functions if Flag 3 is high***********
+
+Lines 1405 - 1417
+	If the value of MinMod20 = ARead20m or if
+	MinMod60 = ARead1Hr, then set Flag 1 high (which will cause a SMP test to start).
+
+Lines 1418 - 1481
+;************Check water level and water chamber A if needed********
+	If MinMod20 = AWtrIntvl, then: (Lines 1418-1424)
+		;************If the moisture average is too low ********************
+		If AMoistAvg < GCASatLvl then: (Lines 1425-1431)
+			;************Calculate amount of water needed to be added **********
+			Calculate how much water to add, then set Flag 2 high
+			
+Lines 1482 - 1518
+;************Monitor water pumped in Chamber A to turn off**********
+	If enough water has been pumped, stop pumping
+
+Lines 1519 - 1556
+;************Turn lights and fans on in Growth Chamber A************
+	
+Lines 1557 - 1594
+;************Turn lights and fans off in Growth Chamber A***********
+
+Lines 1595 - 1614
+;************Calculate Amount of time lights and fans are on in min.
+
+Lines 1615 - 1863
+;************This section of Code allows manual control of Lada*****
+	If AManCtrl >= 1, then see what to turn on/off
+	It appears that this section of code (and hence manual control) may
+	be used during Automatic Mode...
+
+The program ends here.  There are 373 lines of executable code in this program.
+
+Following it are a couple of subroutines.
+
+Lines 1865 - 1900
+Subroutine 1:
+;************Subroutine 1 for calculating soil moisture average*****
+;************using only valid moisture measurements.****************
+
+Lines 1901 - 1977
+Subroutine 2:
+;************Subroutine 2 manages the output for GCA****************
+	This section writes to final storage
+
+1978 - 2102
+-Input Locations- Contains a list of all input locations
+
+

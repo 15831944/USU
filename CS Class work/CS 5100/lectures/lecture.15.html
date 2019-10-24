@@ -1,0 +1,83 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>CS 5100 Lecture 15 - Greg Jones</TITLE>
+<META NAME="Template" CONTENT="C:\Program Files\Microsoft Office\Templates\Lecture Notes.dot">
+</HEAD>
+<BODY>
+
+<B><I><FONT SIZE=5><P>Menus, ProgressBars, Sliders, Split/Tab Panes, ToolTips &#9;Lecture 5100.15</P>
+<OL TYPE="A">
+
+</I></FONT><LI>Menu-related components</LI>
+<OL>
+
+<LI>Menubars</LI>
+<OL TYPE="a">
+
+<LI>Top level containers like JFrame and JInternalFrame automatically have menubars.  They can be added to other containers as well.  Menubars can contain menus only.  Menubars have the following methods:</LI>
+<LI>The add method adds a menu to the menubar.  The title used in constructing the menu is the name that appears on the menubar.</LI>
+<LI>getMenuCount tells how many menus appear in a menubar.  The methods getMenu and getSubElements allow us to switch between the index (position) of the menu in the menubar and the menu itself.</LI>
+<LI>The method setHelpMenu allows us to specify which menu appears at the far right side of the menubar.  It may not be available in JDK1.2.</LI></OL>
+
+<LI>Menus</LI>
+<OL TYPE="a">
+
+<LI>Menus can display menu items, which includes not only the generic menu item, but also checkbox menu items, radiobutton menu items, and other (walking or cascaded) menus.</LI>
+<LI>Tearoff menus can remain displayed when the parent menu is closed.  One form of menu constructor has a boolean argument to indicate whether the menu is a tearoff.</LI>
+<LI>Popup menus are menus which don't depend on a menubar to trigger their display.  Usually they are displayed as a result of a right mouse button click.  They must be displayed within the area of the parent.</LI>
+<LI>The add method adds another menu item. The insert method adds at a particular position.  Another form of insert creates an entry representing an Action item as its action listener, since the Action interface extends ActionListener.  </LI>
+<LI>addSeparator or insertSeparator will add a horizontal line for the purpose of visually dividing the menu into different sections.</LI>
+<LI>getItemCount and getMenuComponents return the number of components and an array of all components of a menu.</LI>
+<LI>getItem returns a specific menu item.</LI>
+<LI>doClick causes a menu selection programmatically.</LI></OL>
+
+<LI>The setMnemonic method for menu items allows us to select the mnemonic by which a user can "click" a menu item from the keyboard.</LI></OL>
+
+<LI>Progress Indicators</LI>
+<OL>
+
+<LI>These are the familiar objects used to indicate progress during a relatively slow operation.  Typically, a JProgressBar is displayed within a dialog, which updates the bar periodically, and disappears when the operation is complete.</LI>
+<LI>Progress bars have a data member which is a value.  The bar is redrawn when the value is set.</LI>
+<LI>There is a getValue to return the value, or a getPercentComplete, which indicates where the value stands between its minimum and maximum as a double number.  The getString method returns the percent as a string.</LI>
+<LI>A JProgressBar constructor may specify orientation (horizontal or vertical), minimum and maximum values, or a data model.</LI></OL>
+
+<LI>Sliders</LI>
+<OL>
+
+<LI>Sliders are somewhat like scroll bars, but they come with built-in tick marks and labels, indicating the range of values the slider may have.  The "thumb" or button is more of a pointer, rather than the rectangle of the scrollbar.</LI>
+<LI>Slider methods include:</LI>
+<OL TYPE="a">
+
+<LI>Constructors which can set the orientation, initial, minimum, and maximum values of the slider, or a data model.</LI>
+<LI>Functions to display or suppress labels and tick marks.</LI>
+<LI>Functions to set or determine the "snap-to" state of the slider.</LI>
+<LI>Methods to deal with the inversion of a slider; that is, whether the maximum is displayed at the right or left side, top or bottom end.</LI>
+<LI>Functions to set the spacing of major and minor tick marks.</LI></OL>
+</OL>
+
+<LI>Split Panes</LI>
+<OL>
+
+<LI>These are panes which can hold two objects, while allowing the user to determine how much real estate is occupied by one at the expense of another.  The objects can be arranged side by side or top to bottom.  When constructed with a "continuous" flag, this resizing is displayed as the panes are resized.  Otherwise it happens only after resizing is complete.</LI>
+<LI>The stippled sash between the panes is dragged to change the relative size of the two objects.  It can also be minimized and restored.  The minimum size of each component can be set as well.</LI>
+<LI>The position of the divider can be initialized or reset programmatically.  There is a method to reset the panes to their preferred relative sizes.</LI></OL>
+
+<LI>Tabbed Panes</LI>
+<OL>
+
+<LI>These allow the same real estate to be shared by many containers, only one of which is visible at a time.  The visible container is selected by the user clicking on a tab bearing its name.</LI>
+<LI>Tabs can be placed on any of the four sides of the tabbed pane.  They can appear in multiple rows or columns.</LI>
+<LI>The add method can add at the end or insert at an index, and can allow the name of the object to appear on the tab or specify another name.  Icons and tool tips can also appear on tabs.</LI>
+<LI>Tabs can be enabled or disabled.</LI>
+<LI>There are methods to find out how many tabs exist, which is currently selected, what the title of a given tab is, which tab contains a given title or icon, etc.</LI></OL>
+
+<LI>Tool Tips</LI>
+<OL>
+
+<LI>The JToolTip component is perhaps the simplest of all Swing components.  All JComponents can have a tool tip, which is set by a call to setToolTipText.</LI>
+<LI>Existing tool tips can have their text changed by a call to setTipText.</LI></OL>
+</OL>
+</B></BODY>
+</HTML>

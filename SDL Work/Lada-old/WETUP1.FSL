@@ -1,0 +1,49 @@
+Final Storage Label File for:  WETUP1.CSI
+Date:  3/7/2001
+Time:  16:50:38
+
+11 Output_Table   5.00 Sec
+1 11 L
+2 Year_RTM  L
+3 Day_RTM  L
+4 Hour_Minute_RTM  L
+5 CA_SMP1_S  L
+6 CA_SMP2_S  L
+7 CA_SMP3_S  L
+8 CA_SMP4_S  L
+9 CA_SMP5_S  L
+10 CA_SMP6_S  L
+11 CA_Wic1_S  L
+12 CA_Wic2_S  L
+13 CA_SMP1_T  L
+14 CA_SMP2_T  L
+15 CA_SMP3_T  L
+16 CA_SMP4_T  L
+17 CA_SMP5_T  L
+18 CA_SMP6_T  L
+19 CA_Wic1_T  L
+20 CA_Wic2_T  L
+21 CA_O2_1  L
+22 CA_O2_2  L
+23 CA_O2_3  L
+24 CA_O2_4  L
+25 CATotVolP  L
+26 CA_Blst_T  L
+27 CA_Intk_T  L
+28 CA_Top_T  L
+29 CA_Mid_T  L
+30 CA_Bot_T  L
+31 CA_Leaf_T  L
+32 CA_RH  L
+33 CA_Top_L  L
+34 CA_Mid_L  L
+35 CA_Bot_L  L
+36 Cabin_T_AVG  L
+37 Cabin_P_AVG  L
+38 Cabin_RH_AVG  L
+39 Cabin_O2_AVG  L
+40 Cabin_CO2_AVG  L
+41 AMoistAvg  L
+
+
+Estimated Total Final Storage Locations used per day 708480.0

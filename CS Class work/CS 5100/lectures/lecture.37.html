@@ -1,0 +1,39 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>CS 5100 Lecture 37 - Greg Jones</TITLE>
+<META NAME="Template" CONTENT="C:\Program Files\Microsoft Office\Templates\Lecture Notes.dot">
+</HEAD>
+<BODY>
+
+<B><I><FONT SIZE=5><P>Property Pages, Sheets, and Wizards&#9;Lecture 5100.37</P>
+<OL TYPE="A">
+
+</I></FONT><LI>Property Sheets and Pages</LI>
+<OL>
+
+<LI>Property sheets are dialogs which contain other dialogs representing pages.</LI>
+<LI>The user selects a particular property page by clicking a tab.</LI>
+<LI>Pages are dialogs, and should have &quot;Child&quot; and &quot;Thin&quot; chosen in the style section of the resource editor property sheet.</LI>
+<LI>Pages shouldn’t have a system menu.  This is the menu at the top-left, which has things like restore, move, minimize, close, etc.</LI>
+<LI>Each page has a surrogate object derived from  CPropertyPage, with members for each control that appears on the property page.</LI>
+<LI>The surrogate for the property sheet as a whole is a CPropertySheet, with members for each page type, that is the specialized type derived from CPropertyPage.</LI>
+<LI>In the constructor for the property sheet, call AddPage for each of these individual pages.</LI>
+<LI>Display the sheet just like a dialog by calling DoModal</LI></OL>
+
+<LI>Wizards</LI>
+<OL>
+
+<LI>Wizards are just property sheets which are navigated by Back, Next, and Finish buttons.  They require the user to follow some specific, linear course in setting the values in the property pages, instead of being able simply to do this at random.</LI>
+<LI>Property pages for a wizard are created as before for property sheets.</LI>
+<LI>SetWizardMode is called to indicate that this is a wizard.</LI>
+<LI>A call to SetWizardButtons is made in page’s OnSetActive function.  This establishes which of the next, back, finish, and cancel buttons will appear, and whether any of them is inactive.</LI>
+<LI>Each property page in the wizard has OnWizardBack, OnWizardNext, and OnWizardFinish handlers.</LI></OL>
+
+<LI>There is an example project at the ftp site called junk3.</LI></OL>
+
+</B><FONT SIZE=2>
+</FONT><B><P>&nbsp;</P>
+<P>&nbsp;</P></B></BODY>
+</HTML>

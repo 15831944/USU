@@ -1,0 +1,759 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./lecture.01_files/filelist.xml">
+<title>CS 5100 Lecture 1 -  Greg Jones</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Greg Jones</o:Author>
+  <o:LastAuthor>Greg Jones</o:LastAuthor>
+  <o:Revision>2</o:Revision>
+  <o:TotalTime>151</o:TotalTime>
+  <o:LastPrinted>2000-01-10T16:29:00Z</o:LastPrinted>
+  <o:Created>2002-01-04T21:02:00Z</o:Created>
+  <o:LastSaved>2002-01-04T21:02:00Z</o:LastSaved>
+  <o:Pages>2</o:Pages>
+  <o:Words>671</o:Words>
+  <o:Characters>3825</o:Characters>
+  <o:Company>Utah State University</o:Company>
+  <o:Lines>31</o:Lines>
+  <o:Paragraphs>7</o:Paragraphs>
+  <o:CharactersWithSpaces>4697</o:CharactersWithSpaces>
+  <o:Version>9.3821</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:DoNotHyphenateCaps/>
+  <w:DrawingGridHorizontalSpacing>0 pt</w:DrawingGridHorizontalSpacing>
+  <w:DrawingGridVerticalSpacing>0 pt</w:DrawingGridVerticalSpacing>
+  <w:DisplayHorizontalDrawingGridEvery>0</w:DisplayHorizontalDrawingGridEvery>
+  <w:DisplayVerticalDrawingGridEvery>0</w:DisplayVerticalDrawingGridEvery>
+  <w:UseMarginsForDrawingGridOrigin/>
+  <w:DrawingGridHorizontalOrigin>0 pt</w:DrawingGridHorizontalOrigin>
+  <w:DrawingGridVerticalOrigin>0 pt</w:DrawingGridVerticalOrigin>
+  <w:DoNotShadeFormData/>
+  <w:Compatibility>
+   <w:WPJustification/>
+   <w:NoTabHangIndent/>
+   <w:TransparentMetafiles/>
+   <w:SubFontBySize/>
+   <w:SuppressBottomSpacing/>
+   <w:TruncateFontHeight/>
+   <w:UsePrinterMetrics/>
+   <w:WrapTrailSpaces/>
+   <w:FootnoteLayoutLikeWW8/>
+   <w:ShapeLayoutLikeWW8/>
+   <w:AlignTablesRowByRow/>
+   <w:ForgetLastTabAlignment/>
+   <w:LayoutRawTableWidth/>
+   <w:LayoutTableRowsApart/>
+  </w:Compatibility>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:none;
+	font-size:12.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	layout-grid-mode:line;}
+h1
+	{mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:none;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	font-size:16.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-font-kerning:0pt;
+	layout-grid-mode:line;
+	mso-bidi-font-weight:normal;}
+h2
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:20.15pt;
+	text-indent:-20.15pt;
+	mso-pagination:none;
+	page-break-after:avoid;
+	mso-outline-level:2;
+	mso-list:l0 level1 lfo3;
+	font-size:12.0pt;
+	mso-bidi-font-size:10.0pt;
+	font-family:Arial;
+	mso-bidi-font-family:"Times New Roman";
+	layout-grid-mode:line;
+	mso-bidi-font-weight:normal;
+	font-style:italic;
+	mso-bidi-font-style:normal;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;
+	text-underline:single;}
+ /* Page Definitions */
+@page
+	{mso-page-border-surround-header:no;
+	mso-page-border-surround-footer:no;
+	mso-endnote-numbering-style:arabic;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:.5in .25in .5in .25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-header:url("./lecture.01_files/header.htm") h1;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+@page Section2
+	{size:8.5in 11.0in;
+	margin:.5in .25in .5in .25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-header:url("./lecture.01_files/header.htm") h1;
+	mso-paper-source:0;}
+div.Section2
+	{page:Section2;}
+ /* List Definitions */
+@list l0
+	{mso-list-id:270287101;
+	mso-list-template-ids:-713102510;}
+@list l0:level1
+	{mso-level-number-format:alpha-upper;
+	mso-level-style-link:"Heading 2";
+	mso-level-suffix:space;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	margin-left:20.15pt;
+	text-indent:-20.15pt;
+	mso-ansi-font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-ansi-font-weight:bold;
+	mso-ansi-font-style:normal;}
+@list l0:level2
+	{mso-level-suffix:space;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	margin-left:33.85pt;
+	text-indent:-15.85pt;
+	mso-ansi-font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-ansi-font-weight:bold;
+	mso-ansi-font-style:normal;}
+@list l0:level3
+	{mso-level-number-format:alpha-lower;
+	mso-level-suffix:space;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;
+	mso-ansi-font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-ansi-font-weight:bold;
+	mso-ansi-font-style:normal;}
+@list l0:level4
+	{mso-level-number-format:roman-lower;
+	mso-level-suffix:space;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	margin-left:66.95pt;
+	text-indent:-12.95pt;
+	mso-ansi-font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-ansi-font-weight:bold;
+	mso-ansi-font-style:normal;}
+@list l0:level5
+	{mso-level-number-format:alpha-lower;
+	mso-level-text:"\(%5\)";
+	mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	margin-left:1.25in;
+	text-indent:-.25in;}
+@list l0:level6
+	{mso-level-number-format:roman-lower;
+	mso-level-text:"\(%6\)";
+	mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	margin-left:1.5in;
+	text-indent:-.25in;}
+@list l0:level7
+	{mso-level-tab-stop:1.75in;
+	mso-level-number-position:left;
+	margin-left:1.75in;
+	text-indent:-.25in;}
+@list l0:level8
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	margin-left:2.0in;
+	text-indent:-.25in;}
+@list l0:level9
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:2.25in;
+	mso-level-number-position:left;
+	margin-left:2.25in;
+	text-indent:-.25in;}
+@list l1
+	{mso-list-id:504590866;
+	mso-list-template-ids:332046732;}
+@list l1:level1
+	{mso-level-number-format:alpha-upper;
+	mso-level-suffix:space;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	margin-left:20.15pt;
+	text-indent:-20.15pt;
+	mso-ansi-font-size:16.0pt;
+	font-family:"Times New Roman";
+	mso-ansi-font-weight:bold;
+	mso-ansi-font-style:normal;}
+@list l1:level2
+	{mso-level-suffix:space;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	margin-left:33.85pt;
+	text-indent:-15.85pt;
+	mso-ansi-font-size:16.0pt;
+	font-family:"Times New Roman";
+	mso-ansi-font-weight:bold;
+	mso-ansi-font-style:normal;}
+@list l1:level3
+	{mso-level-number-format:alpha-lower;
+	mso-level-suffix:space;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;
+	mso-ansi-font-size:16.0pt;
+	font-family:"Times New Roman";
+	mso-ansi-font-weight:bold;
+	mso-ansi-font-style:normal;}
+@list l1:level4
+	{mso-level-number-format:roman-lower;
+	mso-level-suffix:space;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	margin-left:66.95pt;
+	text-indent:-12.95pt;
+	mso-ansi-font-size:16.0pt;
+	font-family:"Times New Roman";
+	mso-ansi-font-weight:bold;
+	mso-ansi-font-style:normal;}
+@list l1:level5
+	{mso-level-number-format:alpha-lower;
+	mso-level-text:"\(%5\)";
+	mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	margin-left:1.25in;
+	text-indent:-.25in;}
+@list l1:level6
+	{mso-level-number-format:roman-lower;
+	mso-level-text:"\(%6\)";
+	mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	margin-left:1.5in;
+	text-indent:-.25in;}
+@list l1:level7
+	{mso-level-tab-stop:1.75in;
+	mso-level-number-position:left;
+	margin-left:1.75in;
+	text-indent:-.25in;}
+@list l1:level8
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	margin-left:2.0in;
+	text-indent:-.25in;}
+@list l1:level9
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:2.25in;
+	mso-level-number-position:left;
+	margin-left:2.25in;
+	text-indent:-.25in;}
+@list l2
+	{mso-list-id:1462306988;
+	mso-list-template-ids:-1885467262;}
+@list l2:level1
+	{mso-level-number-format:alpha-upper;
+	mso-level-suffix:space;
+	mso-level-text:"%1\. ";
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	mso-ansi-font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-ansi-font-weight:bold;
+	mso-ansi-font-style:normal;}
+@list l2:level2
+	{mso-level-suffix:space;
+	mso-level-text:"%2\. ";
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	margin-left:.5in;
+	text-indent:-.25in;
+	mso-ansi-font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-ansi-font-weight:bold;
+	mso-ansi-font-style:normal;}
+@list l2:level3
+	{mso-level-number-format:alpha-lower;
+	mso-level-suffix:space;
+	mso-level-text:"%3\. ";
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;
+	mso-ansi-font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-ansi-font-weight:bold;
+	mso-ansi-font-style:normal;}
+@list l2:level4
+	{mso-level-number-format:roman-lower;
+	mso-level-suffix:space;
+	mso-level-text:"%4\. ";
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	margin-left:1.0in;
+	text-indent:-.25in;
+	mso-ansi-font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-ansi-font-weight:bold;
+	mso-ansi-font-style:normal;}
+@list l2:level5
+	{mso-level-number-format:alpha-lower;
+	mso-level-text:"\(%5\)";
+	mso-level-tab-stop:1.25in;
+	mso-level-number-position:left;
+	margin-left:1.25in;
+	text-indent:-.25in;}
+@list l2:level6
+	{mso-level-number-format:roman-lower;
+	mso-level-text:"\(%6\)";
+	mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	margin-left:1.5in;
+	text-indent:-.25in;}
+@list l2:level7
+	{mso-level-tab-stop:1.75in;
+	mso-level-number-position:left;
+	margin-left:1.75in;
+	text-indent:-.25in;}
+@list l2:level8
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	margin-left:2.0in;
+	text-indent:-.25in;}
+@list l2:level9
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:2.25in;
+	mso-level-number-position:left;
+	margin-left:2.25in;
+	text-indent:-.25in;}
+@list l3
+	{mso-list-id:1646742340;
+	mso-list-type:simple;
+	mso-list-template-ids:1971330730;}
+@list l3:level1
+	{mso-level-number-format:alpha-upper;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.5in;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+</head>
+
+<body lang=EN-US link=blue vlink=purple style='tab-interval:.5in'>
+
+<div class=Section1>
+
+<h2 style='mso-list:none'><span style='font-size:16.0pt;mso-bidi-font-size:
+10.0pt'>Introduction and course planning<span style='mso-tab-count:1'>       </span><span
+style='mso-tab-count:2'>            </span><span style='mso-tab-count:1'>    </span>Lecture
+5100.01<o:p></o:p></span></h2>
+
+<h2 style='margin-left:.25in;text-indent:-.25in;mso-list:l2 level1 lfo4'><![if !supportLists]><span
+style='font-family:"Times New Roman";font-style:normal'>A. <span
+style="mso-spacerun: yes"> </span></span><![endif]><span style='font-family:
+"Times New Roman";font-style:normal'>Course facts<o:p></o:p></span></h2>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l2 level2 lfo4;
+tab-stops:-1.0in'><![if !supportLists]><b style='mso-bidi-font-weight:normal'>1.
+<span style="mso-spacerun: yes"> </span></b><![endif]><b style='mso-bidi-font-weight:
+normal'>Name - CS 5100 &#8209; Graphical User Interfaces And Windows
+Programming<o:p></o:p></b></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l2 level2 lfo4;
+tab-stops:-1.0in'><![if !supportLists]><b style='mso-bidi-font-weight:normal'>2.
+<span style="mso-spacerun: yes"> </span></b><![endif]><b style='mso-bidi-font-weight:
+normal'>Instructor - Greg Jones,<o:p></o:p></b></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l2 level2 lfo4;
+tab-stops:-1.0in'><![if !supportLists]><b style='mso-bidi-font-weight:normal'>3.
+<span style="mso-spacerun: yes"> </span></b><![endif]><b style='mso-bidi-font-weight:
+normal'>Contact<o:p></o:p></b></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l2 level3 lfo4;
+tab-stops:-1.0in'><![if !supportLists]><b style='mso-bidi-font-weight:normal'>a.
+<span style="mso-spacerun: yes"> </span></b><![endif]><b style='mso-bidi-font-weight:
+normal'>Office in Main 420<o:p></o:p></b></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l2 level3 lfo4;
+tab-stops:-1.0in'><![if !supportLists]><b style='mso-bidi-font-weight:normal'>b.
+<span style="mso-spacerun: yes"> </span></b><![endif]><b style='mso-bidi-font-weight:
+normal'>E-mail address is jones@greg.cs.usu.edu<o:p></o:p></b></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l2 level3 lfo4;
+tab-stops:-1.0in'><![if !supportLists]><b style='mso-bidi-font-weight:normal'>c.
+<span style="mso-spacerun: yes"> </span></b><![endif]><b style='mso-bidi-font-weight:
+normal'>Phone is 797-3267<o:p></o:p></b></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l2 level2 lfo4;
+tab-stops:-1.0in'><![if !supportLists]><b style='mso-bidi-font-weight:normal'>4.
+<span style="mso-spacerun: yes"> </span></b><![endif]><b style='mso-bidi-font-weight:
+normal'>Text –Java GUI Development by Piroumian<o:p></o:p></b></p>
+
+<h2 style='margin-left:.25in;text-indent:-.25in;mso-list:l2 level1 lfo4'><![if !supportLists]><span
+style='font-family:"Times New Roman";font-style:normal'>B. <span
+style="mso-spacerun: yes"> </span></span><![endif]><span style='font-family:
+"Times New Roman";font-style:normal'>Course objectives<o:p></o:p></span></h2>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l2 level2 lfo4;
+tab-stops:-1.0in'><![if !supportLists]><b style='mso-bidi-font-weight:normal'>1.
+<span style="mso-spacerun: yes"> </span></b><![endif]><b style='mso-bidi-font-weight:
+normal'>To learn extensive technical knowledge of Java and Visual C++;<o:p></o:p></b></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l2 level2 lfo4;
+tab-stops:-1.0in'><![if !supportLists]><b style='mso-bidi-font-weight:normal'>2.
+<span style="mso-spacerun: yes"> </span></b><![endif]><b style='mso-bidi-font-weight:
+normal'>To learn the essential concepts of graphical user interfaces; and<o:p></o:p></b></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l2 level2 lfo4;
+tab-stops:-1.0in'><![if !supportLists]><b style='mso-bidi-font-weight:normal'>3.
+<span style="mso-spacerun: yes"> </span></b><![endif]><b style='mso-bidi-font-weight:
+normal'>To construct a number of different kinds of graphical user interfaces
+using a variety of platforms.<o:p></o:p></b></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l2 level2 lfo4;
+tab-stops:-1.0in'><![if !supportLists]><b style='mso-bidi-font-weight:normal'>4.
+<span style="mso-spacerun: yes"> </span></b><![endif]><b style='mso-bidi-font-weight:
+normal'>The anticipated class GPA will be 3.0-3.1<o:p></o:p></b></p>
+
+<h2 style='margin-left:.25in;text-indent:-.25in;mso-list:l2 level1 lfo4'><![if !supportLists]><span
+style='font-family:"Times New Roman";font-style:normal'>C. <span
+style="mso-spacerun: yes"> </span></span><![endif]><span style='font-family:
+"Times New Roman";font-style:normal'>Course planning<o:p></o:p></span></h2>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l2 level2 lfo4;
+tab-stops:-1.0in'><![if !supportLists]><b style='mso-bidi-font-weight:normal'>1.
+<span style="mso-spacerun: yes"> </span></b><![endif]><b style='mso-bidi-font-weight:
+normal'>Examinations<o:p></o:p></b></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l2 level3 lfo4;
+tab-stops:-1.0in'><![if !supportLists]><b style='mso-bidi-font-weight:normal'>a.
+<span style="mso-spacerun: yes"> </span></b><![endif]><b style='mso-bidi-font-weight:
+normal'>How many midterms?<o:p></o:p></b></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l2 level3 lfo4;
+tab-stops:-1.0in'><![if !supportLists]><b style='mso-bidi-font-weight:normal'>b.
+<span style="mso-spacerun: yes"> </span></b><![endif]><b style='mso-bidi-font-weight:
+normal'>Final will be comprehensive, but weighted more to last part of course<o:p></o:p></b></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l2 level3 lfo4;
+tab-stops:-1.0in'><![if !supportLists]><b style='mso-bidi-font-weight:normal'>c.
+<span style="mso-spacerun: yes"> </span></b><![endif]><b style='mso-bidi-font-weight:
+normal'>How many points?<o:p></o:p></b></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l2 level3 lfo4;
+tab-stops:-1.0in'><![if !supportLists]><b style='mso-bidi-font-weight:normal'>d.
+<span style="mso-spacerun: yes"> </span></b><![endif]><b style='mso-bidi-font-weight:
+normal'>Quizzes?<o:p></o:p></b></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l2 level2 lfo4;
+tab-stops:-1.0in'><![if !supportLists]><b style='mso-bidi-font-weight:normal'>2.
+<span style="mso-spacerun: yes"> </span></b><![endif]><b style='mso-bidi-font-weight:
+normal'>Homework<o:p></o:p></b></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l2 level3 lfo4;
+tab-stops:-1.0in'><![if !supportLists]><b style='mso-bidi-font-weight:normal'>a.
+<span style="mso-spacerun: yes"> </span></b><![endif]><b style='mso-bidi-font-weight:
+normal'>How many assignments?<o:p></o:p></b></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l2 level3 lfo4;
+tab-stops:-1.0in'><![if !supportLists]><b style='mso-bidi-font-weight:normal'>b.
+<span style="mso-spacerun: yes"> </span></b><![endif]><b style='mso-bidi-font-weight:
+normal'>How many points?<o:p></o:p></b></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l2 level3 lfo4;
+tab-stops:-1.0in'><![if !supportLists]><b style='mso-bidi-font-weight:normal'>c.
+<span style="mso-spacerun: yes"> </span></b><![endif]><b style='mso-bidi-font-weight:
+normal'>Submit by diskette? <o:p></o:p></b></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l2 level3 lfo4;
+tab-stops:-1.0in'><![if !supportLists]><b style='mso-bidi-font-weight:normal'>d.
+<span style="mso-spacerun: yes"> </span></b><![endif]><b style='mso-bidi-font-weight:
+normal'>When due?<o:p></o:p></b></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l2 level3 lfo4;
+tab-stops:-1.0in'><![if !supportLists]><b style='mso-bidi-font-weight:normal'>e.
+<span style="mso-spacerun: yes"> </span></b><![endif]><b style='mso-bidi-font-weight:
+normal'>Publish solutions?<o:p></o:p></b></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l2 level2 lfo4;
+tab-stops:-1.0in'><![if !supportLists]><b style='mso-bidi-font-weight:normal'>3.
+<span style="mso-spacerun: yes"> </span></b><![endif]><b style='mso-bidi-font-weight:
+normal'>Office hours?<o:p></o:p></b></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l2 level2 lfo4;
+tab-stops:-1.0in'><![if !supportLists]><b style='mso-bidi-font-weight:normal'>4.
+<span style="mso-spacerun: yes"> </span></b><![endif]><b style='mso-bidi-font-weight:
+normal'>Would you rather have me cover just the material in the book, or should
+a substantial part of the lectures deal with other material, not in the book,
+and with class discussion?<o:p></o:p></b></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l2 level2 lfo4;
+tab-stops:-1.0in'><![if !supportLists]><b style='mso-bidi-font-weight:normal'>5.
+<span style="mso-spacerun: yes"> </span></b><![endif]><b style='mso-bidi-font-weight:
+normal'>Would you rather have me concentrate on concepts, or on facts and code?<o:p></o:p></b></p>
+
+<h2 style='margin-left:.25in;text-indent:-.25in;mso-list:l2 level1 lfo4'><![if !supportLists]><span
+style='font-family:"Times New Roman";font-style:normal'>D. <span
+style="mso-spacerun: yes"> </span></span><![endif]><span style='font-family:
+"Times New Roman";font-style:normal'>Jargon<o:p></o:p></span></h2>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l2 level2 lfo4;
+tab-stops:-1.0in'><![if !supportLists]><b style='mso-bidi-font-weight:normal'>1.
+<span style="mso-spacerun: yes"> </span></b><![endif]><b style='mso-bidi-font-weight:
+normal'>A graphical user interface is one that makes extensive use of visual
+elements.<o:p></o:p></b></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l2 level3 lfo4;
+tab-stops:-1.0in'><![if !supportLists]><b style='mso-bidi-font-weight:normal'>a.
+<span style="mso-spacerun: yes"> </span></b><![endif]><b style='mso-bidi-font-weight:
+normal'>W&#8209;i&#8209;m&#8209;p: windows, icons, menus, pointing device.<span
+style="mso-spacerun: yes">  </span>This is the kind of interface we will
+usually be working on.<o:p></o:p></b></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l2 level3 lfo4;
+tab-stops:-1.0in'><![if !supportLists]><b style='mso-bidi-font-weight:normal'>b.
+<span style="mso-spacerun: yes"> </span></b><![endif]><b style='mso-bidi-font-weight:
+normal'>Direct manipulation occurs when visual elements represent real world
+objects, and the pointing device represents your hand.<span
+style="mso-spacerun: yes">  </span>The goal is to make the computer disappear,
+and present a window onto the world.<span style="mso-spacerun: yes">  </span>A
+control panel is an example of a direct manipulation GUI.<span
+style="mso-spacerun: yes">  </span>We will also do some work with direct
+manipulation.<o:p></o:p></b></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l2 level3 lfo4;
+tab-stops:-1.0in'><![if !supportLists]><b style='mso-bidi-font-weight:normal'>c.
+<span style="mso-spacerun: yes"> </span></b><![endif]><b style='mso-bidi-font-weight:
+normal'>Virtual reality occurs when you are provided stereoscopic vision and
+hearing, tactile senses, multiple control sensors, and virtual
+self-awareness.<span style="mso-spacerun: yes">  </span>It is beyond the scope
+of this course.<o:p></o:p></b></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l2 level2 lfo4;
+tab-stops:-1.0in'><![if !supportLists]><b style='mso-bidi-font-weight:normal'>2.
+<span style="mso-spacerun: yes"> </span></b><![endif]><b style='mso-bidi-font-weight:
+normal'>Cognitive science is a field on the borders of computer science,
+psychology, and learning theory.<span style="mso-spacerun: yes">  </span>Many
+of the insights of cognitive science have contributed to improved user
+interface design.<o:p></o:p></b></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l2 level2 lfo4;
+tab-stops:-1.0in'><![if !supportLists]><b style='mso-bidi-font-weight:normal'>3.
+<span style="mso-spacerun: yes"> </span></b><![endif]><b style='mso-bidi-font-weight:
+normal'>A style guide is usually provided for window systems.<span
+style="mso-spacerun: yes">  </span>It specifies all sorts of details, like the
+placement of a menu bar, the relationship of colors, the size of bevels, the
+direction of apparent lighting, etc.<o:p></o:p></b></p>
+
+</div>
+
+<b style='mso-bidi-font-weight:normal'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;font-family:"Times New Roman";mso-fareast-font-family:
+"Times New Roman";mso-ansi-language:EN-US;mso-fareast-language:EN-US;
+mso-bidi-language:AR-SA;layout-grid-mode:line'><br clear=all style='page-break-before:
+auto;mso-break-type:section-break'>
+</span></b>
+
+<div class=Section2>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l2 level2 lfo4;
+tab-stops:-1.0in'><![if !supportLists]><b style='mso-bidi-font-weight:normal'>4.
+<span style="mso-spacerun: yes"> </span></b><![endif]><b style='mso-bidi-font-weight:
+normal'>Following the style guide produces a “look and feel” in windows
+systems.<span style="mso-spacerun: yes">  </span>The open software foundation
+(OSF) or Motif style is evident in X&#8209;windows systems, Macintosh, MS
+windows, and the Borland products.<o:p></o:p></b></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l2 level2 lfo4;
+tab-stops:-1.0in'><![if !supportLists]><b style='mso-bidi-font-weight:normal'>5.
+<span style="mso-spacerun: yes"> </span></b><![endif]><b style='mso-bidi-font-weight:
+normal'>Typically, windows systems are constructed using elements from
+toolkits, like scroll bars, push buttons, text windows, etc.<span
+style="mso-spacerun: yes">  </span>We will be working with the AWT, MFC, and
+Motif toolkits.<o:p></o:p></b></p>
+
+<h2 style='margin-left:.25in;text-indent:-.25in;mso-list:l2 level1 lfo4'><![if !supportLists]><span
+style='font-family:"Times New Roman";font-style:normal'>E. <span
+style="mso-spacerun: yes"> </span></span><![endif]><span style='font-family:
+"Times New Roman";font-style:normal'>The first homework assignment will be to
+build a game.<o:p></o:p></span></h2>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l2 level2 lfo4;
+tab-stops:-1.0in'><![if !supportLists]><b style='mso-bidi-font-weight:normal'>1.
+<span style="mso-spacerun: yes"> </span></b><![endif]><b style='mso-bidi-font-weight:
+normal'>Example of homework assignment shown in class.<o:p></o:p></b></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l2 level2 lfo4;
+tab-stops:-1.0in'><![if !supportLists]><b style='mso-bidi-font-weight:normal'>2.
+<span style="mso-spacerun: yes"> </span></b><![endif]><b style='mso-bidi-font-weight:
+normal'>The credit given in grading is outlined in the file at <a
+href="ftp://ftp.cs.usu.edu/pub/jones/cs5100/assignments/assignment1">ftp.cs.usu.edu/pub/jones/cs5100/assignments/assignment1</a>.<span
+style="mso-spacerun: yes">  </span>Points will be given for:<o:p></o:p></b></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l2 level3 lfo4;
+tab-stops:-1.0in'><![if !supportLists]><b style='mso-bidi-font-weight:normal'>a.
+<span style="mso-spacerun: yes"> </span></b><![endif]><b style='mso-bidi-font-weight:
+normal'>Basic graphical display of the game;<o:p></o:p></b></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l2 level3 lfo4;
+tab-stops:-1.0in'><![if !supportLists]><b style='mso-bidi-font-weight:normal'>b.
+<span style="mso-spacerun: yes"> </span></b><![endif]><b style='mso-bidi-font-weight:
+normal'>Basic function of the game;<o:p></o:p></b></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l2 level3 lfo4;
+tab-stops:-1.0in'><![if !supportLists]><b style='mso-bidi-font-weight:normal'>c.
+<span style="mso-spacerun: yes"> </span></b><![endif]><b style='mso-bidi-font-weight:
+normal'>Pleasing appearance;<o:p></o:p></b></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l2 level3 lfo4;
+tab-stops:-1.0in'><![if !supportLists]><b style='mso-bidi-font-weight:normal'>d.
+<span style="mso-spacerun: yes"> </span></b><![endif]><b style='mso-bidi-font-weight:
+normal'>Ease of use and understanding;<o:p></o:p></b></p>
+
+<p class=MsoNormal style='margin-left:.75in;text-indent:-.25in;mso-list:l2 level3 lfo4;
+tab-stops:-1.0in'><![if !supportLists]><b style='mso-bidi-font-weight:normal'>e.
+<span style="mso-spacerun: yes"> </span></b><![endif]><b style='mso-bidi-font-weight:
+normal'>Specified elements;<o:p></o:p></b></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l2 level2 lfo4;
+tab-stops:-1.0in'><![if !supportLists]><b style='mso-bidi-font-weight:normal'>3.
+<span style="mso-spacerun: yes"> </span></b><![endif]><b style='mso-bidi-font-weight:
+normal'>A windows executable of this program can be downloaded from <a
+href="ftp://ftp.cs.usu.edu/pub/jones/cs5100/assignments/assignment1">ftp.cs.usu.edu/pub/jones/cs5100/assignments/assignment1</a>.<o:p></o:p></b></p>
+
+<h2 style='margin-left:.25in;text-indent:-.25in;mso-list:l2 level1 lfo4'><![if !supportLists]><span
+style='font-family:"Times New Roman";font-style:normal'>F. <span
+style="mso-spacerun: yes"> </span></span><![endif]><span style='font-family:
+"Times New Roman";font-style:normal'>A small example using a Java UIDS<o:p></o:p></span></h2>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l2 level2 lfo4;
+tab-stops:-1.0in'><![if !supportLists]><b style='mso-bidi-font-weight:normal'>1.
+<span style="mso-spacerun: yes"> </span></b><![endif]><b style='mso-bidi-font-weight:
+normal'>Files for this example will be useful in doing your homework.<span
+style="mso-spacerun: yes">  </span>They are available at <a
+href="ftp://ftp.cs.usu.edu/pub/jones/cs5100/assignments/assignment1">ftp.cs.usu.edu/pub/jones/cs5100/example1</a><o:p></o:p></b></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l2 level2 lfo4;
+tab-stops:-1.0in'><![if !supportLists]><b style='mso-bidi-font-weight:normal'>2.
+<span style="mso-spacerun: yes"> </span></b><![endif]><b style='mso-bidi-font-weight:
+normal'>Classroom examples will be done using Symantec’s Visual Café version
+4.0.<span style="mso-spacerun: yes">  </span>This is available in the 4<sup>th</sup>
+floor pc labs.<o:p></o:p></b></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l2 level2 lfo4;
+tab-stops:-1.0in'><![if !supportLists]><b style='mso-bidi-font-weight:normal'>3.
+<span style="mso-spacerun: yes"> </span></b><![endif]><b style='mso-bidi-font-weight:
+normal'>Choose file…new project…AWT application application, then save as… some
+name in a newly created directory.<o:p></o:p></b></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l2 level2 lfo4;
+tab-stops:-1.0in'><![if !supportLists]><b style='mso-bidi-font-weight:normal'>4.
+<span style="mso-spacerun: yes"> </span></b><![endif]><b style='mso-bidi-font-weight:
+normal'>In the object tab, delete the quit dialog, open dialog, and everything
+on the menubar except help.<span style="mso-spacerun: yes">  </span>Open the
+code by double-clicking the main file in the file tab, and put in window
+closing code.<o:p></o:p></b></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l2 level2 lfo4;
+tab-stops:-1.0in'><![if !supportLists]><b style='mso-bidi-font-weight:normal'>5.
+<span style="mso-spacerun: yes"> </span></b><![endif]><b style='mso-bidi-font-weight:
+normal'>In the property list, rename the frame, and give it a different title
+and size.<span style="mso-spacerun: yes">  </span>Generally, you must hit the
+Enter key for these to take effect.<span style="mso-spacerun: yes"> 
+</span>Notice how the code is changed when you change property values.<o:p></o:p></b></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l2 level2 lfo4;
+tab-stops:-1.0in'><![if !supportLists]><b style='mso-bidi-font-weight:normal'>6.
+<span style="mso-spacerun: yes"> </span></b><![endif]><b style='mso-bidi-font-weight:
+normal'>In the visual editor drag a label, change its name, text, font and
+alignment.<o:p></o:p></b></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l2 level2 lfo4;
+tab-stops:-1.0in'><![if !supportLists]><b style='mso-bidi-font-weight:normal'>7.
+<span style="mso-spacerun: yes"> </span></b><![endif]><b style='mso-bidi-font-weight:
+normal'>Add a button.<span style="mso-spacerun: yes">  </span>Change its name
+and background color.<span style="mso-spacerun: yes">  </span>Give it a “blank”
+label.<o:p></o:p></b></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l2 level2 lfo4;
+tab-stops:-1.0in'><![if !supportLists]><b style='mso-bidi-font-weight:normal'>8.
+<span style="mso-spacerun: yes"> </span></b><![endif]><b style='mso-bidi-font-weight:
+normal'>Modify the About Dialog as you wish.<o:p></o:p></b></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l2 level2 lfo4;
+tab-stops:-1.0in'><![if !supportLists]><b style='mso-bidi-font-weight:normal'>9.
+<span style="mso-spacerun: yes"> </span></b><![endif]><b style='mso-bidi-font-weight:
+normal'>Right click the button to add an interaction (event handler).<span
+style="mso-spacerun: yes">  </span>Choose action performed, set the background
+color, Color.black, finish.<o:p></o:p></b></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l2 level2 lfo4;
+tab-stops:-1.0in'><![if !supportLists]><b style='mso-bidi-font-weight:normal'>10.
+<span style="mso-spacerun: yes"> </span></b><![endif]><b style='mso-bidi-font-weight:
+normal'>Modify the interaction code so that, in fact, clicking will cycle
+through four different colors.<o:p></o:p></b></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l2 level2 lfo4;
+tab-stops:-1.0in'><![if !supportLists]><b style='mso-bidi-font-weight:normal'>11.
+<span style="mso-spacerun: yes"> </span></b><![endif]><b style='mso-bidi-font-weight:
+normal'>Modify the interaction code so that the button moves.<o:p></o:p></b></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l2 level2 lfo4;
+tab-stops:-1.0in'><![if !supportLists]><b style='mso-bidi-font-weight:normal'>12.
+<span style="mso-spacerun: yes"> </span></b><![endif]><b style='mso-bidi-font-weight:
+normal'>Click the project window, File…Save All, then Project…Execute.<o:p></o:p></b></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></b></p>
+
+</div>
+
+</body>
+
+</html>

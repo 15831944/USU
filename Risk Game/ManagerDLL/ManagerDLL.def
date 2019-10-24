@@ -1,0 +1,42 @@
+; testDLL.def : Declares the module parameters for the DLL.
+
+LIBRARY      "ManagerDLL"
+DESCRIPTION  'ManagerDLL Windows Dynamic Link Library'
+
+EXPORTS
+    ; Explicit exports can go here
+	GetLastErrorCode
+	GetRiskErrorInfo
+	GetLastErrorDescription
+	AreCountriesAdjacent
+	InitializeDLL
+	GetAttackError
+	GetCountryInfo
+	GetCountryName
+	GetAdjacentCountryCount
+	GetAdjacentCountryID
+	GetContinentOwner
+	GetContinentCountryCount
+	GetContinentCount
+	GetContinentCountryID
+	GetContinentValue
+	GetPlayerInfo
+	GetNextTradeInValue
+	LookAtCards
+	TestPlayerDLL
+	CalculateArmiesToPlace
+	SetDLLName
+	GetCardType
+	GetLastMove
+	CallPlaceArmiesAtStart
+	CallPlaceArmies
+	CallCaptureCountry
+	CallDoReinforcement
+	CallMakeMove
+	CallDefendCountry
+	CallGetPlayerName
+	CallDoTradeIn
+	CallTurnComplete
+	GetDLLName
+	ReleaseDLLs
+	GetCountryContinentID

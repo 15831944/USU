@@ -1,0 +1,292 @@
+{\rtf1\ansi\ansicpg1252\uc1 \deff0\deflang1033\deflangfe1033{\fonttbl{\f0\froman\fcharset0\fprq2{\*\panose 02020603050405020304}Times New Roman{\*\falt Times New Roman};}{\f16\froman\fcharset238\fprq2 Times New Roman CE{\*\falt Times New Roman};}
+{\f17\froman\fcharset204\fprq2 Times New Roman Cyr{\*\falt Times New Roman};}{\f19\froman\fcharset161\fprq2 Times New Roman Greek{\*\falt Times New Roman};}{\f20\froman\fcharset162\fprq2 Times New Roman Tur{\*\falt Times New Roman};}
+{\f21\froman\fcharset186\fprq2 Times New Roman Baltic{\*\falt Times New Roman};}}{\colortbl;\red0\green0\blue0;\red0\green0\blue255;\red0\green255\blue255;\red0\green255\blue0;\red255\green0\blue255;\red255\green0\blue0;\red255\green255\blue0;
+\red255\green255\blue255;\red0\green0\blue128;\red0\green128\blue128;\red0\green128\blue0;\red128\green0\blue128;\red128\green0\blue0;\red128\green128\blue0;\red128\green128\blue128;\red192\green192\blue192;}{\stylesheet{
+\nowidctlpar\widctlpar\adjustright \fs20\cgrid \snext0 Normal;}{\*\cs10 \additive Default Paragraph Font;}}{\info{\title Revision History}{\author mark salisbury}{\operator Space Dynamics Lab}{\creatim\yr2001\mo4\dy9\hr17\min17}
+{\revtim\yr2001\mo4\dy14\hr7\min7}{\version3}{\edmins2}{\nofpages7}{\nofwords2602}{\nofchars14834}{\*\company USURF}{\nofcharsws0}{\vern71}}\widowctrl\ftnbj\aenddoc\hyphcaps0\viewkind4\viewscale100 \fet0\sectd \linex0\sectdefaultcl {\*\pnseclvl1
+\pnucrm\pnstart1\pnindent720\pnhang{\pntxta .}}{\*\pnseclvl2\pnucltr\pnstart1\pnindent720\pnhang{\pntxta .}}{\*\pnseclvl3\pndec\pnstart1\pnindent720\pnhang{\pntxta .}}{\*\pnseclvl4\pnlcltr\pnstart1\pnindent720\pnhang{\pntxta )}}{\*\pnseclvl5
+\pndec\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}{\*\pnseclvl6\pnlcltr\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}{\*\pnseclvl7\pnlcrm\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}{\*\pnseclvl8\pnlcltr\pnstart1\pnindent720\pnhang
+{\pntxtb (}{\pntxta )}}{\*\pnseclvl9\pnlcrm\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}\pard\plain \nowidctlpar\adjustright \fs20\cgrid {\cgrid0 Revision History
+\par 
+\par 1/12/2001, 1:00 PM\tab \tab 
+\par Mark
+\par \tab Fixed problem of having \rquote 50 k\rquote  in choose file frequency box.
+\par \tab Also eliminated all function calls to \lquote LoadString\rquote , replacing them with calls to Strings.get()
+\par \tab And added the new strings to the string file.
+\par \tab Removed \lquote View CR10 Diagnostic Info\rquote  button
+\par \tab Fixed \lquote There is no previous configuration detected\rquote  message box.
+\par 1/12/2001, 5:27 PM
+\par Mark
+\par \tab Fixed Final Storage retrieval.  Seems to download better now.  Will it work when it wraps around?
+\par 1/12/2001, 6:39 PM
+\par Mark
+\par }\pard \li720\nowidctlpar\adjustright {\cgrid0 Found out
+ that CR10X and CR10 floating-point format are different.  Modified the code (function called ProcessInputLocations) which processes input location bytes to correctly convert the numbers into floating point numbers.
+\par Modified ValueToString to show \lquote Error\rquote  when the value -99999.00 is passed (because the CR10 or CR10X returns this value when it is in an error state and changed numbers greater than 100,000 or less than -100,000 to show \lquote Invalid
+\rquote .
+\par }\pard \nowidctlpar\adjustright {\cgrid0 1/12/2001, 8:42 PM
+\par Mark
+\par \tab Modified Upload program to recognize when a security level is set and the CR10/X will not allow 
+\par }\pard \li720\nowidctlpar\adjustright {\cgrid0 Program to be uploaded.  Unsuccessful in resetting the security.  Not sure why the security is being set at times.  May happen after a program is not loaded correctly (and the CR10 remains in > mode)
+ and then the clock is queried by a \ldblquote C\\r\rdblquote  command.  This is similar to how a password is set.
+\par }\pard \nowidctlpar\adjustright {\cgrid0 1/15/2001, 7:00 AM
+\par John
+\par \tab Added comments to CFlag, CColorCheckButton, removed CBitmapButton class.
+\par 1/15/2001, 12:00 PM
+\par John
+\par \tab Made CLADASetupDlg automatic for checkout.
+\par 1/15/2001, 1:00 PM
+\par Mark
+\par \tab Moved Get Final Storage button from main screen to parameters dialog.
+\par 1/15/2001, 3:55 PM
+\par Mark
+\par }\pard \li720\nowidctlpar\adjustright {\cgrid0 Added support for different graph parameters under \lquote main program\rquote  and \lquote wetup\rquote .  Added temporary storage variables and save and load 
+functions for these variables to the document class.
+\par Added a cleanup function to be called whenever the main program window is closed.  Added function to clear graphs and save current input location files whenever wetup or \lquote main program\rquote  is closed.
+\par }\pard \nowidctlpar\adjustright {\cgrid0 1/16/2001 10:00 AM
+\par John
+\par }\pard \li720\nowidctlpar\adjustright {\cgrid0 Added an OnOK function call to CSystemDiagDlg.  Added OnOK to Verify.  Added IsAutomatic to CParamDlg. Added IsAutomatic to CWetupSettings.  Added OnOK to Lada
+Test.  Added OnOK if automatic to CManual Sample.  Removed all nonautomatic stuff from LadaTest.
+\par !!! For some reason I have an old version of CCameraDialog.h and am replacing it with one that works!!! This happens when I add the OnKeyDown Function from the Class Wizard.
+\par 
+\par }\pard \nowidctlpar\adjustright {\cgrid0 1/16/2001 12:00
+\par John\tab 
+\par \tab Am working on making a choice of automatic checkout.  Added automatic to Setup Dialog.  Made every dialog used in Checkout to be able to be in automatic or non-automatic mode.
+\par 
+\par 1/16/2001, 9:00 PM
+\par Mark
+\par }\pard \li720\nowidctlpar\adjustright {\cgrid0 Increased the base font size for better readability.  Modified NewProject1 and 2 and WetupSettings  to accommodate the change.  Added ability to press \lquote F2\rquote 
+ in those dialogs to automatically switch languages.  Changed CmessageBox to also allow automatic switching of text (if the text ID was supplied in the first place vs. plain text).  Added \lquote F2\rquote 
+ trapping to the main program for language switching.
+\par }\pard \nowidctlpar\adjustright {\cgrid0 1/17/2001, 12:00 PM
+\par Mark
+\par }\pard \li720\nowidctlpar\adjustright {\cgrid0 Replaced the font names in most of the .cpp files.  LargeRussianArial is now HugeRussianArial, Russian
+Arial is now LargeRussianArial, and smallRussianArial is now RussianArial.  I added a new font, SmallRussianArial, to be used in places where we need small fonts (like the main toolbar ).  
+\par }\pard \nowidctlpar\adjustright {\cgrid0 1/17/2001, 8:00 AM
+\par John
+\par }\pard \li720\nowidctlpar\adjustright {\cgrid0 Made Checkout and Setup capable of switching languages at run time by pressing F2.  Added language swap function to class LString;
+\par }\pard \nowidctlpar\adjustright {\cgrid0 1/17/2001, 5:30 PM
+\par Mark
+\par }\pard \li720\nowidctlpar\adjustright {\cgrid0 Made the StartDialog language swappable as well as the main program screen.  Fixed bug in UploadProgram() which was introduced earlier when I f
+ixed a previous bug which allows it to detect when the CR10 security features will not allow you to upload a program.
+\par }\pard \nowidctlpar\adjustright {\cgrid0 1/18/2001, 6:30 AM
+\par John
+\par }\pard \li720\nowidctlpar\adjustright {\cgrid0 Fixed problem from switching languages in setup (focus).  I had to readd SetStrings to CCameraDialog?!?!  Added la
+nguage changing to Camera Dialog.  We need to find a better way to do columns.  I got a good way to get columns to toggle languages.  Added Language Toggle to Choose Icon and Change Input Locations.  I had to make FileSearchInfo a pointer because it would
+ crash during deletion.  }{\b\cgrid0 Are we Setting the font in Choose Locations?
+\par }\pard \nowidctlpar\adjustright {\cgrid0 1/19/2001, 3:30 PM
+\par John
+\par \tab Added Language Changing to Manual Sample, Parameters, and Diagnostics.
+\par 1/19/2001, 8:30 PM
+\par Mark
+\par }\pard \li720\nowidctlpar\adjustright {\cgrid0 Fixed numerous physical appearance problems on the main program screen, added a \lquote Project History\rquote 
+ button to the toolbar.  Made changes to other dialogs (CWetupSettings, ChooseLocations, CGraphProperties) to set the font, display text in both languages, and changed dimensions of text boxes, controls, etc. to make them fit better with a larger font.
+
+\par 
+\par Made the GetTimeSpan function work for Russian.  Created a function to decline time units according to russian grammar rules.
+\par }\pard \nowidctlpar\adjustright {\cgrid0 1/22/2001 6:00 AM
+\par John
+\par }\pard \li720\nowidctlpar\adjustright {\b\cgrid0 Mark, fix your warnings please.}{\cgrid0   }{\b\cgrid0 Program froze when tried to connect to CR10X after got error, access denied. Ryan still has some strings to translate
+\par }{\cgrid0 Added SetStrings and Language Changing to CILGroupProperties.  Made the combobox on CCameraDialog change languages.
+\par 
+\par }\pard \nowidctlpar\adjustright {\cgrid0 1/22/2001
+\par Mark
+\par \tab Made a change to graph properties so the current selection of graphing data frequency would be shown.  Made some changes to CdataTransfer to make the text fit better
+\par 
+\par 1/23/2001
+\par John
+\par }\pard \li720\nowidctlpar\adjustright {\cgrid0 I fixed the little control problem on New Project2.  I inserted a SetStrings and PreTranslate Message to RenameLocation.  There still needs to be the strings added in.  I don\rquote 
+t know how you want to do this.  I am also adding a setstrings after you call a dialog in case you change the language on a different language it will change the lower dialogs.
+\par 
+\par }\pard \nowidctlpar\adjustright {\cgrid0 1/24/2001
+\par John
+\par \tab Added Language changing to Wetup Dialog and Language Changer.
+\par 1/24/2001
+\par Mark
+\par \tab Started work on a new dialog which will display data collection status and allow you to change \tab data collection parameters.
+\par 
+\par 1/24/2001\tab 7:15 PM
+\par Mark
+\par }\pard \li720\nowidctlpar\adjustright {\cgrid0 
+Did more work on the data collection status dialog.  Fixed CrenameLocation to allow you to change input location names in both languages.   Fixed an error in NewProject1 which would cause Lada to crash (SetStrings was being called before strings were b
+eing allocated, causing a null pointer crash).  Changed calls in multiple files to CrenameLocation to reflect the change in how the dialog works.
+\par }\pard \nowidctlpar\adjustright {\cgrid0 1/26/2001\tab 12:43 PM
+\par Mark
+\par }\pard \li720\nowidctlpar\adjustright {\cgrid0 Did some more work on data collection status dialog.  Made some changes to CnewProject
+2 to reflect how Final Storage files will be handled.  The major differences in Final Storage files now are:  There can be multiple files.  The CR10 can write different array Ids.  When final storage is retrieved the data will be sorted into the correct f
+ile.  Final Storage can be written to at different frequencies in the cr10.  There needs to be support to change this frequency.  It doesn\rquote 
+t make sense to choose input locations which will be written to final storage.  The only way to select names for final
+ storage data now is to import an FSL file.  Added a new class, CFSInfo, to support these changes.  Made changes to CLADAControlModuleDoc to load multiple final storage files and store multiple final storage files.
+\par }\pard \nowidctlpar\adjustright {\cgrid0 1/27/2001\tab 3:00 PM
+\par Mark
+\par }\pard \li720\nowidctlpar\adjustright {\cgrid0 Continued
+ working on the NewProject2 dialog to allow more than one final storage file and array ID.  Reprogrammed the section that collects final storage to sort the data into the correct file.  Did more work on the dialog which shows how much time is remaining un
+til the next data collection.  Think I will set the LastSaveTime or LastCreateTime in CLADAControlModuleView to the current time if they are zero\'85. (What is the difference between the two variables? They are in the CinputLocationInfo class) 
+\par }\pard \nowidctlpar\adjustright {\cgrid0 1/29/2001\tab 8:20 PM
+\par Mark
+\par }\pard \li720\nowidctlpar\adjustright {\cgrid0 
+Changed how the system keeps track of the last time when a file was created or data was saved.  Now the system keeps track of how many attempts were made to collect data and how many of those attempts were successful. If you connect and the time fo
+r last save time or write time is zero (like the first time the program is run) then it sets those values to the current time.  This is good in case the system crashes before it is able to do the first data collection.  I also added support for pictures t
+o be taken automatically.
+\par }\pard \nowidctlpar\adjustright {\cgrid0 1/29/2001\tab 10:30 PM
+\par Mark
+\par }\pard \li720\nowidctlpar\adjustright {\cgrid0 Broke the CparamDialog into two separate dialogs, since it wouldn\rquote t fit onto the screen anymore.  
+\par Created a new dialog Cr10FunctionsDlg to handle the other half.
+\par Took away the Camera controls from the CparamDialog, since they are now accessible in DataCollectionStatusDlg.
+\par }\pard \nowidctlpar\adjustright {\cgrid0 
+\par 1/31/2001
+\par John
+\par \tab I have been working on adding Twain to the application and am really close to getting it to work.
+\par 2/5/2001
+\par John 
+\par \tab Twain works for the most part.  I also added language support to CCamera.  I also added a bit of language support to CParameter.
+\par 
+\par 
+\par 2/1/2001
+\par Mark
+\par }\pard \li720\nowidctlpar\adjustright {\cgrid0 Added support so that the data collection status dialog will show data on the status of input location files.
+\par 
+\par }\pard \nowidctlpar\adjustright {\cgrid0 2/5/2001\tab \tab 6:00 PM
+\par Mark
+\par }\pard \li720\nowidctlpar\adjustright {\cgrid0 Made it so the \lquote Copy\rquote  button in DataTransfer is only enabled when files are selected.  Added an option to copy history files also.  Changed NewProject2 to disable retrieve frequency when 
+\lquote save at one instant\rquote  is selected.  Changed the timer implementation in CLADAControlModuleView to collec
+t and save data for input locations if SaveByAverage == FALSE.  Changed it so when an input location file is created it will write the name of the input location instead of the input location number to the header.  Made it so the data collection status wi
+ndow will refresh automatically every second.
+\par }\pard \nowidctlpar\adjustright {\cgrid0 2/6/2001\tab \tab 6:42 PM
+\par \tab Mark
+\par \tab Created trap if the ladastrings file is not loaded correctly.  Removed the call to loadstrings twice. 
+\par }\pard \li720\nowidctlpar\adjustright {\cgrid0 Cleared all memory leaks.  Fixed synchronization error with input location retrieval.  Changed it to not allow duplicate requests for data to be inserted.  
+\par }\pard \nowidctlpar\adjustright {\cgrid0 2/9/2001\tab \tab 6:00 PM
+\par \tab Mark
+\par }\pard \li720\nowidctlpar\adjustright {\cgrid0 Added validation to data directly after it is collected from CR10.  Discove
+red that CR10 may return data (validated by the checksum) which is incorrect.  If this happens then I retrieved the data again.  Reduced number of invalid data returned by many fold.
+\par }\pard \nowidctlpar\adjustright {\cgrid0 2/10/2001
+\par \tab Mark
+\par }\pard \li720\nowidctlpar\adjustright {\cgrid0 Added function \lquote Initialization\rquote .  When the program is ran
+ for the first time it asks you to initialize CR10 parameters.  Changed how checkout works.  If in automatic mode, it updates the time automatically.  In not in automatic, it updates the time automatically, then calls CparamDlg.
+\par }\pard \nowidctlpar\adjustright {\cgrid0 2/12/2001
+\par \tab John
+\par }\pard \li720\nowidctlpar\adjustright {\cgrid0 Changed the sizes of some controls to fit both languages.  Added SetStrings to CCamera again.  I don't know how it got replaced the first time.
+\par }\pard \nowidctlpar\adjustright {\cgrid0 2/12/2001
+\par \tab Mark
+\par }\pard \li720\nowidctlpar\adjustright {\cgrid0 Fixed project help so that it will display something.  Added feature to retrieve the working directory for 
+lada from the registry.  If there is no working directory listed in the registry, then it writes one.  This will be helpful so that no matter where the program is started from it will know where the working directory for the program is.  This will ensure 
+that it will look in the correct location for \lquote lastfile\rquote  and for the project help files.  These files should not be stored in the data directory for a lada project file, since they are independent of any particular project.
+\par 
+\par 
+\par 
+\par }\pard \nowidctlpar\adjustright {\cgrid0 2/19/2001
+\par \tab Mark
+\par }\pard \li720\nowidctlpar\adjustright {\cgrid0 Changed ProcessInputLocations to allow the value \endash 
+99999 to be returned without causing the program to crash.  Found error in Cwetup Store/Load which was causing CLADADocument to be loaded incorrectly.  Made changes to CparamDlg to reflect how the CR10 will control when 
+the lights are on.  Fixed error which caused the size of the Russian buttons to be incorrect.  LSS was also detecting a password at times when there was no password.  Increased the reliability of that not happening.  Added a function SetControlMode which 
+will set the control mode whenever you connect to the CR10 (it sets flag 3 hi or low depending on the control mode).  Made it so when you upload a program to the CR10 it also sets the clock to the pc clock.
+\par }\pard \nowidctlpar\adjustright {\cgrid0 2/19/2001
+\par \tab John [entered by Mark]
+\par \tab Worked on Checkout.  Fixed some errors which were causing it to fail.  
+\par \tab \'85. Things need to do:
+\par \tab lada setup program\'85 registry
+\par 
+\par 2/21/2001
+\par \tab Mark
+\par }\pard \li720\nowidctlpar\adjustright {\cgrid0 Found a logical error in CommWaitTimer\'85 if ExecuteKCommand returned true, then the data was not verified using CheckS
+ignature, I believe because I thought the CR10 never gave bad data if the correct number of bytes had been received.  This may eliminate the number of times I thought the CR10 was simply randomly giving bad data.  It may help fix the clock, so that the ti
+me is always correct also.
+\par Added two more buttons to the main menu, \ldblquote Exit\rdblquote  and \ldblquote Errors\rdblquote 
+.  Added functionality so program can detect type of program CR10 is running and then attempt to correct the problem.  Added support for an error log view similar to the history files.  (Modified history classes to do this).  
+\par Added support so that the program will detect when it is has read a file that is a different format (.Lada) from what it is expecting.
+\par }\pard \nowidctlpar\adjustright {\cgrid0 2/24/2001
+\par \tab Mark
+\par }\pard \li720\nowidctlpar\adjustright {\cgrid0 Removed old help from the project.  Copied parts of \ldblquote DoSomething\rdblquote 
+ from LADASetupDlg to CheckOutDlg.  Increased use of Error log, especially during checkout.  When controlCR10 is called in CcommOperations, it will now write to the error log.  Modified how OnConnect works.  Made changes to code where EndT
+imerThread and StopComm are both called.  StopComm now calls EndTimerThread if possible.   The only place where InCommMode is set to true is in StartTimerThread.  So anywhere it is set to false should call EndTimerThread also.  Corrected an Error in Displ
+ay which was causing it to not show units and to show invalid data in the 4}{\super\cgrid0 th}{\cgrid0  column.
+\par 
+\par Working directory will always be C:\\LADA.  If it can\rquote t set the working directory to C}{\lang1024\cgrid0 :\\Lada the program will terminate.
+\par 
+\par Does pDoc->m_ILData[whichIL].m_Locations reference input locations directly or indirectly?
+\par If directly, then how does the program know the names of those input locations?
+\par If indirectly, then how does it work with the function CLADAControlModuleDoc::RequestLocations???
+\par }\pard \nowidctlpar\adjustright {\lang1024\cgrid0 
+\par 2/26/01
+\par \tab Mark
+\par }\pard \li720\nowidctlpar\adjustright {\lang1024\cgrid0 Figured out question 
+I had typed last time.  Modified RequestLocations so that when locations are requested, they are requested by their index in InputLocationList, not the actual input location number in the CR10. pDoc->m_ILData[whichIL] gives the index in InputLocationList,
+ not the actual cr10 input location number.
+\par Added a function to validate data after ProcessInputLocations is called.  
+\par pDoc->m_HasMinMax[index] (BOOL) is incremented when a data point is not validated.  It is set to zero when it is validated.  The second ti
+me in a row a data point is not validated validation is removed from that data point and a message is written to the error log. 
+\par 
+\par }\pard \nowidctlpar\adjustright {\lang1024\cgrid0 2/27/01
+\par \tab John
+\par \tab I added that recalibration function.  I also played around with that JPEG thing.
+\par }{\cgrid0 
+\par 2/28/01
+\par \tab John
+\par \tab I worked on adding DIB/JPG Conversion.  I think that I almost have it but I'm not sure.
+\par 3/3/2001
+\par \tab Mark
+\par }\pard \li720\nowidctlpar\adjustright {\cgrid0 Fixed an error so view history dlg would add items during run-time.  Fixed an error causing the wrong ExecuteICommand function to be called.  Adde
+d a progress box when input locations are gathered during SystemDlg.  Edited inputlocations.h.  changed history class to save full file name.  Made min max make you enter a min value lower than a max value.  Finished IL properties dlg.  Made it so graph d
+isplay view will not show invalid data \'85 in short, I made a bunch of small corrections and a few big ones.
+\par }\pard \nowidctlpar\adjustright {\cgrid0 3/5/2001
+\par \tab John
+\par }\pard \li720\nowidctlpar\adjustright {\cgrid0 I worked on Input Locations and realized that most of them were wrong according to the most recent printout.  I also finished the installation program.  It now makes a shortcut on the desktop and Start menu.
+
+\par }\pard \nowidctlpar\adjustright {\cgrid0 
+\par 3/6/2001
+\par \tab John
+\par }\pard \li720\nowidctlpar\adjustright {\cgrid0 I worked on the installation to make sure that it writes to the startmenu, desktop, and startup menu.  Yes the program will automatically run when windows load.  I als
+o fixed the picture loads and the automatic jpg conversion when you save a picture.
+\par 
+\par }\pard \nowidctlpar\adjustright {\cgrid0 3/7/2001
+\par \tab John
+\par }\pard \li720\nowidctlpar\adjustright {\cgrid0 The Save to File for input locations works now.  You can look it over if you want to.  All I do is read from what has already been outputted to the screen a
+nd save that to the file.  I save it as a .inp file.  Did you want that changed? 
+\par }\pard \nowidctlpar\adjustright {\cgrid0 
+\par 3/7/2001
+\par \tab Mark
+\par }\pard \li720\nowidctlpar\adjustright {\cgrid0 I tested the Save to File and it didn\rquote t work, so I fixed it.  I fixed an error that was causing the groups to get out of order if you clicked on \ldblquote Properties\rdblquote  
+for any one group.  I made the \ldblquote Save to File\rdblquote 
+ button optional, depending on the constructor.  Added 28 volt power supply to list during check out.  Fixed the UpdateCR10Time function so it works better.  Updated the Manual Control / Automatic Control switch
+ so that when you toggle between the two it updates the icon in the main view also.  
+\par }\pard \nowidctlpar\adjustright {\cgrid0 3/8/2001
+\par \tab John
+\par }\pard \li720\nowidctlpar\adjustright {\cgrid0 I worked on a better explanation of the step that you are currently on during Checkout.  I also haven't found anything to change for picture taking.  I added some strings.  I will test this this afternoon.
+
+\par }\pard \nowidctlpar\adjustright {\cgrid0 
+\par 3/24/2001
+\par \tab Mark
+\par }\pard \li720\nowidctlpar\adjustright {\cgrid0 After a period of not recording revisions, I am starting to make a list again.  First, the program was crashing on every data read.  It turned out that besides returning 0xFF FF FF FF  for
+ a bad data value, the CR10X will also return 0x7F FF FF FF.  This code seems to be returned for an illegal operation.  We believe divide by zero was causing it in this case.  Corrected this error.  Changed the program to save history file names without t
+heir path.  The path is automatically the data directory.  
+\par }\pard \nowidctlpar\adjustright {\cgrid0 
+\par }\pard \li720\nowidctlpar\adjustright {\cgrid0 I changed how the CameraDialog is destroyed.  EndDialog is not supposed to be called on modeless dialogs.  Now in the destructor for the doc, it calls release twain first then destroywindow.
+\par 
+\par Made some changes to CCamera.  I have the system set an event when a picture is copied as a  bitmap, signaling that it can then be saved.  I added a take picture function so that I wouldn\rquote t need to add this change in 3 different places.
+\par 
+\par I changed the place where the call is made to Acquire, to have it take 1 picture.  
+\par }\pard \nowidctlpar\adjustright {\cgrid0 3/26/01
+\par \tab John
+\par }\pard \li720\nowidctlpar\adjustright {\cgrid0 I fixed a bug that I noticed in Validate.  When I double-clicked and there was no group in display it crashed.  I fixed this by switching the order of an if s
+tatement.  It might be a good idea to make input location groups and graph groups the same thing.  I removed the Cancel button from Verify.  There is no point to it.  Deleted the Cancel button from Display because it was also pointless.
+\par 
+\par }\pard \nowidctlpar\adjustright {\cgrid0 3/27/01
+\par \tab John
+\par }\pard \li720\nowidctlpar\adjustright {\cgrid0 Mark, using the double-click in the right column of input locations in graphs to rename is off by one.  Also Cancel does not work right when an input location is removed from the list. 
+\par }\pard \nowidctlpar\adjustright {\cgrid0 4/4/2001
+\par \tab Mark
+\par }\pard \li720\nowidctlpar\adjustright {\cgrid0 Made some changes to the data retrieval system.  First, it 
+saves the data storage pointer (LastDSP) to a separate file.  This will allow us to send them new data (.lada) files without interfering with their data collection.  Added a function that allows you to reset the data storage pointer to 1.    Made the data
+ 
+dialog similar to Windows Explorer in that if you double click a data file it will open that file with the associated program.  Made a variable m_CamerasEnabled so that the program knows how many cameras are enabled and hence whether or not to load twain 
+when the program starts.  I was having problems with the program not loading because it was stuck in InitTwain (the Twain32 dll load was failing).  
+\par }\pard \nowidctlpar\adjustright {\cgrid0 4/9/2001
+\par }\pard \fi720\nowidctlpar\adjustright {\cgrid0 Mark
+\par }\pard \li720\nowidctlpar\adjustright {\cgrid0 Fixed error noted by John on 3/27.  Split DataCollectionStatusDlg into three separate dialogs,
+ using the property / sheet / page technique.  Made it so the program would update the graphs if mouse movement was detected and the graphs had not been updated for more than 10 seconds.
+\par Added checkboxes to the validate dialog to show if the program was trying to validate a particular input location.
+\par }\pard \nowidctlpar\adjustright {\cgrid0 4/14/01
+\par \tab John
+\par }\pard \li720\nowidctlpar\adjustright {\cgrid0 I fixed LString to work with the new string format and decipher string code like /n in the load function.
+\par }}

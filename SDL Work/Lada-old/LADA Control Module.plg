@@ -1,0 +1,182 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: LADA Control Module - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "c:\windows\TEMP\RSP9122.TMP" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /I "c:\program files\html help workshop\include" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /FR"Debug/" /Fp"Debug/LADA Control Module.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\Lada\WaitTimerInfo.cpp"
+]
+Creating command line "cl.exe @c:\windows\TEMP\RSP9122.TMP" 
+Creating temporary file "c:\windows\TEMP\RSP9123.TMP" with contents
+[
+Winmm.lib Htmlhelp.lib /nologo /subsystem:windows /incremental:yes /pdb:"Debug/LADA Control Module.pdb" /debug /machine:I386 /out:"Debug/LADA Control Module.exe" /pdbtype:sept 
+.\Debug\CalibrationDlg.obj
+.\Debug\CalibrationDlg2.obj
+.\Debug\Camera.obj
+.\Debug\CameraData.obj
+.\Debug\cameradialogDlg.obj
+.\Debug\CamerasPage.obj
+.\Debug\CameraStatus.obj
+.\Debug\ChangeLocationDlg.obj
+.\Debug\Checkout.obj
+.\Debug\CheckOutDlg1.obj
+.\Debug\ChooseIcon.obj
+.\Debug\ChooseLocationsDialog.obj
+.\Debug\ColorCheckButton.obj
+.\Debug\CommFunctions.obj
+.\Debug\CommOperations.obj
+.\Debug\ControlParameters.obj
+.\Debug\CR10FinalStorageDebugReport.obj
+.\Debug\Cr10FunctionsDlg.obj
+.\Debug\DataCollectionSheet.obj
+.\Debug\DataCollectionStatusDlg.obj
+.\Debug\DataTransfer.obj
+.\Debug\DIB.obj
+.\Debug\Display.obj
+.\Debug\FileData.obj
+.\Debug\FinalStoragePage.obj
+.\Debug\Flag.obj
+.\Debug\FSInfo.obj
+.\Debug\GraphButtonForm.obj
+.\Debug\GraphCollection.obj
+.\Debug\GraphDisplayView.obj
+.\Debug\GraphProperties.obj
+.\Debug\GraphWindow.obj
+.\Debug\HISTORYCLASS.OBJ
+.\Debug\ILFileDisplayInfo.obj
+.\Debug\ILGroupProperties.obj
+.\Debug\ILProperties.obj
+.\Debug\ImportFSLDlg.obj
+.\Debug\InputLocationReadTest.obj
+.\Debug\InputLocationsPage.obj
+.\Debug\InputLocFileInfo.obj
+.\Debug\InputRequest.obj
+".\Debug\LADA Control Module.obj"
+".\Debug\LADA Control ModuleDoc.obj"
+".\Debug\LADA Control ModuleView.obj"
+.\Debug\LADASetupDlg.obj
+.\Debug\LadaTest.obj
+.\Debug\LanguageChanger.obj
+.\Debug\LString.obj
+.\Debug\MainFrm.obj
+.\Debug\ManualControl.obj
+.\Debug\ManualSample.obj
+.\Debug\MessageBox.obj
+.\Debug\MinMax.obj
+.\Debug\NewProject1.obj
+.\Debug\NewProject2.obj
+.\Debug\ParamDlg.obj
+.\Debug\ParamMenu.obj
+.\Debug\ProgressDialog.obj
+.\Debug\RenameLocationDialog.obj
+.\Debug\ReplaceGraphDlg.obj
+.\Debug\SetFrequencyDlg.obj
+.\Debug\StartDialog.obj
+.\Debug\StdAfx.obj
+.\Debug\Stepinfo.obj
+.\Debug\SystemDiagDlg.obj
+.\Debug\TwainCpp.obj
+.\Debug\Verify.obj
+.\Debug\ViewHistoryDialog.obj
+.\Debug\WaitTimerInfo.obj
+.\Debug\WetupDialog.obj
+.\Debug\WetupInfo.obj
+.\Debug\WetupSettingsDlg.obj
+".\Debug\LADA Control Module.res"
+]
+Creating command line "link.exe @c:\windows\TEMP\RSP9123.TMP"
+<h3>Output Window</h3>
+Compiling...
+WaitTimerInfo.cpp
+Linking...
+Creating temporary file "c:\windows\TEMP\RSP9195.TMP" with contents
+[
+/nologo /o"Debug/LADA Control Module.bsc" 
+.\Debug\StdAfx.sbr
+.\Debug\CalibrationDlg.sbr
+.\Debug\CalibrationDlg2.sbr
+.\Debug\Camera.sbr
+.\Debug\CameraData.sbr
+.\Debug\cameradialogDlg.sbr
+.\Debug\CamerasPage.sbr
+.\Debug\CameraStatus.sbr
+.\Debug\ChangeLocationDlg.sbr
+.\Debug\Checkout.sbr
+.\Debug\CheckOutDlg1.sbr
+.\Debug\ChooseIcon.sbr
+.\Debug\ChooseLocationsDialog.sbr
+.\Debug\ColorCheckButton.sbr
+.\Debug\CommFunctions.sbr
+.\Debug\CommOperations.sbr
+.\Debug\ControlParameters.sbr
+.\Debug\CR10FinalStorageDebugReport.sbr
+.\Debug\Cr10FunctionsDlg.sbr
+.\Debug\DataCollectionSheet.sbr
+.\Debug\DataCollectionStatusDlg.sbr
+.\Debug\DataTransfer.sbr
+.\Debug\DIB.sbr
+.\Debug\Display.sbr
+.\Debug\FileData.sbr
+.\Debug\FinalStoragePage.sbr
+.\Debug\Flag.sbr
+.\Debug\FSInfo.sbr
+.\Debug\GraphButtonForm.sbr
+.\Debug\GraphCollection.sbr
+.\Debug\GraphDisplayView.sbr
+.\Debug\GraphProperties.sbr
+.\Debug\GraphWindow.sbr
+.\Debug\HISTORYCLASS.SBR
+.\Debug\ILFileDisplayInfo.sbr
+.\Debug\ILGroupProperties.sbr
+.\Debug\ILProperties.sbr
+.\Debug\ImportFSLDlg.sbr
+.\Debug\InputLocationReadTest.sbr
+.\Debug\InputLocationsPage.sbr
+.\Debug\InputLocFileInfo.sbr
+.\Debug\InputRequest.sbr
+".\Debug\LADA Control Module.sbr"
+".\Debug\LADA Control ModuleDoc.sbr"
+".\Debug\LADA Control ModuleView.sbr"
+.\Debug\LADASetupDlg.sbr
+.\Debug\LadaTest.sbr
+.\Debug\LanguageChanger.sbr
+.\Debug\LString.sbr
+.\Debug\MainFrm.sbr
+.\Debug\ManualControl.sbr
+.\Debug\ManualSample.sbr
+.\Debug\MessageBox.sbr
+.\Debug\MinMax.sbr
+.\Debug\NewProject1.sbr
+.\Debug\NewProject2.sbr
+.\Debug\ParamDlg.sbr
+.\Debug\ParamMenu.sbr
+.\Debug\ProgressDialog.sbr
+.\Debug\RenameLocationDialog.sbr
+.\Debug\ReplaceGraphDlg.sbr
+.\Debug\SetFrequencyDlg.sbr
+.\Debug\StartDialog.sbr
+.\Debug\Stepinfo.sbr
+.\Debug\SystemDiagDlg.sbr
+.\Debug\TwainCpp.sbr
+.\Debug\Verify.sbr
+.\Debug\ViewHistoryDialog.sbr
+.\Debug\WaitTimerInfo.sbr
+.\Debug\WetupDialog.sbr
+.\Debug\WetupInfo.sbr
+.\Debug\WetupSettingsDlg.sbr]
+Creating command line "bscmake.exe @c:\windows\TEMP\RSP9195.TMP"
+Creating browse info file...
+<h3>Output Window</h3>
+
+
+
+<h3>Results</h3>
+LADA Control Module.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

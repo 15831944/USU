@@ -1,0 +1,21 @@
+Input Location Test Results
+
+Ran a test for 42 minutes, performed 31091 read operations 
+at an average rate of 81 miliseconds / read operation reading
+one input location.
+In the background LADA was collecting data at a rate of one read / minute, and
+reading the time once per second.
+
+Ran a test for 1 hour 10 minutes, performed 26596 read operations 
+at an average rate of 170 miliseconds / read operation reading
+one input location.
+In the background LADA was collecting data at a rate of one read / minute, and
+reading the time once per second.
+
+Ran a test for 16 hours 6 minutes, performed 344350 read operations reading
+at an average rate of 168 miliseconds / read operation reading
+ten input locations.
+In the background LADA was collecting data at a rate of one read / minute, and
+reading the time once per second.
+
+

@@ -1,0 +1,99 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>CS 5100 Lecture 07 - Greg Jones</TITLE>
+<META NAME="Template" CONTENT="C:\Program Files\Microsoft Office\Templates\Lecture Notes.dot">
+</HEAD>
+<BODY>
+<DIR>
+
+<B><I><FONT FACE="Arial" SIZE=5><P>Introducing JFC&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;Lecture 5100.07</P></DIR>
+
+<OL TYPE="A">
+
+</I></FONT><LI>The Java Foundation Classes (JFC) are a set of Application Program Interfaces (APIs) which are used to build applications.  They are based on Swing architecture.</LI>
+<OL>
+
+<LI>JFC APIs include Java 2D graphics and Imaging, Accessibility, Drag-and-Drop, Input Method Framework, and Swing</LI>
+<LI>Swing (as implemented extending the AWT) is really a framework for the construction of GUI components</LI>
+<LI>Swing characteristics include</LI>
+<OL TYPE="a">
+
+<LI>Use of lightweight components</LI>
+<LI>Pluggable look-and-feel</LI>
+<LI>A new (delegation) event model</LI>
+<LI>Support for localization and accessibility and beans</LI>
+<LI>AWT compatibility</LI>
+<LI>Support for MVC architecture</LI></OL>
+</OL>
+
+<LI>The Abstract Windowing Toolkit (AWT)</LI>
+<OL>
+
+<LI>AWT is the primary Java GUI toolkit.  Its features are implemented in packages, like java.awt.color, java.awt.image, etc., as well as java.applet and java.beans.*;</LI>
+<LI>Beans are not technically part of AWT, but are a component architecture aimed at GUI elements.</LI>
+<LI>AWT depends on native peers (elements of window systems on platform hardware) to actually display screen objects.  Thus, their appearance has the native look-and-feel.</LI>
+<LI>Swing's Pluggable Look-and-Feel API provides a characteristic Java look-and-feel independent of the platform.  These are supported by javax.swing.plaf.</LI>
+<LI>Heavyweight components have native peers, and use a lot of memory.  Lightweight components are drawn directly on a native peer, and use far fewer resources.</LI></OL>
+
+<LI>AWT components are listed in Table 2.2.</LI>
+<OL>
+
+<LI>All Java classes are derived from Object.  All visible components are derived from Component.  Each AWT component has:</LI>
+<OL TYPE="a">
+
+<LI>A Graphics object</LI>
+<LI>Foreground and background colors</LI>
+<LI>Minimum, maximum, and preferred sizes</LI>
+<LI>Dimension and screen location</LI>
+<LI>Font and Cursor</LI>
+<LI>Locale, parent, and peer</LI></OL>
+
+<LI>Containers are a special subclass which can manage and draw other components within their own windows.  Container subclasses include Applet, Dialog, Frame, Panel, ScrollPane, and Window.  Each Container has an associated layout manager, some of which are Border, Grid, Flow, Card, and GridBag.</LI>
+<LI>AWT components frequently have Swing analogues (e.g., Frame and JFrame).  However, there are Swing components with no AWT analogue, like JTable. </LI>
+<LI>Component and Container are both abstract classes.  No objects of these types can be instantiated.</LI>
+<LI>The Swing JComponent is derived from java.awt.Container, so all Swing components are in reality containers.</LI></OL>
+
+<LI>The Delegation Event Model</LI>
+<OL>
+
+<LI>Program events are generated to represent external asynchronous actions, like mouse and key actions.</LI>
+<LI>The object in which the event occurs is the source.  An event listener (handler) of a particular category is added to the object, and is executed when an action of that category happens.</LI>
+<LI>Adding a listener to a component is often called "registering" it.</LI></OL>
+
+<LI>The JFC Containment Model</LI>
+<OL>
+
+<LI>In AWT, all containers but Canvas are heavyweight, and nested containers manage each other, at great cost.</LI>
+<LI>In JFC, most containers are lightweight, and really only the top-level container adds children.  However, it delegates layout responsibilities to the other lightweight containers within it.</LI>
+<LI>JApplet, JDialog, JFrame, JInternalFrame, and JWindow use the JFC Containment Model.  This means that each has some standard containers within it: </LI>
+<OL TYPE="a">
+
+<LI>root pane manages glass, content, and menubar panes</LI>
+<LI>content pane is the basic object window; all components are added to it</LI>
+<LI>layered pane manages the content pane to allow overlays and stacking as well as general layout management</LI>
+<LI>glass pane can intercept events before they go to other nested components, and facilitate drawing uniformly over several nested components. </LI>
+<LI>menubar provides menus</LI>
+<LI>Some Containers are missing some of these.</LI></OL>
+
+<LI>Remember that the containment hierarchy has nothing to do with the inheritance hierarchy.</LI></OL>
+
+<LI>The MVC model</LI>
+<OL>
+
+<LI>Models are internal data structures that hold data</LI>
+<LI>Views are externally visible graphical objects that display data</LI>
+<LI>Controllers are responsible for communicating values to models and their corresponding views, trapping user events and sending update messages.</LI>
+<LI>Typically in JFC, views and controllers are collapsed into a single object.  In fact, most classes are defined so they can perform as any one of the three.</LI>
+<LI>Some examples of JFC Abstraction Models include BoundedRangeModel, ButtonModel, and ListModel.  These are interfaces.</LI>
+<OL TYPE="a">
+
+<LI>They have default implementations, like DefaultBoundedRangeModel.</LI>
+<LI>For instance, an implementation of ListModel must provide the methods getElementAt and getSize.  They support the Model</LI>
+<LI>An implementation must also provide code for AddListDataListener and RemoveListDataListener.  They support the Controller.</LI></OL>
+</OL>
+</OL>
+
+</B></BODY>
+</HTML>

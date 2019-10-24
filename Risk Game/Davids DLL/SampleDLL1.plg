@@ -1,0 +1,32 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: SampleDLL1 - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "c:\windows\TEMP\RSPB304.TMP" with contents
+[
+/nologo /MTd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /D "_USRDLL" /D "SAMPLEDLL1_EXPORTS" /FR"Debug/" /Fp"Debug/SampleDLL1.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\Source Code\My Projects\Risk Game\Davids DLL\Main.cpp"
+]
+Creating command line "cl.exe @c:\windows\TEMP\RSPB304.TMP" 
+Creating temporary file "c:\windows\TEMP\RSPB305.TMP" with contents
+[
+ManagerDLL.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /dll /incremental:yes /pdb:"Debug/SampleDLL1.pdb" /debug /machine:I386 /def:".\SampleDLL1.def" /out:"Debug/SampleDLL1.dll" /implib:"Debug/SampleDLL1.lib" /pdbtype:sept 
+".\Debug\Main.obj"
+]
+Creating command line "link.exe @c:\windows\TEMP\RSPB305.TMP"
+<h3>Output Window</h3>
+Compiling...
+Main.cpp
+Linking...
+
+
+
+<h3>Results</h3>
+SampleDLL1.dll - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

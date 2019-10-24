@@ -1,0 +1,186 @@
+Class Glossary - This file contains definitions of the classes used in 
+LADA Software system.
+
+Note on how the core program of LADA Software System was developed.
+
+The program was built initially using the Microsoft Visual C++ 6.0 AppWizard.
+Additions were then made and changes have been made throughout.  
+Thus the program has been developed through an evolutionary software development
+process.  The program was created with a SDI (Single Document Interface) structure.
+Information about Document/View architecture can be found in the MSDN Library Collection.
+
+The SDI architecture started with a few foundation classes.  Those classes were:
+
+CLADAControlModuleApp	
+	Derived from CWinApp.  CWinThread is also included in there somewhere.  This is the 
+	lowest level of the program.  The message passing loop is handled in this class and then
+	these messages are filtered down to other classes which represent the active windows or
+	dialogs.  
+					
+CLADAControlModuleDoc
+	This class basically contains the data for the core part of the program.  Much of the data
+	in this class is saved in the .lada file that is loaded.  As this class grew, it made sense
+	to encapsulate more and more of the data in sub-classes, or in arrays of sub-classes, like 
+	CInputLocFileInfo.  
+CLADAControlModuleView
+	This class represents the view that corresponds to dialog window on the right side of the
+	display window.  This class displays key information hand makes a few key functions accessible.
+	It also contains the timers that go off periodically to collect data, display data, save data, etc.
+CLeftView
+	This class represents the left side of the display window.  This was deleted.
+CMainFrame
+	This represents the entire main display window.  Within the client area of this window are
+	the CLADAControlModuleView on the right side of the pane, and the left side of the pane contains
+	3 nested windows, which are created from the CGraphWindow class.  This class also contains 
+	the main toolbar along the top and it could contain a typical menu (File Edit View...) but this
+	menu was deleted.
+CGrahphWindow
+	Derived from CFrameWnd.  In the CreateClient part of this class a splitter bar is created and on 
+	the left CGraphButtonForm is used and on the right CGraphDisplayView is created.  The names of the 
+	input locations along with custom check boxes are listed in the CGraphButtonForm window.  The
+	visual graph data is displayed in the CGraphDisplayView class on the right.
+CAboutDlg
+	Not important.  Just tells who created the program if you click on the about box.
+
+Explanation of all classes:
+
+CCameradialogDlg (John)
+	Dialog that comes up when you click on the cameras button.  Also implements the functionality
+	for taking pictures.  Saves pictures and lets you view previous pictures.
+CChangeLocationDlg
+	Dialog that lets you change the (or get the value of) any input location.   
+CCheckout (John)
+	Wizard type dialog that goes through checking the functionality of the LADA System.
+	Accessed by pressing checkout on the main menu.
+CChooseIcon
+	Small dialog that contains two buttons "PCMCIA" and "Floppy" for selecting the default directory
+	on the Data Transfer dialog.
+CChooseLocationsDlg
+	Dialog that shows available input locations on the left and selected input locations on the right.
+	Is used in selecting which input locations to graph and also in selecting which locations to 
+	include in the project.
+CColorCheckButton
+	Custom control that is used on the CGraphButtonForm.  Has a box which shows the value of an input
+	location, a check which allows you to select if that location is to be displayed, a color box
+	that lets you change the color of the data line on the graph, and a box for the name of an input 
+	location.
+CCommFunctions
+	Contains low level communication functions.  Contains functions for initializing communication on 
+	a serial port.  Contains functions for reading and writing data from/to the port.  Starts an
+	extra worker thread that is awakened whenever data is received.
+CCommOperations
+	Builds upon functions in the CCommFunctions class to implement functions that are useful in working
+	directly with a Campbell Scientific CR10 or CR10X.  Also contains a few functions that are useful
+	specifically for LADA, like ControlCR10.  
+CControlParameters
+	Data structure which contain control parameters for the experiment.
+CCustomBitmapButton
+	not used.  Was thought necessary to put bitmaps on buttons at one point.
+CDataTransfer
+	Dialog that lets you control the transfer of data files created by Lada Software System.
+CFileData (John)
+???	Used in the CCameraDialog class.  Used to keep track of the state of picture files.
+CFileInfo
+	Used in the CDataTransfer class.  This class is used to keep track of the state of the files 
+	in the data file directory.	
+CFlag
+	Not really important.  Used to verify that the setflag and getflag operations in the CCommOperations
+	class work.  lets you get the status of a flag and set the status of a flag.
+CGraphButtonForm
+	Class that handles the display of the data which controlls which input locations are displayed on
+	the graph.  Also shows the current values of the listed input locations.  
+CGraphDisplayView
+	Handles displaying the graph data.
+CGraphProperties
+	Dialog that comes up when you click on the graphs button on the toolbar.  Lets you change which
+	input locations are shown on the graphs.
+CGraphWindow
+	See above description.
+CHistoryClass
+	Class that is used by other classes to record when important events occur.  Can be used to write
+	history files in multiple languages.  
+CILFileDisplayInfo
+	Used in CNewProject2 to keep track of the parameters governing the operation of data files which
+	are created from data gathered from input locations.
+CILGroupProperties
+	Dialog which lets you change the parameters governing the operation of data files which
+	are created from data gathered from input locations.
+CInputLocFileInfo
+	Data structure which stores the parameters governing the operation of data files which
+	are created from data gathered from input locations.
+CInputRequest
+	Class that is used on a queue to keep track of the requests for data that are handled by the 
+	CommWaitTimer function.  That function is a global function which is the only function in its 
+	thread.  It simply handles getting input location data from the CR10.  It was created as a 
+	separate thread to increase user responsiveness in the main program.  Whenever that function
+	finishes its data collection loop it calls CLADAControlModuleDoc::CompleteRequests which then
+	dequeues the CInputRequests and processes them. 
+CLADAControlModuleApp
+	See above description.
+CLADAControlModuleDoc
+	See above despription.
+CLADAControlModuleView
+	See above description.
+CLADASetupDlg (John)
+	Wizard type dialog that helps you setup LADA.
+CMainFrame
+	See above description.
+CManualSample
+	Initiates a test to measure soil moisture levels.
+CMessageBox
+	Custom message box class that was created because we couldn't figure out how to make
+	dialog boxes show russian text.  It was discovered later than this can be done by going
+	into windows and changing the display preferences so that the message box (and other display)
+	preferences use a cyrillic text instead of a regular text.
+CNewProject1
+	Dialog that lets you set up parameters for the project / experiment.
+CNewProject2
+	Dialog that lets you set up parameters for the project / experiment.
+CParamDlg
+	Dialog that lets you change experiment parameters and access a few key CR10 functions, like
+	upload program and get/set input location.
+CRenameLocationDialog
+	Dialog that shows the old name, and lets you input a new name for something.  Used for renaming
+	input locations.
+CStartDialog
+	This dialog is the main menu of LADA Software System.
+CSystemDiagDlg (John)
+	This dialog allows you to display the values of certain input locations and check to see if they 
+	are within certain bounds.  It shows in columns the names of the input locations, their values,
+	their minimum allowed values and their maximum values, and if the values are in that range.
+CViewHistoryDialog
+	This class will bring up a the contents of the history file in a format similar to 'notepad'.
+CWaitTimerInfo
+	structure that is passed upon creation of the thread that collects input locations from the 
+	CR10/CR10X.  Used by the CommWaitTimer class.   
+CWetupInfo
+	Structure that contains the data representing the parameters of and status of the wetup procedure.
+CWetupSettingsdlg
+	Dialog which allows you to change the parameters of the wetup procedure.
+Display
+	Dialog which displays the results of the CheckOut function.
+DLGTEMPLATEEX
+	???May not be used anymore.  Used to store the parametesr of the CStartDialog dialog, which is a 
+	dialog created from scratch.
+LadaTest (John)
+	Part of the CheckOut funtion.  Allows the user to test various functions of the Control Module 
+	and compare the time on with how long the computer told it to be on.
+LanguageChanger (John)
+	Dialog which allows you to select the current language.
+List<class NODETYPE>
+	List data structure.  Can be use as a queue also.
+ListNode<class NODETYPE>
+	sub-structure of the List class.
+LString
+	Class which contains the strings used in the project and the operations to access those strings
+	in multiple languages.
+MinMax
+	Dialog which lets you set the minimum and maximum values for an input locatin.
+ProgressDialog
+	Displays a message and the progress in completing a function which will take a long amount of time.
+	Used when collecting final storage.
+Setupinfo (John)
+	Used in the setup and checkout functions to store information about each step in the process.
+tagCR10TalkInfo
+	structure which stores parameters required when setting up a serial port for communication.
+

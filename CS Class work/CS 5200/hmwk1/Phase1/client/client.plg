@@ -1,0 +1,48 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: client - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "c:\windows\TEMP\RSP3242.TMP" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Debug/client.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\Source Code\CS Class work\Cs 5200\hmwk1\Phase1\client\clientDlg.cpp"
+"C:\Source Code\CS Class work\Cs 5200\hmwk1\Phase1\client\EventListDlg.cpp"
+]
+Creating command line "cl.exe @c:\windows\TEMP\RSP3242.TMP" 
+Creating temporary file "c:\windows\TEMP\RSP3243.TMP" with contents
+[
+/nologo /subsystem:windows /incremental:yes /pdb:"Debug/client.pdb" /debug /machine:I386 /out:"Debug/client.exe" /pdbtype:sept 
+".\Debug\AddEventDlg.obj"
+".\Debug\client.obj"
+".\Debug\ClientComChannel.obj"
+".\Debug\clientDlg.obj"
+".\Debug\ComChannel.obj"
+".\Debug\ConfDlg.obj"
+".\Debug\Configuration.obj"
+".\Debug\DString.obj"
+".\Debug\Event.obj"
+".\Debug\EventListDlg.obj"
+".\Debug\StdAfx.obj"
+".\Debug\strdup.obj"
+".\Debug\client.res"
+".\Debug\displayError.obj"
+]
+Creating command line "link.exe @c:\windows\TEMP\RSP3243.TMP"
+<h3>Output Window</h3>
+Compiling...
+clientDlg.cpp
+EventListDlg.cpp
+Generating Code...
+Linking...
+
+
+
+<h3>Results</h3>
+client.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

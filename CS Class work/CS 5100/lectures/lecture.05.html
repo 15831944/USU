@@ -1,0 +1,53 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>CS 5100 Lecture 05 - Greg Jones</TITLE>
+</HEAD>
+<BODY>
+<DIR>
+
+<B><I><FONT FACE="Arial" SIZE=5><P>Application design tips&#9;&#9;&#9;&#9;&#9;&#9;&#9;Lecture 5100.05</P></DIR>
+
+<OL TYPE="A">
+
+</I></FONT><LI>Common design mistakes</LI>
+<OL>
+
+<LI>Ganging pushbuttons into a large two-dimensional wall.  Pushbuttons should be partitioned into smaller, manageable categories.</LI>
+<LI>Presenting a long list of radio buttons which requires scrolling.  An option menu is preferable.</LI>
+<LI>Labeling menu selections as sentences.  Generally, a single key word is possible and preferable.  Make the key word as short, common, and precise as possible.</LI>
+<LI>Using a variety of font sizes and styles.  Besides making a gaudy looking interface, this make uniform sizing of buttons and labels difficult.</LI>
+<LI>Using GUI objects for non-standard functions.  This is confusing to the user.  There is a sufficient breadth of function among existing objects that you can do everything you want with them.</LI>
+<LI>Using multiline menubars.  Not only does it look awkward, but pulling down an upper menu obscures the lower choices.  A minimum width for the application should be hardcoded, so that the menubar doesn’t shrink to the point that it requires two lines.  Toolbars suffer from the same problems, but at least there are no obscuring menus.</LI>
+<LI>Using multiple words for a single menubar submenu.  This is confusing to the user, who may think that two separate menus exist.</LI>
+<LI>Permitting objects to be clipped when the application is resized, or when individual portions of it are resized.</LI></OL>
+
+<LI>Desirable design attributes</LI>
+<OL>
+
+<LI>The primary goal is to provide the user with an interface which fosters:</LI>
+<OL TYPE="a">
+
+<LI>Ease of use</LI>
+<LI>Ease of understanding</LI>
+<LI>Ease of recollection</LI>
+<LI>Avoidance of user errors</LI>
+<LI>Minimum user effort</LI>
+<LI>Maximum user flexibility</LI></OL>
+
+<LI>Color, dimensions, graphics, and font choices should be aesthetically pleasing.  Consider using someone with design experience to help with this.</LI>
+<LI>As part of ease of understanding, we should make the interface as intuitive as possible.  This usually means that organization, graphics, and actions match the user's real life experiences as closely as possible.  We should avoid importing metaphors from other application domains, which have no meaning in this application domain.  An example would be using a gun icon to delete a file in a text editor.</LI>
+<LI>A good hierarchical structure for menus and functions will allow the user to learn comfortably.  Start with reasonable defaults, and allow special cases at the first level, fancier options at the second level, expert tailoring at the third level, etc.</LI>
+<LI>Pay particular attention to visual placement of objects.</LI>
+<OL TYPE="a">
+
+<LI>Menubar at the top</LI>
+<LI>Divide the work region into panes if necessary</LI>
+<LI>Make each pane scrolled if necessary</LI>
+<LI>Put the toolbar at the bottom (OSF look and feel) or immediately below the menubar (Windows L&amp;F)</LI></OL>
+</OL>
+
+<LI>As a part of maximum user flexibility, the user should always be presented with as wide a range of choices as possible.  That is to say, the application should be as modeless as possible.</LI></OL>
+</B></BODY>
+</HTML>

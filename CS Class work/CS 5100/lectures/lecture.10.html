@@ -1,0 +1,487 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>CS 5100 Lecture 10 - Greg Jones</TITLE>
+<META NAME="Template" CONTENT="C:\Program Files\Microsoft Office\Templates\Lecture Notes.dot">
+</HEAD>
+<BODY>
+
+<B><I><FONT SIZE=5><P>AWT Components&#9;Lecture 5100.10</P>
+<OL TYPE="A">
+
+</I></FONT><LI>This set of lecture notes is derived from <U>Java AWT Reference</U> by Zukowski, published by O'Reilly.</LI>
+<LI>Components are the base class for all graphical objects.</LI>
+<OL>
+
+<LI>At the moment, there are five constants used to indicate whether the component is aligned with the bottom, top, right, left, or center of its available space.  These are the return values of getAlignment, but since there is no setAlignment method, they are not useful.</LI>
+<LI>The Component constructor is useful in creating a subclass of Component.  Since this subclass will have no peer, it depends on the container to which it is added for the ability to display graphics and receive events.  There peer-less components are called lightweight components.</LI>
+<LI>Each component has a state, which in part consists of some variables describing the degree to which it &quot;exists.&quot;</LI>
+<OL TYPE="a">
+
+<LI>A component is VALID when the system (and the Layout Manager of its parent, if any) know its size and position.  The state changes to INVALID if a component’s size or position is changed, or if a child is added or removed.</LI>
+<LI>A component is VISIBLE when it has the resources to be displayed on the screen.  A visible component may not actually be seen.  The state may be INVISIBLE if, for instance, the parent container becomes invisible.</LI>
+<LI>A component is SHOWING if it can be seen.  This happens to any component when it is added to a container which is showing.  </LI>
+<LI>A component is ENABLED if it can receive input.  Components like buttons or menu selections are DISABLED, usually by graying them out, when activating them makes no sense or is dangerous.</LI></OL>
+
+<LI>There is a very large list of methods for Component (and by inheritance, for every other graphical user interface object).</LI></OL>
+
+<LI>Component methods related to appearance</LI>
+<OL>
+
+<LI>getToolkit returns the toolkit of the component if it has been added to the screen, or the parent’s toolkit if it is lightweight or hasn’t been added.</LI>
+<LI>The use of getForeground, setForeground, getBackground, setBackground, and getColorModel is obvious.</LI>
+<LI>getFont returns the current font, setFont changes it, getFontMetrics get measurements for the current font.</LI>
+<LI>Most Component subclasses will throw an error for getGraphics, but it works for Canvas and for containers.  If the component is not visible, this method returns null.</LI>
+<LI>getLocale and setLocale are used to change certain aspects of the component (like the text in Labels) to match the current language.</LI>
+<LI>getCursor and setCursor permit us to change the appearance of the cursor, or mouse sprite.</LI></OL>
+
+<LI>Component methods related to position and size.  If there is a Layout Manager attached to the parent container of the component, the set operations may or may not work as desired.</LI>
+<OL>
+
+<LI>getLocation and setLocation get or set the components upper left corner position within its parent.  getScreenLocation works with absolute screen coordinates.</LI>
+<LI>getSize and setSize work with the size of the component.</LI>
+<LI>getBound and setBounds work with both the size and location of the component.</LI>
+<LI>GetPreferredSize, getMaximumSize, and getMinimumSize provide hints as to how the component should be displayed.</LI>
+<LI>contains tells whether a point is within the bounding rectangle of the component.</LI>
+<LI>getComponentAt can be called with regards to a container and identifies the component which occupies the point indicated within the container.</LI></OL>
+
+<LI>Methods related to painting the component</LI>
+<OL>
+
+<LI>We have already seen paint and update.  The paintAll method paints a container and all its child components</LI>
+<LI>The repaint method occurs in several forms, which permit immediate or delayed painting of all or a portion of the component.</LI>
+<LI>print and printAll will &quot;paint&quot; to the printer if the Graphics object implements PrintGraphics.</LI></OL>
+
+<LI>We have already covered the methods related to images.  Note that there are two system properties which could be set in resource files, and which govern the display of images in components. </LI>
+<OL>
+
+<LI>awt.image.incrementaldraw allows the user to control whether or not partial images are displayed.</LI>
+<LI>awt.image.redrawrate allows the user to change the delay between successive repaints.</LI></OL>
+
+<LI>Methods related to peer objects</LI>
+<OL>
+
+<LI>When addNotify() is called, the peer of the component gets created, and  the Component is invalidated. The addNotify() method is called by the system when it needs to create the peer. The peer needs to be created when a Component is first shown, or when a new Component is added to a Container and the Container is already being shown (in which case it already has a peer, but a new one must be created to take account of the new Component). If you override this method for a specific Component, call super.addNotify() first, then do what you need for the Component. You will then have information available about the newly created peer</LI>
+<LI>The removeNotify() method destroys the peer of the component and removes it from the screen.</LI></OL>
+
+<LI>Methods related to state</LI>
+<OL>
+
+<LI>The isValid, isVisible and isShowing methods let us know whether the component is in the corresponding state.</LI>
+<LI>The invalidate method sets validity false and will trigger revalidate actions in the parent container.</LI>
+<LI>The setVisible and setEnabled methods change the corresponding state.</LI></OL>
+
+<LI>Methods related to focus</LI>
+<OL>
+
+<LI>isFocusTraversable tells you whether or not a component is capable of receiving the input focus. If you are creating a component by subclassing Component or Canvas and you want it to be traversable, you should override this. </LI>
+<LI>requestFocus ()allows you to request that a component get the input focus. If it can't (isFocusTraversable() returns false), it won't. </LI>
+<LI>transferFocus ()moves the focus from the current component to the next one. </LI></OL>
+
+<LI>Methods related to events</LI>
+<OL>
+
+<LI>The dispatchEvent method allows you to post new AWT events to this component's listeners. dispatchEvent tells the Component to deal with the AWTEvent e by calling its processEvent() method. Events delivered in this way bypass the system's event queue. It's not clear why you would want to bypass the event queue, except possibly to deliver some kind of high priority event.</LI>
+<LI>We have already discussed the add[whatever]Listener methods.  There are corresponding remove[whatever]Listener methods.</LI>
+<LI>The processEvent method receives all AWTEvents which have this Component as target. processEvent() then passes them along to one of the event-specific processing methods process[whatever]Event. When you subclass Component, overriding processEvent() allows you to process all events without providing listeners. Remember to call super.processEvent(e) last to ensure that normal event processing still occurs; if you don't, events won't get distributed to any registered listeners.</LI>
+<LI>If you are doing your own event processing, you will want to call enableEvents. The enableEvents method allows you to configure a component to listen for events without having any active listeners.  Otherwise, events may not be seen because there is no corresponding Listener active.  There is also a disableEvents method.</LI></OL>
+
+<LI>Miscellaneous object methods</LI>
+<OL>
+
+<LI>getName and setName retrieve and change the current name of the component. </LI>
+<LI>getParent returns the component's Container</LI>
+<LI>add(PopupMenu popup) and remove(MenuComponent popup (dis)associate a PopupMenu with a Component.</LI>
+<LI>paramString is a protected method that helps build a String listing the different parameters of the Component. When the toString() method is called for a specific Component, paramString() is called for the lowest level and works its way up the inheritance hierarchy to build a complete parameter string to display. At the Component level, potentially eight items are added. The first five items added are name, x and y coordinates, width and height; if the component is not valid, "invalid" is added next; if the component is not visible, "hidden" is added next; if the component is not enabled, "disabled" is added. </LI>
+<LI>list prints the contents of the Component (as returned by toString()) to System.out. This method is more useful at the Container level, because it prints all the components within the container. </LI></OL>
+
+<LI>Labels are perhaps the simplest of all concrete objects.  Alignment of the text within a label can be RIGHT, LEFT, or CENTER.  The constructor allows us to specify text and alignment, and there are get and set methods for text and alignment.</LI>
+<LI>Buttons are also fairly simple.  They are normally used to generate an action event when clicked.  It is possible to add listeners to detect when a button has been separately pressed and released.</LI>
+<OL>
+
+<LI>The constructor can take the label appearing on the button as an argument.</LI>
+<LI>Buttons have both labels, which actually appear on the graphical button, and action commands, which are language-independent descriptions of the button’s logical meaning.  Use getLabel, setLabel, getActionCommand, and setActionCommand for these.  Before the action command is set, it defaults to the label.</LI>
+<LI>Events are handled by action listeners.  If you subclass the button class, you can add some specialized handling by overriding processEvent or processActionEvent.</LI></OL>
+
+<LI>Containers are graphical objects which contain other graphical objects, including other containers.  It is the responsibility of the container to manage the layout of the objects it contains.</LI>
+<LI>The Container class is the base class for a large set of container subclasses.  It is an abstract class, so it must be extended to be instantiated.</LI>
+<OL>
+
+<LI>If we choose to extend it ourselves, we are creating a component without a native peer.  This has the effect of eliminating a lot of overhead, like a new toolkit and graphics context, and the processing of many events.</LI>
+<LI>Container methods related to grouping of components</LI>
+<OL TYPE="a">
+
+<LI>getComponentCount tells how many contained components there are at the first (child) level.  These are stored in an array.  Position in the array determines, among other things, the stacking order of components which overlay each other.</LI>
+<LI>getComponent(position) returns the nth component in the array.</LI>
+<LI>getComponents returns the entire array of components.</LI>
+<LI>add adds a component at a given position, or at the end of the array.  This also invalidates the container, so that the Layout Manager is called on to lay everything out again.  It is also possible to call add with a constraints parameter, giving information to the Layout Manager.</LI>
+<LI>remove and removeAll are the inverse operations to add.</LI>
+<LI>IsAncestorOf(component) tells whether the container is an ancestor of the component</LI></OL>
+
+<LI>Container methods related to layout and sizing</LI>
+<OL TYPE="a">
+
+<LI>get and setLayout return or change the current Layout Manager.</LI>
+<LI>get PreferredSize, MinimumSize, and MaximumSize are used to get information about size from the Layout Manager</LI>
+<LI>getAlignmentX or Y say how the Layout Manager is trying to display components.</LI>
+<LI>doLayout  instructs the Layout Manager to lay out the container.</LI>
+<LI>validate and invalidate recursively validate and invalidate all descendent objects.</LI></OL>
+
+<LI>Container methods related to events</LI>
+<OL TYPE="a">
+
+<LI>getComponentAt(position) allows us to determine which component might be the target of a mouse event.</LI>
+<LI>Of course, the standard addContainerListener, remove ContainerListener, processEvent, and processContainerEvent can be used.</LI></OL>
+
+<LI>The container methods paint and print will deal with lightweight components.  Otherwise, use paintAll and printAll.</LI></OL>
+
+<LI>The Panel class provides a generic container within a nested display.</LI>
+<OL>
+
+<LI>It is usually appropriate to use a Panel when we are trying to group components within a container.</LI>
+<LI>A panel is simply a rectangular area with no appearance in and of itself.</LI>
+<LI>By default, the Panel uses a Flow Layout Manager, but the constructor allows us to specify another.</LI>
+<LI>The Panel peer will generate key, mouse, and focus events which happen in a Panel but not in one of its components.  Events occurring in a component of a Panel are delivered to the component.</LI></OL>
+
+<LI>We could, of course, build our own container with no provided mechanisms for layout and object containment simply by extending the Container class.  This is useful when we want to start from the base of standard container capabilities.</LI>
+<OL>
+
+<LI>In general, custom classes are created either by extending an existing class that is nearly what we want or by starting from scratch.  Starting from scratch means extending the Object, the Component, or in particular, the Canvas, class.</LI>
+<OL TYPE="a">
+
+<LI>Extending an existing, almost right, class makes use of all the existing functionality and appearance.  However, the new class will not appear the same on all platforms, since it will be represented by a platform-specific peer.</LI>
+<LI>In starting from scratch, we are sure of consistent appearance on all platforms, since we either use no peer or very generic peers.  However, there is usually a lot more than we expect in the way of creating appropriate methods or overriding the generic methods we inherit from our base class.</LI>
+<LI>The Canvas class is a good one to use as a base because of all its drawing capabilities.  Of course, it isn’t a container, but can be made to work like a container if we add enough extra methods.  Even better, we can put a Canvas inside a Container.</LI></OL>
+
+<LI>As we move the mouse across a container, we might see the cursor changing.  There are 14 Java cursors, and each one can be assigned to any particular component using the setCursor method.  For instance, to make the cross-hair cursor show over component x, we could make the call</LI>
+<OL TYPE="a">
+
+<LI>x.setCursor(getPredefinedCursor(Cursor.CROSSHAIR_CURSOR));</LI></OL>
+</OL>
+
+<LI>Insets are a particular aspect of containers.  Frequently, a container will want to allocate some border space for decorations of one kind or another.  We can call getInsets from the container to retrieve the size of the four borders, which are called top, left, bottom, and right.</LI>
+<LI>Windows</LI>
+<OL>
+
+<LI>The window is a top-level container, that is, it rests on the root window of the display, rather than occupying space within another container.</LI>
+<LI>Windows are unadorned, without borders of any kind.  They are like panels in this respect, but panels are not at the top level.</LI>
+<LI>Windows and all their descendents have the Border Layout as their default Layout.</LI>
+<LI>The Window constructor calls for a Frame parent, since the window can’t exist independent of an application or applet, both of which run from a Frame.  Applets often run from a web browser frame, and it may be necessary to call getParent repeatedly and test whether each parent is an instanceof Frame in order to find a frame and create a Window from an applet.</LI>
+<LI>Special Window methods</LI>
+<OL TYPE="a">
+
+<LI>show sets the window visible and moves it to the front of the stacking order.</LI>
+<LI>isShowing tells whether the window is seen on the display.</LI>
+<LI>toFront and toBack move the window within the stacking order.</LI>
+<LI>pack causes all components in the window to be laid out in their preferred size.</LI>
+<LI>getWarningString is used to find out what the warning string is.  In cases where a window is displayed by an applet, and in the hands of an unethical programmer might be used to spoof another, valid, local frame and gather private information from the user.  In these cases, web browsers display the warning string in the window when it is displayed.  Of course, there is no setWarningString method.</LI>
+<LI>getFocusOwner tells which component of the window currently has keyboard focus.</LI></OL>
+</OL>
+
+<LI>Frames</LI>
+<OL>
+
+<LI>The frame is a window decorated with border gadgets provided by the native operating system.  Usually these include a title bar, a window menu, resize handles, and buttons for iconify, full screen, and exit.</LI>
+<OL TYPE="a">
+
+<LI>The frame constructor allows us to specify a title.  We can also call getTitle and setTitle subsequently.</LI>
+<LI>Since the frame can be iconified, we can get or set the icon displayed on the taskbar or root window when this happens.</LI>
+<LI>Since the frame can usually be resized, there are methods isResizable and setResizable.  Even when setResizable is false, the window can still be made full screen.</LI></OL>
+
+<LI>The methods getMenuBar and setMenuBar allow us to display a menu bar at the top of the frame, or get the current menu bar object.  While an application can declare multiple menu bars, only one can be displayed at a time in a frame.  Likewise, no menu bar can be shared by two different frames within the same application.  The current menu bar can be removed from the frame using the remove(MenuComponent) method.  Of course, this leave no visible, active menu bar in the frame.</LI>
+<LI>The paramString method adds information to that of window.  Specifically, whether the frame is resizable and what its title is.</LI>
+<LI>The example (6.1) in the book dealing with a popup button panel is good to read over.  Like many examples, it tends to use Java 1.0 methods, probably because the author was too rushed or too lazy to completely rewrite the book when Java 1.1 came out.  There is also a potential problem, in that the popup panel could be position at the right or bottom edge of the frame, and thus be clipped.  It would be more appropriate to check these bounds and make sure that the popup was located where it could be entirely seen.</LI></OL>
+
+<LI>Dialogs</LI>
+<OL>
+
+<LI>Dialogs are like independent frames.  They can be resized and dragged on the root window and have an exit button and title on their border.  However, they can’t exist independently of a frame.  If the frame is iconified, so are all its showing dialogs.  If the frame is killed, so are all its showing dialogs.</LI>
+<LI>The purpose of a dialog is to provide a modal interaction to set parameters, or carry out actions before continuing with the main frame interaction.  It is possible, however, to make dialogs non-modal. We use the isModal and setModal methods.</LI>
+<LI>The constructor requires the parent frame and allows us to set a title and modality.</LI>
+<LI>The example (6.2) in the book is pretty good.</LI>
+<OL TYPE="a">
+
+<LI>Notice in particular the use of panels to organize and group components within the GUI.</LI>
+<LI>The author uses simplified, light-weight event handling rather than establishing separate listeners.</LI>
+<LI>The TextField echo character is used to avoid echoing the password as it is typed.</LI></OL>
+</OL>
+
+<LI>File Dialogs</LI>
+<OL>
+
+<LI>These use specialized, platform-specific peers for the purpose of opening or saving files.  These peers may in some cases refuse to accept filename which don’t identify existing files, or may pop up a warning dialog when saving to an existing file.</LI>
+<LI>It is up to the programmer to deal with the selected filename by actually loading or saving the file.</LI>
+<LI>The constants LOAD and SAVE are used to indicate to the constructor which kind of dialog to present.</LI>
+<LI>The constructor allows us to specify the title and mode (SAVE or LOAD).</LI>
+<LI>The initial directory to be displayed can be set ahead of display by setDirectory.  The directory from which the user made selection is obtained by getDirectory.</LI>
+<LI>The selected filename is obtained by getFile.  If it returns a null string, then the user pushed the cancel button.</LI>
+<LI>We can control the files that initially appear by using setFile ahead of time.  If we setFile to be *.java, then only files ending with .java will be displayed for selection.  It is also possible to setFileNameFilter, which would continue to control the display of files regardless of what the user tries to type in the filename text field in the way of selection strings.</LI>
+<LI>The example (6.3) in the book is very good, and should be studied carefully.</LI></OL>
+
+<LI>The TextComponent class is not abstract, but its constructor is private, so you can’t use it directly.  Instead, you use one of its subclasses.  TextComponent serves to abstract their common features.</LI>
+<OL>
+
+<LI>There are two subclasses of Text Component:</LI>
+<OL TYPE="a">
+
+<LI>TextField, which allows a single line of input or output and reacts to the enter key by generating an action event.</LI>
+<LI>TextArea, which allows multiline input or output, provides scrollbars, and reacts to the enter key be going to a new line.</LI></OL>
+
+<LI>Methods</LI>
+<OL TYPE="a">
+
+<LI>getText and setText deal with the text string in the component.</LI>
+<LI>get[set]SelectionStart and get[set]SelectionEnd tell the position of the characters at the beginning and end of the selected text.  The position before the first character in the text is 0.</LI>
+<LI>getSelectionText, select, and selectAll deal with the actual selection of text.</LI>
+<LI>get[set]CaretPosition deal with the insertion (caret) position as opposed to the cursor position.</LI>
+<LI>setEditable and isEditable deal with the fact that text components can be made read-only.  This allows us to used the text component for things like displaying help and warning messages that are too big to be seen in the real estate available.</LI></OL>
+
+<LI>Events</LI>
+<OL TYPE="a">
+
+<LI>TextComponents do not receive and pass on mouse and focus events reliably.</LI>
+<LI>There is a TextEvent class which is generated within text components.  It’s only type is TEXT_VALUE_CHANGED.</LI>
+<LI>Specialized handling can be performed by extending the text component and overriding processEvent or processTextEvent.  These methods receive events and can process them before they are handed on to listeners.</LI></OL>
+</OL>
+
+<LI>The TextField class provides a limited space for the user to input data.  The actual input string is not limited to the size of the space.  The user can use cursor control keys to move around in the text.</LI>
+<OL>
+
+<LI>Striking the enter key generates an action event.  It is frequent, however, for Java applications to fail to process text field actions.</LI>
+<LI>The constructors allow the programmer to specify an initial string of text as well as the number of columns of text that will be visible on the screen.  Layout managers may alter the number of columns visible.</LI>
+<LI>getColumns and setColumns allow is to manipulate the number of visible characters of text.</LI>
+<LI>getEchoChar, setEchoChar, and echoCharIsSet allow selective echoing of the typed character or of an echo character like ‘*’.  Setting the echo character to (char)0 restores normal echoing.</LI>
+<LI>There are good 1.1 event model examples for reversing the text in a text field using either an action listener or processActionEvent.  The other examples deal with the 1.0 event model.</LI>
+<LI>Character by character processing, like validating the input format of what should be a Social Security number, should be handled by processTextEvent.  Symantec has a FormattedTextField class with a lot of subclasses for social security, zip code, etc.  Section 4 of the chapter has a good example of a text field extension which accepts only a limited number of input characters.  However, it uses the 1.0 event model.</LI></OL>
+
+<LI>TextAreas are simple, but general purpose, text editors.  Users can input multiple lines of text, select text, move the cursor, use editing keys like backspace, etc.  Actions like cut, copy, and paste have to be implemented by the programmer.</LI>
+<OL>
+
+<LI>Justification of text is on the left, and is not controllable.</LI>
+<LI>We can have either a vertical or a horizontal scrollbar, or both.  If there is no horizontal scrollbar, then words will wrap automatically.</LI>
+<LI>Constructors allow us to establish the number of rows and columns in the visible area, the initial text, and whether scrollbars will be present.</LI>
+<LI>Text can be altered with these methods:</LI>
+<OL TYPE="a">
+
+<LI>insert – inserts the text argument at the insertion caret.</LI>
+<LI>append - appends the text argument at the end of the text in the text area.</LI>
+<LI>replaceRange – replaces the text between the beginning and end of the range with the text argument.</LI></OL>
+
+<LI>get[set]Rows[Columns] deals with the number of visible rows and columns.  Of course, these may not really be accurate, since the layout manager may be messing with sizes.</LI>
+<LI>getScrollbarVisibility tells which scrollbars are in place.  There is no corresponding set method.</LI>
+<LI>The event handling in the book relies entirely on the 1.0 event model.  Find a better way of doing it.</LI></OL>
+
+<LI>General Issues</LI>
+<OL>
+
+<LI>Selections can be singular or multiple.</LI>
+<OL TYPE="a">
+
+<LI>Choice and CheckboxGroup permit single selections only.  Under normal circumstances, at least one item is selected at all times.</LI>
+<LI>List and Checkbox permit multiple selections, although list can be set up to allow only singular selections.</LI></OL>
+
+<LI>Different selection mechanisms consume more or less real estate</LI>
+<OL TYPE="a">
+
+<LI>Choice, with its drop down list, consumes the least.</LI>
+<LI>List consumes more, but scrollbars keep it from being as large as it might otherwise be.</LI>
+<LI>Checkbox consumes the most, since it has labels and boxes.</LI></OL>
+
+<LI>Only List fails to visually record the last selection(s) made.</LI>
+<LI>All of these implement the ItemSelectable interface</LI>
+<OL TYPE="a">
+
+<LI>ItemEvents are generated when a selectable item is selected.  There is an ItemListener interface, but not an Adapter, since there is only one method: getSelectedObjects()</LI>
+<LI>getSelectedObjects() returns an array of objects.  In the case of a Checkbox, this will be of length 0 or one, depending on whether the box is checked.</LI></OL>
+</OL>
+
+<LI>The Choice Class</LI>
+<OL>
+
+<LI>Only the last (current) selection is visible, but a non-scrolled list of all alternatives can be dropped down.</LI>
+<LI>List entries are strings at positions, starting at 0.  This is the default initial selection.</LI>
+<LI>Methods</LI>
+<OL TYPE="a">
+
+<LI>The constructor has no parameters and creates an empty list.</LI>
+<LI>add(string) adds a new selection at the end of the list.  Duplicates may be added.</LI>
+<LI>insert(string, index) adds a new selection at the index.  Others move down.</LI>
+<LI>remove(string) and remove(index) remove selections.  Others move up.  If the string is duplicated, the first one is removed.</LI>
+<LI>removeAll() clears the selection list.</LI>
+<LI>getSelectedItem() returns a string.  getSelectedIndex() returns an integer.</LI>
+<LI>getItemCount() returns an integer.</LI>
+<LI>select(string) and select(index) perform selection under program control.</LI></OL>
+</OL>
+
+<LI>The List Class</LI>
+<OL>
+
+<LI>The List differs from the Choice in that many possible selections can be seen at a time, in a scrolled window, and that multiple selections can be made.</LI>
+<LI>As with Choice, selections are indexed starting at 0 and can be duplicated.  Unlike Choice, double clicking a selection generates an ActionEvent.  Key events are a bit unpredictable, but it is worth the effort to make cursor control keys work in a List.</LI>
+<LI>Methods</LI>
+<OL TYPE="a">
+
+<LI>The constructor can take arguments for the number of rows shown (this is just a hint to the layout manager) and a flag indicating whether multiple selections will be allowed.</LI>
+<LI>The add, remove, removeAll, getSelectedItem, and getItemcount methods works as they do with Choice.</LI>
+<LI>add(string, index) is used instead of Choice’s insert.</LI>
+<LI>select works like Choice’s except that it doesn’t deselect the previous selection.  There is also a deselect method.</LI>
+<LI>getSelectedIndex works like Choice’s unless there are multiple selections, in which case it returns –1.  getSelectedIndexes returns an array of integers.</LI>
+<LI> Since it may be necessary to identify items by index, there are a getItem(index) method which returns a string, and a getItems() which returns an array of strings of the list.</LI>
+<LI>replaceItem(string, index) replaces the string at index, and deselects it if it was selected.</LI>
+<LI>getSelectedItems returns an array of strings.</LI>
+<LI>There are boolean functions isIndexSelected and isMultipleMode.  We can also setVisibleMode.</LI>
+<LI>makeVisible(index) insures that the selection at that position is visible, although it doesn’t guarantee which of the visible rows it will be on.  getVisibleIndex returns the index that was last made visible through a call to makeVisible.</LI>
+<LI>getRows returns the original rows parameter to the constructor.  It doesn’t say anything about how many rows are currently visible.  That could be estimated by comparing the current size of the List to getPreferredSize(n), which gives the preferred size for a list with n rows visible.</LI></OL>
+</OL>
+
+<LI>The Checkbox Class</LI>
+<OL>
+
+<LI>This goes further than  List in that all selections are visible at all times.  We can use one or many checkboxes.  They appear as labels accompanied by squares, and in Windows95 those which are selected have check marks in the squares.</LI>
+<LI>Methods</LI>
+<OL TYPE="a">
+
+<LI>The constructor can be given arguments for the label, the initial state (selected or deselected) and a governing CheckboxGroup, which is discussed in the next section.</LI>
+<LI>We control the label subsequently with getLabel and setLabel.</LI>
+<LI>Besides user control, we can control the selection of a Checkbox with getState and setState.  Unlike the two methods, select and deselect, for List, Checkbox’s single setState method takes a boolean argument.  If the Checkbox is already selected, setState(true) doesn’t deselect it.  This is different from the action of the user clicking a selected Checkbox.</LI>
+<LI>getCheckboxGroup returns the governing CheckboxGroup if there is one, and setCheckboxGroup changes it.  If we use a null argument for setCheckboxGroup, it removes the Checkbox from the control of any CheckboxGroup.</LI></OL>
+</OL>
+
+<LI>The CheckboxGroup Class</LI>
+<OL>
+
+<LI>CheckboxGroups are used to make sure that multiple Checkboxes behave like a Choice component, allowing only one Checkbox to be selected at a time.  When one is selected, the previous selection is deselected.  This behavior is often called radio button behavior.</LI>
+<LI>A CheckboxGroup is not a component and has no visible representation on the screen.  It is purely a logical control mechanism.  If we want a visible organization to checkboxes in a group, we usually make them components of a panel with a grid layout.</LI>
+<LI>Checkboxes governed by a CheckboxGroup have a different shape: circles in Windows95, diamonds in Motif.  If a Checkbox is removed from a group, its shape doesn’t change unless we call removeNotify and addNotify.</LI>
+<LI>Likewise, adding checkboxes from a group doesn’t change any selection settings, so we might end up with two selected checkboxes in a CheckboxGroup.  It is best to deselect a checkbox before adding it to a group, to avoid this.</LI>
+<LI>Removing checkboxes from a group does change selection settings, by deselecting everything in the group.  This means we could have a group with no selection.</LI>
+<LI>The getSelectedCheckbox and setSelectedCheckbox methods work as you would imagine.  The effect of setSelectedCheckbox(null) is to deselect all checkboxes in the group.</LI></OL>
+
+<LI>Menu Basics</LI>
+<OL>
+
+<LI>Menus permit users to generate actions by clicking on individual entries.  These actions may also be generated by pressing shortcut keys.</LI>
+<LI>Menus can be nested within menus.  Officially, menus can be put in MenuContainers, but menus are MenuContainers.</LI>
+<LI>Menus come in several forms:</LI>
+<OL TYPE="a">
+
+<LI>Menubars lay their selections out horizontally at the top of a frame.  The action generated is to drop another menu down.  Only frames can contain menubars.  Several menubars can be associated, one at a time, with a frame.</LI>
+<LI>Menus are vertical.  The action may be to actually do something, or just to show a side-pull nested menu.</LI>
+<LI>Popup menus respond to a right mouse button click.  Each component (theoretically) can have its own, specialized popup menu, but some native peers, like the Windows 95 peer for the TextArea, override programmer defined popups with their own version.</LI></OL>
+
+<LI>There are other classes associated with menus:</LI>
+<OL TYPE="a">
+
+<LI>MenuItems are the leaves of the menu tree – they are the real action buttons.</LI>
+<LI>CheckboxMenuItems are selection checkboxes instead of action buttons.</LI>
+<LI>MenuShortcuts represent the keys which trigger menu component actions.</LI></OL>
+
+<LI>The general sequence of instructions in creating standard menus is:</LI>
+<OL TYPE="a">
+
+<LI>Construct menu items and set them enabled or disabled.</LI>
+<LI>Construct menus and add the items or other menus to them.</LI>
+<LI>Construct a menubar and add the menus to it, setting the help menu if needed.</LI>
+<LI>Add the menubar to the frame.</LI></OL>
+</OL>
+
+<LI>The MenuComponent class is the abstract class on which the others are based.  Since it is abstract, it can’t be constructed directly.  Its methods are:</LI>
+<OL>
+
+<LI>get(set)Font manipulates the font in which menu button labels are shown.</LI>
+<LI>get(set)Name manipulates the actual names of components.</LI>
+<LI>removeNotify removes menus from their containers</LI>
+<LI>getParent returns the menu container, which must be a frame, menubar, menu, or component (only in the case of a popup).</LI>
+<LI>dispatch(process)Event allows us to deal with menu events if necessary.  Usually, we only respond to actions by using Action listeners, or by subclassing and using processActionEvent.</LI></OL>
+
+<LI>The MenuContainer interface tells how parents of menus should behave.  The only interesting methods are getFont and remove.</LI>
+<LI>The MenuItem class represents the actual action buttons at the bottom of the menu hierarchy.</LI>
+<OL>
+
+<LI>The constructor can take no parameters, in which case a blank label is created, or it can take a String parameter for a label and possibly a MenuItemShortcut parameter.</LI>
+<LI>get(set)Label manipulates the label for a menu item.</LI>
+<LI>get(set)(delete)MenuShortcut manipulates shortcut keys.</LI>
+<LI>is(set)Enabled allows us to tell whether clicking a menu item will result in an action event.</LI>
+<LI>addActionListener is the easiest way to deal with events.</LI>
+<LI>processEvent and processActionEvent, in conjunction with enableEvents or disableEvents, permit us to deal with action events by extending the class rather than creating listeners.</LI></OL>
+
+<LI>The Menu class is the standard container for menu items.  It can also contain other menus and CheckboxMenuItems and Separators.</LI>
+<OL>
+
+<LI>On some platforms, it is possible to create tear-off menus, which can be cloned from the regular menu and moved to another spot for permanent display.</LI>
+<LI>The Menu constructor can take parameters for a label and a boolean indicating whether tear-offs will be allowed.</LI>
+<LI>The getItemCount method returns the number of children of the menu.</LI>
+<LI>The getItem(index) method returns the menuItem at that position in the menu.</LI>
+<LI>The add method can take either a menu item or a string as an argument.  In the second case, if the string is &quot;-&quot;, a separator is added.  Separators don’t generate actions, and are purely for visual organization.  The entry is added at the end of the menu.</LI>
+<LI>The addSeparator(index) method adds a separator at that position</LI>
+<LI>The insert(MenuItem, index) and insert(label, index) put items at that index.</LI>
+<LI>The remove(index), remove(component), and removeAll methods remove items from a menu.  In the second case, the component could be a menu item, a menu, or a check box.</LI>
+<LI>The isTearOff method determines whether a menu provides tear-offs.</LI>
+<LI>The only event which is generally interesting is the ItemEvent caused by selecting a non-menu item in a menu.  Other events can be captured by overriding the postEvent method.</LI>
+<LI>It can be a hassle to create individual Action listeners for each entry in a menu.  Another alternative is to create a single listener, and then determine which button generated the event, either by associating a different action command with each button, or by detecting the component from the event.</LI></OL>
+
+<LI>The Menubar class creates the horizontal menu bar at the top of a frame.</LI>
+<OL>
+
+<LI>The constructor allows no parameters.</LI>
+<LI>getMenuCount tells how many drop-down menus are on the bar.</LI>
+<LI>getMenu(index) identifies the drop-down menu at that position.</LI>
+<LI>add adds drop-down menus at the right.  There is no indexed add.</LI>
+<LI>get(set)HelpMenu identifies the drop-down menu which appears at the right of the bar.</LI>
+<LI>The remove method can take either a component or an index as a parameter.</LI>
+<LI>getShortcutMenuItem takes a shortcut and returns the menu item associated with the shortcut.  This method recursively descends looking for an item with the given shortcut.</LI>
+<LI>The shortcuts method returns an enumeration of all shortcuts associated with a menu container.</LI>
+<LI>The deleteShortcut method removes the shortcut from a menu item associated with the menu bar.</LI></OL>
+
+<LI>The MenuShortcut class allows us to describe the shortcut keys that trigger menu item actions.</LI>
+<OL>
+
+<LI>The standard constructor takes a virtual key constant as an argument.  This is the key which must be pressed, while the standard modifier (control in Windows) is down, in order to trigger the event.</LI>
+<LI>There is another constructor which takes an ASCII character code and a boolean, which, if true, means that the Shift key must be down as well.  The usesShiftModifier method returns true or false according to whether the boolean in the constructor was true or false.</LI>
+<LI>getKey returns the virtual key constant for the shortcut key.</LI></OL>
+
+<LI>The CheckboxMenuItem permits embedding check boxes into a menu.</LI>
+<OL>
+
+<LI>The constructor permits both label and initial state to be specified.</LI>
+<LI>get(set)State manipulate the state.</LI>
+<LI>As with anything implementing the ItemSelectable interface, there is a getSelectedObjects method.</LI>
+<LI>ItemListeners can be added and removed.</LI></OL>
+
+<LI>The PopupMenu class allows us to associate menus to any component and display them with the right mouse button.</LI>
+<OL>
+
+<LI>The constructor can take a label parameter.</LI>
+<LI>The show(component, x, y) method displays the popup menu at the x,y coordinate position within the component's coordinate system.</LI>
+<LI>Mouse events can  be tested to see whether they were the button meant to pop up by using the isPopupTrigger method.</LI></OL>
+
+<LI>Scrolling is used to move a viewport over a component which is large than the amount of real estate dedicated to displaying it.</LI>
+<OL>
+
+<LI>The Scrollbar class is very primitive, and shouldn't be used.</LI>
+<LI>The Adjustable interface describes elements which have an orientation, either horizontal or vertical, maximum and minimum settings, a currentvalue somewhere between maximum and minimum, a visible, movable slider whose size can be obtained or set, and distances for small and large     adjustments, typically called unit and block, or line and page.  We deal with events using Adjustment listeners.</LI>
+<LI>The ScrollPane class provides all the scrolling behavior that we need.</LI>
+<OL TYPE="a">
+
+<LI>While it can contain only one component, that component can be a panel, containing many other components and using its own layout manager.</LI>
+<LI>Since the ScrollPane contains only one component, it can have no  layout manager.</LI>
+<LI>There are constants indicating the policy for the existence of scrollbars: as needed, always, or never.  As needed is usually best.</LI>
+<LI>The constructor can take a parameter for the policy.</LI></OL>
+</OL>
+
+<LI>4.ScrollPane Methods</LI><OL>
+
+<OL TYPE="a">
+
+<LI>getScrollbarDisplayPolicy()</LI>
+<LI>getViewportSize()</LI>
+<LI>getHScrollbarHeight() and getVScrollbarWidth().  The other scrollbar dimensions are just the corresponding ScrollPane dimensions.</LI>
+<LI>getHAdjustable()  and getVAdjustable()  return the individual scrollbars for the purpose of establishing listeners.  This is not usually necessary. e.setScrollPosition(int x, int y)  sets the value indicating the position of the horizontal(x) and vertical (y) sliders.</LI>
+<LI>setScrollPosition(Point p)  does the same.</LI>
+<LI>getScrollPosition() returns the current position of both the scrollpane's Adjustable objects as a Point.</LI></OL>
+</OL>
+</OL>
+
+</B></BODY>
+</HTML>

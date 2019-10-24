@@ -1,0 +1,159 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PROPID:-//ProtoView Development Corp//ProtoView ScheduleX TaskPad//EN//1.0
+X-PVSXTaskPad-CompletionStyle;LANGUAGE=us-EN:2
+X-PVSXTaskPad-BorderStyle;LANGUAGE=us-EN:1
+X-PVSXTaskPad-Appearance;LANGUAGE=us-EN:1
+X-PVSXTaskPad-OverdueColor;LANGUAGE=us-EN:1769727
+X-PVSXTaskPad-DefaultItemForeColor;LANGUAGE=us-EN:0
+X-PVSXTaskPad-CompleteHidden;LANGUAGE=us-EN:0
+X-PVSXTaskPad-SubjectHidden;LANGUAGE=us-EN:0
+X-PVSXTaskPad-DueDateHidden;LANGUAGE=us-EN:0
+X-PVSXTaskPad-PercentCompleteHidden;LANGUAGE=us-EN:-1
+X-PVSXTaskPad-NotesHidden;LANGUAGE=us-EN:-1
+X-PVSXTaskPad-AttachmentHidden;LANGUAGE=us-EN:-1
+X-PVSXTaskPad-ActualWorkHidden;LANGUAGE=us-EN:-1
+X-PVSXTaskPad-CategoriesHidden;LANGUAGE=us-EN:-1
+X-PVSXTaskPad-PriorityHidden;LANGUAGE=us-EN:-1
+X-PVSXTaskPad-DateCompleteHidden;LANGUAGE=us-EN:-1
+X-PVSXTaskPad-DateStartedHidden;LANGUAGE=us-EN:-1
+X-PVSXTaskPad-StatusHidden;LANGUAGE=us-EN:-1
+X-PVSXTaskPad-CompanyHidden;LANGUAGE=us-EN:-1
+X-PVSXTaskPad-TotalWorkHidden;LANGUAGE=us-EN:-1
+X-PVSXTaskPad-CompleteWorkHidden;LANGUAGE=us-EN:-1
+X-PVSXTaskPad-SelectMode;LANGUAGE=us-EN:1
+X-PVSXTaskPad-Heading-Complete;LANGUAGE=us-EN:
+X-PVSXTaskPad-Heading-Subject;LANGUAGE=us-EN:Subject
+X-PVSXTaskPad-Heading-Due Date;LANGUAGE=us-EN:Due Date
+X-PVSXTaskPad-Heading-% Complete;LANGUAGE=us-EN:% Complete
+X-PVSXTaskPad-Heading-Notes;LANGUAGE=us-EN:Notes
+X-PVSXTaskPad-Heading-Attachment;LANGUAGE=us-EN:
+X-PVSXTaskPad-Heading-Actual Work;LANGUAGE=us-EN:Actual Work
+X-PVSXTaskPad-Heading-Categories;LANGUAGE=us-EN:Categories
+X-PVSXTaskPad-Heading-Priority;LANGUAGE=us-EN:Priority
+X-PVSXTaskPad-Heading-Date Complete;LANGUAGE=us-EN:Date Complete
+X-PVSXTaskPad-Heading-Date Started;LANGUAGE=us-EN:Date Started
+X-PVSXTaskPad-Heading-Status;LANGUAGE=us-EN:Status
+X-PVSXTaskPad-Heading-Company;LANGUAGE=us-EN:Company
+X-PVSXTaskPad-Heading-Total Work;LANGUAGE=us-EN:Total Work
+X-PVSXTaskPad-Heading-Complete Work;LANGUAGE=us-EN:Complete Work
+X-PVSXTaskPad-HeaderFont-Name;LANGUAGE=us-EN:MS Sans Serif
+X-PVSXTaskPad-HeaderFont-SizeLo;LANGUAGE=us-EN:82500
+X-PVSXTaskPad-HeaderFont-SizeHi;LANGUAGE=us-EN:0
+X-PVSXTaskPad-HeaderFont-Charset;LANGUAGE=us-EN:0
+X-PVSXTaskPad-HeaderFont-Weight;LANGUAGE=us-EN:400
+X-PVSXTaskPad-HeaderFont-Underline;LANGUAGE=us-EN:0
+X-PVSXTaskPad-HeaderFont-Italic;LANGUAGE=us-EN:0
+X-PVSXTaskPad-HeaderFont-Strikethrough;LANGUAGE=us-EN:0
+X-PVSXTaskPad-TasksFont-Name;LANGUAGE=us-EN:MS Sans Serif
+X-PVSXTaskPad-TasksFont-SizeLo;LANGUAGE=us-EN:82500
+X-PVSXTaskPad-TasksFont-SizeHi;LANGUAGE=us-EN:0
+X-PVSXTaskPad-TasksFont-Charset;LANGUAGE=us-EN:0
+X-PVSXTaskPad-TasksFont-Weight;LANGUAGE=us-EN:400
+X-PVSXTaskPad-TasksFont-Underline;LANGUAGE=us-EN:0
+X-PVSXTaskPad-TasksFont-Italic;LANGUAGE=us-EN:0
+X-PVSXTaskPad-TasksFont-Strikethrough;LANGUAGE=us-EN:0
+BEGIN:VTODO
+X-PVSXTaskItem-Version;LANGUAGE=us-EN:1.0
+COMPLETED:FALSE
+DESCRIPTION:Review Quarterly
+DUE:20001017
+PERCENT-COMPLETE:0
+SUMMARY:
+X-PVSXTaskItem-ActualWork;LANGUAGE=us-EN:0
+CATEGORIES:
+PRIORITY:Normal
+STATUS:Not Started
+X-PVSXTaskItem-Company;LANGUAGE=us-EN:
+X-PVSXTaskItem-TotalWork;LANGUAGE=us-EN:0
+X-PVSXTaskItem-CompleteWork;LANGUAGE=us-EN:0
+X-PVSXTaskItem-ForeColor;LANGUAGE=us-EN:1769727
+X-PVSXTaskItem-BackColor;LANGUAGE=us-EN:6777217
+END:VTODO
+BEGIN:VTODO
+X-PVSXTaskItem-Version;LANGUAGE=us-EN:1.0
+COMPLETED:FALSE
+DESCRIPTION:Build new installations
+DUE:20001020
+PERCENT-COMPLETE:0
+SUMMARY:
+X-PVSXTaskItem-ActualWork;LANGUAGE=us-EN:0
+CATEGORIES:
+PRIORITY:Normal
+STATUS:Not Started
+X-PVSXTaskItem-Company;LANGUAGE=us-EN:
+X-PVSXTaskItem-TotalWork;LANGUAGE=us-EN:0
+X-PVSXTaskItem-CompleteWork;LANGUAGE=us-EN:0
+X-PVSXTaskItem-ForeColor;LANGUAGE=us-EN:1769472
+X-PVSXTaskItem-BackColor;LANGUAGE=us-EN:6777217
+END:VTODO
+BEGIN:VTODO
+X-PVSXTaskItem-Version;LANGUAGE=us-EN:1.0
+COMPLETED:TRUE
+DESCRIPTION:Design new component specs
+DUE:20000929
+PERCENT-COMPLETE:0
+SUMMARY:
+X-PVSXTaskItem-ActualWork;LANGUAGE=us-EN:0
+CATEGORIES:
+PRIORITY:Normal
+STATUS:Completed
+X-PVSXTaskItem-Company;LANGUAGE=us-EN:
+X-PVSXTaskItem-TotalWork;LANGUAGE=us-EN:0
+X-PVSXTaskItem-CompleteWork;LANGUAGE=us-EN:0
+X-PVSXTaskItem-ForeColor;LANGUAGE=us-EN:12632256
+X-PVSXTaskItem-BackColor;LANGUAGE=us-EN:6777217
+END:VTODO
+BEGIN:VTODO
+X-PVSXTaskItem-Version;LANGUAGE=us-EN:1.0
+COMPLETED:FALSE
+DESCRIPTION:Test new installations
+DUE:20001026
+PERCENT-COMPLETE:0
+SUMMARY:
+X-PVSXTaskItem-ActualWork;LANGUAGE=us-EN:0
+CATEGORIES:
+PRIORITY:Normal
+STATUS:Not Started
+X-PVSXTaskItem-Company;LANGUAGE=us-EN:
+X-PVSXTaskItem-TotalWork;LANGUAGE=us-EN:0
+X-PVSXTaskItem-CompleteWork;LANGUAGE=us-EN:0
+X-PVSXTaskItem-ForeColor;LANGUAGE=us-EN:1769472
+X-PVSXTaskItem-BackColor;LANGUAGE=us-EN:6777217
+END:VTODO
+BEGIN:VTODO
+X-PVSXTaskItem-Version;LANGUAGE=us-EN:1.0
+COMPLETED:FALSE
+DESCRIPTION:Plan Nova Scotia vacation
+DUE:20001021
+PERCENT-COMPLETE:0
+SUMMARY:
+X-PVSXTaskItem-ActualWork;LANGUAGE=us-EN:0
+CATEGORIES:
+PRIORITY:Normal
+STATUS:Not Started
+X-PVSXTaskItem-Company;LANGUAGE=us-EN:
+X-PVSXTaskItem-TotalWork;LANGUAGE=us-EN:0
+X-PVSXTaskItem-CompleteWork;LANGUAGE=us-EN:0
+X-PVSXTaskItem-ForeColor;LANGUAGE=us-EN:1769472
+X-PVSXTaskItem-BackColor;LANGUAGE=us-EN:6777217
+END:VTODO
+BEGIN:VTODO
+X-PVSXTaskItem-Version;LANGUAGE=us-EN:1.0
+COMPLETED:FALSE
+DESCRIPTION:gdzgzdfgdfg
+DUE:20110808
+PERCENT-COMPLETE:0
+SUMMARY:
+X-PVSXTaskItem-ActualWork;LANGUAGE=us-EN:0
+CATEGORIES:
+PRIORITY:Normal
+STATUS:Not Started
+DTSTART:20001019
+X-PVSXTaskItem-Company;LANGUAGE=us-EN:
+X-PVSXTaskItem-TotalWork;LANGUAGE=us-EN:0
+X-PVSXTaskItem-CompleteWork;LANGUAGE=us-EN:0
+X-PVSXTaskItem-ForeColor;LANGUAGE=us-EN:1769472
+X-PVSXTaskItem-BackColor;LANGUAGE=us-EN:6777217
+END:VTODO
+END:VCALENDAR

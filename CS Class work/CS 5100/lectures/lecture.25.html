@@ -1,0 +1,111 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>CS 5100 Lecture 25 - Greg Jones</TITLE>
+<META NAME="Template" CONTENT="C:\Program Files\Microsoft Office\Templates\Lecture Notes.dot">
+</HEAD>
+<BODY>
+
+<B><I><FONT SIZE=5><P>Basic Graphics&#9;Lecture 5100.25</P>
+<OL TYPE="A">
+
+</I></FONT><LI>The Graphics Class</LI>
+<OL>
+
+<LI>This is an abstract class, which is not generally accessible to users, except through some of its concrete extensions.  It provides the basic capabilities of drawing both text and shapes, and of displaying images.</LI>
+<LI>This is because actual graphics are so closely tied to platform specifics.  The concrete extensions are built for specific platforms.  These are often called graphics contexts, because they identify the necessary aspects of rendering: </LI>
+<OL TYPE="a">
+
+<LI>The object and its location, which provides a 0,0 origin or point of reference for all x,y positions used in the drawing routines;</LI>
+<LI>The font in which characters are displayed;</LI>
+<LI>The color of drawn pixels;</LI>
+<LI>The clipping region, outside of which, even though still within the object’s bounds, no drawing will occur;</LI>
+<LI>The drawing mode, either paint or XOR, and the XOR color.</LI></OL>
+
+<LI>Every component, whether heavyweight or lightweight, has access to a graphics object.  This corresponds to a native peer graphics context.</LI>
+<LI>The Graphics constructor is protected, so one can’t directly construct a concrete instance of Graphics.  Instead, the Graphics object associated with a Component can be accessed in three ways:</LI>
+<OL TYPE="a">
+
+<LI>Through the paint and update methods of all components, which are called by the system to display or redisplay the component.  When the system calls them, it passes, as a parameter, a reference to the Graphics object used for drawing and imaging within the component.  If you override either update or paint, you then gain access to this graphics.</LI>
+<LI>By calling the getGraphics method for a component, which returns a reference to the associated Graphics object.</LI>
+<LI>By calling the Graphics create method, which creates a clone of the current graphics. These occupy a significant amount of space in system graphics memory, so they should be created conservatively and disposed of when no longer in use.  Failure to dispose of resources will result in a &quot;memory leak.&quot;  In Windows 95 you are limited to a maximum of 4 current Graphics objects.  There is also a version of this method which creates a Graphics for a rectangle within the component.</LI>
+<LI>There are other methods that receive the Graphics object as a parameter: paintAll, print, paintComponents, etc. in AWT, and a whole long list in Swing.</LI></OL>
+</OL>
+
+<LI>Basic Graphics Class Methods</LI>
+<OL>
+
+<LI>It is important to recognize the difference between changing an aspect of a component, like the font, and changing the graphics related to the component.  If, in a paint routine, I call setFont, I will see nothing, because I already have a graphics context, g, for painting, and I haven’t changed it.  So I call g.setFont instead.  The original call to setFont will change the graphics the next time it is obtained.</LI>
+<LI>Text can be drawn on the components associated with a Graphics object.  The color, size, and font characteristics are those currently recorded in the Graphics object.  It is always necessary to specify the x,y location of the baseline just to the left of the first character.  </LI>
+<OL TYPE="a">
+
+<LI>The drawString method draws a Java String;</LI>
+<LI>The drawChars method draws an array of (16-bit Unicode) characters;</LI>
+<LI>The drawBytes method draws an array of ASCII bytes.</LI></OL>
+
+<LI>Font manipulation methods:</LI>
+<OL TYPE="a">
+
+<LI>getFont returns a reference to the current font of the Graphics;</LI>
+<LI>setFont changes the current font;</LI>
+<LI>getFontMetrics returns a fontMetrics object, which can be used to determine the height and width of the area occupied by a string drawn in the current font.</LI></OL>
+
+<LI>Color manipulation methods:</LI>
+<OL TYPE="a">
+
+<LI>getColor indicates the current drawing (foreground) color;</LI>
+<LI>setColor changes the current foreground color.</LI></OL>
+
+<LI>Drawing methods:</LI>
+<OL TYPE="a">
+
+<LI>clearRect draws a uniform background color in a rectangle, i.e., erases it.</LI>
+<LI>drawLine draws from one x,y position to another.  If they are the same position, then a single point is drawn.  All draw routines draw with a pen that is one pixel wide, so wider lines can only be created by multiple draws.</LI>
+<LI>drawRect(x, y, width, height) draws a rectangle of size (width+1) x (height + 1).</LI>
+<LI>fillRect(x, y, width, height) draws a rectangle of size (width) x (height).</LI>
+<LI>draw(fill)RoundRect(x, y, width, height, arcWidth, arcHeight) draws a rectangle with rounded corners, which are quarter ovals of diameters width and height.</LI>
+<LI>draw(fill)3DRect(x, y, width, height, boolean raised) colors the top and left (or bottom and right, depending on the value of raised) edges of the rectangle in a highlight color, to give the impression of a three dimensional surface raised above (or depressed below) the object.</LI>
+<LI>draw(fill)Oval(x, y, width, height) draws an oval touching the enclosing rectangle at the center of each side.  If the rectangle is a square, the oval is a circle.</LI>
+<LI>draw(fill)Arc(x, y, width, height, startAngle, arcAngle) draws an arc of the oval starting at an angle measured in degrees from the positive x axis, for the specified extent of degrees.  Filled arcs are shaped like pie slices.</LI>
+<LI>draw(fill)Polygon(x,y arrays  or polygon) creates a polygonal area.  When arrays are used, the first and last points are joined by a line.</LI>
+<LI>drawPolyline(x,y arrays  or polygon) does almost the same thing, except that it doesn’t connect the first and last points.  There is no fillPolyline.</LI>
+<LI>DrawImage(Image, x, y, observer).</LI></OL>
+
+<LI>Clipping methods:</LI>
+<OL TYPE="a">
+
+<LI>Drawing can be restricted to a subrectangle of the component region.  Draw commands which affect pixels outside this clipping area will not be executed; that is, nothing will be rendered outside the clipping area.</LI>
+<LI>When, for instance, only a small damaged area of a component needs to be painted, because it is no longer covered by another window, the AWT selects a small clipping area represented by the damaged rectangle, and sends that clipping area in the graphics it gives to paint.  This may greatly improve efficiency if the rendering is complex.</LI>
+<LI>clipRect reduces the drawing area;</LI>
+<LI>setClip can reduce or expand the drawing area;</LI>
+<LI>getClipBounds returns the clipping area.</LI></OL>
+
+<LI>CopyArea copies one rectangular area to another.  The graphical image that is replaced is not saved.</LI>
+<LI>Translate will translate the origin to another location.  This may simplify some drawing routines.  It might, for instance, allow you to draw at negative coordinates as well as positive ones.</LI>
+<LI>The XOR paint mode modifies only pixels in the current &quot;foreground&quot; color, changing them to the XOR color.  A second draw will change all these pixels back to the current color.  This simplifies operations like highlighting.</LI></OL>
+
+<LI>Other Classes Related to Graphics</LI>
+<OL>
+
+<LI>Point: two public variables giving x, y coordinates.  Point has getLocation, setLocation, translate, and equals methods.</LI>
+<LI>Dimension: two public variables giving width and height.  Dimension has getSize, setSize, and equals methods.</LI>
+<LI>Shape is an interface to be used as the basis for specific shapes.  Its single method, getBounds, tells the bounding rectangle, with which you can copyArea or draw or whatever.</LI>
+<LI>Rectangle has four public members, x, y, width, height, and many methods.</LI>
+<LI>Polygon is a collection of points used to create a closed circuit of line segments.  Its primary purpose is to draw arbitrary shapes like triangles or pentagons.  If the points are close enough together, you create the illusion of a smooth curve.</LI>
+<OL TYPE="a">
+
+<LI>addPoint(x, y) adds a point at the end of the polygon’s list of points.</LI>
+<LI>getBounds gets the enclosing rectangle.</LI>
+<LI>translate(x, y) moves the points uniformly.</LI></OL>
+</OL>
+
+<LI>Swing paint variations</LI>
+<OL>
+
+<LI>We have already seen that in AWT all rendering is performed in the paint routine, and this is triggered by the application program through a call to repaint.  Repaint schedules the update operation by putting an event on the AWT Event Dispatch queue, which is handled by a separate thread.  This thread is the synchronizing point for all threads which might want to update the component, keeping them from trying to do so simultaneously, with unpredictable results.</LI>
+<LI>In Swing, since many components are lightweight, and all components are containers, each component has to render its children.  In particular, the paint method of JComponent calls three routines, paintComponent, paintBorder, and paintChildren.  All custom rendering in Swing components is done in paintComponent, rather than paint.  If you subclass a Swing container, call super.paintComponent before doing custom rendering.</LI>
+<LI>However, if you are defining your own lightweight component directly derived from awt.Component, you should still do the rendering in paint.  If you subclass awt.Container, once again put rendering in paint, and call super.paint at the end of paint.</LI></OL>
+</OL>
+</B></BODY>
+</HTML>

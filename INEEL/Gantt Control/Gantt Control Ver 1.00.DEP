@@ -1,0 +1,17 @@
+[Version]
+Version=1.0.0.62
+
+[Gantt Control Ver 1.00.ocx <0009>]
+Dest=$(AppPath)
+Date=7/9/01
+Time=08:08
+Version=1.0.0.62
+CABFilename=Gantt Control Ver 1.00.CAB
+CABINFFile=Gantt Control Ver 1.00.INF
+Uses1=MSVBVM60.DLL
+Uses2=OLEAUT32.DLL
+Uses3=OLEPRO32.DLL
+Uses4=ASYCFILT.DLL
+Uses5=STDOLE2.TLB
+Uses6=COMCAT.DLL
+Uses7=MSCOMCT2.OCX

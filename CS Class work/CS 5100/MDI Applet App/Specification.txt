@@ -1,0 +1,37 @@
+CS 5100 - Spring, 2002 - Assignment 5
+
+This assignment will be to create a multiple document text editor running as 
+an applet.  The software will be tested by running it in the applet viewer.
+
+There will be a combo box listing five different fonts.  Selecting a font will 
+change the font in which a document is displayed or, if a section of the 
+document is selected, it will change the font in which that section is 
+displayed.  Font display characteristics will not persist if a document is 
+saved to a file and then reopened.
+
+A selected section of the text can be dragged to another location.  If the 
+control key is not depressed, then the selection will be moved.  If the control 
+key is depressed, then the selection will be copied.  Appropriate icons will 
+be shown to display dragging and distinguish between a move and a copy.
+
+Each separate document will appear in a separate internal frame, with a title 
+equal to the file name, if the document has been saved, or to "Untitled = N", 
+where each new document created during a single execution of the editor 
+will have N= 1, 2, 3... 
+
+Each of the menu operations will operate in the standard fashion, with the 
+exception of Close.  There will be a File menu with New, Open, Save, Save 
+As, Close, Print, Exit.  The Close selection will pop up a dialog containing a 
+list of all titles of open documents.  Then the user will be able to select those 
+documents he/she wants to close using the multiple discontiguous selection 
+model.  Clicking OK will cause these document frames to be close.  There 
+will be an Edit menu with Cut, Copy, Paste, Select All, Find, Replace.  
+There will be a Window menu, which will show the title of each internal 
+frame's document.  
+
+The entire application, as well as all internal frames, can be closed, resized, 
+maximized, or minimized.  There will be a warning before closing (by the 
+frame close or the File menu Close selection) a document with modifications 
+which haven't been saved.
+
+

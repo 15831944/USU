@@ -1,0 +1,60 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>CS 5100 Lecture 33 - Greg Jones</TITLE>
+</HEAD>
+<BODY>
+
+<B><I><FONT SIZE=5><P>Documents, Views, Persistence, Archives, Files, and the Registry Lecture 5100.33</P>
+<OL TYPE="A">
+
+</I></FONT><LI>Documents</LI>
+<OL>
+
+<LI>In the Microsoft system, data is separate from the way in which the data is displayed. Documents are the containers of data, and views are the displayers of data.  When an SDI or MDI application is created, Visual C++ will also create two classes for the document and the view.</LI>
+<LI>Any data to be stored in the document will be held in member variables of the document class.</LI>
+<OL TYPE="a">
+
+<LI>These should be declared in the class header file.</LI>
+<LI>If they are public variables, then the view can access them directly.</LI>
+<LI>If not, then there should be public Get… functions to give the view access to them.</LI></OL>
+
+<LI>Visual C++ creates a public GetDocument function to return a pointer to the document to any other function in the application, for the purpose of acquiring data either directly or via the Get… functions.</LI>
+<LI>It also creates an empty OnNewDocument function, which is called when the user selects the New option on the File menu.  We fill in with code for the initialization of document member variables.</LI>
+<LI>As a hidden aspect of new document generation, the application needs to generate new instances of the document class.  This is done using data stored in a document template (not a C++ document) which brings together information about the document class, the view class, the frame window, and the menubar.  This template is created using macros in InitInstance in the application class.  Then DECLARE_DYNCLASS and IMPLEMENT_DYNCLASS macros are used to set up for this in the header and executable code.</LI></OL>
+
+<LI>Views</LI>
+<OL>
+
+<LI>The CView class provides generic view capability.  During application generation we can choose a different base class for our view which provides additional behavior.  Some of the possibilities are CEditView, CTreeView, CListView, and CScrollView.</LI>
+<LI>Perhaps the most important aspect of views is the OnDraw function, which, in a view, corresponds to Java’s paint.  We put in code to draw whatever we wish to be seen in the view window.</LI>
+<LI>Whenever a change is made to the document, we should call the SetModifiedFlag function of the document class and then call the Invalidate function of the view class.  This marks the document as &quot;dirty&quot;, that is, changed without display of the changes, and then causes the view to reload the document and redisplay it.  Invalidate corresponds to Java’s repaint.</LI></OL>
+
+<LI>Persistence</LI>
+<OL>
+
+<LI>We often speak of objects as providing data persistence, but this is only true so long as the application is running.  When it exits, all stored data must either be lost or sent to a file, for future reloading.  Persistent classes in C++ are those which have mechanisms for storing and loading data to and from files.</LI>
+<LI>Serializable (persistent) classes are derived from the CObject class and need to have the DECLARE_SERIAL macro in the header and the IMPLEMENT_SERIAL macro in the cpp file.</LI>
+<LI>Saving and loading data is done with the automatically generated Serialize function, which either saves or loads data to or from an archive (a serial or sequential file) depending on whether the archive is in read or write mode.</LI>
+<LI>If the data has the operators &lt;&lt; and &gt;&gt; defined, then serializing an object consists simply of inserting or extracting data from the file stream .</LI>
+<LI>Since the data being loaded must be put into a document, we must also be sure that there is a default constructor for the serializable class.</LI>
+<LI>Usually, this class is the document class of an SDI or MDI application.  However, we can create a specialized serializable data class, and use it to contain the data and declare it as a member of the document class.  The document’s Serialize function would simply pass the archive on as the parameter to the data class’s Serialize function.</LI></OL>
+
+<LI>Files</LI>
+<OL>
+
+<LI>In some cases, a sequential stream archive may not be appropriate for loading and saving data.  Of course, we could use the regular C++ fstream mechanism, but MFC provides a CFile class with all the functionality of a random access file in an easy-to-use package.  It is very similar to Java’s File class.</LI>
+<LI>Files can be made the basis of archives, which allows non-sequential serialization using the established Visual C++ mechanisms.  All of the non-sequential access details are hidden in the implementation of the &gt;&gt; and &lt;&lt; operators.</LI></OL>
+
+<LI>The Registry</LI>
+<OL>
+
+<LI>Older applications often stored application data (as opposed to document data) in an INI file.  However, newer applications store this data in the registry, either as integers or strings.</LI>
+<LI>The registry has a hierarchical structure, with 6 standard children of the root.  Typically, applications store their data in the HKEY_CURRENT_USER child and software grandchild of the registry root.  There are different subtrees for each software vendor, and by default Visual C++ will store data as the &quot;Local App-Wizard Generated Applications&quot; vendor.  You can see such entries using regedit, but be careful not to make any changes, since fouling up your register will probably require you to reload the operating system entirely.</LI>
+<LI>You need to call SetRegistryKey in the InitInstance routine, which will establish your own entry if you don’t like &quot;Local App-Wizard…&quot;.  After that, you can call WriteProfileString or WriteProfileInt to store data, and call GetProfileString or GetProfileInt to retrieve it.</LI>
+<LI>In particular, any application which has File, Open and File, Save options will automatically store and reload its MRU file list with LoadStdProfileSettings.</LI></OL>
+</OL>
+
+</B></BODY>
+</HTML>

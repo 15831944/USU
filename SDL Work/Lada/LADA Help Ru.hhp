@@ -1,0 +1,63 @@
+[OPTIONS]
+Compatibility=1.1 or later
+Compiled file=LADA Help Ru.chm
+Contents file=Table of Contents.hhc
+Default Font=Times New Roman CYR,8,0
+Default Window=default
+Default topic=ASSEMBLY AND OPERATION Ru.htm
+Display compile progress=No
+Full-text search=Yes
+Language=0x419 Russian
+
+[WINDOWS]
+default="Справка ЛАДЫ","Table of Contents Ru",,"TITLE Ru.htm",,,,,,0x22521,,0x301e,[574,0,1024,768],0x1000000,,,,,,0
+
+
+[FILES]
+ASSEMBLY AND OPERATION Ru.htm
+WATER TANK Ru.htm
+CHANGE RECORD SHEET Ru.htm
+CHECKOUT Ru.htm
+CM CONTROL AND DATA ACQUISITION COMPONENTS Ru.htm
+CONTROL MODULE Ru.htm
+CR10X Status and Control Mode Section Ru.htm
+Data Ru.htm
+Errors Ru.htm
+Exit Ru.htm
+EXIT1.htm
+GENERAL INSTRUCTIONS Ru.htm
+GETTING STARTED Ru.htm
+Graph Ru.htm
+GROWTH MODULE Ru.htm
+HARDWARE UNITS AND COMPONENTS Ru.htm
+Help Ru.htm
+HELP1.htm
+History Ru.htm
+INSTRUCTIONS FOR USE Ru.htm
+Introduction Ru.htm
+Languages Ru.htm
+LANGUAGES1 Ru.htm
+Leaf Chamber Ru.htm
+Light Module Ru.htm
+MAIN PROGRAM Ru.htm
+OPERATIONAL PROCEDURES Ru.htm
+PURPOSE Ru.htm
+Root Module Ru.htm
+Sample Ru.htm
+SETUP Ru.htm
+SHIPPING AND PACKING Ru.htm
+STORAGE REGULATIONS Ru.htm
+System Ru.htm
+TECHNICAL DESCRIPTION Ru.htm
+TECHNICAL INFORMATION Ru.htm
+TECHNICAL TESTING BEFORE DELIVERY TO RS ISS Ru.htm
+TITLE Ru.htm
+TRANSPORTATION Ru.htm
+TROUBLESHOOTING POSSIBLE FAILURES.htm
+Validate Ru.htm
+Cameras Ru.htm
+LABELING SPECIFICATIONS Ru.htm
+WETUP Ru.htm
+
+[INFOTYPES]
+

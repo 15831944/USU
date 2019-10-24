@@ -1,0 +1,80 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>CS 5100 Lecture 24 - Greg Jones</TITLE>
+<META NAME="Template" CONTENT="C:\Program Files\Microsoft Office\Templates\Lecture Notes.dot">
+</HEAD>
+<BODY>
+
+<B><I><FONT SIZE=5><P>Swing Data Models&#9;Lecture 5100.24</P>
+<OL TYPE="A">
+
+</I></FONT><LI>The BoundedRangeModel represents a single value or an extent of values within a range of integers.  Minumum &lt;= value &lt;= value+extent &lt;= maximum</LI>
+<OL>
+
+<LI>Events generated: change events</LI>
+<LI>Model for: slider, scrollbar, progressbar</LI>
+<LI>No constants.</LI>
+<LI>Methods to get and set the four parameters above, as well to add and remove change listeners.  There is also a &quot;value is adjusting&quot; mechanism.</LI></OL>
+
+<LI>The ButtonModel represents the various aspects of the state of a button.</LI>
+<OL>
+
+<LI>Events generated: action, change, and item events</LI>
+<LI>Model for: AbstractButton, JButton, JMenuItem, JMenu, ButtonGroup</LI>
+<LI>No constants.</LI>
+<LI>Methods to add and remove listeners, get and set Mnemonics, get and set action commands, determine whether the button is enabled, armed, pressed, rolled over, or selected.</LI></OL>
+
+<LI>The ComboBoxModel and MutableComboBoxModel model the information of a combo box (selection field with a dropdown selection list) which may or may not allow the user to modify the list.  This is an extension of the ListModel interface.</LI>
+<OL>
+
+<LI>Events generated: action, item, list data events</LI>
+<LI>Models for JComboBox.  Some combo boxes can be edited, and some can’t.</LI>
+<LI>No constants.</LI>
+<LI>Methods for ComboBoxModel: get and set selected item</LI>
+<LI>Methods for Mutable..: add and remove element, add or remove element at index.</LI></OL>
+
+<LI>The SingleSelectionModel abstracts selection semantics away from specific structures like trees and lists.  For instance, it permits only single selection among a collection.</LI>
+<OL>
+
+<LI>Events generated: change events</LI>
+<LI>Model for: tabbed pane, menu, popup menu, menubar</LI>
+<LI>No constants.</LI>
+<LI>Methods to add and remove listeners, get, set, or clear the current selection, and test whether there is a current selection.</LI></OL>
+
+<LI>The TableModel and TableColumnModel allow modeling of tables (two dimenstional arrays) in which each column has a title and contains a separate type of object.</LI>
+<OL>
+
+<LI>Events generated: TableModelEvents: these have type inserted, deleted, updated; and TableColumnModelEvents: these have beginning and ending column information for when insertion or deletion affected several columns.</LI>
+<LI>Model for JTable and JTableHeader</LI>
+<LI>No constants.</LI>
+<LI>Table model methods to add and remove listeners, get the number of rows and columns, get the class of a column, get or set the value of a specific cell</LI>
+<LI>Table column methods to add and remove listeners, add, move, or remove columns, get column size, identify a column by name, index, or position, find selected columns, get or set a (list) selection model.</LI></OL>
+
+<LI>The TreeModel is a data model for standard trees (not DAGs, as the book indicates).  Each node in the tree can have as many children as it chooses to add.</LI>
+<OL>
+
+<LI>Events are TreeModelEvents, which contain path and child information.</LI>
+<LI>Model for Jtree</LI>
+<LI>No constants.</LI>
+<LI>Methods to add and remove listeners, get the number of children of a node, the child at a given index, or the index of a child, as well as get the root and test whether a node is  a leaf.  There is also a valueForPathChanged method which is called when the user has altered the value stored at a node.</LI></OL>
+
+<LI>The TreeSelectionModel represents the selection state of a tree.</LI>
+<OL>
+
+<LI>Events are tree selection and property change events.</LI>
+<LI>Models the selection state of a tree.</LI>
+<LI>Constants for selection mode: single, contiguous, or discontiguous.</LI>
+<LI>Methods to add and remove listeners, get, set, add, remove, and clear selection paths, determine rows (levels) in which selections occur, test whether a path is selected, get the number of selections or whether anything is selected at all.</LI></OL>
+
+<LI>The DocumentModel tries to abstract the general nature of documents, including that they are sequences of characters with a tree structure (e.g., paragraphs within sections within chapters).</LI>
+<OL>
+
+<LI>Events generated: document and undoable edit events.  These are very complex event classes.  Document events include change, remove, and insert, but undoable events include a lot of information.</LI>
+<LI>Model for JTextField, JPasswordField, JTextArea, JEditorPane, JTextPane.</LI>
+<LI>No constants</LI>
+<LI>Methods to add and remove listeners, find length, work with positions, find the largest structural elements (root elements), get properties, get text, insert and remove strings.</LI></OL>
+</OL>
+</B></BODY>
+</HTML>

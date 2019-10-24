@@ -1,0 +1,71 @@
+[Root]
+Most Recent Package=Gantt Control Dependencies
+
+
+[Package|Gantt Control Dependencies|Root]
+SubWizProgID=PDWizard.DepPkgSubWiz
+BuildFolder=D:\Gantt Control
+Controls Design-Time Support=No
+
+[Package|Gantt Control Dependencies|Configure DAO ISAMs]
+Applicable=No
+
+[Package|Gantt Control Dependencies|Configure DAO ODBC]
+JetWorkspace=
+ODBCDirect=
+
+[Package|Gantt Control Dependencies|Files Found]
+
+[Package|Gantt Control Dependencies|Files Released]
+
+[Package|Gantt Control Dependencies|Missing Dependency Information]
+
+[Package|Gantt Control Dependencies|Out-of-Date Dependency Information]
+
+[Package|Gantt Control Dependencies|Files Added]
+C:\WINNT\System32\MsStkPrp.dll=This file is needed for usercontrol design-time support.
+
+[Package|Gantt Control Dependencies|Files Removed]
+c:\winnt\system32\msstkprp.dll=
+
+[Package|Gantt Control Dependencies|Files In Project]
+D:\Gantt Control\Gantt Control Ver 1.00.ocx=Yes
+C:\WINNT\system32\MSVBVM60.DLL=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\OLEAUT32.DLL=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\OLEPRO32.DLL=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\ASYCFILT.DLL=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\STDOLE2.TLB=Yes
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=Yes
+C:\WINNT\system32\MSCOMCT2.OCX=Yes
+C:\WINNT\system32\MSSTKPRP.DLL=No
+
+[Package|Gantt Control Dependencies|Configure Registry Files]
+Applicable=
+
+[Package|Gantt Control Dependencies|Configure Remote Servers]
+Applicable=
+
+[Package|Gantt Control Dependencies|Install Locations]
+D:\Gantt Control\Gantt Control Ver 1.00.ocx=$(AppPath)
+C:\WINNT\system32\MSVBVM60.DLL=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\OLEAUT32.DLL=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\OLEPRO32.DLL=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\ASYCFILT.DLL=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\STDOLE2.TLB=$(WinSysPathSysFile)
+C:\Program Files\Microsoft Visual Studio\VB98\Wizards\PDWizard\Redist\COMCAT.DLL=$(WinSysPathSysFile)
+C:\WINNT\system32\MSCOMCT2.OCX=$(WinSysPath)
+
+[Package|Gantt Control Dependencies|Configure Shared Files]
+Applicable=
+
+[Package|Gantt Control Dependencies|DepFile]
+DepCabFile=Gantt Control Ver 1.00.CAB
+DepCabRun=Gantt Control Ver 1.00.INF
+
+[Package|Gantt Control Dependencies|Package]
+PackageFolder=D:\Gantt Control
+ProjectFolder=D:\Gantt Control
+ServerSideCab=
+File1=D:\Gantt Control\Gantt Control Ver 1.00.DEP
+Handler1=PDWizard.FolderDplySubWiz
+Handler2=PDWizard.WebPostDplySubWiz

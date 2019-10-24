@@ -1,0 +1,66 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: SocketStarter - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x409 /fo".\Debug/SocketStarter.res" /d "_DEBUG" /d "_AFXDLL" "C:\Source Code\CS Class work\CS 5200\socketstarter\socketstarter\SocketStarter.rc"" 
+Creating temporary file "C:\DOCUME~1\Owner\LOCALS~1\Temp\RSP238.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /Zi /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /FR".\Debug/" /Fp".\Debug/SocketStarter.pch" /Yu"stdafx.h" /Fo".\Debug/" /Fd".\Debug/" /FD /c 
+"C:\Source Code\CS Class work\CS 5200\socketstarter\socketstarter\ActiveStreamDlg.cpp"
+"C:\Source Code\CS Class work\CS 5200\socketstarter\socketstarter\DatagramDlg.cpp"
+"C:\Source Code\CS Class work\CS 5200\socketstarter\socketstarter\DatagramSocket.cpp"
+"C:\Source Code\CS Class work\CS 5200\socketstarter\socketstarter\PassiveStreamDlg.cpp"
+"C:\Source Code\CS Class work\CS 5200\socketstarter\socketstarter\SocketStarter.cpp"
+"C:\Source Code\CS Class work\CS 5200\socketstarter\socketstarter\SocketStarterDlg.cpp"
+"C:\Source Code\CS Class work\CS 5200\socketstarter\socketstarter\StreamSocket.cpp"
+"C:\Source Code\CS Class work\CS 5200\socketstarter\socketstarter\WatchDlg.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\Owner\LOCALS~1\Temp\RSP238.tmp" 
+Creating temporary file "C:\DOCUME~1\Owner\LOCALS~1\Temp\RSP239.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /Zi /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /FR".\Debug/" /Fp".\Debug/SocketStarter.pch" /Yc"stdafx.h" /Fo".\Debug/" /Fd".\Debug/" /FD /c 
+"C:\Source Code\CS Class work\CS 5200\socketstarter\socketstarter\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\Owner\LOCALS~1\Temp\RSP239.tmp" 
+Creating temporary file "C:\DOCUME~1\Owner\LOCALS~1\Temp\RSP23A.tmp" with contents
+[
+/nologo /subsystem:windows /incremental:yes /pdb:".\Debug/SocketStarter.pdb" /debug /machine:I386 /out:".\Debug/SocketStarter.exe" 
+".\Debug\ActiveStreamDlg.obj"
+".\Debug\DatagramDlg.obj"
+".\Debug\DatagramSocket.obj"
+".\Debug\PassiveStreamDlg.obj"
+".\Debug\SocketStarter.obj"
+".\Debug\SocketStarterDlg.obj"
+".\Debug\StdAfx.obj"
+".\Debug\StreamSocket.obj"
+".\Debug\WatchDlg.obj"
+".\Debug\SocketStarter.res"
+]
+Creating command line "link.exe @C:\DOCUME~1\Owner\LOCALS~1\Temp\RSP23A.tmp"
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+StdAfx.cpp
+Compiling...
+ActiveStreamDlg.cpp
+DatagramDlg.cpp
+DatagramSocket.cpp
+PassiveStreamDlg.cpp
+SocketStarter.cpp
+SocketStarterDlg.cpp
+StreamSocket.cpp
+WatchDlg.cpp
+Generating Code...
+Linking...
+
+
+
+<h3>Results</h3>
+SocketStarter.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

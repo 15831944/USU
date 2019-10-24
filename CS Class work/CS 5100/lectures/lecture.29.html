@@ -1,0 +1,77 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>CS 5100 Lecture 29 - Greg Jones</TITLE>
+<META NAME="Template" CONTENT="C:\Program Files\Microsoft Office\Templates\Lecture Notes.dot">
+</HEAD>
+<BODY>
+
+<B><I><FONT SIZE=5><P>Visual C++ Environment and Controls                                        Lecture 5100.29</P><DIR>
+
+</I></FONT><P>A.&#9;The Visual C++ Environment</P><DIR>
+
+<P>1.&#9;Similarities with Symantec Caf&eacute;</P><DIR>
+
+<P>a.&#9;Project Organization</P>
+<P>b.&#9;Different views</P><DIR>
+
+<P>i.&#9;Class</P>
+<P>ii.&#9;Resources (components)</P>
+<P>iii.&#9;Files</P>
+<P>iv.&#9;Documentation</P></DIR>
+
+<P>c.&#9;Visual layout editor for components</P>
+<P>d.&#9;Possibility of empty projects (Win32 application or Console)</P>
+<P>e.&#9;Code sections marked with special comments – don’t change them</P></DIR>
+
+<P>2.&#9;Differences from Symantec Caf&eacute;</P><DIR>
+
+<P>a.&#9;Generates exe files rather than class files</P>
+<P>b.&#9;Compiled, not interpreted</P>
+<P>c.&#9;Not portable</P>
+<P>d.&#9;Three general types of applications</P><DIR>
+
+<P>i.&#9;Multiple Document Interface</P>
+<P>ii.&#9;Single Document Interface</P>
+<P>iii.&#9;Dialog</P></DIR>
+
+<P>e.&#9;Code is harder to read and understand</P>
+<P>f.&#9;We have to create surrogate variables for component values</P>
+<P>g.&#9;Data is transferred directly between components and surrogate variables by DDX routines which are triggered by calls to UpdateData.</P>
+<P>h.&#9;The class wizard is used for many things that happen automatically with the Symantec property window.  It is also used in place of the interaction wizard.</P>
+<P>i.&#9;Member functions like InitInstance perform much of the function of constructors, and  functions like OnButtonClick take the place of listener methods.</P>
+<P>j.&#9;Property window is in a different place, undocked window with pushpin</P></DIR>
+
+<P>3.&#9;Some documentation isn’t present unless you use Internet Explorer or the CDROM.</P></DIR>
+</DIR>
+
+<OL START=2 TYPE="A">
+
+<LI>An Example Project</LI></OL>
+<DIR>
+<DIR>
+
+<P>1.&#9;Make sure you have a base directory for your projects</P></DIR>
+</DIR>
+
+<OL START=2>
+
+<LI>Specify you want a new project using File…New…MFC App Wizard</LI>
+<LI>fill in its name – this will create a new subdirectory of the base directory</LI></OL>
+<DIR>
+<DIR>
+
+<P>3.&#9;Select Dialog as the application type</P>
+<P>4.&#9;Choose included features and set title of dialog</P>
+<P>5.&#9;Ask for comments and shared DLL</P>
+<P>6.&#9;View project construction data</P>
+<P>7.&#9;Open the dialog visual editor from the resource tab</P>
+<P>8.&#9;Add components, changing properties like names, labels, etc.</P>
+<P>9.&#9;Use the class wizard to add surrogate variables for screen components (resources)</P>
+<P>10.&#9;Establish interactions with the class wizard through the message maps tab, including the customization of generated code, e.g., what to do when buttons are pushed</P>
+<P>11.&#9;Open the code in the code editor and customize it, adding things like imports.</P>
+<P>12.&#9;Run it.</P></DIR>
+</DIR>
+</B></BODY>
+</HTML>
